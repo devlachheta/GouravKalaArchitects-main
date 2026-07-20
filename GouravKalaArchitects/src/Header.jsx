@@ -1,43 +1,144 @@
-import React from "react";
-import heroBanner from "./assets/cover-banner.svg";
-function Header() {
-    return (
-        <>
-            <section className="header container-fluid">
-                <nav class="navbar navbar-expand-lg bg-white ms-5">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Gourav Kala Architects</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FiInstagram } from "react-icons/fi";
 
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active pe-3" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active pe-3" aria-current="page" href="#">Projects</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active pe-3" aria-current="page" href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Instagram</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </section>
-            <section className="hero-banner">
+import "./Header.css";
+
+function Header() {
+
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        // Check position when page first loads
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+
+    }, []);
+
+    return (
+        <header className="header">
+
+            <nav
+                className={`navbar navbar-expand-lg ${scrolled ? "navbar-scrolled" : ""
+                    }`}
+            >
                 <div className="container">
 
-                    <img src={heroBanner} alt="" />
-                </div>
+                    {/* Logo */}
+                    <Link className="navbar-brand" to="/">
+                        Gourav Kala Architects
+                    </Link>
 
-            </section>
-        </>
-    )
+                    {/* Mobile Toggle */}
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    {/* Navigation */}
+                    <div
+                        className="collapse navbar-collapse"
+                        id="mainNavbar"
+                    >
+                        <ul className="navbar-nav ms-auto align-items-lg-center">
+
+                            <li className="nav-item">
+                                <NavLink
+                                    to="/"
+                                    end
+                                    className={({ isActive }) =>
+                                        `nav-link ${isActive ? "active" : ""}`
+                                    }
+                                >
+                                    HOME
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <NavLink
+                                    to="/about"
+                                    className={({ isActive }) =>
+                                        `nav-link ${isActive ? "active" : ""}`
+                                    }
+                                >
+                                    ABOUT
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <NavLink
+                                    to="/projects"
+                                    className={({ isActive }) =>
+                                        `nav-link ${isActive ? "active" : ""}`
+                                    }
+                                >
+                                    PROJECTS
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <NavLink
+                                    to="/services"
+                                    className={({ isActive }) =>
+                                        `nav-link ${isActive ? "active" : ""}`
+                                    }
+                                >
+                                    SERVICES
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <NavLink
+                                    to="/contact"
+                                    className={({ isActive }) =>
+                                        `nav-link contact-link ${isActive ? "active" : ""}`
+                                    }
+                                >
+                                    CONTACT
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link instagram-link"
+                                    href="https://www.instagram.com/gourav_kala_architects?igsh=MWdicHBxNm1hZ251eA=="
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FiInstagram />
+                                    <span>INSTAGRAM</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+
+        </header>
+    );
 }
+
 export default Header;

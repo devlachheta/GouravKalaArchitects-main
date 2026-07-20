@@ -1,0 +1,196 @@
+/* ===========================
+   CTA SECTION
+=========================== */
+
+.cta-section {
+  padding: 55px 0;
+  background: #ffffff;
+}
+
+
+/* ===========================
+   CTA INNER BOX
+=========================== */
+
+.cta-inner {
+  display: flex;
+
+  min-height: 510px;
+
+  padding: 70px 30px;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: #ded6cb;
+}
+
+
+/* ===========================
+   SMALL HEADING
+=========================== */
+
+.cta-eyebrow {
+  margin: 0 0 28px;
+
+  color: #8a7058;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+/* ===========================
+   MAIN HEADING
+=========================== */
+
+.cta-title {
+  max-width: 850px;
+
+  margin: 0 auto 35px;
+
+  color: #292622;
+
+  font-family: "Playfair Display", Georgia, serif;
+
+  font-size: 64px;
+  font-weight: 400;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* ===========================
+   CTA BUTTON
+=========================== */
+
+.cta-button {
+  display: inline-flex;
+
+  padding: 17px 26px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 50px;
+
+  background: #302d29;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+
+  text-decoration: none;
+
+  box-shadow: 0 10px 20px rgba(48, 45, 41, 0.15);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cta-button svg {
+  font-size: 14px;
+}
+
+
+/* Hover */
+
+.cta-button:hover {
+  background: #47423c;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 14px 25px rgba(48, 45, 41, 0.2);
+}
+
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width: 991px) {
+
+  .cta-inner {
+    min-height: 450px;
+
+    padding: 65px 35px;
+  }
+
+  .cta-title {
+    font-size: 54px;
+  }
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 767px) {
+
+  .cta-section {
+    padding: 35px 0;
+  }
+
+  .cta-inner {
+    min-height: 400px;
+
+    padding: 55px 25px;
+  }
+
+  .cta-eyebrow {
+    margin-bottom: 22px;
+
+    font-size: 9px;
+  }
+
+  .cta-title {
+    margin-bottom: 30px;
+
+    font-size: 42px;
+
+    line-height: 1.05;
+  }
+}
+
+
+/* ===========================
+   SMALL MOBILE
+=========================== */
+
+@media (max-width: 480px) {
+
+  .cta-inner {
+    min-height: 360px;
+
+    padding: 45px 20px;
+  }
+
+  .cta-title {
+    font-size: 35px;
+  }
+
+  .cta-button {
+    padding: 15px 21px;
+
+    font-size: 10px;
+  }
+}

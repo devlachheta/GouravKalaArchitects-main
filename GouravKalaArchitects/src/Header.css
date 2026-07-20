@@ -1,0 +1,314 @@
+/* ===========================
+   HEADER
+=========================== */
+
+.header {
+  position: relative;
+  z-index: 100;
+}
+
+
+/* ===========================
+   NAVBAR - TOP OF PAGE
+   TRANSPARENT
+=========================== */
+
+.header .navbar {
+  position: fixed;
+
+  z-index: 100;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 23px 0;
+
+  /* TRANSPARENT INITIALLY */
+  background: transparent;
+
+  box-shadow: none;
+
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease,
+    backdrop-filter 0.35s ease;
+}
+
+
+/* ===========================
+   NAVBAR - AFTER SCROLL
+=========================== */
+
+.header .navbar.navbar-scrolled {
+  padding: 14px 0;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow: 0 5px 22px rgba(35, 31, 28, 0.06);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ===========================
+   LOGO / BRAND
+=========================== */
+
+.header .navbar-brand {
+  margin: 0;
+
+  color: #292723;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+}
+
+.header .navbar-brand:hover,
+.header .navbar-brand:focus {
+  color: #292723;
+}
+
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
+.header .navbar-nav {
+  gap: 26px;
+}
+
+.header .nav-item {
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* ===========================
+   NAV LINKS
+=========================== */
+
+.header .nav-link {
+  position: relative;
+
+  padding: 8px 0 !important;
+
+  color: #4a4640;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.header .nav-link:hover,
+.header .nav-link:focus {
+  color: #292723;
+}
+
+
+/* ===========================
+   UNDERLINE
+=========================== */
+
+.header .nav-link::after {
+  position: absolute;
+
+  right: 0;
+  bottom: 2px;
+  left: 0;
+
+  height: 1px;
+
+  background: #302d29;
+
+  content: "";
+
+  transform: scaleX(0);
+
+  transform-origin: right;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* Hover Underline */
+
+.header .nav-link:hover::after {
+  transform: scaleX(1);
+
+  transform-origin: left;
+}
+
+
+/* Active Page Underline */
+
+.header .nav-link.active::after {
+  transform: scaleX(1);
+
+  transform-origin: left;
+}
+
+
+/* Active Page Text */
+
+.header .nav-link.active {
+  color: #292723;
+
+  font-weight: 600;
+}
+
+
+/* ===========================
+   INSTAGRAM
+=========================== */
+
+.header .instagram-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.header .instagram-link svg {
+  font-size: 15px;
+}
+
+
+/* Instagram is not a page,
+   so don't keep permanent active state */
+
+.header .instagram-link.active::after {
+  transform: scaleX(0);
+}
+
+
+/* ===========================
+   MOBILE TOGGLER
+=========================== */
+
+.header .navbar-toggler {
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: 1px solid #dedbd5;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow: none;
+}
+
+.header .navbar-toggler:hover {
+  border-color: #aaa39b;
+}
+
+.header .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+
+/* Bootstrap Hamburger */
+
+.header .navbar-toggler-icon {
+  width: 19px;
+  height: 19px;
+}
+
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width: 991px) {
+
+  .header .navbar {
+    padding: 15px 0;
+  }
+
+  .header .navbar-collapse {
+    margin-top: 15px;
+
+    padding: 20px 0;
+
+    border-top: 1px solid #ebe7e1;
+
+    background: #ffffff;
+  }
+
+  .header .navbar-nav {
+    align-items: flex-start !important;
+
+    gap: 8px;
+  }
+
+  .header .nav-item {
+    width: 100%;
+  }
+
+  .header .nav-link {
+    display: inline-flex;
+
+    width: max-content;
+
+    padding: 9px 0 !important;
+
+    font-size: 12px;
+  }
+
+  .header .instagram-link {
+    align-items: center;
+  }
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 576px) {
+
+  .header .navbar {
+    padding: 12px 0;
+  }
+
+  .header .navbar-brand {
+    max-width: 190px;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+  }
+
+  .header .navbar-toggler {
+    width: 39px;
+    height: 39px;
+  }
+
+  .header .navbar-collapse {
+    margin-top: 12px;
+
+    padding: 18px 0;
+  }
+
+  .header .navbar-nav {
+    gap: 7px;
+  }
+}
