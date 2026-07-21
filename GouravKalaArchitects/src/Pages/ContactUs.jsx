@@ -1,5 +1,5 @@
 import CTASection from "../CTASection";
-import "./ContactUs.css";
+import "../styles/ContactUs.css";
 
 import {
   FiArrowUpRight,

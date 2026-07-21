@@ -1,9 +1,8 @@
-import CTASection from "./CTASection";
+import CTASection from "../CTASection";
 
 function Projects() {
   return (
     <div>
-
       <CTASection />
     </div>
   );

@@ -8,7 +8,7 @@ import {
 
 } from "react-icons/fi";
 
-import "./Footer.css";
+import "../styles/Footer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Footer() {
