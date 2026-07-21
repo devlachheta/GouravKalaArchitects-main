@@ -14,8 +14,8 @@ import Banner from "../assets/gouravhero.PNG";
 
 function ContactUs() {
 
-  const heroTitle = "Spaces that";
-  const heroTitle2 = "stay with you.";
+  const heroTitle = "Lets make room";
+  const heroTitle2 = "for possibility.";
 
   const heroContainer = {
     hidden: {},
@@ -65,13 +65,13 @@ function ContactUs() {
   };
   return (
     <>
-      <section className="hero">
+      <section className="contact-hero">
 
-        <div className="hero-left">
-          <div className="hero-content">
+        <div className="contact-hero-left">
+          <div className="contact-hero-content">
 
             <motion.span
-              className="sub-title"
+              className="contact-hero-sub-title"
               initial={{ opacity: 0, x: -80 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -79,7 +79,7 @@ function ContactUs() {
                 ease: "easeOut",
               }}
             >
-              GOURAV KALA ARCHITECTS
+              GET IN TOUCH
             </motion.span>
             <motion.h1
               variants={heroContainer}
@@ -101,7 +101,7 @@ function ContactUs() {
 
               <br />
 
-              <span>
+              <span className="contact-hero-second-line">
                 {heroTitle2.split("").map((char, index) => (
                   <motion.span
                     key={index}
@@ -118,27 +118,15 @@ function ContactUs() {
             </motion.h1>
 
             <motion.p variants={itemVariants}>
-              An architecture and interiors studio creating
-              considered places for the way life is lived now.
+              Tell us little about your project.We'll be in touch to <br />arrange a first conversation
             </motion.p>
 
-            <motion.a
-              href="#"
-              className="explore-btn"
-              variants={itemVariants}
-              whileHover={{
-                x: 6,
-              }}
-            >
-              Explore Our Work
-              <span>↗</span>
-            </motion.a>
 
           </div>
         </div>
 
         <motion.div
-          className="hero-right"
+          className="contact-hero-right"
           initial={{
             opacity: 0,
             x: 120,
@@ -160,10 +148,14 @@ function ContactUs() {
       <section className="contact-section">
         <div className="container">
 
-          {/* Heading */}
+
           <div className="row">
             <div className="col-lg-8 col-md-10 col-12">
               <div className="contact-heading">
+                <span className="contact-start-label">
+                  START HERE
+                </span>
+
                 <h2 className="contact-title">
                   A first conversation.
                 </h2>
@@ -282,7 +274,7 @@ function ContactUs() {
 
             </div>
 
-            {/* RIGHT - CONTACT INFO */}
+
             <div className="col-lg-4 col-12">
 
               <aside className="contact-info-box">

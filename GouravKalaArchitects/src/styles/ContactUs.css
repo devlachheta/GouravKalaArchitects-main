@@ -1,6 +1,78 @@
-/* =========================
-   CONTACT SECTION
-========================= */
+.contact-hero {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fbfaf8;
+}
+
+.contact-hero-content h1 span span {
+  display: inline-block;
+}
+
+.contact-hero-left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+}
+
+.contact-hero-content {
+  max-width: 520px;
+}
+
+.contact-hero-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 7vw, 6rem);
+  line-height: 0.95;
+  font-weight: 600;
+  letter-spacing: -2px;
+  color: #000;
+  width: 579px;
+}
+
+.contact-hero-sub-title {
+  display: block;
+  font-family: Inter;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+
+.contact-hero-content h1 {
+  color: #292622;
+  font-style: normal;
+}
+
+
+.contact-hero-content h1 .contact-hero-second-line,
+.contact-hero-content h1 .contact-hero-second-line span {
+  color: #a78466;
+  font-style: italic;
+}
+
+.contact-hero-content p {
+  margin-top: 35px;
+  max-width: 480px;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #666;
+}
+
+.contact-hero-right {
+  width: 50%;
+  position: relative;
+}
+
+.contact-hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
 
 .contact-section {
   padding: 70px 0 60px;
@@ -9,12 +81,23 @@
 }
 
 
-/* =========================
-   HEADING
-========================= */
+
 
 .contact-heading {
   margin-bottom: 50px;
+}
+
+.contact-start-label {
+  display: block;
+  margin-bottom: 10px;
+
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+
+  color: #a78466;
+  text-transform: uppercase;
 }
 
 .contact-title {
@@ -42,9 +125,6 @@
 }
 
 
-/* =========================
-   FORM
-========================= */
 
 .contact-form {
   width: 100%;
@@ -55,9 +135,6 @@
 }
 
 
-/* =========================
-   LABEL
-========================= */
 
 .contact-label {
   display: block;
@@ -74,9 +151,7 @@
 }
 
 
-/* =========================
-   INPUT
-========================= */
+
 
 .contact-input {
   display: block;
@@ -135,9 +210,10 @@
   width: 100%;
   height: 150px;
 
-  padding: 13px 0;
+  padding: 13px 10px;
 
-  border: 0;
+  border: 1;
+  border-color: #d8d0c7;
   border-bottom: 1px solid #dcd5ce;
   border-radius: 0;
 
@@ -168,9 +244,7 @@
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+
 
 .contact-btn {
   display: inline-flex;
@@ -364,6 +438,7 @@
   .contact-heading {
     margin-bottom: 40px;
   }
+
 
   .contact-title {
     font-size: 45px;
