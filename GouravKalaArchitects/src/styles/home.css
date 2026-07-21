@@ -33,6 +33,14 @@
     max-width: 520px;
 }
 
+
+
+.hero-content h1 .hero-second-line,
+.hero-content h1 .hero-second-line span {
+    color: #a78466;
+    font-style: italic;
+}
+
 .hero-content h1 {
     font-family: "Cormorant Garamond", serif;
     font-size: clamp(4rem, 7vw, 6rem);
@@ -53,7 +61,7 @@
 
 
 .hero-content h1 span {
-    color: #a78466;
+    color: #000;
     font-style: italic;
 }
 

@@ -12,6 +12,7 @@ import Commerical from "../assets/commercial.jpg";
 import Illustration from "../assets/illustration.jpg";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
+
 function Home() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(false);
   useEffect(() => {
@@ -180,7 +181,7 @@ function Home() {
 
               <br />
 
-              <span>
+              <span className="hero-second-line">
                 {heroTitle2.split("").map((char, index) => (
                   <motion.span
                     key={index}
