@@ -1,11 +1,3 @@
-/* =====================================================
-   ABOUT PAGE
-===================================================== */
-
-/* =====================================================
-   ABOUT HERO
-===================================================== */
-
 .about-hero {
   width: 100%;
   min-height: calc(100vh - 90px);
@@ -18,9 +10,7 @@
 }
 
 
-/* =====================================================
-   LEFT SIDE
-===================================================== */
+
 
 .about-hero-left {
   position: relative;
@@ -41,7 +31,6 @@
 }
 
 
-/* EYEBROW */
 
 .about-hero-eyebrow {
   margin: 0 0 28px;
@@ -57,7 +46,7 @@
 }
 
 
-/* MAIN HEADING */
+
 
 .about-hero-title {
   margin: 0;
@@ -76,7 +65,6 @@
 }
 
 
-/* ITALIC BROWN TEXT */
 
 .about-hero-title em {
   color: #a27d60;
@@ -88,7 +76,7 @@
 }
 
 
-/* DESCRIPTION */
+
 
 .about-hero-description {
   max-width: 570px;
@@ -102,11 +90,6 @@
   line-height: 1.8;
 }
 
-
-/* =====================================================
-   RIGHT SIDE
-===================================================== */
-
 .about-hero-right {
   display: flex;
   align-items: center;
@@ -118,9 +101,6 @@
 }
 
 
-/* =====================================================
-   PORTRAIT PLACEHOLDER
-===================================================== */
 
 .about-portrait {
   position: relative;
@@ -136,7 +116,6 @@
 }
 
 
-/* 02 */
 
 .portrait-number {
   position: absolute;
@@ -154,7 +133,7 @@
 }
 
 
-/* TOP CIRCLE */
+
 
 .portrait-circle {
   position: absolute;
@@ -177,7 +156,7 @@
 }
 
 
-/* DIAGONAL LINE */
+
 
 .portrait-diagonal {
   position: absolute;
@@ -196,8 +175,6 @@
   transform-origin: left center;
 }
 
-
-/* LARGE DIAGONAL SHAPE */
 
 .portrait-shape {
   position: absolute;
@@ -218,7 +195,7 @@
 }
 
 
-/* LARGE BOTTOM CIRCLE */
+
 
 .portrait-circle-bottom {
   z-index: 2;
@@ -231,7 +208,7 @@
 }
 
 
-/* LABEL */
+
 
 .portrait-label {
   position: absolute;
@@ -258,9 +235,6 @@
 }
 
 
-/* =====================================================
-   TABLET
-===================================================== */
 
 @media (max-width: 1199px) {
 
@@ -280,9 +254,6 @@
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media (max-width: 991px) {
 
@@ -358,9 +329,6 @@
   }
 }
 
-/* =====================================================
-   COMMON EYEBROW
-===================================================== */
 
 .about-eyebrow {
   margin: 0 0 25px;
@@ -373,9 +341,7 @@
 }
 
 
-/* =====================================================
-   COMMON SECTION HEADING
-===================================================== */
+
 
 .about-heading {
   margin: 0;
@@ -395,9 +361,6 @@
 }
 
 
-/* =====================================================
-   OUR STORY SECTION
-===================================================== */
 
 .about-story {
   padding: 110px 0;
@@ -420,9 +383,7 @@
 }
 
 
-/* =====================================================
-   OUR JOURNEY LINK
-===================================================== */
+
 
 .about-link {
   display: inline-flex;
@@ -458,9 +419,6 @@
 }
 
 
-/* =====================================================
-   MISSION / VISION / VALUES
-===================================================== */
 
 .about-values {
   padding: 95px 0;
@@ -475,8 +433,6 @@
 }
 
 
-/* VALUE CARD */
-
 .value-card {
   min-height: 250px;
 
@@ -489,21 +445,20 @@
 }
 
 
-/* Add left spacing to cards 2 and 3 */
+
 
 .about-values .col-md-4:not(:first-child) .value-card {
   padding-left: 42px;
 }
 
 
-/* Remove last border */
+
 
 .about-values .col-md-4:last-child .value-card {
   border-right: 0;
 }
 
 
-/* NUMBER */
 
 .value-card>span {
   color: #96755c;
@@ -513,7 +468,7 @@
 }
 
 
-/* TITLE */
+
 
 .value-card h3 {
   margin: 51px 0 12px;
@@ -528,7 +483,7 @@
 }
 
 
-/* DESCRIPTION */
+
 
 .value-card p {
   max-width: 260px;
@@ -542,9 +497,6 @@
 }
 
 
-/* =====================================================
-   TIMELINE SECTION
-===================================================== */
 
 .about-timeline {
   padding: 115px 0;
@@ -553,7 +505,6 @@
 }
 
 
-/* TIMELINE LIST */
 
 .timeline-list {
   margin-top: 55px;
@@ -562,7 +513,6 @@
 }
 
 
-/* EACH TIMELINE ROW */
 
 .timeline-item {
   margin: 0;
@@ -573,14 +523,13 @@
 }
 
 
-/* Remove Bootstrap gutter affecting alignment */
 
 .timeline-item>div {
   padding-left: 0;
 }
 
 
-/* YEAR */
+
 
 .timeline-year {
   display: block;
@@ -592,8 +541,6 @@
   font-weight: 400;
 }
 
-
-/* TIMELINE TITLE */
 
 .timeline-item h3 {
   margin: 0;
@@ -608,7 +555,7 @@
 }
 
 
-/* TIMELINE DESCRIPTION */
+
 
 .timeline-item p {
   margin: 9px 0 0;
@@ -620,9 +567,6 @@
 }
 
 
-/* =====================================================
-   TEAM SECTION
-===================================================== */
 
 .about-team {
   padding: 110px 0 135px;
@@ -631,16 +575,12 @@
 }
 
 
-/* =====================================================
-   TEAM CARD
-===================================================== */
 
 .team-card {
   width: 100%;
 }
 
 
-/* PLACEHOLDER IMAGE */
 
 .team-image {
   position: relative;
@@ -659,8 +599,6 @@
 }
 
 
-/* NUMBER */
-
 .team-image>span {
   position: absolute;
 
@@ -674,7 +612,7 @@
 }
 
 
-/* PLACEHOLDER TEXT */
+
 
 .team-image>p {
   margin: 0;
@@ -690,7 +628,7 @@
 }
 
 
-/* MEMBER NAME */
+
 
 .team-card h3 {
   margin: 16px 0 5px;
@@ -703,7 +641,7 @@
 }
 
 
-/* MEMBER ROLE */
+
 
 .team-role {
   margin: 0;
@@ -718,13 +656,10 @@
 }
 
 
-/* =====================================================
-   TABLET
-===================================================== */
 
 @media (max-width: 991px) {
 
-  /* HERO */
+
 
   .about-hero-title {
     font-size: clamp(60px, 10vw, 100px);
@@ -732,14 +667,13 @@
   }
 
 
-  /* HEADINGS */
+
 
   .about-heading {
     font-size: clamp(45px, 7vw, 65px);
   }
 
 
-  /* STORY */
 
   .about-story {
     padding: 90px 0;
@@ -750,7 +684,7 @@
   }
 
 
-  /* VALUES */
+
 
   .value-card {
     padding-right: 25px;
@@ -760,15 +694,11 @@
     padding-left: 25px;
   }
 
-
-  /* TIMELINE */
-
   .about-timeline {
     padding: 90px 0;
   }
 
 
-  /* TEAM */
 
   .about-team {
     padding: 90px 0 110px;
@@ -776,13 +706,9 @@
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media (max-width: 767px) {
 
-  /* HERO */
 
   .about-hero {
     min-height: 85vh;
@@ -803,7 +729,6 @@
   }
 
 
-  /* COMMON HEADINGS */
 
   .about-heading {
     font-size: 43px;
@@ -815,8 +740,6 @@
     margin-bottom: 18px;
   }
 
-
-  /* STORY */
 
   .about-story {
     padding: 70px 0;
@@ -832,7 +755,6 @@
   }
 
 
-  /* VALUES */
 
   .about-values {
     padding: 50px 0;
@@ -864,7 +786,7 @@
   }
 
 
-  /* TIMELINE */
+
 
   .about-timeline {
     padding: 70px 0;
@@ -893,7 +815,7 @@
   }
 
 
-  /* TEAM */
+
 
   .about-team {
     padding: 70px 0 90px;
@@ -905,9 +827,7 @@
 }
 
 
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
+
 
 @media (max-width: 480px) {
 
