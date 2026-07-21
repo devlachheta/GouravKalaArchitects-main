@@ -9,24 +9,17 @@
   min-height: calc(100vh - 90px);
 }
 
-
-
-
 .about-hero-left {
   position: relative;
-
   display: flex;
   align-items: center;
-
   background: #faf9f7;
 }
 
 .about-hero-content {
   width: 100%;
   max-width: 720px;
-
   margin-left: auto;
-
   padding: 40px 70px 40px 7.5vw;
 }
 
@@ -78,6 +71,7 @@
 
 
 
+
 .about-hero-description {
   max-width: 570px;
 
@@ -94,9 +88,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 60px 7vw 60px 5vw;
-
   background: #f0ede7;
 }
 

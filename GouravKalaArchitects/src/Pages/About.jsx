@@ -2,6 +2,7 @@ import { FiArrowDownRight } from "react-icons/fi";
 import CTASection from "../CTASection";
 import "../styles/About.css";
 
+
 function About() {
 
   const timeline = [
@@ -27,11 +28,6 @@ function About() {
     },
   ];
 
-
-  /* =========================
-     TEAM DATA
-  ========================= */
-
   const team = [
     {
       name: "Gourav Kala",
@@ -50,15 +46,12 @@ function About() {
 
   return (
     <>
-      {/* ==================================
-    ABOUT HERO
-================================== */}
-
       <section className="about-hero">
         <div className="container-fluid p-0">
           <div className="row g-0 about-hero-row">
 
-            {/* LEFT SIDE */}
+
+
             <div className="col-lg-6 about-hero-left">
               <div className="about-hero-content">
 
@@ -82,7 +75,6 @@ function About() {
             </div>
 
 
-            {/* RIGHT SIDE */}
             <div className="col-lg-6 about-hero-right">
 
               <div className="about-portrait">
@@ -112,18 +104,12 @@ function About() {
           </div>
         </div>
       </section>
-      {/* ==================================
-          OUR STORY
-      ================================== */}
 
       <section className="about-story">
 
         <div className="container">
 
           <div className="row g-5 align-items-start">
-
-
-            {/* LEFT SIDE */}
 
             <div className="col-lg-6">
 
@@ -146,7 +132,6 @@ function About() {
             </div>
 
 
-            {/* RIGHT SIDE */}
 
             <div className="col-lg-6">
 
@@ -186,18 +171,11 @@ function About() {
       </section>
 
 
-      {/* ==================================
-          MISSION / VISION / VALUES
-      ================================== */}
-
       <section className="about-values">
 
         <div className="container">
 
           <div className="row g-0">
-
-
-            {/* MISSION */}
 
             <div className="col-md-4">
 
@@ -221,8 +199,6 @@ function About() {
             </div>
 
 
-            {/* VISION */}
-
             <div className="col-md-4">
 
               <article className="value-card">
@@ -243,9 +219,6 @@ function About() {
               </article>
 
             </div>
-
-
-            {/* VALUES */}
 
             <div className="col-md-4">
 
@@ -274,11 +247,6 @@ function About() {
 
       </section>
 
-
-      {/* ==================================
-          TIMELINE
-      ================================== */}
-
       <section
         id="timeline"
         className="about-timeline"
@@ -287,7 +255,6 @@ function About() {
         <div className="container">
 
 
-          {/* TIMELINE HEADING */}
 
           <div className="row">
 
@@ -314,8 +281,6 @@ function About() {
           </div>
 
 
-          {/* TIMELINE LIST */}
-
           <div className="timeline-list">
 
             {timeline.map((item) => (
@@ -325,8 +290,6 @@ function About() {
                 key={item.year}
               >
 
-                {/* YEAR */}
-
                 <div className="col-md-3">
 
                   <span className="timeline-year">
@@ -335,8 +298,6 @@ function About() {
 
                 </div>
 
-
-                {/* CONTENT */}
 
                 <div className="col-md-9">
 
@@ -361,16 +322,10 @@ function About() {
       </section>
 
 
-      {/* ==================================
-          TEAM
-      ================================== */}
-
       <section className="about-team">
 
         <div className="container">
 
-
-          {/* TEAM HEADING */}
 
           <div className="row mb-5">
 
@@ -396,9 +351,6 @@ function About() {
 
           </div>
 
-
-          {/* TEAM CARDS */}
-
           <div className="row g-4">
 
             {team.map((member, index) => (
@@ -409,9 +361,6 @@ function About() {
               >
 
                 <article className="team-card">
-
-
-                  {/* TEAM IMAGE PLACEHOLDER */}
 
                   <div className="team-image">
 
@@ -425,8 +374,6 @@ function About() {
 
                   </div>
 
-
-                  {/* MEMBER INFO */}
 
                   <h3>
                     {member.name}
@@ -447,11 +394,6 @@ function About() {
         </div>
 
       </section>
-
-
-
-
-      <CTASection />
 
     </>
   );

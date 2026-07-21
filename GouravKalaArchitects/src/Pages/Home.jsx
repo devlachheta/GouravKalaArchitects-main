@@ -1,4 +1,4 @@
-import CTASection from "../CTASection";
+
 import Header from "../Component/Header";
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
@@ -384,11 +384,6 @@ function Home() {
             title="Illustration"
             link="/projects"
           />
-        </div>
-      </section>
-      <section>
-        <div>
-          <CTASection />
         </div>
       </section>
     </>

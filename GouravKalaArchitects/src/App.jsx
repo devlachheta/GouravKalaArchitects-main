@@ -10,6 +10,7 @@ import FloatingContact from "./Component/FloatingContact";
 import Header from "./Component/Header";
 import Footer from "./Component/Footer";
 import ScrollToTop from "./Component/ScrollToTop";
+import CTASection from "./CTASection";
 function App() {
 
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
       <FloatingContact />
+      <CTASection />
       <Footer />
 
     </BrowserRouter>
