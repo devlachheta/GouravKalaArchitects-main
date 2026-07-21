@@ -19,7 +19,7 @@ function FloatingContact() {
                 >
                     <a
                         className="whatsappButton"
-                        href="https://wa.me/919589063943"
+                        href="https://wa.me/918959220111"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Chat on WhatsApp"
@@ -29,7 +29,7 @@ function FloatingContact() {
 
                     <a
                         className="callButton"
-                        href="tel:+919589063943"
+                        href="tel:+918959220111"
                         aria-label="Call us"
                     >
                         <FiPhone />

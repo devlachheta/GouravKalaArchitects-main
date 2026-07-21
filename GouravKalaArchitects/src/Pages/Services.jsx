@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import {
   FiBox,
   FiCompass,
@@ -13,11 +13,14 @@ import {
 import CTASection from "../CTASection";
 import "./Services.css";
 
+import { motion } from "framer-motion";
+import Banner from "../assets/gouravhero.PNG";
 import architectureImg from "../assets/Services-architects-image1.jpg";
 import interiorImg from "../assets/Services-interior.png";
 import landscapImg from "../assets/Services-landscap.png";
 import constructionImg from "../assets/Services-Construction.png";
 import planingImg from "../assets/Services-planing.png";
+import renovationImg from "../assets/Services-renovation.png"
 const services = [
   {
     icon: FiCompass,
@@ -59,51 +62,145 @@ const services = [
     title: "Renovation",
     description:
       "Thoughtful renewal that keeps the character worth preserving.",
-    image: null,
+    image: renovationImg,
   },
 ];
 
 function Services() {
+
+  const heroTitle = "Many disciplines.";
+  const heroTitle2 = "One vision.";
+
+  const heroContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.04,
+      },
+    },
+  };
+
+  const heroLetter = {
+    hidden: {
+      opacity: 0,
+      x: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <>
+
       <section className="services-hero">
+
+        {/* LEFT SIDE */}
         <div className="services-hero-left">
+
           <div className="services-hero-content">
-            <p className="services-hero-eyebrow">What we do</p>
 
-            <h1 className="services-hero-title">
-              Many disciplines.
+            <motion.span
+              className="services-hero-eyebrow"
+              initial={{ opacity: 0, x: -80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+            >
+              WHAT WE DO
+            </motion.span>
+
+            <motion.h1
+              className="services-hero-title"
+              variants={heroContainer}
+              initial="hidden"
+              animate="visible"
+            >
+
+              {heroTitle.split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={heroLetter}
+                  style={{
+                    display: "inline-block",
+                    whiteSpace: char === " " ? "pre" : "normal",
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+
               <br />
-              <em>One vision.</em>
-            </h1>
 
-            <p className="services-hero-description">
+              <em>
+                {heroTitle2.split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={heroLetter}
+                    style={{
+                      display: "inline-block",
+                      whiteSpace: char === " " ? "pre" : "normal",
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </em>
+
+            </motion.h1>
+
+            <motion.p
+              className="services-hero-description"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: "easeOut",
+              }}
+            >
               We work across architecture, interiors and landscapes to
               <br />
               make every part of a project feel considered.
-            </p>
+            </motion.p>
+
           </div>
+
         </div>
 
-        <div className="services-hero-right">
-          <div className="services-hero-art">
-            <span className="services-art-number">02</span>
 
-            <div className="services-art-circle-top"></div>
 
-            <div className="services-art-bottom"></div>
+        <motion.div
+          className="services-hero-right"
+          initial={{
+            opacity: 0,
+            x: 120,
+            scale: 1.08,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1.3,
+            ease: "easeOut",
+          }}
+        >
+          <img
+            src={Banner}
+            alt="Gourav Kala Architects Services"
+          />
+        </motion.div>
 
-            <div className="services-art-circle-bottom"></div>
-
-            <span className="services-art-label">
-              REPLACE WITH
-              <br />
-              MATERIAL DETAIL
-            </span>
-          </div>
-        </div>
       </section>
-
       <section className="services-section">
         <div className="container">
           <div className="row">
@@ -125,7 +222,7 @@ function Services() {
             </div>
           </div>
 
-          <div className="row g-0 services-grid">
+          <div className="row g-4 services-grid">
             {services.map((service, index) => {
               const Icon = service.icon;
 
@@ -134,37 +231,35 @@ function Services() {
                   className="col-12 col-md-6 col-lg-4"
                   key={service.title}
                 >
-                  <div
-                    className={`service-card ${service.image ? "has-image" : ""
-                      }`}
-                    style={
-                      service.image
-                        ? {
-                          backgroundImage: `url(${service.image})`,
-                        }
-                        : {}
-                    }
-                  >
-                    {service.image && (
+                  <Link to="/projects" className="service-card-link">
+
+                    <div className="service-card">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="service-card-image"
+                      />
+
                       <div className="service-card-overlay"></div>
-                    )}
 
-                    <div className="service-card-content">
-                      <span className="service-number">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
+                      <div className="service-card-content">
+                        <span className="service-number">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
 
-                      <div className="service-icon">
-                        <Icon />
+                        <div className="service-icon">
+                          <Icon />
+                        </div>
+
+                        <h3>{service.title}</h3>
+
+                        <p>{service.description}</p>
+
+                        <FiArrowUpRight className="card-arrow" />
                       </div>
-
-                      <h3>{service.title}</h3>
-
-                      <p>{service.description}</p>
-
-                      <FiArrowUpRight className="card-arrow" />
                     </div>
-                  </div>
+
+                  </Link>
                 </div>
               );
             })}
