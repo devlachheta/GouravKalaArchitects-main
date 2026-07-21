@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiInstagram } from "react-icons/fi";
 
-import "./Header.css";
+import "../styles/Header.css";
 
 function Header() {
 
@@ -17,8 +17,6 @@ function Header() {
                 setScrolled(false);
             }
         };
-
-        // Check position when page first loads
         handleScroll();
 
         window.addEventListener("scroll", handleScroll);
@@ -30,20 +28,15 @@ function Header() {
     }, []);
 
     return (
-        <header className="header">
-
+        <header className="header ">
             <nav
                 className={`navbar navbar-expand-lg ${scrolled ? "navbar-scrolled" : ""
                     }`}
             >
-                <div className="container">
-
-                    {/* Logo */}
-                    <Link className="navbar-brand" to="/">
+                <div className="container-fluid">
+                    <Link className="navbar-brand ps-5" to="/">
                         Gourav Kala Architects
                     </Link>
-
-                    {/* Mobile Toggle */}
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -56,7 +49,6 @@ function Header() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    {/* Navigation */}
                     <div
                         className="collapse navbar-collapse"
                         id="mainNavbar"
@@ -119,7 +111,7 @@ function Header() {
                                 </NavLink>
                             </li>
 
-                            <li className="nav-item">
+                            <li className="nav-item pe-5">
                                 <a
                                     className="nav-link instagram-link"
                                     href="https://www.instagram.com/gourav_kala_architects?igsh=MWdicHBxNm1hZ251eA=="

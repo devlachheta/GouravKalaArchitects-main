@@ -1,12 +1,8 @@
 import { FiArrowDownRight } from "react-icons/fi";
 import CTASection from "../CTASection";
-import "./About.css";
+import "../styles/About.css";
 
 function About() {
-
-  /* =========================
-     TIMELINE DATA
-  ========================= */
 
   const timeline = [
     {
