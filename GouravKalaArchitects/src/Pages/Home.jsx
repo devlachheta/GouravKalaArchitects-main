@@ -12,7 +12,7 @@ import Commerical from "../assets/commercial.jpg";
 import Illustration from "../assets/illustration.jpg";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
-
+import { FiCheck, FiArrowDownRight } from "react-icons/fi";
 function Home() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(false);
   useEffect(() => {
@@ -80,6 +80,8 @@ function Home() {
   };
 
   const text = "About Us";
+  const servicesText = "Our Services";
+  const contactText = "Contact Us";
   const letterDelay = 0.08;
   const letterDuration = 0.5;
 
@@ -143,6 +145,7 @@ function Home() {
       },
     },
   };
+
   return (
     <>
       <section className="hero">
@@ -201,19 +204,15 @@ function Home() {
               An architecture and interiors studio creating
               considered places for the way life is lived now.
             </motion.p>
-
-            <motion.a
-              href="#"
-              className="explore-btn"
+            <motion.div
               variants={itemVariants}
-              whileHover={{
-                x: 6,
-              }}
+              whileHover={{ x: 6 }}
             >
-              Explore Our Work
-              <span>↗</span>
-            </motion.a>
-
+              <Link to="/projects" className="explore-btn">
+                Explore Our Work
+                <span>↗</span>
+              </Link>
+            </motion.div>
           </div>
         </div>
 
@@ -386,6 +385,166 @@ function Home() {
             link="/projects"
           />
         </div>
+      </section>
+      <section className="home-services">
+
+        <motion.div
+          className="heading-wrapper"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+
+          <motion.h1
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {servicesText.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={letter}
+                style={{
+                  display: "inline-block",
+                  whiteSpace: char === " " ? "pre" : "normal",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.h1>
+
+          <motion.div
+            className="heading-line"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              delay:
+                (servicesText.replace(/\s/g, "").length - 1) *
+                letterDelay +
+                letterDuration,
+              duration: 0.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          />
+
+        </motion.div>
+
+      </section>
+      <section className="principle-section">
+
+        <div className="principle-shell">
+
+          <div className="principle-grid">
+
+            {/* LEFT SIDE - IMAGE PLACEHOLDER */}
+            <div className="principle-image">
+              <img src={Banner} alt="Gourav Kala Architects service" />
+
+
+            </div>
+
+            {/* RIGHT SIDE - CONTENT */}
+            <div className="principle-content">
+
+              <div className="section-title">
+                <p className="eyebrow">
+                  03 — Our principle
+                </p>
+
+                <h2>
+                  Design that feels
+                  <br />
+                  <em>inevitable.</em>
+                </h2>
+
+                <p>
+                  Nothing superfluous. Nothing unresolved. We balance human
+                  warmth with architectural rigour to create spaces that feel
+                  quietly remarkable.
+                </p>
+              </div>
+
+
+              {/* TICK LIST */}
+              <ul className="tick-list">
+                <li>
+                  <FiCheck />
+                  Context-first thinking
+                </li>
+
+                <li>
+                  <FiCheck />
+                  Materials with integrity
+                </li>
+
+                <li>
+                  <FiCheck />
+                  A clear, collaborative process
+                </li>
+              </ul>
+
+
+              {/* BUTTON */}
+              <Link className="text-button" to="/services">
+                How we work
+                <FiArrowDownRight />
+              </Link>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <section className="home-contact">
+
+        <motion.div
+          className="heading-wrapper"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+
+          <motion.h1
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {contactText.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={letter}
+                style={{
+                  display: "inline-block",
+                  whiteSpace: char === " " ? "pre" : "normal",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.h1>
+
+          <motion.div
+            className="heading-line"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              delay:
+                (contactText.replace(/\s/g, "").length - 1) *
+                letterDelay +
+                letterDuration,
+              duration: 0.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          />
+
+        </motion.div>
+
       </section>
     </>
   );
