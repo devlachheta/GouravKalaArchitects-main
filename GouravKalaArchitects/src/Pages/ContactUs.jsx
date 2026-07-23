@@ -1,6 +1,6 @@
-import CTASection from "../CTASection";
-import "../styles/ContactUs.css";
 
+import "../styles/ContactUs.css";
+import { useState } from "react";
 import {
   FiArrowUpRight,
   FiInstagram,
@@ -13,6 +13,40 @@ import { motion } from "framer-motion";
 import Banner from "../assets/gouravhero.PNG";
 
 function ContactUs() {
+  const [formStatus, setFormStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    setIsSubmitting(true);
+    setFormStatus("");
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mkodvokg", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setFormStatus("Thank you! Your enquiry has been sent successfully.");
+        form.reset();
+      } else {
+        setFormStatus("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setFormStatus("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const heroTitle = "Lets make room";
   const heroTitle2 = "for possibility.";
@@ -173,10 +207,9 @@ function ContactUs() {
 
             {/* LEFT - FORM */}
             <div className="col-lg-8 col-12">
-
               <form
                 className="contact-form"
-                onSubmit={(event) => event.preventDefault()}
+                onSubmit={handleSubmit}
               >
 
                 {/* Name + Email */}
@@ -189,8 +222,10 @@ function ContactUs() {
 
                     <input
                       type="text"
+                      name="name"
                       className="contact-input"
                       placeholder="Your name"
+                      required
                     />
                   </div>
 
@@ -201,8 +236,10 @@ function ContactUs() {
 
                     <input
                       type="email"
+                      name="email"
                       className="contact-input"
                       placeholder="you@email.com"
+                      required
                     />
                   </div>
 
@@ -218,6 +255,7 @@ function ContactUs() {
 
                     <input
                       type="tel"
+                      name="phone"
                       className="contact-input"
                       placeholder="+91"
                     />
@@ -227,19 +265,20 @@ function ContactUs() {
                     <label className="contact-label">
                       PROJECT TYPE
                     </label>
-
                     <select
+                      name="projectType"
                       className="contact-input contact-select"
                       defaultValue=""
+                      required
                     >
                       <option value="" disabled>
                         Select one
                       </option>
 
-                      <option>Architecture</option>
-                      <option>Interior Design</option>
-                      <option>Renovation</option>
-                      <option>Landscape</option>
+                      <option value="Architecture">Architecture</option>
+                      <option value="Interior Design">Interior Design</option>
+                      <option value="Renovation">Renovation</option>
+                      <option value="Landscape">Landscape</option>
                     </select>
                   </div>
 
@@ -254,10 +293,11 @@ function ContactUs() {
                     </label>
 
                     <textarea
+                      name="message"
                       className="contact-textarea"
                       placeholder="A few details about your project..."
+                      required
                     />
-
                   </div>
                 </div>
 
@@ -265,11 +305,17 @@ function ContactUs() {
                 <button
                   type="submit"
                   className="contact-btn"
+                  disabled={isSubmitting}
                 >
-                  SEND ENQUIRY
+                  {isSubmitting ? "SENDING..." : "SEND ENQUIRY"}
                   <FiArrowUpRight />
                 </button>
 
+                {formStatus && (
+                  <p className="form-status">
+                    {formStatus}
+                  </p>
+                )}
               </form>
 
             </div>

@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
 
 
+/* =========================================
+   GLOBAL
+========================================= */
 
 * {
     margin: 0;
@@ -9,7 +12,10 @@
 }
 
 
-/* Hero part */
+/* =========================================
+   HERO SECTION
+========================================= */
+
 .hero {
     display: flex;
     height: 100vh;
@@ -33,14 +39,6 @@
     max-width: 520px;
 }
 
-
-
-.hero-content h1 .hero-second-line,
-.hero-content h1 .hero-second-line span {
-    color: #a78466;
-    font-style: italic;
-}
-
 .hero-content h1 {
     font-family: "Cormorant Garamond", serif;
     font-size: clamp(4rem, 7vw, 6rem);
@@ -50,26 +48,24 @@
     color: #202020;
 }
 
-.sub-title {
-    display: block;
-    font-family: Inter;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: #7c6d60;
-    margin-bottom: 25px;
-}
-
-
 .hero-content h1 span {
     color: #000;
+    font-style: italic;
+}
+
+.hero-content h1 .hero-second-line,
+.hero-content h1 .hero-second-line span {
+    color: #a78466;
     font-style: italic;
 }
 
 .hero-content p {
     margin-top: 35px;
     max-width: 480px;
+
     font-size: 18px;
     line-height: 1.9;
+
     color: #666;
 }
 
@@ -77,10 +73,14 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
+
     margin-top: 55px;
+
     text-decoration: none;
+
     color: #666;
-    font-family: Inter;
+
+    font-family: "Inter", sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -88,79 +88,99 @@
 }
 
 .explore-btn span {
-
     font-size: 22px;
 }
 
 .hero-right {
-    width: 50%;
     position: relative;
+    width: 50%;
 }
 
 .hero-right img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
 
 
-/* About Us On home  */
+/* =========================================
+   ABOUT US - HOME
+========================================= */
 
 .home-about-us {
+    padding:
+        120px 20px 20px;
+
     text-align: center;
-    padding-top: 120px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+
     background: #fff;
 }
 
 .home-about-us h1 {
+    margin: 0;
+
     font-family: "Cormorant Garamond", serif;
     font-size: 52px;
     font-weight: 600;
+
     color: #111;
-    margin: 0;
 }
 
 .about-subtitle {
     display: block;
+
     margin-top: 30px;
+
     font-family: "Cormorant Garamond", serif;
     font-size: 32px;
     font-style: italic;
     font-weight: 500;
+
     color: #b48b67;
 }
 
 .home-about-us p {
     max-width: 850px;
+
     margin: 30px auto 0;
+
+    font-family: "Inter", sans-serif;
     font-size: 18px;
     line-height: 1.9;
+
     color: #555;
-    font-family: "Inter", sans-serif;
 }
 
 .home-about-us .link {
     display: inline-block;
+
     margin-top: 35px;
-    color: #000;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.4s ease;
     margin-bottom: 20px;
+
+    color: #000;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.4s ease,
+        color 0.4s ease;
 }
 
 .home-about-us .link:hover {
     transform: translateX(8px);
+
     color: #b48b67;
 }
 
 .heading-wrapper {
     display: inline-block;
+
     text-align: center;
 }
 
@@ -170,153 +190,223 @@
 
 .about-description p {
     margin: 10px 0;
+
     font-size: 18px;
     line-height: 1.8;
+
     color: #555;
 }
 
 .heading-line {
-    width: 30%;
+    width: 80px;
     height: 3px;
-    background: #000;
-    margin: 2px auto 0;
+
+    margin: 15px auto 20px;
+
     border-radius: 50px;
-    transform-origin: left;
-    margin-bottom: 20px;
+
+    background: #b48b67;
+
+    transform-origin: center;
 }
 
-/* Project Section On Home  */
+
+/* =========================================
+   OUR PROJECTS - HOME
+========================================= */
 
 .home-projects {
-    background: #fbfaf8;
-    padding: 80px 20px 80px;
+    width: 100%;
+    padding: 60px 20px 55px;
     text-align: center;
+    background: #fbfaf8;
 }
 
+
+
+/* Project Heading */
+
 .home-projects h1 {
+    margin: 0;
+
     font-family: "Cormorant Garamond", serif;
     font-size: 52px;
     font-weight: 600;
+    line-height: 1.2;
+
     color: #111;
-    margin: 0;
 }
 
 .home-projects h1 span {
     display: inline-block;
 }
 
-.home-project-line {
-    width: 60%;
-    height: 3px;
-    background: #000;
-    margin: 15px auto 0;
-    border-radius: 20%;
-    transform-origin: center;
-}
 
-.home-project-card {
-    position: relative;
-    width: 300px;
-    height: 420px;
-    overflow: hidden;
-    text-decoration: none;
-    display: block;
-    border-radius: 20px;
-}
-
-.home-project-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) brightness(0.85);
-    transform: scale(1);
-    transition: all 0.8s ease;
-}
-
-.home-project-card-overlay {
-    position: absolute;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.30);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    transition: 0.6s ease;
-}
-
-.home-project-card-overlay h2 {
-    color: #fff;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 42px;
-    font-weight: 600;
-
-    transform: translateY(25px);
-
-    transition: 0.5s ease;
-}
-
-.home-project-card-view-more {
-    margin-top: 18px;
-
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: 600;
-
-    opacity: 0;
-
-    transform: translateY(25px);
-
-    transition: 0.5s ease;
-}
-
-/* Hover Effects */
-
-.home-project-card:hover img {
-    filter: grayscale(0%) brightness(1);
-    transform: scale(1.08);
-}
-
-.home-project-card:hover .home-project-card-overlay {
-    background: rgba(0, 0, 0, 0.45);
-}
-
-.home-project-card:hover .home-project-card-overlay h2 {
-    transform: translateY(0);
-}
-
-.home-project-card:hover .home-project-card-view-more {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.home-projects {
-    background: #fbfaf8;
-    padding: 100px 20px;
-}
-
-.home-project-grid {
-    max-width: 1400px;
-    margin-left: 100px;
-    margin-top: 70px;
-    margin-right: 100px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
+/* Project Heading Line */
 
 .home-project-line {
     width: 80px;
     height: 3px;
-    background: #b48b67;
+
     margin: 15px auto 0;
+
     border-radius: 50px;
+
+    background: #b48b67;
+
     transform-origin: center;
 }
 
+
+/* =========================================
+   PROJECT GRID - 2 CARDS
+========================================= */
+
+.home-project-grid {
+    width: 92%;
+    max-width: 1250px;
+
+    margin: 40px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+}
+
+
+
+/* =========================================
+   PROJECT CARD
+========================================= */
+.home-project-card {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    height: 700px;
+
+    overflow: hidden;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+
+/* Project Image */
+
+
+.home-project-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: grayscale(100%) brightness(0.85);
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+/* Project Overlay */
+
+.home-project-card-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(0, 0, 0, 0.30);
+
+    transition:
+        background 0.6s ease;
+}
+
+
+/* Project Title */
+
+.home-project-card-overlay h2 {
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+
+    color: #ffffff;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* View More */
+
+.home-project-card-view-more {
+    margin-top: 18px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+/* Project Hover */
+
+.home-project-card:hover img {
+    filter:
+        grayscale(0%) brightness(1);
+
+    transform:
+        scale(1.08);
+}
+
+.home-project-card:hover .home-project-card-overlay {
+    background:
+        rgba(0, 0, 0, 0.45);
+}
+
+.home-project-card:hover .home-project-card-overlay h2 {
+    transform:
+        translateY(0);
+}
+
+.home-project-card:hover .home-project-card-view-more {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================
+   FLOATING CONTACT
+========================================= */
 
 .floating-contact {
     position: fixed;
@@ -326,6 +416,7 @@
 
     display: flex;
     flex-direction: column;
+
     gap: 15px;
 
     z-index: 9999;
@@ -333,44 +424,94 @@
     opacity: 0;
     visibility: hidden;
 
-    transform: translateX(-30px);
+    transform:
+        translateX(-30px);
 
-    transition: all .4s ease;
+    transition:
+        all 0.4s ease;
 }
 
 .show-floating {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
+
+    transform:
+        translateX(0);
 }
 
 
+/* =========================================
+   PRINCIPLE SECTION
+========================================= */
 
 .principle-section {
     width: 100%;
-    background: #ffffff;
+
     padding: 70px 0 90px;
+
+    background: #ffffff;
 }
 
 .principle-shell {
     width: min(84%, 1480px);
+
     margin: 0 auto;
 }
 
 .principle-grid {
     display: grid;
-    grid-template-columns: minmax(420px, 580px) minmax(420px, 1fr);
+
+    grid-template-columns:
+        minmax(420px, 580px) minmax(420px, 1fr);
+
     align-items: center;
-    gap: clamp(80px, 10vw, 170px);
+
+    gap:
+        clamp(80px, 10vw, 170px);
 }
 
 
+/* =========================================
+   PRINCIPLE IMAGE
+========================================= */
 
+.principle-image {
+    width: 100%;
+
+    aspect-ratio: 1 / 1.02;
+
+    overflow: hidden;
+}
+
+.principle-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s ease;
+}
+
+.principle-image:hover img {
+    transform:
+        scale(1.04);
+}
+
+
+/* =========================================
+   IMAGE PLACEHOLDER
+========================================= */
 
 .image-placeholder {
     position: relative;
+
     width: 100%;
+
     aspect-ratio: 1 / 1.02;
+
     overflow: hidden;
 
     background:
@@ -383,72 +524,80 @@
             #ddd8cf 100%);
 }
 
-
-
 .image-placeholder::before {
     content: "";
+
     position: absolute;
 
     width: 230px;
     height: 230px;
 
-    border: 1px solid rgba(100, 90, 80, 0.22);
-    border-radius: 50%;
-
     top: 70px;
     left: 100px;
+
+    border:
+        1px solid rgba(100, 90, 80, 0.22);
+
+    border-radius: 50%;
 }
 
 .image-placeholder::after {
     content: "";
+
     position: absolute;
 
     width: 420px;
     height: 420px;
 
-    border: 1px solid rgba(100, 90, 80, 0.2);
-    border-radius: 50%;
-
-    bottom: -160px;
     right: -90px;
+    bottom: -160px;
+
+    border:
+        1px solid rgba(100, 90, 80, 0.2);
+
+    border-radius: 50%;
 }
-
-
 
 .placeholder-index {
     position: absolute;
+
     top: 35px;
     left: 27px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    z-index: 2;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 28px;
     font-weight: 400;
 
     color: #a27b5c;
-    z-index: 2;
 }
-
 
 .placeholder-label {
     position: absolute;
+
     right: 25px;
     bottom: 38px;
 
     max-width: 150px;
 
+    z-index: 2;
+
     font-size: 10px;
     font-weight: 600;
     line-height: 1.5;
+
     letter-spacing: 1.5px;
+
     text-transform: uppercase;
     text-align: right;
 
     color: #6d5a48;
-
-    z-index: 2;
 }
-
-
 
 .placeholder-line {
     position: absolute;
@@ -456,43 +605,56 @@
     width: 430px;
     height: 1px;
 
-    background: rgba(120, 105, 90, 0.25);
-
     left: 95px;
     top: 52%;
 
-    transform: rotate(-36deg);
-    transform-origin: left center;
+    background:
+        rgba(120, 105, 90, 0.25);
+
+    transform:
+        rotate(-36deg);
+
+    transform-origin:
+        left center;
 }
 
 
+/* =========================================
+   PRINCIPLE CONTENT
+========================================= */
 
 .principle-content {
     max-width: 650px;
 }
 
-
 .eyebrow {
-    margin: 0 0 25px;
+    margin:
+        0 0 25px;
 
     font-size: 12px;
     font-weight: 600;
 
     text-transform: uppercase;
+
     letter-spacing: 3px;
 
     color: #a27b5c;
 }
 
-
-
 .section-title h2 {
-    margin: 0 0 22px;
+    margin:
+        0 0 22px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-size: clamp(52px, 4.4vw, 75px);
+    font-size:
+        clamp(52px, 4.4vw, 75px);
+
     font-weight: 400;
+
     line-height: 0.95;
 
     letter-spacing: -2.5px;
@@ -500,18 +662,12 @@
     color: #282521;
 }
 
-
-
-
 .section-title h2 em {
     color: #a67d5d;
 
     font-weight: 400;
     font-style: italic;
 }
-
-
-
 
 .section-title>p:last-child {
     max-width: 650px;
@@ -525,13 +681,17 @@
 }
 
 
-
+/* =========================================
+   TICK LIST
+========================================= */
 
 .tick-list {
     list-style: none;
 
     padding: 0;
-    margin: 38px 0 42px;
+
+    margin:
+        38px 0 42px;
 
     display: flex;
     flex-direction: column;
@@ -541,11 +701,13 @@
 
 .tick-list li {
     display: flex;
+
     align-items: center;
 
     gap: 14px;
 
     font-size: 15px;
+
     color: #544b44;
 }
 
@@ -561,10 +723,13 @@
 }
 
 
-
+/* =========================================
+   TEXT BUTTON
+========================================= */
 
 .text-button {
     display: inline-flex;
+
     align-items: center;
 
     gap: 15px;
@@ -575,18 +740,21 @@
     font-weight: 700;
 
     letter-spacing: 1px;
+
     text-transform: uppercase;
 
     color: #25211e;
 
-    transition: gap 0.3s ease;
+    transition:
+        gap 0.3s ease;
 }
 
 .text-button svg {
     width: 16px;
     height: 16px;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
 .text-button:hover {
@@ -594,9 +762,148 @@
 }
 
 .text-button:hover svg {
-    transform: translate(3px, 3px);
+    transform:
+        translate(3px, 3px);
 }
 
+
+/* =========================================
+   OUR SERVICES HEADING
+========================================= */
+
+.home-services {
+    width: 100%;
+
+    padding:
+        70px 20px 10px;
+
+    background: #fff;
+}
+
+.home-services .heading-wrapper {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.home-services .heading-wrapper h1 {
+    margin: 0;
+
+    font-size: 52px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   COMMON SECTION HEADINGS
+========================================= */
+
+.home-about-us h1,
+.home-projects h1,
+.home-services h1 {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 52px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    color: #111;
+}
+
+.home-about-us .heading-line,
+.home-projects .home-project-line,
+.home-services .heading-line {
+    width: 80px;
+    height: 3px;
+
+    margin:
+        15px auto 0;
+
+    border-radius: 50px;
+
+    background: #b48b67;
+
+    transform-origin: center;
+}
+
+
+/* =========================================
+   CONTACT HEADING
+========================================= */
+
+.home-contact {
+    width: 100%;
+
+    padding:
+        30px 20px;
+
+    background: #fff;
+
+    text-align: center;
+}
+
+.home-contact .heading-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.home-contact h1 {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 52px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    color: #111;
+}
+
+.home-contact .heading-line {
+    width: 80px;
+    height: 3px;
+
+    margin:
+        15px auto 0;
+
+    border-radius: 50px;
+
+    background: #b48b67;
+
+    transform-origin: center;
+}
+
+
+/* =========================================
+   RESPONSIVE - 1100PX
+========================================= */
 
 @media (max-width: 1100px) {
 
@@ -605,22 +912,79 @@
     }
 
     .principle-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
+
         gap: 60px;
     }
 
     .section-title h2 {
         font-size: 52px;
     }
-
 }
 
 
+/* =========================================
+   RESPONSIVE - TABLET / 900PX
+========================================= */
+
+@media (max-width: 900px) {
+
+    .home-projects {
+        padding:
+            80px 20px;
+    }
+
+    .home-project-grid {
+        width:
+            min(750px, 92%);
+
+        margin-top: 55px;
+
+        gap: 25px;
+    }
+
+    .home-project-card {
+        height: 450px;
+    }
+
+    .home-project-card-overlay h2 {
+        font-size: 40px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET / 768PX
+========================================= */
 
 @media (max-width: 768px) {
 
+    /* Headings */
+
+    .home-about-us h1,
+    .home-projects h1,
+    .home-services h1,
+    .home-contact h1 {
+        font-size: 42px;
+    }
+
+    .home-about-us .heading-line,
+    .home-projects .home-project-line,
+    .home-services .heading-line,
+    .home-contact .heading-line {
+        width: 70px;
+        height: 3px;
+
+        margin-top: 12px;
+    }
+
+
+    /* Principle */
+
     .principle-section {
-        padding: 50px 0 70px;
+        padding:
+            50px 0 70px;
     }
 
     .principle-shell {
@@ -628,13 +992,18 @@
     }
 
     .principle-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
+
         gap: 55px;
     }
 
-    .image-placeholder {
+    .image-placeholder,
+    .principle-image {
         max-width: 550px;
-        margin: 0 auto;
+
+        margin:
+            0 auto;
     }
 
     .principle-content {
@@ -642,7 +1011,9 @@
     }
 
     .section-title h2 {
-        font-size: clamp(42px, 12vw, 58px);
+        font-size:
+            clamp(42px, 12vw, 58px);
+
         letter-spacing: -1.5px;
     }
 
@@ -650,26 +1021,108 @@
         font-size: 15px;
     }
 
+
+    /* Contact */
+
+    .home-contact {
+        padding:
+            55px 20px 30px;
+    }
 }
 
 
+/* =========================================
+   RESPONSIVE - PROJECT MOBILE / 600PX
+========================================= */
 
+@media (max-width: 600px) {
+
+    .home-projects {
+        padding:
+            65px 15px;
+    }
+
+    .home-project-grid {
+        width: 92%;
+
+        margin-top: 45px;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 25px;
+    }
+
+    .home-project-card {
+        height: 450px;
+    }
+
+    .home-project-card-overlay h2 {
+        font-size: 40px;
+
+        transform:
+            translateY(0);
+    }
+
+    .home-project-card-view-more {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE / 480PX
+========================================= */
 
 @media (max-width: 480px) {
 
+    /* Headings */
+
+    .home-about-us h1,
+    .home-projects h1,
+    .home-services h1,
+    .home-contact h1 {
+        font-size: 36px;
+    }
+
+    .home-about-us .heading-line,
+    .home-projects .home-project-line,
+    .home-services .heading-line,
+    .home-contact .heading-line {
+        width: 60px;
+        height: 2px;
+
+        margin-top: 10px;
+    }
+
+
+    /* Principle */
+
     .principle-section {
-        padding: 40px 0 60px;
+        padding:
+            40px 0 60px;
+    }
+
+    .principle-image {
+        width: 100%;
+
+        aspect-ratio: 4 / 5;
     }
 
     .placeholder-index {
         top: 22px;
         left: 20px;
+
         font-size: 23px;
     }
 
     .placeholder-label {
         right: 18px;
         bottom: 25px;
+
         font-size: 8px;
     }
 
@@ -697,216 +1150,37 @@
     }
 
     .tick-list {
-        margin: 30px 0 35px;
+        margin:
+            30px 0 35px;
     }
 
-}
 
-/* ==============================
-   OUR SERVICES HEADING
-================================ */
+    /* Contact */
 
-.home-services {
-    width: 100%;
-    padding: 70px 20px 10px;
-    background: #fff;
-}
-
-
-.home-services .heading-wrapper {
-    width: 100%;
-    max-width: 1400px;
-
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    text-align: center;
-}
-
-.home-services .heading-wrapper h1 {
-    margin: 0;
-
-    font-size: 52px;
-    font-weight: 600;
-    line-height: 1.2;
-
-    text-align: center;
-}
-
-
-.home-services .heading-line {
-    width: 85px;
-    height: 3px;
-
-    margin-top: 8px;
-
-    background: #171717;
-
-    transform-origin: center;
-}
-
-/* ==================================
-   SAME HEADING STYLE FOR ALL SECTIONS
-================================== */
-
-.home-about-us h1,
-.home-projects h1,
-.home-services h1 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 52px;
-    font-weight: 600;
-    color: #111;
-    margin: 0;
-    line-height: 1.2;
-}
-
-/* Same underline for all 3 */
-
-.home-about-us .heading-line,
-.home-projects .home-project-line,
-.home-services .heading-line {
-    width: 80px;
-    height: 3px;
-
-    background: #b48b67;
-
-    margin: 15px auto 0;
-
-    border-radius: 50px;
-
-    transform-origin: center;
-}
-
-@media (max-width: 768px) {
-
-    .home-about-us h1,
-    .home-projects h1,
-    .home-services h1 {
-        font-size: 42px;
-    }
-
-    .home-about-us .heading-line,
-    .home-projects .home-project-line,
-    .home-services .heading-line {
-        width: 70px;
-        height: 3px;
-        margin-top: 12px;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    .home-about-us h1,
-    .home-projects h1,
-    .home-services h1 {
-        font-size: 36px;
-    }
-
-    .home-about-us .heading-line,
-    .home-projects .home-project-line,
-    .home-services .heading-line {
-        width: 60px;
-        height: 2px;
-        margin-top: 10px;
-    }
-}
-
-.principle-image {
-    width: 100%;
-    aspect-ratio: 1 / 1.02;
-    overflow: hidden;
-}
-
-.principle-image img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-}
-
-.principle-image:hover img {
-    transform: scale(1.04);
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-    .principle-image {
-        max-width: 550px;
-        margin: 0 auto;
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    .principle-image {
-        width: 100%;
-        aspect-ratio: 4 / 5;
-    }
-}
-
-.home-contact {
-    width: 100%;
-    padding: 30px 20px 30px;
-    background: #fff;
-    text-align: center;
-}
-
-.home-contact .heading-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.home-contact h1 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 52px;
-    font-weight: 600;
-    color: #111;
-    margin: 0;
-    line-height: 1.2;
-}
-
-.home-contact .heading-line {
-    width: 80px;
-    height: 3px;
-    background: #b48b67;
-    margin: 15px auto 0;
-    border-radius: 50px;
-    transform-origin: center;
-}
-
-@media (max-width: 768px) {
     .home-contact {
-        padding: 55px 20px 30px;
-    }
-
-    .home-contact h1 {
-        font-size: 42px;
-    }
-
-    .home-contact .heading-line {
-        width: 70px;
+        padding:
+            45px 15px 25px;
     }
 }
 
-@media (max-width: 480px) {
-    .home-contact {
-        padding: 45px 15px 25px;
+
+/* =========================================
+   RESPONSIVE - SMALL MOBILE / 400PX
+========================================= */
+
+@media (max-width: 400px) {
+
+    .home-project-card {
+        height: 400px;
     }
 
-    .home-contact h1 {
-        font-size: 36px;
+    .home-project-card-overlay h2 {
+        font-size: 35px;
     }
 
-    .home-contact .heading-line {
-        width: 60px;
-        height: 2px;
+    .home-project-card-view-more {
+        font-size: 12px;
+
+        letter-spacing: 1.5px;
     }
 }

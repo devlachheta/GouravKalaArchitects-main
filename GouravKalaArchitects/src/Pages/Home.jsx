@@ -8,8 +8,7 @@ import HomeProjectCard from "../Component/HomeProjectCard";
 import "../styles/home.css";
 import Residential from "../assets/residential1.jpg";
 import Interior from "../assets/interior.png";
-import Commerical from "../assets/commercial.jpg";
-import Illustration from "../assets/illustration.jpg";
+
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
@@ -153,17 +152,6 @@ function Home() {
         <div className="hero-left">
           <div className="hero-content">
 
-            <motion.span
-              className="sub-title"
-              initial={{ opacity: 0, x: -80 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-              }}
-            >
-              GOURAV KALA ARCHITECTS
-            </motion.span>
             <motion.h1
               variants={heroContainer}
               initial="hidden"
@@ -363,7 +351,7 @@ function Home() {
         <div className="home-project-grid">
           <HomeProjectCard
             image={Residential}
-            title="Residential"
+            title="Architecture"
             link="/projects"
           />
 
@@ -373,17 +361,7 @@ function Home() {
             link="/projects"
           />
 
-          <HomeProjectCard
-            image={Commerical}
-            title="Commercial"
-            link="/projects"
-          />
 
-          <HomeProjectCard
-            image={Illustration}
-            title="Illustration"
-            link="/projects"
-          />
         </div>
       </section>
       <section className="home-services">

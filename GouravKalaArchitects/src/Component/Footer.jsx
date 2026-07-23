@@ -4,10 +4,11 @@ import {
   FiArrowUpRight,
   FiInstagram,
   FiFacebook,
-  FiYoutube
+  FiYoutube,
+
 
 } from "react-icons/fi";
-
+import { FaPinterestP } from "react-icons/fa";
 import "../styles/Footer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -22,7 +23,7 @@ function Footer() {
           {/* Logo Section */}
           <div className="col-lg-5 col-md-6 col-12 footerBrand">
             <Link to="/" className="footerLogo">
-              GKA<span>—</span>
+              Gourav Kala Architects
             </Link>
 
             <p>
@@ -57,7 +58,7 @@ function Footer() {
 
           {/* Follow */}
           <div className="col-lg-2 col-md-6 col-12 footerColumn">
-            <p className="footerLabel">Follow</p>
+            <p className="footerLabel">Connect</p>
 
             <div className="socials">
 
@@ -80,6 +81,15 @@ function Footer() {
               >
                 <FiFacebook />
               </a>
+              {/* Pinterest */}
+              <a
+                href="https://pin.it/YTYrPpZw"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pinterest"
+              >
+                <FaPinterestP />
+              </a>
 
               {/* YouTube */}
               <a
@@ -90,6 +100,7 @@ function Footer() {
               >
                 <FiYoutube />
               </a>
+
 
             </div>
           </div>

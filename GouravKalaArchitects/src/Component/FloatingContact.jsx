@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
-import { FiPhone } from "react-icons/fi";
+import { FiPhone, FiInstagram } from "react-icons/fi";
 import "../styles/floatingcontact.css";
 import useScrollThreshold from "../hooks/useScrollThreshold";
 
@@ -17,6 +17,16 @@ function FloatingContact() {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
                 >
+
+                    <a
+                        className="instagramButton"
+                        href="https://www.instagram.com/gourav_kala_architects/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Follow us on Instagram"
+                    >
+                        <FiInstagram />
+                    </a>
                     <a
                         className="whatsappButton"
                         href="https://wa.me/918959220111"
@@ -34,6 +44,7 @@ function FloatingContact() {
                     >
                         <FiPhone />
                     </a>
+
                 </motion.div>
             )}
         </AnimatePresence>
