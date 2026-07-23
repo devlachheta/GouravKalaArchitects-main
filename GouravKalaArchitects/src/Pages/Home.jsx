@@ -10,8 +10,67 @@ import Residential from "../assets/residential1.jpg";
 import Interior from "../assets/interior.png";
 
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
+function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    let startTime = null;
+    let animationFrame;
+
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
+      const currentCount = Math.floor(progress * end);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [hasStarted, end, duration]);
+
+  return (
+    <strong ref={ref}>
+      {String(count).padStart(pad, "0")}
+      {suffix}
+    </strong>
+  );
+}
 function Home() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(false);
   useEffect(() => {
@@ -111,12 +170,7 @@ function Home() {
   };
 
   const aboutLines = [
-    "Gourav Kala Architects is an architecture and interior",
-    "design studio dedicated to creating meaningful spaces",
-    "through simplicity, innovation, and attention to detail.",
-    "Every project is carefully crafted to balance aesthetics,",
-    "functionality, and sustainability, ensuring that each space",
-    "feels unique to its owner.",
+    "Gourav Kala Architects is an architecture and interior design studio dedicated to creating meaningful spaces through simplicity, innovation, and attention to detail.Every project is carefully crafted to balance aesthetics, functionality, and sustainability, ensuring that each space feels unique to its owner."
   ];
 
   const projectTitle = "Our Projects";
@@ -309,6 +363,47 @@ function Home() {
           </motion.div>
         </motion.div>
       </section >
+
+      <section className="stats-section">
+        <div className="container">
+          <div className="row stat-row">
+
+            <div className="col-12 col-md-4">
+              <div className="stat-item">
+                <CountUp end={12} suffix="+" />
+
+                <span>
+                  Years of Thoughtful <br />
+                  Design
+                </span>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-4">
+              <div className="stat-item">
+                <CountUp end={68} />
+
+                <span>
+                  Projects Shaped <br />
+                  With Care
+                </span>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-4">
+              <div className="stat-item">
+                <CountUp end={6} pad={2} />
+
+                <span>
+                  Cities Across <br />
+                  India
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
       <section className="home-projects">
         <motion.div
           className="heading-wrapper"

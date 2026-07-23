@@ -900,6 +900,79 @@
     transform-origin: center;
 }
 
+.stats-section {
+    width: 100%;
+    background: #fff;
+    padding: 0 0 70px;
+    align-items: center;
+}
+
+.stat-row {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e8e4df;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    justify-content: center;
+
+}
+
+.stat-item strong {
+    color: #5e4e40;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 39px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.stat-item span {
+    max-width: 130px;
+    color: #726b63;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .stat-item {
+        gap: 18px;
+    }
+
+    .stat-item strong {
+        font-size: 34px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .stats-section {
+        padding-bottom: 45px;
+    }
+
+    .stat-row {
+        margin-top: 30px;
+        padding-top: 15px;
+    }
+
+    .stat-item {
+        padding: 20px 0;
+        gap: 25px;
+        border-bottom: 1px solid #e8e4df;
+    }
+
+    .stat-item strong {
+        min-width: 70px;
+        font-size: 36px;
+    }
+}
+
 
 /* =========================================
    RESPONSIVE - 1100PX
