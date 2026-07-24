@@ -113,14 +113,11 @@ function Header() {
                             
                             <li className="nav-item dropdown pe-5">
                                 <a
-                                    className="nav-link dropdown-toggle socials-toggle"
+                                    className="nav-link socials-toggle"
                                     href="#"
                                     id="socialDropdown"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
                                 >
-                                        SOCIALS
+                                    SOCIALS
                                 </a>
 
                                 <ul className="dropdown-menu dropdown-menu-end">
