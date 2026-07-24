@@ -87,8 +87,11 @@
 
 .header .nav-item {
   display: flex;
-
   align-items: center;
+}
+
+.header .nav-item.dropdown {
+  position: relative;
 }
 
 
@@ -315,78 +318,107 @@
 =========================== */
 
 .header .dropdown-menu {
-    margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    display: block;
 
     min-width: 220px;
 
-    padding: 6px 0;
+    margin: 0;
+    padding: 8px 0;
 
-    border: 1px solid #ebe7e1;
-    border-radius: 0;
+    border: none;
 
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
 
-    box-shadow: 0 8px 20px rgba(35,31,28,.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-    animation: dropdownFade .25s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.header .nav-item.dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
 }
 
 .header .dropdown-item {
-  padding: 14px 24px;
-
-  color: #4a4640;
-
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: .04em;
-
-  transition: all .2s ease;
-}
-
-.header .dropdown-item {
-    padding: 14px 22px;
-
-    color: #4a4640;
-
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: .04em;
-    font-family: inherit;
+    padding: 14px 28px;
 
     background: transparent;
 
-    transition:
-        color .2s ease,
-        padding-left .2s ease;
-}
-@keyframes dropdownFade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+    color: #4a4640;
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    transition:
+        color .25s ease,
+        background-color .25s ease,
+        padding-left .25s ease;
+}
+
+.header .dropdown-item:hover,
+.header .dropdown-item:focus {
+    background: transparent;
+
+    color: #292723;
+
+    padding-left: 34px;
+}
+
+.header .dropdown-item:active {
+    background: #f8f6f2;
+    color: #292723;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===========================
   SOCIALS LINK FIX
 =========================== */
 
-.header .socials-toggle::after {
+.header .socials-toggle::before {
+    content: "";
+
     position: absolute;
 
-    right: 0;
     left: 0;
+    right: 0;
     bottom: 2px;
 
     height: 1px;
 
     background: #302d29;
-
-    content: "";
 
     transform: scaleX(0);
     transform-origin: right;
@@ -394,30 +426,46 @@
     transition: transform .25s ease;
 }
 
-.header .socials-toggle:hover::after {
+.header .dropdown:hover .socials-toggle::before {
     transform: scaleX(1);
     transform-origin: left;
 }
 
-/* Keep same underline while dropdown is open */
-.header .socials-toggle.show::after {
-    transform: scaleX(1);
-    transform-origin: left;
+.header .dropdown:hover .socials-toggle {
+    color: #292723 !important;
 }
 
 /* ===========================
-  SOCIALS - MATCH NAV LINKS
+  SOCIALS TOGGLE
 =========================== */
 
 .header .socials-toggle {
-    color: #4a4640 !important;
+    position: relative;
 
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
 
     padding: 8px 0 !important;
 
-    background: transparent;
+    color: #4a4640 !important;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .04em;
+
+    text-decoration: none;
+
+    transition: color .25s ease;
+}
+
+.header .socials-toggle:hover,
+.header .socials-toggle.show {
+    color: #292723 !important;
+}
+
+/* Remove Bootstrap arrow */
+
+.header .socials-toggle.dropdown-toggle::after {
+    display: none;
 }
