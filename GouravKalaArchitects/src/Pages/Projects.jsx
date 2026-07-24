@@ -1,38 +1,55 @@
-
 import "../styles/project.css";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+
+// PROJECT CARD IMAGES
 import Residentail from "../assets/residential1.jpg";
+import Residentail1 from "../assets/architecture1.jpg";
 import DinningSpace from "../assets/interior1.png";
 import BedRoom from "../assets/bedroominterior.jpeg";
 import LIVING from "../assets/livingroom1.png";
-import Residentail1 from "../assets/architecture1.jpg"
-import CTASection from "../CTASection";
+
+// PROJECT BANNER IMAGES
 import ProjectCover1 from "../assets/projectcover1.png";
 import ProjectCover2 from "../assets/projectcover2.png";
 import ProjectCover3 from "../assets/projectcover3.png";
 import ProjectCover4 from "../assets/projectcover4.png";
 import ProjectCover5 from "../assets/projectcover5.png";
-
 import ProjectCover6 from "../assets/projectcover6.jpeg";
 
+// CTA
+import CTASection from "../CTASection";
+
+
 function Projects() {
+
   const [active, setActive] = useState("All");
 
   const navigate = useNavigate();
 
+
+  // =========================================
+  // FILTERS
+  // =========================================
+
   const filters = [
     "All",
     "Architecture",
-    "Interior"
+    "Interior",
   ];
+
+
+  // =========================================
+  // PROJECT DATA
+  // =========================================
 
   const projects = [
 
-
-    // =========================
+    // =====================================
     // ARCHITECTURE - 6 PROJECTS
-    // =========================
+    // =====================================
 
     {
       id: 1,
@@ -41,6 +58,7 @@ function Projects() {
       category: "Architecture",
       image: Residentail1,
     },
+
     {
       id: 2,
       slug: "urban-residence",
@@ -48,6 +66,7 @@ function Projects() {
       category: "Architecture",
       image: Residentail,
     },
+
     {
       id: 3,
       slug: "courtyard-house",
@@ -55,6 +74,7 @@ function Projects() {
       category: "Architecture",
       image: Residentail,
     },
+
     {
       id: 7,
       slug: "modern-villa",
@@ -62,6 +82,7 @@ function Projects() {
       category: "Architecture",
       image: Residentail1,
     },
+
     {
       id: 8,
       slug: "contemporary-house",
@@ -69,6 +90,7 @@ function Projects() {
       category: "Architecture",
       image: Residentail,
     },
+
     {
       id: 9,
       slug: "weekend-residence",
@@ -77,9 +99,10 @@ function Projects() {
       image: Residentail1,
     },
 
-    // ======================
+
+    // =====================================
     // INTERIOR - 6 PROJECTS
-    // ======================
+    // =====================================
 
     {
       id: 4,
@@ -88,6 +111,7 @@ function Projects() {
       category: "Interior",
       image: DinningSpace,
     },
+
     {
       id: 5,
       slug: "modern-living-room",
@@ -95,6 +119,7 @@ function Projects() {
       category: "Interior",
       image: LIVING,
     },
+
     {
       id: 6,
       slug: "luxury-bedroom",
@@ -102,6 +127,7 @@ function Projects() {
       category: "Interior",
       image: BedRoom,
     },
+
     {
       id: 10,
       slug: "contemporary-dining-interior",
@@ -109,6 +135,7 @@ function Projects() {
       category: "Interior",
       image: DinningSpace,
     },
+
     {
       id: 11,
       slug: "refined-living-space",
@@ -116,6 +143,7 @@ function Projects() {
       category: "Interior",
       image: LIVING,
     },
+
     {
       id: 12,
       slug: "serene-bedroom-interior",
@@ -123,24 +151,44 @@ function Projects() {
       category: "Interior",
       image: BedRoom,
     },
+
   ];
+
+
+  // =========================================
+  // FILTER PROJECTS
+  // =========================================
+
   const displayedProjects =
     active === "All"
       ? [
         ...projects
-          .filter((project) => project.category === "Architecture")
+          .filter(
+            (project) =>
+              project.category === "Architecture"
+          )
           .slice(0, 3),
 
         ...projects
-          .filter((project) => project.category === "Interior")
+          .filter(
+            (project) =>
+              project.category === "Interior"
+          )
           .slice(0, 3),
       ]
       : projects.filter(
-        (project) => project.category === active
+        (project) =>
+          project.category === active
       );
+
+
   return (
+
     <>
 
+      {/* =====================================
+          PROJECT HERO / BANNER CAROUSEL
+      ====================================== */}
 
       <section className="project-hero">
 
@@ -151,7 +199,8 @@ function Projects() {
           data-bs-interval="1800"
         >
 
-          {/* INDICATORS */}
+          {/* CAROUSEL INDICATORS */}
+
           <div className="carousel-indicators">
 
             <button
@@ -201,59 +250,79 @@ function Projects() {
           </div>
 
 
+          {/* CAROUSEL IMAGES */}
+
           <div className="carousel-inner">
 
             <div className="carousel-item active">
+
               <img
                 src={ProjectCover1}
                 className="d-block w-100"
                 alt="Project 1"
               />
+
             </div>
 
+
             <div className="carousel-item">
+
               <img
                 src={ProjectCover2}
                 className="d-block w-100"
                 alt="Project 2"
               />
+
             </div>
 
+
             <div className="carousel-item">
+
               <img
                 src={ProjectCover3}
                 className="d-block w-100"
                 alt="Project 3"
               />
+
             </div>
 
+
             <div className="carousel-item">
+
               <img
                 src={ProjectCover4}
                 className="d-block w-100"
                 alt="Project 4"
               />
+
             </div>
 
+
             <div className="carousel-item">
+
               <img
                 src={ProjectCover5}
                 className="d-block w-100"
                 alt="Project 5"
               />
+
             </div>
 
+
             <div className="carousel-item">
+
               <img
                 src={ProjectCover6}
                 className="d-block w-100"
                 alt="Project 6"
               />
+
             </div>
 
           </div>
 
 
+          {/* PREVIOUS BUTTON */}
 
           <button
             className="carousel-control-prev"
@@ -261,6 +330,7 @@ function Projects() {
             data-bs-target="#projectCarousel"
             data-bs-slide="prev"
           >
+
             <span
               className="carousel-control-prev-icon"
               aria-hidden="true"
@@ -269,7 +339,11 @@ function Projects() {
             <span className="visually-hidden">
               Previous
             </span>
+
           </button>
+
+
+          {/* NEXT BUTTON */}
 
           <button
             className="carousel-control-next"
@@ -277,6 +351,7 @@ function Projects() {
             data-bs-target="#projectCarousel"
             data-bs-slide="next"
           >
+
             <span
               className="carousel-control-next-icon"
               aria-hidden="true"
@@ -285,14 +360,24 @@ function Projects() {
             <span className="visually-hidden">
               Next
             </span>
+
           </button>
 
         </div>
 
       </section>
+
+
+      {/* =====================================
+          PROJECT PORTFOLIO
+      ====================================== */}
+
       <section className="portfolio-section">
+
         <div className="container">
 
+
+          {/* FILTER BUTTONS */}
 
           <div className="portfolio-filter">
 
@@ -300,67 +385,145 @@ function Projects() {
 
               <button
                 key={item}
-                className={active === item ? "active-filter" : ""}
+                className={
+                  active === item
+                    ? "active-filter"
+                    : ""
+                }
                 onClick={() => setActive(item)}
               >
+
                 {item}
+
               </button>
 
             ))}
 
           </div>
+
+
+          {/* =====================================
+              PROJECT GRID
+          ====================================== */}
+
           <div className="project-grid">
 
-            {displayedProjects.map((project) => (
+            <AnimatePresence mode="popLayout">
 
-              <div
-                className="project-card"
-                key={project.id}
-                onClick={() => navigate(`/projects/${project.slug}`)}
-              >
+              {displayedProjects.map(
+                (project, index) => (
 
-                <div className="project-image">
+                  <motion.div
+                    className="project-card"
+                    key={`${active}-${project.id}`}
 
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                  />
+                    initial={{
+                      opacity: 0,
+                      scale: 1.06,
+                    }}
 
-                  {active === "All" && (
-                    <span className="project-category">
-                      {project.category}
-                    </span>
-                  )}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                    }}
 
-                  <button className="project-view-more">
-                    VIEW MORE
-                  </button>
+                    exit={{
+                      opacity: 0,
+                      scale: 1.02,
+                    }}
 
-                </div>
+                    transition={{
+                      duration: 1,
+                      delay: index * 0.08,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
 
-                <div className="project-content">
+                    onClick={() =>
+                      navigate(`/projects/${project.slug}`)
+                    }
+                  >
 
-                  <h3>
-                    {project.title}
-                  </h3>
 
-                  <span>
-                    {String(project.id).padStart(2, "0")}
-                  </span>
+                    {/* PROJECT IMAGE */}
 
-                </div>
+                    <div className="project-image">
 
-              </div>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                      />
 
-            ))}
+
+                      {/* CATEGORY ONLY ON ALL */}
+
+                      {active === "All" && (
+
+                        <span className="project-category">
+
+                          {project.category}
+
+                        </span>
+
+                      )}
+
+
+                      {/* VIEW MORE */}
+
+                      <button
+                        className="project-view-more"
+                        type="button"
+                      >
+
+                        VIEW MORE
+
+                      </button>
+
+                    </div>
+
+
+                    {/* PROJECT TITLE + NUMBER */}
+
+                    <div className="project-content">
+
+                      <h3>
+                        {project.title}
+                      </h3>
+
+                      <span>
+
+                        {String(project.id).padStart(
+                          2,
+                          "0"
+                        )}
+
+                      </span>
+
+                    </div>
+
+                  </motion.div>
+
+                )
+              )}
+
+            </AnimatePresence>
 
           </div>
 
         </div>
+
       </section>
+
+
+      {/* =====================================
+          CTA SECTION
+      ====================================== */}
+
       <CTASection />
+
     </>
+
   );
 
 }
+
 export default Projects;
