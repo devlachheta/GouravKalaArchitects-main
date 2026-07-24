@@ -87,8 +87,11 @@
 
 .header .nav-item {
   display: flex;
-
   align-items: center;
+}
+
+.header .nav-item.dropdown {
+  position: relative;
 }
 
 
@@ -315,48 +318,72 @@
 =========================== */
 
 .header .dropdown-menu {
-    margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    display: block;
 
     min-width: 220px;
 
+    margin: 0;
     padding: 8px 0;
 
-    border: 1px solid #ebe7e1;
-    border-radius: 0;
+    border: none;
 
-    background: #fff;
+    background: rgba(255, 255, 255, 0.12);
 
-    box-shadow: 0 10px 24px rgba(35,31,28,.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-    animation: dropdownFade .25s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.header .nav-item.dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
 }
 
 .header .dropdown-item {
-    padding: 14px 24px;
+    padding: 14px 28px;
 
     background: transparent;
 
     color: #4a4640;
 
-    font-family: "Jost", sans-serif;   /* Use the same font as CONTACT */
-    font-size: 13px;
-    font-weight: 600;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
     letter-spacing: 0.04em;
     text-transform: uppercase;
 
     transition:
-        background-color .2s ease,
-        color .2s ease,
-        padding-left .2s ease;
+        color .25s ease,
+        background-color .25s ease,
+        padding-left .25s ease;
 }
 
 .header .dropdown-item:hover,
 .header .dropdown-item:focus {
-    background: #f8f6f2;
+    background: transparent;
 
     color: #292723;
 
-    padding-left: 30px;
+    padding-left: 34px;
 }
 
 .header .dropdown-item:active {
@@ -399,10 +426,13 @@
     transition: transform .25s ease;
 }
 
-.header .socials-toggle:hover::before,
-.header .socials-toggle.show::before {
+.header .dropdown:hover .socials-toggle::before {
     transform: scaleX(1);
     transform-origin: left;
+}
+
+.header .dropdown:hover .socials-toggle {
+    color: #292723 !important;
 }
 
 /* ===========================
