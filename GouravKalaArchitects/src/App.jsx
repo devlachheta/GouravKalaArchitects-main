@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
 import Projects from "./Pages/Projects";
+import ProjectDetails from "./Pages/ProjectDetails";
 import ContactUs from "./Pages/ContactUs";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
@@ -27,6 +28,10 @@ function App() {
         />
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
+        <Route
+          path="/projects/:slug"
+          element={<ProjectDetails />}
+        />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
       <FloatingContact />
