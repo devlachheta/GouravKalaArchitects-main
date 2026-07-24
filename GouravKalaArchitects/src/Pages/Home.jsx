@@ -1,5 +1,5 @@
 
-import Header from "../Component/Header";
+
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
 import Banner from "../assets/gouravhero.PNG";
@@ -9,6 +9,7 @@ import "../styles/home.css";
 import Residential from "../assets/residential1.jpg";
 import Interior from "../assets/interior.png";
 
+import CTASection from "../CTASection";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
@@ -201,6 +202,7 @@ function Home() {
 
   return (
     <>
+
       <section className="hero">
 
         <div className="hero-left">
@@ -619,6 +621,7 @@ function Home() {
         </motion.div>
 
       </section>
+      <CTASection />
     </>
   );
 }

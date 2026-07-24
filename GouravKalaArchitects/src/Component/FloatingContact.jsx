@@ -5,7 +5,7 @@ import "../styles/floatingcontact.css";
 import useScrollThreshold from "../hooks/useScrollThreshold";
 
 function FloatingContact() {
-    const showAfterScroll = useScrollThreshold(300);
+    const showAfterScroll = useScrollThreshold(150);
 
     return (
         <AnimatePresence>

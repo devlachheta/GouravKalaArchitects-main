@@ -207,7 +207,43 @@
   text-transform: uppercase;
 }
 
+.about-social-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
+.about-social-platform {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #726b63;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-social-icon {
+  font-size: 30px;
+  color: #5e4e40;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.about-social-type {
+  color: #726b63;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  /* Align second line with text, not icon */
+  padding-left: 20px;
+}
 
 @media (max-width: 1199px) {
 
@@ -628,6 +664,111 @@
   text-transform: uppercase;
 }
 
+/* ================================
+   ABOUT SOCIAL STATS
+================================ */
+
+.about-social-stats {
+  width: 100%;
+  background: #fff;
+  padding: 0 0 70px;
+}
+
+.about-social-stats-row {
+  padding-top: 38px;
+  padding-bottom: 38px;
+  border-top: 1px solid #e8e4df;
+}
+
+.about-social-stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Big Number */
+.about-social-stat-item strong {
+  color: #5e4e40;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 39px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Small Text */
+.about-social-stat-item span {
+  min-width: 120px;
+
+  color: #726b63;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 991px) {
+
+  .about-social-stat-item {
+    gap: 20px;
+  }
+
+  .about-social-stat-item strong {
+    font-size: 34px;
+  }
+
+  .about-social-stat-item span {
+    min-width: auto;
+    font-size: 9px;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 767px) {
+
+  .about-social-stats {
+    padding-bottom: 40px;
+  }
+
+  .about-social-stats-row {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  .about-social-stat-item {
+    justify-content: flex-start;
+
+    padding: 22px 10px;
+
+    gap: 25px;
+
+    border-bottom: 1px solid #e8e4df;
+  }
+
+  .about-social-stat-item strong {
+    min-width: 105px;
+
+    font-size: 34px;
+  }
+
+  .about-social-stat-item span {
+    font-size: 10px;
+  }
+}
 
 
 @media (max-width: 991px) {

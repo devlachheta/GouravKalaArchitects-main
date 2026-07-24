@@ -1,11 +1,80 @@
 import { FiArrowDownRight } from "react-icons/fi";
 import CTASection from "../CTASection";
+
 import "../styles/About.css";
 import { motion } from "framer-motion";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+} from "react-icons/fa";
 import Banner from "../assets/gouravhero.PNG";
 import "../styles/ContactUs.css";
+import { useEffect, useRef, useState } from "react";
 import VisionImg from "../assets/About-vision.jpeg";
+function CountUp({ end, duration = 1800, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    let startTime = null;
+    let animationFrame;
+
+    const animate = (currentTime) => {
+      if (!startTime) {
+        startTime = currentTime;
+      }
+
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
+      const currentCount = Math.floor(progress * end);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [hasStarted, end, duration]);
+
+  return (
+    <strong ref={ref}>
+      {count}
+      {suffix}
+    </strong>
+  );
+}
 function About() {
 
 
@@ -100,6 +169,7 @@ function About() {
 
   return (
     <>
+
       <section className="about-hero">
 
         <div className="about-hero-left">
@@ -245,7 +315,109 @@ function About() {
         </div>
 
       </section>
+      {/* SOCIAL STATS SECTION */}
+      <section className="about-social-stats">
+        <div className="container">
 
+          <div className="row about-social-stats-row">
+
+            {/* INSTAGRAM */}
+            <div className="col-12 col-md-4">
+              <div className="about-social-stat-item">
+
+                <a
+                  href="https://www.instagram.com/gourav_kala_architects?igsh=MWdicHBxNm1hZ251eA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="about-social-icon-link"
+                  aria-label="Visit our Instagram"
+                >
+                  <FaInstagram className="about-social-icon" />
+                </a>
+
+                <CountUp
+                  end={100}
+                  suffix="K+"
+                  duration={1800}
+                />
+
+                <div className="about-social-label">
+                  <span className="about-social-type">
+                    Instagram <br />
+                    Community
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* FACEBOOK */}
+            <div className="col-12 col-md-4">
+              <div className="about-social-stat-item">
+
+                <a
+                  href="https://www.facebook.com/gourav_kala_architects-102242344806883/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="about-social-icon-link"
+                  aria-label="Visit our Facebook"
+                >
+                  <FaFacebookF className="about-social-icon" />
+                </a>
+
+                <CountUp
+                  end={95}
+                  suffix="K+"
+                  duration={1800}
+                />
+
+                <div className="about-social-label">
+                  <span className="about-social-type">
+                    Facebook <br />
+                    Community
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* YOUTUBE */}
+            <div className="col-12 col-md-4">
+              <div className="about-social-stat-item">
+
+                <a
+                  href="https://youtube.com/channel/UCYu1r48kaBtVizLBsBV7IBA"
+
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="about-social-icon-link"
+                  aria-label="Visit our YouTube"
+                >
+                  <FaYoutube className="about-social-icon" />
+                </a>
+
+                <CountUp
+                  end={65}
+                  suffix="K+"
+                  duration={1800}
+                />
+
+                <div className="about-social-label">
+                  <span className="about-social-type">
+                    YouTube <br />
+                    Subscribers
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
 
       <section className="about-values">
 
@@ -537,7 +709,7 @@ function About() {
         </div>
 
       </section>
-
+      <CTASection />
     </>
   );
 }

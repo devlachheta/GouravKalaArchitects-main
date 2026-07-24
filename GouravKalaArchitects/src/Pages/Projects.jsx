@@ -7,6 +7,7 @@ import DinningSpace from "../assets/interior1.png";
 import BedRoom from "../assets/bedroominterior.jpeg";
 import LIVING from "../assets/livingroom1.png";
 import Residentail1 from "../assets/architecture1.jpg"
+import CTASection from "../CTASection";
 
 function Projects() {
   const [active, setActive] = useState("All");
@@ -58,6 +59,7 @@ function Projects() {
 
   return (
     <>
+
 
       <section className="project-hero">
         <div className="container-fluid p-0">
@@ -163,6 +165,7 @@ function Projects() {
 
         </div>
       </section>
+      <CTASection />
     </>
   );
 

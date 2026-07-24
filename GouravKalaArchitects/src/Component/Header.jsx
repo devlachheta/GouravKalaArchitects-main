@@ -110,7 +110,7 @@ function Header() {
                                     CONTACT
                                 </NavLink>
                             </li>
-                            
+
                             <li className="nav-item dropdown pe-5">
                                 <a
                                     className="nav-link dropdown-toggle socials-toggle"
@@ -120,26 +120,26 @@ function Header() {
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
                                 >
-                                        SOCIALS
+                                    SOCIALS
                                 </a>
 
                                 <ul className="dropdown-menu dropdown-menu-end">
                                     <li>
-                                            <a
-                                                className="dropdown-item"
-                                                href="https://www.instagram.com/gourav_kala_architects?igsh=MWdicHBxNm1hZ251eA=="
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                Instagram
-                                            </a>
-                                        </li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="https://www.instagram.com/gourav_kala_architects?igsh=MWdicHBxNm1hZ251eA=="
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Instagram
+                                        </a>
+                                    </li>
 
-                                        <li><a className="dropdown-item" href="https://www.facebook.com/profile.php?id=100064194397652" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                                    <li><a className="dropdown-item" href="https://www.facebook.com/profile.php?id=100064194397652" target="_blank" rel="noopener noreferrer">Facebook</a></li>
 
-                                        <li><a className="dropdown-item" href="https://in.pinterest.com/gourav_kala_architects/?invite_code=5ae9f6f0aa7d454fb8f6ce6f5be61fea&sender=815855426154368256/" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+                                    <li><a className="dropdown-item" href="https://in.pinterest.com/gourav_kala_architects/?invite_code=5ae9f6f0aa7d454fb8f6ce6f5be61fea&sender=815855426154368256/" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
 
-                                        <li><a className="dropdown-item" href="https://www.youtube.com/@gouravkalaarchitects" target="_blank" rel="noopener noreferrer">Youtube</a></li>
+                                    <li><a className="dropdown-item" href="https://www.youtube.com/@gouravkalaarchitects" target="_blank" rel="noopener noreferrer">Youtube</a></li>
                                 </ul>
                             </li>
                         </ul>
