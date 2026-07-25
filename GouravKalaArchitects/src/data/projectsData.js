@@ -1,32 +1,26 @@
 import ProjectCover1 from "../assets/projectcover1.png";
 
-import Residentail from "../assets/architecture1.jpg";
-import Residentail1 from "../assets/architecture1.jpg";
-import architectureImg from "../assets/Services-architects-image1.jpg";
-import interiorImg from "../assets/Services-interior.png";
-import landscapImg from "../assets/Services-landscap.png";
-import constructionImg from "../assets/Services-Construction.png";
+import Madan3 from "../assets/madan3.jpg";
+import Madan2 from "../assets/madan2.jpg";
+import Madan1 from "../assets/madan1.jpg";
+import Madan4 from "../assets/madan5.jpg";
+import Madan5 from "../assets/madanProjectCover.jpg";
+import Madan6 from "../assets/madanpaditarcover.jpg";
+import Project1Cover from "../assets/madanProjectCover.jpg";
 
 
 const projectsData = [
 
-  // =====================================================
-  // ARCHITECTURE PROJECT 1 — LUXURY VILLA
-  // =====================================================
   {
     id: 1,
     slug: "luxury-villa",
-    title: "Luxury Villa",
-    category: "Architecture",
-
-    // PROJECT INFORMATION
+    title: "MPM",
+    category: "PROJECT",
     location: "Indore, India",
-    year: "2026",
+    plotArea: "7100 Sq. Ft.",
+    buildUpArea: "5131 Sq. Ft.",
     status: "Completed",
-
-    // PROJECT BANNER IMAGE
-    // Replace this later with the actual Luxury Villa banner
-    bannerImage: ProjectCover1,
+    bannerImage: Project1Cover,
 
     // PROJECT DESCRIPTION
     description:
@@ -35,16 +29,13 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Replace these later with actual Luxury Villa images
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan2,
+      Madan5,
+      Madan3,
+      Madan4,
+      Madan1,
+      Madan2
     ],
-
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
-    // Use null if there is no video
     youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
 
@@ -74,12 +65,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
+
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -112,12 +103,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -150,12 +140,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -188,12 +177,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -226,12 +214,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -264,12 +251,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -302,12 +288,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -340,12 +325,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -378,12 +362,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -416,12 +399,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -454,12 +436,11 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Residentail,
-      Residentail1,
-      architectureImg,
-      interiorImg,
-      landscapImg,
-      constructionImg,
+      Madan1,
+      Madan2,
+      Madan3,
+      Madan4,
+      Madan5,
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
