@@ -25,25 +25,22 @@
 
 .footerLogo {
   display: inline-block;
+  margin: 0;
 
   color: #ffffff;
 
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 47px;
-  font-weight: 500;
-  line-height: 1;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 
-  letter-spacing: -0.07em;
-
+  text-transform: uppercase;
   text-decoration: none;
 }
 
-.footerLogo:hover {
+.footerLogo:hover,
+.footerLogo:focus {
   color: #ffffff;
-}
-
-.footerLogo span {
-  color: #af9073;
+  text-decoration: none;
 }
 
 

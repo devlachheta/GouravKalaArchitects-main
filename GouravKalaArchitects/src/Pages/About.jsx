@@ -1,9 +1,132 @@
 import { FiArrowDownRight } from "react-icons/fi";
 import CTASection from "../CTASection";
+
 import "../styles/About.css";
+import { motion } from "framer-motion";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+} from "react-icons/fa";
+import Banner from "../assets/gouravhero.PNG";
+import "../styles/ContactUs.css";
+import { useEffect, useRef, useState } from "react";
+import VisionImg from "../assets/About-vision.jpeg";
+function CountUp({ end, duration = 1800, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      {
+        threshold: 0.4,
+      }
+    );
 
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    let startTime = null;
+    let animationFrame;
+
+    const animate = (currentTime) => {
+      if (!startTime) {
+        startTime = currentTime;
+      }
+
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
+      const currentCount = Math.floor(progress * end);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [hasStarted, end, duration]);
+
+  return (
+    <strong ref={ref}>
+      {count}
+      {suffix}
+    </strong>
+  );
+}
 function About() {
+
+
+  const heroTitle = "Made for the long";
+  const heroTitle2 = "way around.";
+
+  const heroContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.04,
+      },
+    },
+  };
+
+  const heroLetter = {
+    hidden: {
+      opacity: 0,
+      x: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
 
   const timeline = [
     {
@@ -46,65 +169,88 @@ function About() {
 
   return (
     <>
+
       <section className="about-hero">
-        <div className="container-fluid p-0">
-          <div className="row g-0 about-hero-row">
 
+        <div className="about-hero-left">
+          <div className="about-hero-content">
 
+            <motion.span
+              className="about-hero-sub-title"
+              initial={{ opacity: 0, x: -80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+            >
+              OUR STUDIO
+            </motion.span>
+            <motion.h1
+              variants={heroContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              {heroTitle.split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={heroLetter}
+                  style={{
+                    display: "inline-block",
+                    whiteSpace: char === " " ? "pre" : "normal",
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
 
-            <div className="col-lg-6 about-hero-left">
-              <div className="about-hero-content">
+              <br />
 
-                <p className="about-hero-eyebrow">
-                  OUR STUDIO
-                </p>
+              <span className="about-hero-second-line">
+                {heroTitle2.split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={heroLetter}
+                    style={{
+                      display: "inline-block",
+                      whiteSpace: char === " " ? "pre" : "normal",
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+            </motion.h1>
 
-                <h1 className="about-hero-title">
-                  Made for the long
-                  <br />
-                  <em>way around.</em>
-                </h1>
+            <motion.p variants={itemVariants}>
+              We are an independent architecture and interiors practice <br />
+              based in India.
+            </motion.p>
 
-                <p className="about-hero-description">
-                  We are an independent architecture and interiors practice
-                  <br className="d-none d-xl-block" />
-                  based in India.
-                </p>
-
-              </div>
-            </div>
-
-
-            <div className="col-lg-6 about-hero-right">
-
-              <div className="about-portrait">
-
-                <span className="portrait-number">
-                  02
-                </span>
-
-                <div className="portrait-circle portrait-circle-top"></div>
-
-                <div className="portrait-diagonal"></div>
-
-                <div className="portrait-shape"></div>
-
-                <div className="portrait-circle portrait-circle-bottom"></div>
-
-                <p className="portrait-label">
-                  REPLACE WITH STUDIO
-                  <br />
-                  PORTRAIT
-                </p>
-
-              </div>
-
-            </div>
 
           </div>
         </div>
-      </section>
 
+        <motion.div
+          className="about-hero-right"
+          initial={{
+            opacity: 0,
+            x: 120,
+            scale: 1.08,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1.3,
+            ease: "easeOut",
+          }}
+        >
+          <img src={Banner} alt="Hero" />
+        </motion.div>
+      </section>
       <section className="about-story">
 
         <div className="container">
@@ -169,7 +315,109 @@ function About() {
         </div>
 
       </section>
+      {/* SOCIAL STATS SECTION */}
+      <section className="about-social-stats">
+        <div className="container">
 
+          <div className="row about-social-stats-row">
+
+            {/* INSTAGRAM */}
+            <div className="col-12 col-md-4">
+              <div className="about-social-stat-item">
+
+                <a
+                  href="https://www.instagram.com/gourav_kala_architects?igsh=MWdicHBxNm1hZ251eA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="about-social-icon-link"
+                  aria-label="Visit our Instagram"
+                >
+                  <FaInstagram className="about-social-icon" />
+                </a>
+
+                <CountUp
+                  end={100}
+                  suffix="K+"
+                  duration={1800}
+                />
+
+                <div className="about-social-label">
+                  <span className="about-social-type">
+                    Instagram <br />
+                    Community
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* FACEBOOK */}
+            <div className="col-12 col-md-4">
+              <div className="about-social-stat-item">
+
+                <a
+                  href="https://www.facebook.com/gourav_kala_architects-102242344806883/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="about-social-icon-link"
+                  aria-label="Visit our Facebook"
+                >
+                  <FaFacebookF className="about-social-icon" />
+                </a>
+
+                <CountUp
+                  end={95}
+                  suffix="K+"
+                  duration={1800}
+                />
+
+                <div className="about-social-label">
+                  <span className="about-social-type">
+                    Facebook <br />
+                    Community
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* YOUTUBE */}
+            <div className="col-12 col-md-4">
+              <div className="about-social-stat-item">
+
+                <a
+                  href="https://youtube.com/channel/UCYu1r48kaBtVizLBsBV7IBA"
+
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="about-social-icon-link"
+                  aria-label="Visit our YouTube"
+                >
+                  <FaYoutube className="about-social-icon" />
+                </a>
+
+                <CountUp
+                  end={65}
+                  suffix="K+"
+                  duration={1800}
+                />
+
+                <div className="about-social-label">
+                  <span className="about-social-type">
+                    YouTube <br />
+                    Subscribers
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
 
       <section className="about-values">
 
@@ -199,7 +447,7 @@ function About() {
             </div>
 
 
-            <div className="col-md-4">
+            {/* <div className="col-md-4">
 
               <article className="value-card">
 
@@ -218,8 +466,75 @@ function About() {
 
               </article>
 
-            </div>
+            </div> */}
+            <div className="col-md-4">
+              <motion.article
+                className="value-card vision-card"
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
+              >
+                <motion.span
+                  variants={{
+                    rest: { y: 0 },
+                    hover: { y: -3 },
+                  }}
+                >
+                  02
+                </motion.span>
 
+                <h3>Our vision</h3>
+
+                <div className="vision-content-area">
+
+                  {/* NORMAL DESCRIPTION */}
+                  <motion.p
+                    className="vision-description"
+                    variants={{
+                      rest: {
+                        opacity: 1,
+                        y: 0,
+                      },
+                      hover: {
+                        opacity: 0,
+                        y: 10,
+                      },
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    To leave behind an architecture of calm,
+                    character and lasting relevance.
+                  </motion.p>
+
+                  {/* HOVER IMAGE */}
+                  <motion.div
+                    className="vision-hover-image"
+                    variants={{
+                      rest: {
+                        opacity: 0,
+                        y: 20,
+                        scale: 1.04,
+                      },
+                      hover: {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                      },
+                    }}
+                    transition={{
+                      duration: 0.55,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <img
+                      src={VisionImg}
+                      alt="Our architectural vision"
+                    />
+                  </motion.div>
+
+                </div>
+              </motion.article>
+            </div>
             <div className="col-md-4">
 
               <article className="value-card">
@@ -394,7 +709,7 @@ function About() {
         </div>
 
       </section>
-
+      <CTASection />
     </>
   );
 }

@@ -26,8 +26,9 @@
 
     box-shadow: 0 8px 20px rgba(32, 29, 25, 0.22);
 
-    transition: transform .3s ease,
-        box-shadow .3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .floatingContact a:hover {
@@ -35,14 +36,27 @@
     box-shadow: 0 14px 28px rgba(32, 29, 25, 0.3);
 }
 
+/* WhatsApp */
 .whatsappButton {
     background: #25D366;
 }
 
+/* Call */
 .callButton {
     background: #3D3A36;
 }
 
+/* Instagram */
+.instagramButton {
+    background: linear-gradient(45deg,
+            #f09433,
+            #e6683c,
+            #dc2743,
+            #cc2366,
+            #bc1888);
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     .floatingContact {
         left: 16px;

@@ -9,9 +9,10 @@ import {
   FiTool,
   FiArrowUpRight,
 } from "react-icons/fi";
-
+import CTASection from "../CTASection";
 import "../styles/Services.css";
 import { motion } from "framer-motion";
+
 import Banner from "../assets/gouravhero.PNG";
 import architectureImg from "../assets/Services-architects-image1.jpg";
 import interiorImg from "../assets/Services-interior.png";
@@ -278,6 +279,7 @@ function Services() {
           </h2>
         </div>
       </section>
+      <CTASection />
     </>
   );
 }
