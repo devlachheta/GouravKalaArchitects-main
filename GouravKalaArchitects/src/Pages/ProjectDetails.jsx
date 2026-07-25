@@ -9,19 +9,9 @@ function ProjectDetails() {
 
   const { slug } = useParams();
 
-
-  // =========================================
-  // FIND PROJECT USING URL SLUG
-  // =========================================
-
   const project = projectsData.find(
     (item) => item.slug === slug
   );
-
-
-  // =========================================
-  // PROJECT NOT FOUND
-  // =========================================
 
   if (!project) {
 
@@ -45,42 +35,7 @@ function ProjectDetails() {
     <main className="project-details-page">
 
 
-      {/* =========================================
-          1. PROJECT HERO BANNER
-      ========================================== */}
-
       <section className="project-detail-hero">
-
-
-        {/* BANNER IMAGE */}
-
-        <motion.img
-
-          src={project.bannerImage}
-
-          alt={project.title}
-
-          className="project-detail-hero-image"
-
-          initial={{
-            opacity: 0,
-            scale: 1.08,
-          }}
-
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-
-          transition={{
-            duration: 1.4,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-
-        />
-
-
-        {/* DARK OVERLAY */}
 
         <div className="project-detail-overlay"></div>
 
@@ -110,27 +65,19 @@ function ProjectDetails() {
         >
 
           <span className="project-detail-category">
-
             {project.category}
-
           </span>
-
-
           <h1>
-
             {project.title}
-
           </h1>
-
+          <p>
+            Plot Area:{project.plotArea} <br />
+            Built up Area: {project.buildUpArea}
+          </p>
 
           <div className="project-detail-location">
-
             <span>
-              {project.location}
-            </span>
-
-            <span>
-              —
+              Location: {project.location}
             </span>
 
             <span>
@@ -145,12 +92,7 @@ function ProjectDetails() {
       </section>
 
 
-
-      {/* =========================================
-          2. ABOUT THE PROJECT
-      ========================================== */}
-
-      <section className="project-detail-info">
+      {/* <section className="project-detail-info">
 
         <div className="container">
 
@@ -181,124 +123,105 @@ function ProjectDetails() {
 
           >
 
+      <div className="project-info-left">
 
-            {/* LEFT SIDE */}
+        <span className="project-info-label">
 
-            <div className="project-info-left">
+          ABOUT THE PROJECT
 
-              <span className="project-info-label">
+        </span>
 
-                ABOUT THE PROJECT
+        <h2>
 
-              </span>
+          Designed around life,
 
+          <br />
 
-              <h2>
+          light and place.
 
-                Designed around life,
+        </h2>
 
-                <br />
+      </div>
 
-                light and place.
-
-              </h2>
-
-            </div>
+      <div className="project-info-right">
 
 
+        <p className="project-description">
 
-            {/* RIGHT SIDE */}
+          {project.description}
 
-            <div className="project-info-right">
+        </p>
 
-
-              <p className="project-description">
-
-                {project.description}
-
-              </p>
+        <div className="project-meta">
 
 
-              {/* PROJECT META */}
+          <div className="project-meta-item">
 
-              <div className="project-meta">
+            <span>
+              TYPE
+            </span>
 
+            <p>
+              {project.category}
+            </p>
 
-                <div className="project-meta-item">
-
-                  <span>
-                    TYPE
-                  </span>
-
-                  <p>
-                    {project.category}
-                  </p>
-
-                </div>
+          </div>
 
 
-                <div className="project-meta-item">
+          <div className="project-meta-item">
 
-                  <span>
-                    LOCATION
-                  </span>
+            <span>
+              LOCATION
+            </span>
 
-                  <p>
-                    {project.location}
-                  </p>
+            <p>
+              {project.location}
+            </p>
 
-                </div>
-
-
-                <div className="project-meta-item">
-
-                  <span>
-                    YEAR
-                  </span>
-
-                  <p>
-                    {project.year}
-                  </p>
-
-                </div>
+          </div>
 
 
-                <div className="project-meta-item">
+          <div className="project-meta-item">
 
-                  <span>
-                    STATUS
-                  </span>
+            <span>
+              YEAR
+            </span>
 
-                  <p>
-                    {project.status}
-                  </p>
+            <p>
+              {project.year}
+            </p>
 
-                </div>
-
-
-              </div>
-
-            </div>
+          </div>
 
 
-          </motion.div>
+          <div className="project-meta-item">
+
+            <span>
+              STATUS
+            </span>
+
+            <p>
+              {project.status}
+            </p>
+
+          </div>
+
 
         </div>
 
-      </section>
+      </div>
 
 
+    </motion.div>
 
-      {/* =========================================
-          3. PROJECT GALLERY
-      ========================================== */}
+        </div >
+
+      </section > */
+      }
 
       <section className="project-gallery">
 
         <div className="container">
-
-
-          {/* GALLERY HEADING */}
 
           <motion.div
 
@@ -325,51 +248,24 @@ function ProjectDetails() {
             }}
 
           >
-
             <span>
-
               PROJECT GALLERY
-
             </span>
-
-
             <h2>
-
               A closer look.
-
             </h2>
-
           </motion.div>
 
-
-
-          {/* =========================================
-              6 PROJECT IMAGES
-          ========================================== */}
-
           <div className="project-gallery-grid">
-
-
             {project.gallery.map((image, index) => (
-
-
               <motion.div
-
                 className="project-gallery-item"
-
                 key={index}
-
-
-                /* START STATE */
-
                 initial={{
                   opacity: 0,
                   y: 55,
                   scale: 0.97,
                 }}
-
-
-                /* ANIMATE WHEN IMAGE ENTERS SCREEN */
 
                 whileInView={{
                   opacity: 1,
@@ -377,39 +273,25 @@ function ProjectDetails() {
                   scale: 1,
                 }}
 
-
-                /* RUN ONCE */
-
                 viewport={{
                   once: true,
                   amount: 0.2,
                 }}
 
-
-                /* SMOOTH TRANSITION */
-
                 transition={{
                   duration: 0.85,
 
-                  // Creates slight stagger between
-                  // left and right image in each row
                   delay: (index % 2) * 0.12,
 
                   ease: [0.22, 1, 0.36, 1],
                 }}
 
               >
-
-
                 <img
-
                   src={image}
-
                   alt={`${project.title} - ${index + 1}`}
 
                 />
-
-
               </motion.div>
 
 
@@ -429,116 +311,118 @@ function ProjectDetails() {
           ONLY SHOW IF YOUTUBE URL EXISTS
       ========================================== */}
 
-      {project.youtubeUrl && (
+      {
+        project.youtubeUrl && (
 
 
-        <section className="project-film">
+          <section className="project-film">
 
-          <div className="container">
-
-
-            {/* FILM HEADING */}
-
-            <motion.div
-
-              className="project-film-heading"
-
-              initial={{
-                opacity: 0,
-                y: 45,
-              }}
-
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              viewport={{
-                once: true,
-                amount: 0.4,
-              }}
-
-              transition={{
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-
-            >
-
-              <span>
-
-                PROJECT FILM
-
-              </span>
+            <div className="container">
 
 
-              <h2>
+              {/* FILM HEADING */}
 
-                Experience the space.
+              <motion.div
 
-              </h2>
+                className="project-film-heading"
 
-            </motion.div>
+                initial={{
+                  opacity: 0,
+                  y: 45,
+                }}
 
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
 
+                viewport={{
+                  once: true,
+                  amount: 0.4,
+                }}
 
-            {/* VIDEO */}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
 
-            <motion.div
+              >
 
-              className="project-video-wrapper"
+                <span>
 
-              initial={{
-                opacity: 0,
-                y: 50,
-                scale: 0.98,
-              }}
+                  PROJECT FILM
 
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-              }}
-
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-
-              transition={{
-                duration: 1,
-                delay: 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-
-            >
+                </span>
 
 
-              <iframe
+                <h2>
 
-                src={project.youtubeUrl}
+                  Experience the space.
 
-                title={`${project.title} Project Film`}
+                </h2>
 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-
-                allowFullScreen
-
-              ></iframe>
+              </motion.div>
 
 
-            </motion.div>
+
+              {/* VIDEO */}
+
+              <motion.div
+
+                className="project-video-wrapper"
+
+                initial={{
+                  opacity: 0,
+                  y: 50,
+                  scale: 0.98,
+                }}
+
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+
+                transition={{
+                  duration: 1,
+                  delay: 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+
+              >
 
 
-          </div>
+                <iframe
 
-        </section>
+                  src={project.youtubeUrl}
+
+                  title={`${project.title} Project Film`}
+
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+
+                  allowFullScreen
+
+                ></iframe>
 
 
-      )}
+              </motion.div>
 
 
-    </main>
+            </div>
+
+          </section>
+
+
+        )
+      }
+
+
+    </main >
 
   );
 

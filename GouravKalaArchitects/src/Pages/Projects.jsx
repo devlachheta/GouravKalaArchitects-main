@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 // PROJECT CARD IMAGES
-import Residentail from "../assets/residential1.jpg";
-import Residentail1 from "../assets/architecture1.jpg";
+import Residentail1 from "../assets/madanpaditarcover.jpg";
+import Residentail from "../assets/architecture1.jpg";
 import DinningSpace from "../assets/interior1.png";
 import BedRoom from "../assets/bedroominterior.jpeg";
 import LIVING from "../assets/livingroom1.png";
@@ -41,15 +41,9 @@ function Projects() {
   ];
 
 
-  // =========================================
-  // PROJECT DATA
-  // =========================================
 
   const projects = [
 
-    // =====================================
-    // ARCHITECTURE - 6 PROJECTS
-    // =====================================
 
     {
       id: 1,
@@ -99,10 +93,6 @@ function Projects() {
       image: Residentail1,
     },
 
-
-    // =====================================
-    // INTERIOR - 6 PROJECTS
-    // =====================================
 
     {
       id: 4,
@@ -155,10 +145,6 @@ function Projects() {
   ];
 
 
-  // =========================================
-  // FILTER PROJECTS
-  // =========================================
-
   const displayedProjects =
     active === "All"
       ? [
@@ -186,9 +172,6 @@ function Projects() {
 
     <>
 
-      {/* =====================================
-          PROJECT HERO / BANNER CAROUSEL
-      ====================================== */}
 
       <section className="project-hero">
 
@@ -512,11 +495,6 @@ function Projects() {
         </div>
 
       </section>
-
-
-      {/* =====================================
-          CTA SECTION
-      ====================================== */}
 
       <CTASection />
 

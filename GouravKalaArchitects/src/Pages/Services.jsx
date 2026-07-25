@@ -25,50 +25,50 @@ const services = [
     icon: FiCompass,
     title: "Architecture",
     description:
-      "Buildings that belong to their site, serve their people and age beautifully.",
+      "Custom residentail architecture,planning, elevations, and construction drawings.",
     image: architectureImg,
   },
   {
     icon: FiHome,
     title: "Interior design",
     description:
-      "Atmospheres built from material, proportion, light and personal ritual.",
+      "Thoughtful interiors with space planning, furniture design, lighting, and material selection.",
     image: interiorImg,
   },
   {
     icon: FiFeather,
-    title: "Landscape",
+    title: "Landscape Design",
     description:
-      "Quiet outdoor spaces that connect built form with the natural world.",
+      "Functional outdoor spaces, gardens, courtyards, terraces, and site planning.",
     image: landscapImg,
   },
   {
     icon: FiTool,
     title: "Construction",
     description:
-      "A close, practical presence through every stage of making.",
+      "End-to-end execution, site supervision, project coordination, and turnkey solutions.",
     image: constructionImg,
   },
   {
     icon: FiGrid,
-    title: "Planning",
+    title: "Space Planning",
     description:
-      "Clear thinking at the beginning, when a project’s greatest choices are made.",
+      "Optimized layouts that enhance functionality, comfort, and everyday living.",
     image: planingImg,
   },
   {
     icon: FiBox,
-    title: "Renovation",
+    title: "Renovation & Remodeling",
     description:
-      "Thoughtful renewal that keeps the character worth preserving.",
+      "Transforming existing homes with thoughtful redesigns and modern upgrades.",
     image: renovationImg,
   },
 ];
 
 function Services() {
 
-  const heroTitle = "Many disciplines.";
-  const heroTitle2 = "One vision.";
+  const heroTitle = "Designing Every Detail.";
+  const heroTitle2 = "Building Every Experience";
 
   const heroContainer = {
     hidden: {},
@@ -104,17 +104,6 @@ function Services() {
 
           <div className="services-hero-content">
 
-            <motion.span
-              className="services-hero-eyebrow"
-              initial={{ opacity: 0, x: -80 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-              }}
-            >
-              WHAT WE DO
-            </motion.span>
 
             <motion.h1
               className="services-hero-title"
@@ -165,9 +154,7 @@ function Services() {
                 ease: "easeOut",
               }}
             >
-              We work across architecture, interiors and landscapes to
-              <br />
-              make every part of a project feel considered.
+              Whether you’re planning a new home or transforming an existing one, we provide complete architecture and interior design solutions—from concept to execution.
             </motion.p>
 
           </div>
@@ -203,22 +190,18 @@ function Services() {
       <section className="services-section">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-lg-8">
-              <p className="services-section-eyebrow">
-                Our expertise
-              </p>
+            <motion.span
+              className="services-hero-eyebrow"
+              initial={{ opacity: 0, x: -80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+            >
+              WHAT WE DO
+            </motion.span>
 
-              <h2 className="services-section-title">
-                From first line to
-                <br />
-                <em>final layer.</em>
-              </h2>
-
-              <p className="services-section-description">
-                Each service can be engaged independently or as part
-                of a complete, integrated design journey.
-              </p>
-            </div>
           </div>
 
           <div className="row g-4 services-grid">

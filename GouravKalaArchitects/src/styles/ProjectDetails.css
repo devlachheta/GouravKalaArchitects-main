@@ -14,34 +14,22 @@
 
 .project-detail-hero {
   position: relative;
-
-  /* Full screen height */
   width: 100%;
   height: 100vh;
-
   overflow: hidden;
-}
-
-.project-detail-hero-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  /* Makes image completely cover banner */
-  object-fit: cover;
-  object-position: center;
-
-  display: block;
+  background-image: url("../assets/madanProjectCover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 20%;
 }
 
 .project-detail-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
+
 
 
 /* HERO CONTENT */
@@ -50,36 +38,45 @@
   position: absolute;
   left: 7%;
   bottom: 10%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-
-  color: #ffffff;
+  color: #fff;
+  text-align: center;
 }
+
+
 
 .project-detail-category {
   display: block;
-  margin-bottom: 15px;
-
-  font-size: 12px;
-  font-weight: 500;
+  text-align: start;
+  font-size: 20px;
+  font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
 
 .project-detail-hero-content h1 {
-  margin: 0 0 20px;
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(50px, 8vw, 90px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-align: start;
+  color: #fff;
+}
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(55px, 7vw, 105px);
-  font-weight: 400;
-  line-height: 0.95;
+.project-detail-hero-content p {
+  text-align: start;
+  font-size: 1.5rem;
+  margin-bottom: 0;
 }
 
 .project-detail-location {
   display: flex;
   align-items: center;
   gap: 12px;
-
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 1px;
 }
 
