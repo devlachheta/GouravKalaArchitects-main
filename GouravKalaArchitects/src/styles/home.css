@@ -41,10 +41,10 @@
 
 .hero-content h1 {
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(4rem, 7vw, 6rem);
-    line-height: 0.95;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    line-height: 1.1;
     font-weight: 600;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     color: #202020;
 }
 
@@ -52,6 +52,8 @@
     color: #000;
     font-style: italic;
 }
+
+
 
 .hero-content h1 .hero-second-line,
 .hero-content h1 .hero-second-line span {
@@ -687,16 +689,12 @@
 
 .tick-list {
     list-style: none;
-
     padding: 0;
+    margin: 38px 0 42px;
 
-    margin:
-        38px 0 42px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 17px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px 32px;
 }
 
 .tick-list li {

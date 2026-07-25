@@ -88,8 +88,8 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const heroTitle = "Spaces that";
-  const heroTitle2 = "stay with you.";
+  const heroTitle = "Designed to Last.";
+  const heroTitle2 = "Built to Belong.";
 
   const heroContainer = {
     hidden: {},
@@ -171,7 +171,7 @@ function Home() {
   };
 
   const aboutLines = [
-    "Gourav Kala Architects is an architecture and interior design studio dedicated to creating meaningful spaces through simplicity, innovation, and attention to detail.Every project is carefully crafted to balance aesthetics, functionality, and sustainability, ensuring that each space feels unique to its owner."
+    "Gourav Kala Architects is an architecture and interior design studio dedicated to creating meaningful spaces through simplicity, innovation, and attention to detail. Every project is carefully crafted to balance aesthetics, functionality, and sustainability, ensuring that each space feels unique to its owner."
   ];
 
   const projectTitle = "Our Projects";
@@ -245,8 +245,7 @@ function Home() {
             </motion.h1>
 
             <motion.p variants={itemVariants}>
-              An architecture and interiors studio creating
-              considered places for the way life is lived now.
+              Creating timeless homes through thoughtful architecture, refined interiors, and meticulous attention to detail.
             </motion.p>
             <motion.div
               variants={itemVariants}
@@ -320,14 +319,7 @@ function Home() {
               ease: [0.22, 1, 0.36, 1],
             }}
           />
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <i>We design spaces that inspire everyday living.</i>
-          </motion.span>
+
 
           <div className="about-description">
             {aboutLines.map((line, index) => (
@@ -372,7 +364,7 @@ function Home() {
 
             <div className="col-12 col-md-4">
               <div className="stat-item">
-                <CountUp end={12} suffix="+" />
+                <CountUp end={7} suffix="+" />
 
                 <span>
                   Years of Thoughtful <br />
@@ -383,7 +375,7 @@ function Home() {
 
             <div className="col-12 col-md-4">
               <div className="stat-item">
-                <CountUp end={68} />
+                <CountUp end={48} suffix="+" />
 
                 <span>
                   Projects Shaped <br />
@@ -394,7 +386,7 @@ function Home() {
 
             <div className="col-12 col-md-4">
               <div className="stat-item">
-                <CountUp end={6} pad={2} />
+                <CountUp end={6} pad={2} suffix="+" />
 
                 <span>
                   Cities Across <br />
@@ -525,20 +517,16 @@ function Home() {
             <div className="principle-content">
 
               <div className="section-title">
-                <p className="eyebrow">
-                  03 — Our principle
-                </p>
+
 
                 <h2>
-                  Design that feels
+                  Timeless Design
                   <br />
-                  <em>inevitable.</em>
+                  <em>Built For Living.</em>
                 </h2>
 
                 <p>
-                  Nothing superfluous. Nothing unresolved. We balance human
-                  warmth with architectural rigour to create spaces that feel
-                  quietly remarkable.
+                  Whether you’re planning a new home or transforming an existing one, we provide complete architecture and interior design solutions—from concept to execution.
                 </p>
               </div>
 
@@ -547,18 +535,31 @@ function Home() {
               <ul className="tick-list">
                 <li>
                   <FiCheck />
-                  Context-first thinking
+                  Architecture
                 </li>
 
                 <li>
                   <FiCheck />
-                  Materials with integrity
+                  Interior design
                 </li>
 
                 <li>
                   <FiCheck />
-                  A clear, collaborative process
+                  Landscape
                 </li>
+                <li>
+                  <FiCheck />
+                  Construction
+                </li>
+                <li>
+                  <FiCheck />
+                  Space Planning
+                </li>
+                <li>
+                  <FiCheck />
+                  Renovation
+                </li>
+
               </ul>
 
 

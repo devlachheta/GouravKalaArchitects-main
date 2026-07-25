@@ -232,12 +232,11 @@ function ContactUs() {
               ">
                 <div className="contact-heading">
                   <h2 className="contact-title">
-                    Begin the conversation.
+                    Let’s Design
                   </h2>
 
                   <p className="contact-subtitle">
-                    Whether you have a site, a sketch or only a feeling, we would
-                    love to hear where you are beginning.
+                    Tell us about your project, and we’ll schedule an initial consultation to understand your requirements.
                   </p>
                 </div>
               </div>

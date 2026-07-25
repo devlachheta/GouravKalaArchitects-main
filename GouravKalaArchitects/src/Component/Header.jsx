@@ -6,31 +6,37 @@ import "../styles/Header.css";
 
 function Header() {
 
-    const [scrolled, setScrolled] = useState(false);
+    const [scrolled, setScrolled] = useState("top");
 
     useEffect(() => {
-
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolled(true);
+            const scrollY = window.scrollY;
+            const halfScreen = window.innerHeight / 2;
+
+            if (scrollY <= 50) {
+                setScrolled("top");
+            } else if (scrollY > 50 && scrollY < halfScreen) {
+                setScrolled("hidden");
             } else {
-                setScrolled(false);
+                setScrolled("visible");
             }
         };
+
         handleScroll();
 
         window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
         <header className="header ">
             <nav
-                className={`navbar navbar-expand-lg ${scrolled ? "navbar-scrolled" : ""
+                className={`navbar navbar-expand-lg ${scrolled === "visible"
+                    ? "navbar-visible"
+                    : scrolled === "hidden"
+                        ? "navbar-hidden"
+                        : "navbar-transparent"
                     }`}
             >
                 <div className="container-fluid">
@@ -133,10 +139,10 @@ function Header() {
                                     </li>
 
                                     <li><a className="dropdown-item" href="https://www.facebook.com/profile.php?id=100064194397652" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-
+                                    <li><a className="dropdown-item" href="https://www.youtube.com/@gouravkalaarchitects" target="_blank" rel="noopener noreferrer">Youtube</a></li>
                                     <li><a className="dropdown-item" href="https://in.pinterest.com/gourav_kala_architects/?invite_code=5ae9f6f0aa7d454fb8f6ce6f5be61fea&sender=815855426154368256/" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
 
-                                    <li><a className="dropdown-item" href="https://www.youtube.com/@gouravkalaarchitects" target="_blank" rel="noopener noreferrer">Youtube</a></li>
+
                                 </ul>
                             </li>
                         </ul>
