@@ -51,7 +51,7 @@ function Projects() {
       slug: "luxury-villa",
       title: "Luxury Villa",
       category: "Architecture",
-      image: Residentail1,
+      image: "/projects/mpm/madanProjectcard.webp",
     },
 
     {
@@ -59,7 +59,7 @@ function Projects() {
       slug: "urban-residence",
       title: "Urban Residence",
       category: "Architecture",
-      image: NRKCover,
+      image: "/projects/nrk/nrkprojectcard.webp",
     },
 
     {
