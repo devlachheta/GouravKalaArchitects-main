@@ -1,6 +1,6 @@
 import ProjectCover1 from "../assets/projectcover1.png";
-import Madan3 from "../assets/madan3.jpg";
 import Madan2 from "../assets/madan2.jpg";
+import Madan3 from "../assets/madan3.jpg";
 import Madan1 from "../assets/madan1.jpg";
 import Madan4 from "../assets/madan5.jpg";
 import Madan5 from "../assets/madanProjectCover.jpg";
@@ -8,12 +8,11 @@ import Madan6 from "../assets/madanpaditarcover.jpg";
 import Madan7 from "../assets/madanZoom1.jpeg";
 import Madan8 from "../assets/madanZoom.jpeg";
 import Madan9 from "../assets/madanZoom2.jpeg";
-import MadanBanner from "../assets/madanProjectCover.jpg";
-import NRKBanner from "../assets/nrkcoverproject.jpeg";
+import MadanBanner from "/projects/mpm/madanBanner.webp";
+import NRKBanner from "../assets/nrkprojectdetail1.jpeg";
 
 
 const projectsData = [
-
   {
     id: 1,
     slug: "luxury-villa",
@@ -27,32 +26,37 @@ const projectsData = [
     bannerPosition: "center 20%",
 
     gallery: [
-      Madan2,
-      Madan5,
-      Madan3,
-      Madan4,
-      Madan1,
-      Madan8,
-      Madan7,
-      Madan9
+      "/projects/mpm/madanProjectcard.webp",
+      "/projects/mpm/madanBanner.webp",
+      "/projects/mpm/madanProject2.webp",
+      "/projects/mpm/madanProject3.webp",
+      "/projects/mpm/madanProject1.webp",
+      "/projects/mpm/madanproject6.webp",
+      "/projects/mpm/madanproject4.webp",
+      "/projects/mpm/madanproject5.webp",
+
     ],
   },
   {
     id: 2,
     slug: "urban-residence",
-    title: "Urban Residence",
+    title: "NRK",
     category: "Architecture",
+    plotArea: "7900 Sq. Ft.",
+    buildUpArea: "5558 Sq. Ft.",
     location: "Indore, India",
     status: "Completed",
-    bannerImage: NRKBanner,
-    bannerPosition: "center",
+    bannerImage: "/projects/nrk/nrkBanner1.webp",
+    bannerPosition: "center 10%",
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
-
+      "/projects/nrk/nrkproject2.webp",
+      "/projects/nrk/nrkprojectcard.webp",
+      "/projects/nrk/nrkproject3.webp",
+      "/projects/nrk/nrkproject4.webp",
+      "/projects/nrk/nrkproject1.webp",
+      "/projects/nrk/nrkproject5.webp",
+      "/projects/nrk/nrkproject6.webp",
+      "/projects/nrk/nrkproject8.webp",
     ],
   },
 
