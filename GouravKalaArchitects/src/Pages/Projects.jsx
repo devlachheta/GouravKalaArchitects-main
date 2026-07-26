@@ -49,25 +49,40 @@ function Projects() {
     {
       id: 1,
       slug: "luxury-villa",
-      title: "Luxury Villa",
+      title: "Project MPM",
       category: "Architecture",
+
       image: "/projects/mpm/madanProjectcard.webp",
+
+      location: "Indore, India",
+      plotArea: "7,100 Sq. Ft.",
+      builtUpArea: "5,131 Sq. Ft."
     },
 
     {
       id: 2,
       slug: "urban-residence",
-      title: "Urban Residence",
+      title: "Project NRK",
       category: "Architecture",
+
       image: "/projects/nrk/nrkprojectcard.webp",
+
+      location: "Indore, India",
+      plotArea: "7,900 Sq. Ft.",
+      builtUpArea: "5,558 Sq. Ft."
     },
 
     {
       id: 3,
       slug: "courtyard-house",
-      title: "Courtyard House",
+      title: "Project HPM",
       category: "Architecture",
+
       image: Residentail,
+
+      location: "Indore, India",
+      plotArea: "8,490 Sq. Ft.",
+      builtUpArea: "6,950 Sq. Ft."
     },
 
     {
@@ -172,8 +187,6 @@ function Projects() {
   return (
 
     <>
-
-
       <section className="project-hero">
 
         <div
@@ -182,8 +195,6 @@ function Projects() {
           data-bs-ride="carousel"
           data-bs-interval="1800"
         >
-
-          {/* CAROUSEL INDICATORS */}
 
           <div className="carousel-indicators">
 
@@ -304,9 +315,6 @@ function Projects() {
             </div>
 
           </div>
-
-
-          {/* PREVIOUS BUTTON */}
 
           <button
             className="carousel-control-prev"
@@ -434,6 +442,7 @@ function Projects() {
                         alt={project.title}
                       />
 
+
                       {active === "All" && (
                         <span className="project-category">
                           {project.category}
@@ -446,6 +455,22 @@ function Projects() {
                           {project.title}
                         </h3>
 
+                        <p className="project-info">
+                          <span>{project.location}</span>
+
+                          <span className="divider">|</span>
+
+                          <span>
+                            Plot: {project.plotArea}
+                          </span>
+
+                          <span className="divider">|</span>
+
+                          <span>
+                            Built-Up: {project.builtUpArea}
+                          </span>
+                        </p>
+
                         <button
                           className="project-btn"
                           type="button"
@@ -454,7 +479,6 @@ function Projects() {
                         </button>
 
                       </div>
-
                     </div>
 
                   </motion.div>

@@ -47,13 +47,12 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* HOVER */
+
 .portfolio-filter button:hover {
     background-color: #1f1f1f;
     color: #fff;
 }
 
-/* CLICKED / ACTIVE */
 .portfolio-filter button.active-filter {
     background-color: #1f1f1f;
     color: #fff;
@@ -77,9 +76,6 @@
 
 }
 
-/* ===========================
-   PROJECT CARD
-=========================== */
 
 .project-card {
     cursor: pointer;
@@ -93,41 +89,47 @@
     background: #F5F2ED;
 }
 
-/* IMAGE */
-
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform .8s ease;
 }
-
-/* IMAGE ZOOM */
 
 .project-card:hover .project-image img {
     transform: scale(1.06);
 }
 
-/* DARK OVERLAY */
 
-.project-image::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top,
-            rgba(0, 0, 0, .80) 0%,
-            rgba(0, 0, 0, .45) 45%,
-            rgba(0, 0, 0, 0) 100%);
+.project-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 0 0 22px;
+
+    color: rgba(255, 255, 255, .85);
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+
     opacity: 0;
-    transition: .45s ease;
-    z-index: 1;
+    transform: translateY(20px);
+
+    transition: .5s ease;
+    transition-delay: .08s;
 }
 
-.project-card:hover .project-image::before {
+.project-card:hover .project-info {
     opacity: 1;
+    transform: translateY(0);
 }
 
-/* CATEGORY */
+.project-info .divider {
+    color: #c79b63;
+}
 
 .project-category {
     position: absolute;
@@ -147,20 +149,36 @@
     z-index: 5;
 }
 
-/* OVERLAY CONTENT */
-
 .project-overlay {
     position: absolute;
-    left: 30px;
-    right: 30px;
-    bottom: 30px;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    padding: 35px;
+
     z-index: 5;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(0, 0, 0, 0.72) 22%,
+            rgba(0, 0, 0, 0.45) 45%,
+            rgba(0, 0, 0, 0.15) 70%,
+            transparent 100%);
+
+    opacity: 0;
+    transition: opacity .45s ease;
 }
 
-/* PROJECT TITLE */
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
 
 .project-title {
-    margin: 0 0 18px;
+    margin: 0 0 10px;
 
     color: #fff;
 
@@ -173,9 +191,14 @@
 /* BUTTON */
 
 .project-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    padding: 12px 28px;
+    width: fit-content;
+    align-self: flex-start;
+
+    padding: 2px 10px;
 
     background: transparent;
     color: #fff;
@@ -184,11 +207,12 @@
     border-radius: 4px;
 
     font-size: 14px;
+    font-weight: 500;
     letter-spacing: 1px;
 
     cursor: pointer;
 
-    transition: .3s ease;
+    transition: all .35s ease;
 }
 
 .project-btn:hover {
