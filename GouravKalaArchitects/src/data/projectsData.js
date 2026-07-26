@@ -1,12 +1,15 @@
 import ProjectCover1 from "../assets/projectcover1.png";
-
 import Madan3 from "../assets/madan3.jpg";
 import Madan2 from "../assets/madan2.jpg";
 import Madan1 from "../assets/madan1.jpg";
 import Madan4 from "../assets/madan5.jpg";
 import Madan5 from "../assets/madanProjectCover.jpg";
 import Madan6 from "../assets/madanpaditarcover.jpg";
-import Project1Cover from "../assets/madanProjectCover.jpg";
+import Madan7 from "../assets/madanZoom1.jpeg";
+import Madan8 from "../assets/madanZoom.jpeg";
+import Madan9 from "../assets/madanZoom2.jpeg";
+import MadanBanner from "../assets/madanProjectCover.jpg";
+import NRKBanner from "../assets/nrkcoverproject.jpeg";
 
 
 const projectsData = [
@@ -20,50 +23,29 @@ const projectsData = [
     plotArea: "7100 Sq. Ft.",
     buildUpArea: "5131 Sq. Ft.",
     status: "Completed",
-    bannerImage: Project1Cover,
+    bannerImage: MadanBanner,
+    bannerPosition: "center 20%",
 
-    // PROJECT DESCRIPTION
-    description:
-      "A contemporary residence shaped around natural light, open spaces, and a seamless relationship between architecture and landscape.",
-
-    // PROJECT GALLERY — 6 IMAGES
-    // Replace these later with actual Luxury Villa images
     gallery: [
       Madan2,
       Madan5,
       Madan3,
       Madan4,
       Madan1,
-      Madan2
+      Madan8,
+      Madan7,
+      Madan9
     ],
-    youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
-
-
-  // =====================================================
-  // ARCHITECTURE PROJECT 2 — URBAN RESIDENCE
-  // =====================================================
   {
     id: 2,
     slug: "urban-residence",
     title: "Urban Residence",
     category: "Architecture",
-
-    // PROJECT INFORMATION
     location: "Indore, India",
-    year: "2026",
     status: "Completed",
-
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
-    bannerImage: ProjectCover1,
-
-    // PROJECT DESCRIPTION
-    description:
-      "A contemporary urban residence designed with a balance of functionality, natural light, open spaces, and modern architectural expression.",
-
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
+    bannerImage: NRKBanner,
+    bannerPosition: "center",
     gallery: [
       Madan1,
       Madan2,
@@ -72,15 +54,8 @@ const projectsData = [
       Madan5,
 
     ],
-
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
-    youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
 
-
-  // =====================================================
-  // ARCHITECTURE PROJECT 3 — COURTYARD HOUSE
-  // =====================================================
   {
     id: 3,
     slug: "courtyard-house",
@@ -89,7 +64,6 @@ const projectsData = [
 
     // PROJECT INFORMATION
     location: "Indore, India",
-    year: "2026",
     status: "Completed",
 
     // PROJECT BANNER IMAGE

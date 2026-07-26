@@ -1,18 +1,52 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-
 import "../styles/ProjectDetails.css";
 import projectsData from "../data/projectsData";
+import { useMemo, useEffect } from "react";
 
 
 function ProjectDetails() {
 
+  const fadeUp = {
+    hidden: {
+      opacity: 0,
+      y: 45,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const imageAnimation = {
+    hidden: {
+      opacity: 0,
+      y: 55,
+      scale: 0.97,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+    },
+  };
+
+  const transition = {
+    duration: 0.8,
+    ease: [0.22, 1, 0.36, 1],
+  };
+
+
   const { slug } = useParams();
 
-  const project = projectsData.find(
-    (item) => item.slug === slug
+  const project = useMemo(
+    () => projectsData.find(item => item.slug === slug),
+    [slug]
   );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
   if (!project) {
 
     return (
@@ -28,19 +62,23 @@ function ProjectDetails() {
     );
 
   }
-
+  const heroStyle = {
+    backgroundImage: `url(${project.bannerImage})`,
+    backgroundPosition: project.bannerPosition || "center",
+  };
 
   return (
 
     <main className="project-details-page">
 
+      {/* Hero */}
 
-      <section className="project-detail-hero">
-
+      <section
+        className="project-detail-hero"
+        style={heroStyle}
+      >
         <div className="project-detail-overlay"></div>
 
-
-        {/* HERO CONTENT */}
 
         <motion.div
 
@@ -80,10 +118,6 @@ function ProjectDetails() {
               Location: {project.location}
             </span>
 
-            <span>
-              {project.year}
-            </span>
-
           </div>
 
         </motion.div>
@@ -91,133 +125,7 @@ function ProjectDetails() {
 
       </section>
 
-
-      {/* <section className="project-detail-info">
-
-        <div className="container">
-
-
-          <motion.div
-
-            className="project-info-grid"
-
-            initial={{
-              opacity: 0,
-              y: 60,
-            }}
-
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-
-            viewport={{
-              once: true,
-              amount: 0.25,
-            }}
-
-            transition={{
-              duration: 0.9,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-
-          >
-
-      <div className="project-info-left">
-
-        <span className="project-info-label">
-
-          ABOUT THE PROJECT
-
-        </span>
-
-        <h2>
-
-          Designed around life,
-
-          <br />
-
-          light and place.
-
-        </h2>
-
-      </div>
-
-      <div className="project-info-right">
-
-
-        <p className="project-description">
-
-          {project.description}
-
-        </p>
-
-        <div className="project-meta">
-
-
-          <div className="project-meta-item">
-
-            <span>
-              TYPE
-            </span>
-
-            <p>
-              {project.category}
-            </p>
-
-          </div>
-
-
-          <div className="project-meta-item">
-
-            <span>
-              LOCATION
-            </span>
-
-            <p>
-              {project.location}
-            </p>
-
-          </div>
-
-
-          <div className="project-meta-item">
-
-            <span>
-              YEAR
-            </span>
-
-            <p>
-              {project.year}
-            </p>
-
-          </div>
-
-
-          <div className="project-meta-item">
-
-            <span>
-              STATUS
-            </span>
-
-            <p>
-              {project.status}
-            </p>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-
-    </motion.div>
-
-        </div >
-
-      </section > */
-      }
+      {/* Gallery */}
 
       <section className="project-gallery">
 
@@ -280,9 +188,7 @@ function ProjectDetails() {
 
                 transition={{
                   duration: 0.85,
-
                   delay: (index % 2) * 0.12,
-
                   ease: [0.22, 1, 0.36, 1],
                 }}
 
@@ -290,13 +196,11 @@ function ProjectDetails() {
                 <img
                   src={image}
                   alt={`${project.title} - ${index + 1}`}
-
+                  loading="lazy"
+                  decoding="async"
                 />
               </motion.div>
-
-
             ))}
-
 
           </div>
 
@@ -304,12 +208,7 @@ function ProjectDetails() {
 
       </section>
 
-
-
-      {/* =========================================
-          4. PROJECT FILM
-          ONLY SHOW IF YOUTUBE URL EXISTS
-      ========================================== */}
+      {/* PROJECT FILM */}
 
       {
         project.youtubeUrl && (
@@ -398,6 +297,7 @@ function ProjectDetails() {
 
 
                 <iframe
+                  loading="lazy"
 
                   src={project.youtubeUrl}
 
@@ -417,10 +317,8 @@ function ProjectDetails() {
 
           </section>
 
-
         )
       }
-
 
     </main >
 

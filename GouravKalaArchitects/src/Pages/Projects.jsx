@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // PROJECT CARD IMAGES
 import Residentail1 from "../assets/madanpaditarcover.jpg";
 import Residentail from "../assets/architecture1.jpg";
+import NRKCover from "../assets/nrkprojectdetail1.jpeg";
 import DinningSpace from "../assets/interior1.png";
 import BedRoom from "../assets/bedroominterior.jpeg";
 import LIVING from "../assets/livingroom1.png";
@@ -58,7 +59,7 @@ function Projects() {
       slug: "urban-residence",
       title: "Urban Residence",
       category: "Architecture",
-      image: Residentail,
+      image: NRKCover,
     },
 
     {
@@ -359,9 +360,6 @@ function Projects() {
 
         <div className="container">
 
-
-          {/* FILTER BUTTONS */}
-
           <div className="portfolio-filter">
 
             {filters.map((item) => (
@@ -436,50 +434,26 @@ function Projects() {
                         alt={project.title}
                       />
 
-
-                      {/* CATEGORY ONLY ON ALL */}
-
                       {active === "All" && (
-
                         <span className="project-category">
-
                           {project.category}
-
                         </span>
-
                       )}
 
+                      <div className="project-overlay">
 
-                      {/* VIEW MORE */}
+                        <h3 className="project-title">
+                          {project.title}
+                        </h3>
 
-                      <button
-                        className="project-view-more"
-                        type="button"
-                      >
+                        <button
+                          className="project-btn"
+                          type="button"
+                        >
+                          VIEW PROJECT
+                        </button>
 
-                        VIEW MORE
-
-                      </button>
-
-                    </div>
-
-
-                    {/* PROJECT TITLE + NUMBER */}
-
-                    <div className="project-content">
-
-                      <h3>
-                        {project.title}
-                      </h3>
-
-                      <span>
-
-                        {String(project.id).padStart(
-                          2,
-                          "0"
-                        )}
-
-                      </span>
+                      </div>
 
                     </div>
 
