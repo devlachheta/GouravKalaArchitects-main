@@ -4,7 +4,8 @@ function GalleryImage({
     src,
     alt,
     objectPosition = "center center",
-    objectFit = "cover"
+    objectFit = "cover",
+    onClick,
 }) {
     return (
         <motion.div
@@ -16,6 +17,8 @@ function GalleryImage({
                 duration: 0.8,
                 ease: [0.22, 1, 0.36, 1],
             }}
+            onClick={onClick}
+            style={{ cursor: "pointer" }}
         >
             <img
                 src={src}
