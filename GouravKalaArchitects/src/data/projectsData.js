@@ -5,9 +5,9 @@ import ProjectCover1 from "/projects/mpm/madanBanner.webp";
 const projectsData = [
   {
     id: 1,
-    slug: "luxury-villa",
+    slug: "project-mpm",
     title: "MPM",
-    category: "PROJECT",
+    category: "Architecture",
     location: "Indore, India",
     plotArea: "7100 Sq. Ft.",
     buildUpArea: "5131 Sq. Ft.",
@@ -16,7 +16,7 @@ const projectsData = [
     bannerPosition: "center 20%",
 
     gallery: [
-      "/projects/mpm/madanprojectcard.webp",
+      "/projects/mpm/madanBanner.webp",
       "/projects/mpm/madanBanner.webp",
       "/projects/mpm/madanproject2.webp",
       "/projects/mpm/madanproject3.webp",
@@ -29,7 +29,7 @@ const projectsData = [
   },
   {
     id: 2,
-    slug: "urban-residence",
+    slug: "project-nrk",
     title: "NRK",
     category: "Architecture",
     plotArea: "7900 Sq. Ft.",
@@ -52,11 +52,9 @@ const projectsData = [
 
   {
     id: 3,
-    slug: "courtyard-house",
+    slug: "project-hpm",
     title: "Courtyard House",
     category: "Architecture",
-
-    // PROJECT INFORMATION
     location: "Indore, India",
     status: "Completed",
 
@@ -193,8 +191,6 @@ const projectsData = [
       "/projects/HPM6.webp",
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
-    youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
 
 
@@ -258,7 +254,7 @@ const projectsData = [
     id: 5,
     slug: "modern-living-room",
     title: "K3",
-    category: "PROJECT",
+    category: "Interior",
     location: "Indore, India",
     status: "Completed",
 
@@ -395,15 +391,11 @@ const projectsData = [
     slug: "refined-living-space",
     title: "Refined Living Space",
     category: "Interior",
-
-    // PROJECT INFORMATION
     location: "Indore, India",
     year: "2026",
     status: "Completed",
 
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/ashishInterior/ashishBanner.webp",
 
     // PROJECT DESCRIPTION
     description:
@@ -412,15 +404,30 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/HPM1.webp",
-      "/projects/HPM2.webp",
-      "/projects/HPM3.webp",
-      "/projects/HPM4.webp",
-      "/projects/HPM5.webp",
-      "/projects/HPM6.webp",
+      "/projects/ashishInterior/ashishproject1.webp",
+      "/projects/ashishInterior/ashishproject2.webp",
+      "/projects/ashishInterior/ashishproject5.webp",
+      "/projects/ashishInterior/ashishproject6.webp",
+      "/projects/ashishInterior/ashishproject7.webp",
+      "/projects/ashishInterior/ashishproject8.webp",
+      "/projects/ashishInterior/ashishproject9.webp",
+      "/projects/ashishInterior/ashishproject10.webp",
+      "/projects/ashishInterior/ashishproject11.webp",
+      "/projects/ashishInterior/ashishproject12.webp",
+      "/projects/ashishInterior/ashishproject13.webp",
+      "/projects/ashishInterior/ashishproject14.webp",
+      "/projects/ashishInterior/ashishproject15.webp",
+      "/projects/ashishInterior/ashishproject16.webp",
+      "/projects/ashishInterior/ashishproject17.webp",
+      "/projects/ashishInterior/ashishproject18.webp",
+      "/projects/ashishInterior/ashishproject19.webp",
+      "/projects/ashishInterior/ashishproject20.webp",
+      "/projects/ashishInterior/ashishproject21.webp",
+      "/projects/ashishInterior/ashishproject22.webp",
+      "/projects/ashishInterior/ashishproject3.webp",
+
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
     youtubeUrl: null,
   },
 

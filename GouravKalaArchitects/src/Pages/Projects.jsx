@@ -44,7 +44,7 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      slug: "luxury-villa",
+      slug: "project-mpm",
       title: "Project MPM",
       category: "Architecture",
       image: "/projects/mpm/madanprojectcard.webp",
@@ -56,7 +56,7 @@ function Projects() {
 
     {
       id: 2,
-      slug: "urban-residence",
+      slug: "project-nrk",
       title: "Project NRK",
       category: "Architecture",
       image: "/projects/nrk/nrkprojectcard.webp",
@@ -68,7 +68,7 @@ function Projects() {
 
     {
       id: 3,
-      slug: "courtyard-house",
+      slug: "project-hpm",
       title: "Project HPM",
       category: "Architecture",
 

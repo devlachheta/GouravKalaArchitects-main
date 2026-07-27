@@ -1,0 +1,119 @@
+/* ===========================
+   Architecture Gallery
+=========================== */
+
+.architecture-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* ===========================
+   Rows
+=========================== */
+
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+/* ===========================
+   Image Wrapper
+=========================== */
+
+.gallery-image {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f8f8f8;
+}
+
+/* ===========================
+   Common Images
+=========================== */
+
+.gallery-image img {
+    width: 100%;
+    display: block;
+    transition: transform .45s ease;
+}
+
+.gallery-image:hover img {
+    transform: scale(1.03);
+}
+
+/* ===========================
+   Hero Image
+=========================== */
+
+.gallery-hero {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-hero img {
+    width: 100%;
+    height: 760px;
+    /* Adjust between 700-800px */
+    object-fit: cover;
+
+    /* Controls where the crop happens */
+    object-position: center 22%;
+
+    display: block;
+}
+
+/* ===========================
+   Wide Image
+=========================== */
+
+.gallery-wide img {
+    width: 100%;
+    height: auto;
+}
+
+/* ===========================
+   Two Column Images
+=========================== */
+
+.gallery-row .gallery-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+
+    .architecture-gallery {
+        gap: 22px;
+    }
+
+    .gallery-row {
+        gap: 22px;
+    }
+
+    .gallery-hero img {
+        height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .architecture-gallery {
+        gap: 18px;
+    }
+
+    .gallery-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gallery-hero img {
+        height: 420px;
+        object-position: center 25%;
+    }
+}

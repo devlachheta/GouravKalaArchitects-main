@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "../styles/ProjectDetails.css";
 import projectsData from "../data/projectsData";
 import { useMemo, useEffect } from "react";
+import ProjectGallery from "../Component/Gallery/ProjectGallery";
 
 
 function ProjectDetails() {
@@ -164,46 +165,11 @@ function ProjectDetails() {
             </h2>
           </motion.div>
 
-          <div className="project-gallery-grid">
-            {project.gallery.map((image, index) => (
-              <motion.div
-                className="project-gallery-item"
-                key={index}
-                initial={{
-                  opacity: 0,
-                  y: 55,
-                  scale: 0.97,
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                }}
-
-                viewport={{
-                  once: true,
-                  amount: 0.2,
-                }}
-
-                transition={{
-                  duration: 0.85,
-                  delay: (index % 2) * 0.12,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-
-              >
-                <img
-                  src={image}
-                  alt={`${project.title} - ${index + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </motion.div>
-            ))}
-
-          </div>
-
+          <ProjectGallery
+            category={project.category}
+            gallery={project.gallery}
+            title={project.title}
+          />
         </div>
 
       </section>
