@@ -26,11 +26,11 @@ const projectsData = [
     bannerPosition: "center 20%",
 
     gallery: [
-      "/projects/mpm/madanProjectcard.webp",
+      "/projects/mpm/madanprojectcard.webp",
       "/projects/mpm/madanBanner.webp",
-      "/projects/mpm/madanProject2.webp",
-      "/projects/mpm/madanProject3.webp",
-      "/projects/mpm/madanProject1.webp",
+      "/projects/mpm/madanproject2.webp",
+      "/projects/mpm/madanproject3.webp",
+      "/projects/mpm/madanproject1.webp",
       "/projects/mpm/madanproject6.webp",
       "/projects/mpm/madanproject4.webp",
       "/projects/mpm/madanproject5.webp",
@@ -46,7 +46,7 @@ const projectsData = [
     buildUpArea: "5558 Sq. Ft.",
     location: "Indore, India",
     status: "Completed",
-    bannerImage: "/projects/nrk/nrkBanner1.webp",
+    bannerImage: "/projects/nrk/nrkBanner.webp",
     bannerPosition: "center 10%",
     gallery: [
       "/projects/nrk/nrkproject2.webp",
@@ -247,18 +247,15 @@ const projectsData = [
   {
     id: 5,
     slug: "modern-living-room",
-    title: "Modern Living Room",
-    category: "Interior",
-
-    // PROJECT INFORMATION
+    title: "K3",
+    category: "PROJECT",
     location: "Indore, India",
-    year: "2026",
     status: "Completed",
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
-
+    bannerImage: "/projects/K3Interior/k3Banner.webp",
+    ImagePosition: "center 10%",
     // PROJECT DESCRIPTION
     description:
       "A modern living space designed with a refined material palette, comfortable proportions, natural light, and carefully selected details to create a warm and contemporary atmosphere.",
@@ -266,21 +263,23 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
-    ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
-    youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
+      "/projects/K3Interior/k3project7.webp",
+      "/projects/K3Interior/k3project4.webp",
+      "/projects/K3Interior/k3project6.webp",
+      "/projects/K3Interior/k3project11.webp",
+      "/projects/K3Interior/k3project13.webp",
+      "/projects/K3Interior/k3project2.webp",
+      "/projects/K3Interior/k3project18.webp",
+      "/projects/K3Interior/k3project15.webp",
+      "/projects/K3Interior/k3project16.webp",
+      "/projects/K3Interior/k3project17.webp",
+      "/projects/K3Interior/k3project19.webp",
+      "/projects/K3Interior/k3bedroom.webp",
+      "/projects/K3Interior/k3project14.webp",
+    ],
   },
 
-
-  // =====================================================
-  // INTERIOR PROJECT 3 — LUXURY BEDROOM
-  // =====================================================
   {
     id: 6,
     slug: "luxury-bedroom",
@@ -331,7 +330,7 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/MJInterior/mjBanner.webp",
 
     // PROJECT DESCRIPTION
     description:
@@ -340,11 +339,22 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/MJInterior/mjproject1.webp",
+      "/projects/MJInterior/mjproject2.webp",
+      "/projects/MJInterior/mjproject3.webp",
+      "/projects/MJInterior/mjproject4.webp",
+      "/projects/MJInterior/mjproject5.webp",
+      "/projects/MJInterior/mjproject6.webp",
+      "/projects/MJInterior/mjproject7.webp",
+      "/projects/MJInterior/mjproject8.webp",
+      "/projects/MJInterior/mjproject9.webp",
+      "/projects/MJInterior/mjproject10.webp",
+      "/projects/MJInterior/mjproject11.webp",
+      "/projects/MJInterior/mjproject12.webp",
+      "/projects/MJInterior/mjproject13.webp",
+      "/projects/MJInterior/mjproject14.webp",
+      "/projects/MJInterior/mjproject15.webp",
+
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL

@@ -41,19 +41,14 @@ function Projects() {
     "Interior",
   ];
 
-
-
   const projects = [
-
-
     {
       id: 1,
       slug: "luxury-villa",
       title: "Project MPM",
       category: "Architecture",
-
-      image: "/projects/mpm/madanProjectcard.webp",
-
+      image: "/projects/mpm/madanprojectcard.webp",
+      imagePosition: "100% center",
       location: "Indore, India",
       plotArea: "7,100 Sq. Ft.",
       builtUpArea: "5,131 Sq. Ft."
@@ -64,9 +59,8 @@ function Projects() {
       slug: "urban-residence",
       title: "Project NRK",
       category: "Architecture",
-
       image: "/projects/nrk/nrkprojectcard.webp",
-
+      imagePosition: "10% center",
       location: "Indore, India",
       plotArea: "7,900 Sq. Ft.",
       builtUpArea: "5,558 Sq. Ft."
@@ -79,7 +73,6 @@ function Projects() {
       category: "Architecture",
 
       image: Residentail,
-
       location: "Indore, India",
       plotArea: "8,490 Sq. Ft.",
       builtUpArea: "6,950 Sq. Ft."
@@ -121,9 +114,10 @@ function Projects() {
     {
       id: 5,
       slug: "modern-living-room",
-      title: "Modern Living Room",
+      title: "K3",
       category: "Interior",
-      image: LIVING,
+      image: "/projects/K3Interior/k3project11.webp",
+      imagePosition: "center 10%"
     },
 
     {
@@ -139,7 +133,7 @@ function Projects() {
       slug: "contemporary-dining-interior",
       title: "Contemporary Dining Interior",
       category: "Interior",
-      image: DinningSpace,
+      image: "/projects/MJInterior/mjproject11.webp",
     },
 
     {
@@ -440,8 +434,10 @@ function Projects() {
                       <img
                         src={project.image}
                         alt={project.title}
+                        style={{
+                          objectPosition: project.imagePosition || "center"
+                        }}
                       />
-
 
                       {active === "All" && (
                         <span className="project-category">

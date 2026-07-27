@@ -248,20 +248,6 @@ function Services() {
           </div>
         </div>
       </section>
-
-      <section className="service-statement">
-        <div className="container">
-          <p className="service-eyebrow">
-            A considered collaboration
-          </p>
-
-          <h2>
-            One team. One clear thread
-            <br />
-            from <em>concept to completion.</em>
-          </h2>
-        </div>
-      </section>
       <CTASection />
     </>
   );
