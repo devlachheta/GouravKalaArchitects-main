@@ -1,16 +1,6 @@
-import ProjectCover1 from "../assets/projectcover1.png";
-import Madan2 from "../assets/madan2.jpg";
-import Madan3 from "../assets/madan3.jpg";
-import Madan1 from "../assets/madan1.jpg";
-import Madan4 from "../assets/madan5.jpg";
-import Madan5 from "../assets/madanProjectCover.jpg";
-import Madan6 from "../assets/madanpaditarcover.jpg";
-import Madan7 from "../assets/madanZoom1.jpeg";
-import Madan8 from "../assets/madanZoom.jpeg";
-import Madan9 from "../assets/madanZoom2.jpeg";
-import MadanBanner from "/projects/mpm/madanBanner.webp";
-import NRKBanner from "../assets/nrkprojectdetail1.jpeg";
 
+import MadanBanner from "/projects/mpm/madanBanner.webp";
+import ProjectCover1 from "/projects/mpm/madanBanner.webp";
 
 const projectsData = [
   {
@@ -72,8 +62,8 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
-
+    bannerImage: "/projects/hpm/HPM-banner.webp",
+    bannerPosition: "center 10%",
     // PROJECT DESCRIPTION
     description:
       "A thoughtfully designed residence centered around an open courtyard, creating a seamless connection between natural light, landscape, and everyday living.",
@@ -81,11 +71,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/hpm/HPM1.webp",
+      "/projects/hpm/HPM6.webp",
+      "/projects/hpm/HPM3.webp",
+      "/projects/hpm/HPM4.webp",
+      "/projects/hpm/HPM5.webp",
+      "/projects/hpm/HPM2.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -118,11 +109,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/HPM1.webp",
+      "/projects/HPM2.webp",
+      "/projects/HPM3.webp",
+      "/projects/HPM4.webp",
+      "/projects/HPM5.webp",
+      "/projects/HPM6.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -155,11 +147,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/HPM1.webp",
+      "/projects/HPM2.webp",
+      "/projects/HPM3.webp",
+      "/projects/HPM4.webp",
+      "/projects/HPM5.webp",
+      "/projects/HPM6.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -192,11 +185,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5
+      "/projects/HPM1.webp",
+      "/projects/HPM2.webp",
+      "/projects/HPM3.webp",
+      "/projects/HPM4.webp",
+      "/projects/HPM5.webp",
+      "/projects/HPM6.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -220,8 +214,8 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
-
+    bannerImage: "/projects/2BHK/2BHK-banner.webp",
+    bannerPosition: "center ",
     // PROJECT DESCRIPTION
     description:
       "An elegant dining space designed with refined materials, warm textures, thoughtful lighting, and a balanced composition to create an inviting interior experience.",
@@ -229,15 +223,31 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/2BHK/h5.webp",
+      "/projects/2BHK/h2.webp",
+      "/projects/2BHK/h4.webp",
+      "/projects/2BHK/h1.webp",
+      "/projects/2BHK/h3.webp",
+
+      "/projects/2BHK/b1.webp",
+      "/projects/2BHK/b2.webp",
+      "/projects/2BHK/b3.webp",
+      "/projects/2BHK/d1.webp",
+      "/projects/2BHK/d2.webp",
+      "/projects/2BHK/k1.webp",
+      "/projects/2BHK/k2.webp",
+      "/projects/2BHK/k3.webp",
+      "/projects/2BHK/r1.webp",
+      "/projects/2BHK/r2.webp",
+      "/projects/2BHK/r3.webp",
+      "/projects/2BHK/r4.webp",
+      "/projects/2BHK/r5.webp",
+
+
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
-    youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
+    // youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
 
 
@@ -266,11 +276,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/HPM1.webp",
+      "/projects/HPM2.webp",
+      "/projects/HPM3.webp",
+      "/projects/HPM4.webp",
+      "/projects/HPM5.webp",
+      "/projects/HPM6.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -294,7 +305,8 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/3BHK/3BHK-banner.webp",
+    bannerPosition: "center ",
 
     // PROJECT DESCRIPTION
     description:
@@ -303,11 +315,21 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/3BHK/h1.webp",
+      "/projects/3BHK/h2.webp",
+      "/projects/3BHK/h3.webp",
+      "/projects/3BHK/h4.webp",
+      "/projects/3BHK/h5.webp",
+      "/projects/3BHK/h6.webp",
+      "/projects/3BHK/h7.webp",
+      "/projects/3BHK/h8.webp",
+
+      "/projects/3BHK/3BHK-card.webp",
+      "/projects/3BHK/r1.webp",
+      "/projects/3BHK/r2.webp",
+      "/projects/3BHK/r3.webp",
+      "/projects/3BHK/r4.webp",
+
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -331,7 +353,9 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/Shobhit/S-banner.webp",
+    bannerPosition: "center bottom 5%",
+
 
     // PROJECT DESCRIPTION
     description:
@@ -340,11 +364,27 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/Shobhit/h1.webp",
+      "/projects/Shobhit/h2.webp",
+      "/projects/Shobhit/h3.webp",
+      "/projects/Shobhit/c1.webp",
+      "/projects/Shobhit/c2.webp",
+      "/projects/Shobhit/d1.webp",
+      "/projects/Shobhit/k1.webp",
+      "/projects/Shobhit/k2.webp",
+      "/projects/Shobhit/k3.webp",
+      "/projects/Shobhit/k4.webp",
+      "/projects/Shobhit/m1.webp",
+      "/projects/Shobhit/s1.webp",
+      "/projects/Shobhit/s2.webp",
+      "/projects/Shobhit/b1.webp",
+      "/projects/Shobhit/b2.webp",
+      "/projects/Shobhit/b3.webp",
+      "/projects/Shobhit/b4.webp",
+      "/projects/Shobhit/b5.webp",
+
+
+
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -377,11 +417,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/HPM1.webp",
+      "/projects/HPM2.webp",
+      "/projects/HPM3.webp",
+      "/projects/HPM4.webp",
+      "/projects/HPM5.webp",
+      "/projects/HPM6.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -414,11 +455,12 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      Madan1,
-      Madan2,
-      Madan3,
-      Madan4,
-      Madan5,
+      "/projects/HPM1.webp",
+      "/projects/HPM2.webp",
+      "/projects/HPM3.webp",
+      "/projects/HPM4.webp",
+      "/projects/HPM5.webp",
+      "/projects/HPM6.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
