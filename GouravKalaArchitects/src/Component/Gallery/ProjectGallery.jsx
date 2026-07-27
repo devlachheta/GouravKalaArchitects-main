@@ -1,5 +1,5 @@
 import ArchitectureGallery from "./ArchitectureGallery";
-// import InteriorGallery from "./InteriorGallery";
+import InteriorGallery from "./InteriorGallery";
 
 function ProjectGallery({ category, gallery, title }) {
 
