@@ -1,0 +1,216 @@
+/* ==========================================
+   INTERIOR GALLERY
+========================================== */
+
+.interior-gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ==========================================
+   BLOCK
+========================================== */
+
+.interior-block {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.interior-block.reverse {
+  grid-template-columns: 42% 58%;
+}
+
+
+.stack-images {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+
+
+.gallery-image,
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+/* ==========================================
+   STACK
+========================================== */
+
+.stack-images {
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  /* <-- Add this back */
+  gap: 30px;
+}
+
+
+
+/* ==========================================
+   IMAGE
+========================================== */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-image:hover img {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   BLOCK
+========================================== */
+
+.interior-block {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.interior-block.reverse {
+  grid-template-columns: 42% 58%;
+}
+
+/* Paste here ↓↓↓ */
+
+.tall-image,
+.stack-images {
+  height: 720px;
+}
+
+.stack-images {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stack-item {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:991px) {
+
+  .gallery-hero {
+    height: 500px;
+  }
+
+  .interior-gallery {
+    gap: 60px;
+  }
+
+  .interior-block,
+  .interior-block.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .tall-image {
+    height: 520px;
+  }
+
+  .stack-images {
+    height: auto;
+  }
+
+  .stack-item {
+    height: 320px;
+    flex: none;
+  }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px) {
+
+  .gallery-hero {
+    height: 320px;
+  }
+
+  .interior-gallery {
+    gap: 40px;
+  }
+
+  .interior-block {
+    gap: 20px;
+  }
+
+  .stack-images {
+    gap: 20px;
+  }
+
+  .tall-image {
+    height: 260px;
+  }
+
+  .stack-item {
+    height: 260px;
+  }
+
+  .gallery-image {
+    border-radius: 10px;
+  }
+
+}

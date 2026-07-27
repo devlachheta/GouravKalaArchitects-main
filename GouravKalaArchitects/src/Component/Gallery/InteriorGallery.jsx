@@ -108,7 +108,6 @@ function InteriorGallery({ images, title }) {
 
 
       {sections}
-
     </div>
   );
 }

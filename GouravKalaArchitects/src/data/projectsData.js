@@ -14,18 +14,31 @@ const projectsData = [
     status: "Completed",
     bannerImage: MadanBanner,
     bannerPosition: "center 20%",
-
     gallery: [
-      "/projects/mpm/madanBanner.webp",
-      "/projects/mpm/madanBanner.webp",
-      "/projects/mpm/madanproject2.webp",
-      "/projects/mpm/madanproject3.webp",
-      "/projects/mpm/madanproject1.webp",
-      "/projects/mpm/madanproject6.webp",
-      "/projects/mpm/madanproject4.webp",
-      "/projects/mpm/madanproject5.webp",
-
-    ],
+      {
+        src: "/projects/mpm/madanprojectcard.webp",
+        position: "right center"
+      },
+      {
+        src: "/projects/mpm/madanproject2.webp",
+        position: "center 5%",
+      },
+      {
+        src: "/projects/mpm/madanproject3.webp",
+        position: "center 5%",
+      },
+      {
+        src: "/projects/mpm/madanproject4.webp",
+        position: "center 30%",
+      },
+      {
+        src: "/projects/mpm/madanproject5.webp",
+      },
+      {
+        src: "/projects/mpm/madanproject6.webp",
+        position: "center bottom",
+      },
+    ]
   },
   {
     id: 2,
@@ -39,14 +52,38 @@ const projectsData = [
     bannerImage: "/projects/nrk/nrkBanner.webp",
     bannerPosition: "center 10%",
     gallery: [
-      "/projects/nrk/nrkproject2.webp",
-      "/projects/nrk/nrkprojectcard.webp",
-      "/projects/nrk/nrkproject3.webp",
-      "/projects/nrk/nrkproject4.webp",
-      "/projects/nrk/nrkproject1.webp",
-      "/projects/nrk/nrkproject5.webp",
-      "/projects/nrk/nrkproject6.webp",
-      "/projects/nrk/nrkproject8.webp",
+      {
+        src: "/projects/nrk/nrkproject2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/nrk/nrkprojectcard.webp",
+        position: "center top",
+      },
+      {
+        src: "/projects/nrk/nrkproject3.webp",
+        position: "center 28%",
+      },
+      {
+        src: "/projects/nrk/nrkproject4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/nrk/nrkproject1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/nrk/nrkproject5.webp",
+        position: "20% center",
+      },
+      {
+        src: "/projects/nrk/nrkproject6.webp",
+        position: "center right",
+      },
+      {
+        src: "/projects/nrk/nrkproject8.webp",
+        position: "center center",
+      },
     ],
   },
 
@@ -69,12 +106,30 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/hpm/HPM1.webp",
-      "/projects/hpm/HPM6.webp",
-      "/projects/hpm/HPM3.webp",
-      "/projects/hpm/HPM4.webp",
-      "/projects/hpm/HPM5.webp",
-      "/projects/hpm/HPM2.webp",
+      {
+        src: "/projects/hpm/HPM1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/hpm/HPM6.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/hpm/HPM3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/hpm/HPM4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/hpm/HPM5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/hpm/HPM2.webp",
+        position: "center center",
+      },
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL

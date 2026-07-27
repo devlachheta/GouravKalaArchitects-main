@@ -1,119 +1,324 @@
-/* ===========================
+/* ==========================================
    Architecture Gallery
-=========================== */
+========================================== */
 
 .architecture-gallery {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 60px;
 }
 
-/* ===========================
-   Rows
-=========================== */
+.gallery-group {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    /* Space between Section 1 & Section 2 */
+}
 
-.gallery-row {
+/* ==========================================
+   Editorial Section
+========================================== */
+
+.gallery-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1.35fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.gallery-section.reverse {
+    grid-template-columns: 1fr 1.35fr;
+}
+
+/* ==========================================
+   Large Image
+========================================== */
+
+.gallery-large {
+    height: 760px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.gallery-large .gallery-image,
+.gallery-large .gallery-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-large img {
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================
+   Two Small Images
+========================================== */
+
+.gallery-stack {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     gap: 28px;
 }
 
-/* ===========================
-   Image Wrapper
-=========================== */
+.gallery-stack .gallery-image {
+    height: 366px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.gallery-stack .gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================
+   Common Image
+========================================== */
 
 .gallery-image {
     overflow: hidden;
-    border-radius: 8px;
-    background: #f8f8f8;
 }
-
-/* ===========================
-   Common Images
-=========================== */
 
 .gallery-image img {
     width: 100%;
-    display: block;
-    transition: transform .45s ease;
+    transition: transform .55s ease;
+    cursor: zoom-in;
 }
 
 .gallery-image:hover img {
     transform: scale(1.03);
 }
 
-/* ===========================
-   Hero Image
-=========================== */
-
-.gallery-hero {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.gallery-hero img {
-    width: 100%;
-    height: 760px;
-    /* Adjust between 700-800px */
-    object-fit: cover;
-
-    /* Controls where the crop happens */
-    object-position: center 22%;
-
-    display: block;
-}
-
-/* ===========================
-   Wide Image
-=========================== */
-
-.gallery-wide img {
-    width: 100%;
-    height: auto;
-}
-
-/* ===========================
-   Two Column Images
-=========================== */
-
-.gallery-row .gallery-image img {
-    width: 100%;
-    height: auto;
-}
-
-/* ===========================
-   Responsive
-=========================== */
+/* ==========================================
+   Tablet
+========================================== */
 
 @media (max-width: 992px) {
 
     .architecture-gallery {
+        gap: 40px;
+    }
+
+    .gallery-section,
+    .gallery-section.reverse {
+        grid-template-columns: 1fr;
         gap: 22px;
     }
 
-    .gallery-row {
-        gap: 22px;
+    .gallery-large {
+        height: 520px;
     }
 
-    .gallery-hero img {
-        height: 600px;
+    .gallery-stack .gallery-image {
+        height: 260px;
     }
 }
+
+/* ==========================================
+   Mobile
+========================================== */
 
 @media (max-width: 768px) {
 
     .architecture-gallery {
+        gap: 24px;
+    }
+
+    .gallery-section,
+    .gallery-section.reverse {
         gap: 18px;
     }
 
-    .gallery-row {
-        grid-template-columns: 1fr;
+    .gallery-large {
+        height: 320px;
+    }
+
+    .gallery-stack {
         gap: 18px;
     }
 
-    .gallery-hero img {
-        height: 420px;
-        object-position: center 25%;
+    .gallery-stack .gallery-image {
+        height: 220px;
     }
+}
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.94);
+    backdrop-filter: blur(8px);
+
+    animation: fadeIn .3s ease;
+}
+
+.lightbox-image {
+    max-width: 88vw;
+    max-height: 88vh;
+    object-fit: contain;
+    user-select: none;
+}
+
+/* ==========================================
+   Close Button
+========================================== */
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+
+    background: transparent;
+    border: none;
+
+    color: #fff;
+    font-size: 32px;
+
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.lightbox-close:hover {
+    transform: rotate(90deg);
+    opacity: .8;
+}
+
+/* ==========================================
+   Navigation
+========================================== */
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 70px;
+    height: 70px;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+    font-size: 34px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.lightbox-prev {
+    left: 35px;
+}
+
+.lightbox-next {
+    right: 35px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    transform: translateY(-50%) scale(1.15);
+}
+
+/* ==========================================
+   Counter
+========================================== */
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   Animation
+========================================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width:992px) {
+
+    .lightbox-image {
+        max-width: 92vw;
+        max-height: 82vh;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width:768px) {
+
+    .lightbox-image {
+        max-width: 95vw;
+        max-height: 75vh;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+
+    .lightbox-close {
+        top: 18px;
+        right: 18px;
+        font-size: 24px;
+    }
+
+    .lightbox-counter {
+        bottom: 18px;
+        font-size: 13px;
+    }
+
 }
