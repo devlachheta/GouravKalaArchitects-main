@@ -1,106 +1,127 @@
+import { useState } from "react";
 import GalleryImage from "./GalleryImage";
+import ImageLightbox from "./ImageLightbox";
 import "../../styles/interiorgallery.css";
 
 function InteriorGallery({ images, title }) {
   if (!images || images.length === 0) return null;
 
-  const galleryImages = images;
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  const openLightbox = (index) => {
+    setCurrentIndex(index);
+    setIsLightboxOpen(true);
+  };
 
-  const sections = [];
-
-  // Every block uses 3 images:
-  // 1 Tall + 2 Small
-  for (let i = 0; i < galleryImages.length; i += 3) {
-    const block = galleryImages.slice(i, i + 3);
-
-    const reverse = Math.floor(i / 3) % 2 !== 0;
-
-    sections.push(
-      <section
-        className={`interior-block ${reverse ? "reverse" : ""
-          }`}
-        key={i}
-      >
-        {!reverse ? (
-          <>
-            {/* Left Tall */}
-            <div className="tall-image">
-              {block[0] && (
-                <GalleryImage
-                  src={block[0]}
-                  alt={title}
-                />
-              )}
-            </div>
-
-            {/* Right Stack */}
-            <div className="stack-images">
-              {block[1] && (
-                <div className="stack-item">
-                  <GalleryImage
-                    src={block[1]}
-                    alt={title}
-                  />
-                </div>
-              )}
-
-              {block[2] && (
-                <div className="stack-item">
-                  <GalleryImage
-                    src={block[2]}
-                    alt={title}
-                  />
-                </div>
-              )}
-            </div>
-          </>
-        ) : (
-          <>
-            {/* Left Stack */}
-            <div className="stack-images">
-              {block[0] && (
-                <div className="stack-item">
-                  <GalleryImage
-                    src={block[0]}
-                    alt={title}
-                  />
-                </div>
-              )}
-
-              {block[1] && (
-                <div className="stack-item">
-                  <GalleryImage
-                    src={block[1]}
-                    alt={title}
-                  />
-                </div>
-              )}
-            </div>
-
-            {/* Right Tall */}
-            <div className="tall-image">
-              {block[2] && (
-                <GalleryImage
-                  src={block[2]}
-                  alt={title}
-                />
-              )}
-            </div>
-          </>
-        )}
-      </section>
-    );
-  }
+  // Convert images for ImageLightbox
+  const lightboxImages = images.map((img) => ({
+    src: img,
+  }));
 
   return (
-    <div className="interior-gallery">
+    <>
+      <div className="interior-gallery">
+        {images.map((_, index) => {
+          const reverse = Math.floor(index / 3) % 2 !== 0;
 
+          // Start a new block every 3 images
+          if (index % 3 !== 0) return null;
 
+          const block = images.slice(index, index + 3);
 
-      {sections}
+          return (
+            <section
+              className={`interior-block ${reverse ? "reverse" : ""}`}
+              key={index}
+            >
+              {!reverse ? (
+                <>
+                  {/* Left Tall */}
+                  <div className="tall-image">
+                    {block[0] && (
+                      <GalleryImage
+                        src={block[0]}
+                        alt={`${title} ${index + 1}`}
+                        onClick={() => openLightbox(index)}
+                      />
+                    )}
+                  </div>
 
-    </div>
+                  {/* Right Stack */}
+                  <div className="stack-images">
+                    {block[1] && (
+                      <div className="stack-item">
+                        <GalleryImage
+                          src={block[1]}
+                          alt={`${title} ${index + 2}`}
+                          onClick={() => openLightbox(index + 1)}
+                        />
+                      </div>
+                    )}
+
+                    {block[2] && (
+                      <div className="stack-item">
+                        <GalleryImage
+                          src={block[2]}
+                          alt={`${title} ${index + 3}`}
+                          onClick={() => openLightbox(index + 2)}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Left Stack */}
+                  <div className="stack-images">
+                    {block[0] && (
+                      <div className="stack-item">
+                        <GalleryImage
+                          src={block[0]}
+                          alt={`${title} ${index + 1}`}
+                          onClick={() => openLightbox(index)}
+                        />
+                      </div>
+                    )}
+
+                    {block[1] && (
+                      <div className="stack-item">
+                        <GalleryImage
+                          src={block[1]}
+                          alt={`${title} ${index + 2}`}
+                          onClick={() => openLightbox(index + 1)}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right Tall */}
+                  <div className="tall-image">
+                    {block[2] && (
+                      <GalleryImage
+                        src={block[2]}
+                        alt={`${title} ${index + 3}`}
+                        onClick={() => openLightbox(index + 2)}
+                      />
+                    )}
+                  </div>
+                </>
+              )}
+            </section>
+          );
+        })}
+      </div>
+
+      {isLightboxOpen && (
+        <ImageLightbox
+          images={lightboxImages}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          onClose={() => setIsLightboxOpen(false)}
+        />
+      )}
+    </>
   );
 }
 

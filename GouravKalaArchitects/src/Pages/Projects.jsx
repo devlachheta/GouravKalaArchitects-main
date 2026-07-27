@@ -15,12 +15,10 @@ import LIVING from "../assets/livingroom1.png";
 
 import ProjectCover1 from "../assets/projectcover1.png";
 import ProjectCover2 from "../assets/projectcover2.png";
-import ProjectCover3 from "../assets/projectcover3.png";
+import HPMcard from "../assets/HPM-card.jpg";
 import ProjectCover4 from "../assets/projectcover4.png";
 import ProjectCover5 from "../assets/projectcover5.png";
 import ProjectCover6 from "../assets/projectcover6.jpeg";
-
-// CTA
 import CTASection from "../CTASection";
 
 
@@ -71,10 +69,14 @@ function Projects() {
       slug: "project-hpm",
       title: "Project HPM",
       category: "Architecture",
+<<<<<<< HEAD
+      image: HPMcard,
+=======
       image: Residentail,
       location: "Indore, India",
       plotArea: "8,490 Sq. Ft.",
       builtUpArea: "6,950 Sq. Ft."
+>>>>>>> c8dfdf6fc6fcc6a45f8033588959b1dbac21bdb1
     },
 
     {
@@ -267,7 +269,7 @@ function Projects() {
             <div className="carousel-item">
 
               <img
-                src={ProjectCover3}
+                src={HPMcard}
                 className="d-block w-100"
                 alt="Project 3"
               />
