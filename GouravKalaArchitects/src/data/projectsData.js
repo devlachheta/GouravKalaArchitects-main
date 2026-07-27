@@ -145,14 +145,9 @@ const projectsData = [
     slug: "modern-villa",
     title: "Modern Villa",
     category: "Architecture",
-
-    // PROJECT INFORMATION
     location: "Indore, India",
     year: "2026",
     status: "Completed",
-
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
     bannerImage: ProjectCover1,
 
     // PROJECT DESCRIPTION

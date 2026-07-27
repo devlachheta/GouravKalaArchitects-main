@@ -12,7 +12,7 @@ import DinningSpace from "../assets/interior1.png";
 import BedRoom from "../assets/bedroominterior.jpeg";
 import LIVING from "../assets/livingroom1.png";
 
-// PROJECT BANNER IMAGES
+
 import ProjectCover1 from "../assets/projectcover1.png";
 import ProjectCover2 from "../assets/projectcover2.png";
 import ProjectCover3 from "../assets/projectcover3.png";
@@ -71,7 +71,6 @@ function Projects() {
       slug: "project-hpm",
       title: "Project HPM",
       category: "Architecture",
-
       image: Residentail,
       location: "Indore, India",
       plotArea: "8,490 Sq. Ft.",
