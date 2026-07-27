@@ -113,9 +113,9 @@ function Projects() {
     {
       id: 4,
       slug: "elegant-dining-space",
-      title: "Elegant Dining Space",
+      title: "2 BHK",
       category: "Interior",
-      image: DinningSpace,
+      image: "/projects/2BHK/2BHK-card.webp",
     },
 
     {
@@ -129,9 +129,9 @@ function Projects() {
     {
       id: 6,
       slug: "luxury-bedroom",
-      title: "Luxury Bedroom",
+      title: "3 BHK",
       category: "Interior",
-      image: BedRoom,
+      image: "/projects/3BHK/3BHK-card.webp",
     },
 
     {
@@ -139,7 +139,7 @@ function Projects() {
       slug: "contemporary-dining-interior",
       title: "Contemporary Dining Interior",
       category: "Interior",
-      image: DinningSpace,
+      image: "/projects/Shobhit/S-card.webp",
     },
 
     {
