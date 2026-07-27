@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function GalleryImage({ src, alt }) {
+function GalleryImage({ src, alt, onClick, position = "center center" }) {
     return (
         <motion.div
             className="gallery-image"
@@ -16,9 +16,12 @@ function GalleryImage({ src, alt }) {
                 src={src}
                 alt={alt}
                 loading="lazy"
+                onClick={onClick}
+                style={{
+                    objectPosition: position,
+                }}
             />
         </motion.div>
     );
 }
-
 export default GalleryImage;
