@@ -69,14 +69,10 @@ function Projects() {
       slug: "project-hpm",
       title: "Project HPM",
       category: "Architecture",
-<<<<<<< HEAD
-      image: HPMcard,
-=======
       image: Residentail,
       location: "Indore, India",
       plotArea: "8,490 Sq. Ft.",
       builtUpArea: "6,950 Sq. Ft."
->>>>>>> c8dfdf6fc6fcc6a45f8033588959b1dbac21bdb1
     },
 
     {

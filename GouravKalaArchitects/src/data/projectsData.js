@@ -33,6 +33,7 @@ const projectsData = [
       },
       {
         src: "/projects/mpm/madanproject5.webp",
+        position: "center top",
       },
       {
         src: "/projects/mpm/madanproject6.webp",
