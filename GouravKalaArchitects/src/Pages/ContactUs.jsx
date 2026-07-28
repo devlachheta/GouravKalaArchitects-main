@@ -29,6 +29,37 @@ function ContactUs() {
     const form = event.target;
     const formData = new FormData(form);
 
+    const name = formData.get("name").trim();
+    const email = formData.get("email").trim();
+    const phone = formData.get("phone").trim();
+    const projectType = formData.get("projectType");
+    const errors = [];
+
+    // Name Validation
+    if (!/^[A-Za-z\s]{3,50}$/.test(name)) {
+      errors.push("• Please enter a valid full name.");
+    }
+
+    // Email Validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.push("• Please enter a valid email address.");
+    }
+
+    // Mobile Validation
+    if (!/^(\+91|91)?[6-9]\d{9}$/.test(phone)) {
+      errors.push("• Please enter a valid mobile number.");
+    }
+
+    // Project Type Validation
+    if (!projectType) {
+      errors.push("• Please select a project type.");
+    }
+
+    if (errors.length > 0) {
+      setFormStatus(errors.join("\n"));
+      setIsSubmitting(false);
+      return;
+    }
     try {
       const response = await fetch("https://formspree.io/f/mkodvokg", {
         method: "POST",
@@ -122,7 +153,7 @@ function ContactUs() {
                     <FiMapPin className="contact-info-icon" />
 
                     <div>
-                      <strong>Studio address</strong>
+                      <strong>Studio Address</strong>
                       <p>
                         Indore, India
                         <br />
@@ -137,7 +168,7 @@ function ContactUs() {
                     <FiPhone className="contact-info-icon" />
 
                     <div>
-                      <strong>Call us</strong>
+                      <strong>Call Us</strong>
                       <p>
                         <a href="tel:+918959220111">
                           +91 8959220111
@@ -154,7 +185,7 @@ function ContactUs() {
                     <FiArrowUpRight className="contact-info-icon" />
 
                     <div>
-                      <strong>Write to us</strong>
+                      <strong>Write To Us</strong>
                       <p>
                         <a href="mailto:gouravkalaarchitects@gmail.com">
                           gouravkalaarchitects@gmail.com
@@ -169,7 +200,7 @@ function ContactUs() {
                     <FiArrowUpRight className="contact-info-icon" />
 
                     <div>
-                      <strong>Connect us</strong>
+                      <strong>Connect Us</strong>
 
                       <div className="contact-socials">
 
@@ -251,6 +282,7 @@ function ContactUs() {
                 <form
                   className="contact-form"
                   onSubmit={handleSubmit}
+                  noValidate
                 >
 
                   {/* Name + Email */}
@@ -337,7 +369,7 @@ function ContactUs() {
                         name="message"
                         className="contact-textarea"
                         placeholder="A few details about your project..."
-                        required
+
                       />
                     </div>
                   </div>
@@ -353,7 +385,10 @@ function ContactUs() {
                   </button>
 
                   {formStatus && (
-                    <p className="form-status">
+                    <p
+                      className="form-status"
+                      style={{ whiteSpace: "pre-line" }}
+                    >
                       {formStatus}
                     </p>
                   )}

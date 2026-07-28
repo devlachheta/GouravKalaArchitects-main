@@ -12,7 +12,7 @@ import DinningSpace from "../assets/interior1.png";
 import BedRoom from "../assets/bedroominterior.jpeg";
 import LIVING from "../assets/livingroom1.png";
 
-
+// PROJECT BANNER IMAGES
 import ProjectCover1 from "../assets/projectcover1.png";
 import ProjectCover2 from "../assets/projectcover2.png";
 import HPMcard from "../assets/HPM-card.jpg";
@@ -29,9 +29,7 @@ function Projects() {
   const navigate = useNavigate();
 
 
-  // =========================================
-  // FILTERS
-  // =========================================
+
 
   const filters = [
     "All",
@@ -71,6 +69,8 @@ function Projects() {
       category: "Architecture",
       image: Residentail,
       location: "Indore, India",
+
+
       plotArea: "8,490 Sq. Ft.",
       builtUpArea: "6,950 Sq. Ft."
     },
