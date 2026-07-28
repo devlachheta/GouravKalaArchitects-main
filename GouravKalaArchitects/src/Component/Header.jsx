@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FiInstagram } from "react-icons/fi";
-
 import "../styles/Header.css";
 
 function Header() {
-
     const [scrolled, setScrolled] = useState("top");
 
     useEffect(() => {
@@ -23,14 +20,13 @@ function Header() {
         };
 
         handleScroll();
-
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <header className="header ">
+        <header className="header">
             <nav
                 className={`navbar navbar-expand-lg ${scrolled === "visible"
                     ? "navbar-visible"
@@ -40,9 +36,11 @@ function Header() {
                     }`}
             >
                 <div className="container-fluid">
-                    <Link className="navbar-brand ps-5" to="/">
-                        Gourav Kala Architects
+
+                    <Link className="navbar-brand" to="/">
+                        GOURAV KALA ARCHITECTS
                     </Link>
+
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -63,8 +61,8 @@ function Header() {
 
                             <li className="nav-item">
                                 <NavLink
-                                    to="/"
                                     end
+                                    to="/"
                                     className={({ isActive }) =>
                                         `nav-link ${isActive ? "active" : ""}`
                                     }
@@ -110,18 +108,18 @@ function Header() {
                                 <NavLink
                                     to="/contact"
                                     className={({ isActive }) =>
-                                        `nav-link contact-link ${isActive ? "active" : ""}`
+                                        `nav-link ${isActive ? "active" : ""}`
                                     }
                                 >
                                     CONTACT
                                 </NavLink>
                             </li>
 
-                            <li className="nav-item dropdown pe-5">
+                            <li className="nav-item dropdown">
                                 <a
-                                    className="nav-link socials-toggle"
                                     href="#"
-                                    id="socialDropdown"
+                                    className="nav-link socials-toggle"
+                                    onClick={(e) => e.preventDefault()}
                                 >
                                     SOCIALS
                                 </a>
@@ -138,15 +136,44 @@ function Header() {
                                         </a>
                                     </li>
 
-                                    <li><a className="dropdown-item" href="https://www.facebook.com/profile.php?id=100064194397652" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                                    <li><a className="dropdown-item" href="https://www.youtube.com/@gouravkalaarchitects" target="_blank" rel="noopener noreferrer">Youtube</a></li>
-                                    <li><a className="dropdown-item" href="https://in.pinterest.com/gourav_kala_architects/?invite_code=5ae9f6f0aa7d454fb8f6ce6f5be61fea&sender=815855426154368256/" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="https://www.facebook.com/profile.php?id=100064194397652"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Facebook
+                                        </a>
+                                    </li>
 
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="https://www.youtube.com/@gouravkalaarchitects"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            YouTube
+                                        </a>
+                                    </li>
 
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="https://in.pinterest.com/gourav_kala_architects/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Pinterest
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
+
                 </div>
             </nav>
         </header>
