@@ -29,7 +29,7 @@
   width: 579px;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(4rem, 7vw, 6rem);
+  font-size: clamp(3rem, 5vw + 1rem, 6rem);
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -2px;
@@ -61,7 +61,7 @@
 
   margin-top: 35px;
 
-  font-size: 18px;
+  font-size: clamp(15px, 1.2vw, 18px);
   line-height: 1.9;
 
   color: #666;
@@ -91,14 +91,11 @@
   padding: 70px 0 60px;
   background: #fbfaf8;
   color: #332f2a;
-
 }
 
 .contact-box {
-
   padding: 200px 20px;
   position: relative;
-
 }
 
 .contact-content {
@@ -132,7 +129,6 @@
   z-index: 1;
   left: 10px;
   top: 100px;
-
 }
 
 .contact-info-box {
@@ -161,7 +157,6 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-
 
 
 /* ==========================================
@@ -301,7 +296,7 @@
   color: #292622;
 
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 68px;
+  font-size: clamp(39px, 4vw + 1rem, 68px);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -3px;
@@ -314,7 +309,7 @@
 
   color: #625b53;
 
-  font-size: 16px;
+  font-size: clamp(14px, 1vw + 0.5rem, 16px);
   font-weight: 400;
   line-height: 1.7;
 }
@@ -337,7 +332,6 @@
 
   margin-bottom: 8px;
 
-  /* color: #655d55; */
   color: #000;
   font-size: 15px;
   font-weight: 700;
@@ -504,55 +498,195 @@
 
 
 /* ==========================================
-   TABLET
+   TABLET (768px - 1024px) - MAINTAIN DESKTOP LAYOUT
 ========================================== */
 
-@media (max-width: 991px) {
-
+@media (max-width: 1024px) and (min-width: 768px) {
+  
+  /* HERO - Keep side by side */
   .contact-hero {
-    height: auto;
-    min-height: 100vh;
+    height: 100vh;
   }
 
   .contact-hero-left {
-    padding: 60px 40px;
+    width: 50%;
+    padding: clamp(40px, 5vw, 70px);
+  }
+
+  .contact-hero-right {
+    width: 50%;
+  }
+
+  .contact-hero-content {
+    max-width: 100%;
   }
 
   .contact-hero-content h1 {
-    width: auto;
+    width: 100%;
+    font-size: clamp(3.5rem, 5.5vw, 5.5rem);
   }
 
+  .contact-hero-content p {
+    font-size: clamp(15px, 1.5vw, 17px);
+    margin-top: 28px;
+  }
+
+  /* CONTACT SECTION */
   .contact-section {
-    padding: 60px 0;
-
+    padding: 60px 20px;
   }
 
+  .contact-box {
+    padding: clamp(120px, 15vw, 180px) 20px;
+  }
 
-  /* CONTACT CARD */
+  .contact-content {
+    padding: clamp(45px, 5vw, 60px) clamp(40px, 4.5vw, 65px);
+  }
+
+  /* CONTACT INFO BOX - Keep 2×2 grid */
+  .box-studio {
+    left: 15px;
+    top: 90px;
+  }
 
   .contact-info-box {
-    width: 100%;
+    padding: 20px 40px 22px;
+  }
 
-    padding: 25px 30px 30px;
+  .contact-info-title {
+    font-size: 13px;
+    margin-bottom: 16px;
   }
 
   .contact-info-grid {
-    max-width: 750px;
+    column-gap: 90px;
+    row-gap: 16px;
+  }
 
-    column-gap: 50px;
-    row-gap: 28px;
+  .contact-info-item {
+    gap: 13px;
+  }
+
+  .contact-info-icon {
+    font-size: 16px;
+  }
+
+  .contact-info-item strong {
+    font-size: 11px;
+  }
+
+  .contact-info-item p {
+    font-size: 12px;
+  }
+
+  .contact-socials {
+    column-gap: 26px;
+    margin-top: 14px;
+  }
+
+  /* FORM */
+  .contact-heading {
+    margin-bottom: 45px;
+  }
+
+  .contact-start-label {
+    font-size: 10px;
+  }
+
+  .contact-title {
+    font-size: clamp(50px, 5.5vw, 62px);
+    margin-left: clamp(35px, 5vw, 65px);
+  }
+
+  .contact-subtitle {
+    font-size: 15px;
+    margin-left: clamp(35px, 5vw, 65px);
+  }
+
+  .contact-label {
+    font-size: 14px;
+  }
+
+  .contact-input,
+  .contact-textarea {
+    font-size: 13px;
+  }
+
+  .contact-textarea {
+    height: 140px;
+  }
+
+  .form-field {
+    margin-bottom: 18px;
+  }
+
+  .contact-btn {
+    padding: 15px 25px;
+    font-size: 10px;
   }
 }
 
 
 /* ==========================================
-   MOBILE
+   MOBILE LANDSCAPE & SMALL TABLETS (481px - 767px)
 ========================================== */
 
 @media (max-width: 767px) {
 
-  /* HERO */
+  .contact-box {
+    padding: clamp(50px, 12vw, 90px) clamp(12px, 4vw, 20px);
+    overflow-x: hidden;
+  }
 
+  .box-studio {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-bottom: clamp(20px, 6vw, 32px);
+  }
+
+  .contact-info-box {
+    width: min(100%, 480px);
+    padding: clamp(16px, 4vw, 24px) clamp(18px, 5vw, 28px);
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(24px, 8vw, 60px);
+    row-gap: clamp(14px, 4vw, 20px);
+  }
+
+  .contact-content {
+    padding: clamp(28px, 6vw, 45px) clamp(20px, 5vw, 40px);
+  }
+
+  .contact-info-title {
+    font-size: clamp(10px, 2.8vw, 12px);
+    margin-bottom: clamp(14px, 4vw, 20px);
+  }
+
+  .contact-info-item p,
+  .contact-info-item strong {
+    font-size: clamp(11px, 2.8vw, 13px);
+  }
+
+  .contact-socials {
+    grid-template-columns: repeat(2, max-content);
+    column-gap: clamp(18px, 5vw, 28px);
+    row-gap: clamp(8px, 2.5vw, 12px);
+  }
+}
+
+
+/* ==========================================
+   MOBILE PORTRAIT (320px - 480px)
+========================================== */
+
+@media (max-width: 480px) {
+
+  /* HERO */
   .contact-hero {
     display: block;
     height: auto;
@@ -564,7 +698,7 @@
   }
 
   .contact-hero-left {
-    padding: 80px 25px 50px;
+    padding: 55px 25px 45px;
   }
 
   .contact-hero-content {
@@ -572,133 +706,242 @@
   }
 
   .contact-hero-content h1 {
-    width: auto;
-
-    font-size: clamp(3rem, 14vw, 4.5rem);
+    width: 100%;
+    font-size: clamp(2.5rem, 9vw, 3.8rem);
   }
 
   .contact-hero-content p {
     font-size: 15px;
+    margin-top: 25px;
   }
 
   .contact-hero-right {
-    height: 450px;
+    height: 45vh;
+    min-height: 320px;
   }
 
   .contact-hero-right img {
     border-radius: 0;
   }
 
-
-  /* MAIN SECTION */
-
+  /* CONTACT SECTION */
   .contact-section {
-    padding: 50px 0;
+    padding: 45px 15px;
   }
 
+  .contact-box {
+    padding: 65px 15px;
+  }
 
-  /* CONTACT INFO CARD */
+  .contact-content {
+    padding: 38px 28px;
+  }
+
+  /* CONTACT INFO - Compact layout */
+  .box-studio {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-bottom: 28px;
+  }
 
   .contact-info-box {
-    width: 100%;
-
-    padding: 25px;
+    padding: 22px 24px 24px;
   }
 
   .contact-info-title {
-    margin-bottom: 25px;
-
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
   }
-
-
-  /* CHANGE 2 × 2 INTO 1 COLUMN */
 
   .contact-info-grid {
     grid-template-columns: 1fr;
-
-    max-width: 100%;
-
-    gap: 28px;
+    gap: 24px;
   }
 
+  .contact-info-item {
+    gap: 11px;
+  }
 
-  /* SOCIALS STAY 2 × 2 */
+  .contact-info-icon {
+    font-size: 15px;
+    margin-top: 2px;
+  }
 
+  .contact-info-item strong {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .contact-info-item p {
+    font-size: 12px;
+  }
+
+  /* SOCIALS - Keep 2 columns */
   .contact-socials {
     grid-template-columns: repeat(2, max-content);
-
-    column-gap: 25px;
+    column-gap: 22px;
+    row-gap: 9px;
   }
 
+  .contact-socials a {
+    font-size: 9px;
+  }
+
+  .contact-socials svg {
+    font-size: 11px;
+  }
 
   /* FORM */
-
   .contact-heading {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
+  }
+
+  .contact-start-label {
+    font-size: 9px;
+    margin-bottom: 8px;
   }
 
   .contact-title {
-    font-size: 45px;
+    font-size: clamp(34px, 8.5vw, 44px);
+    margin-left: 18px;
     letter-spacing: -2px;
-
   }
 
   .contact-subtitle {
     font-size: 14px;
+    margin-left: 18px;
+  }
+
+  .contact-label {
+    font-size: 12px;
+    margin-bottom: 7px;
   }
 
   .form-field {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+  }
+
+  .contact-input {
+    font-size: 13px;
+    padding: 12px 0;
   }
 
   .contact-textarea {
-    height: 125px;
+    height: 120px;
+    font-size: 13px;
+    padding: 12px 10px;
+  }
+
+  .contact-btn {
+    padding: 14px 24px;
+    font-size: 10px;
+  }
+
+  .contact-btn svg {
+    font-size: 13px;
+  }
+
+  .form-status {
+    font-size: 17px;
+    margin-top: 12px;
   }
 }
 
 
 /* ==========================================
-   SMALL MOBILE
+   VERY SMALL DEVICES (< 360px)
 ========================================== */
 
-@media (max-width: 480px) {
+@media (max-width: 359px) {
 
   .contact-hero-left {
-    padding: 70px 20px 40px;
+    padding: 45px 20px 38px;
+  }
+
+  .contact-hero-content h1 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .contact-hero-content p {
+    font-size: 14px;
   }
 
   .contact-hero-right {
-    height: 350px;
+    height: 40vh;
+    min-height: 280px;
   }
 
-  .contact-title {
-    font-size: 39px;
+  .contact-box {
+    padding: 55px 12px;
   }
 
-
-  /* CONTACT CARD */
+  .contact-content {
+    padding: 32px 22px;
+  }
 
   .contact-info-box {
-    padding: 22px 20px;
+    padding: 20px 18px 22px;
   }
 
   .contact-info-title {
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 10px;
+    letter-spacing: 0.13em;
+  }
+
+  .contact-info-grid {
+    gap: 20px;
   }
 
   .contact-info-item {
-    gap: 12px;
+    gap: 10px;
   }
 
+  .contact-info-item strong {
+    font-size: 10px;
+  }
 
-  /* SOCIAL LINKS ONE COLUMN ON VERY SMALL SCREEN */
+  .contact-info-item p {
+    font-size: 11px;
+  }
 
   .contact-socials {
     grid-template-columns: 1fr;
+    row-gap: 8px;
+  }
 
-    row-gap: 10px;
+  .contact-title {
+    font-size: clamp(30px, 9vw, 38px);
+    margin-left: 12px;
+    letter-spacing: -1.5px;
+  }
+
+  .contact-subtitle {
+    margin-left: 12px;
+    font-size: 13px;
+  }
+
+  .contact-label {
+    font-size: 11px;
+  }
+
+  .contact-input {
+    font-size: 12px;
+  }
+
+  .contact-textarea {
+    height: 110px;
+    font-size: 12px;
+  }
+
+  .contact-btn {
+    padding: 13px 22px;
+    font-size: 9px;
   }
 }
+
+
+
+
+

@@ -147,8 +147,6 @@ function ContactUs() {
                 </h3>
 
                 <div className="contact-info-grid">
-
-                  {/* 1 - Address */}
                   <div className="contact-info-item">
                     <FiMapPin className="contact-info-icon" />
 
@@ -162,8 +160,6 @@ function ContactUs() {
                     </div>
                   </div>
 
-
-                  {/* 2 - Phone */}
                   <div className="contact-info-item">
                     <FiPhone className="contact-info-icon" />
 
@@ -178,9 +174,6 @@ function ContactUs() {
                       </p>
                     </div>
                   </div>
-
-
-                  {/* 3 - Email */}
                   <div className="contact-info-item">
                     <FiArrowUpRight className="contact-info-icon" />
 
@@ -195,7 +188,6 @@ function ContactUs() {
                   </div>
 
 
-                  {/* 4 - Social */}
                   <div className="contact-info-item">
                     <FiArrowUpRight className="contact-info-icon" />
 
@@ -253,8 +245,8 @@ function ContactUs() {
               </aside>
             </div>
           </div>
-
-        </div>
+        
+        </div> 
 
 
         <div className="container-fluid contact-box">
