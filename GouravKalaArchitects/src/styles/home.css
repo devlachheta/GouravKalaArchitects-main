@@ -28,7 +28,7 @@
 }
 
 .hero-left {
-    width: 50%;
+    width: 55%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,7 +95,7 @@
 
 .hero-right {
     position: relative;
-    width: 50%;
+    width: 45%;
 }
 
 .hero-right img {
@@ -115,7 +115,7 @@
 
 .home-about-us {
     padding:
-        120px 20px 20px;
+        80px 20px 20px;
 
     text-align: center;
 
@@ -186,18 +186,7 @@
     text-align: center;
 }
 
-.about-description {
-    margin-top: 30px;
-}
 
-.about-description p {
-    margin: 10px 0;
-
-    font-size: 18px;
-    line-height: 1.8;
-
-    color: #555;
-}
 
 .heading-line {
     width: 80px;
@@ -455,9 +444,10 @@
 }
 
 .principle-shell {
-    width: min(84%, 1480px);
-
+    width: 100%;
+    max-width: 1480px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .principle-grid {
@@ -643,7 +633,7 @@
     color: #a27b5c;
 }
 
-.section-title h2 {
+.principle-section-title h2 {
     margin:
         0 0 22px;
 
@@ -664,14 +654,14 @@
     color: #282521;
 }
 
-.section-title h2 em {
+.principle-section-title h2 em {
     color: #a67d5d;
 
     font-weight: 400;
     font-style: italic;
 }
 
-.section-title>p:last-child {
+.principle-section-title>p:last-child {
     max-width: 650px;
 
     margin: 0;
@@ -937,337 +927,18 @@
     text-transform: uppercase;
 }
 
-/* Tablet */
-@media (max-width: 991px) {
-    .stat-item {
-        gap: 18px;
-    }
+/* ===================================================
+   TABLET (768px - 1024px)
+=================================================== */
 
-    .stat-item strong {
-        font-size: 34px;
-    }
-}
+@media (min-width:768px) and (max-width:1024px) {
 
-/* Mobile */
-@media (max-width: 767px) {
-    .stats-section {
-        padding-bottom: 45px;
-    }
-
-    .stat-row {
-        margin-top: 30px;
-        padding-top: 15px;
-    }
-
-    .stat-item {
-        padding: 20px 0;
-        gap: 25px;
-        border-bottom: 1px solid #e8e4df;
-    }
-
-    .stat-item strong {
-        min-width: 70px;
-        font-size: 36px;
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE - 1100PX
-========================================= */
-
-@media (max-width: 1100px) {
-
-    .principle-shell {
-        width: 90%;
-    }
-
-    .principle-grid {
-        grid-template-columns:
-            1fr 1fr;
-
-        gap: 60px;
-    }
-
-    .section-title h2 {
-        font-size: 52px;
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE - TABLET / 900PX
-========================================= */
-
-@media (max-width: 900px) {
-
-    .home-projects {
-        padding:
-            80px 20px;
-    }
-
-    .home-project-grid {
-        width:
-            min(750px, 92%);
-
-        margin-top: 55px;
-
-        gap: 25px;
-    }
-
-    .home-project-card {
-        height: 450px;
-    }
-
-    .home-project-card-overlay h2 {
-        font-size: 40px;
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE - TABLET / 768PX
-========================================= */
-
-@media (max-width: 768px) {
-
-    /* Headings */
-
-    .home-about-us h1,
-    .home-projects h1,
-    .home-services h1,
-    .home-contact h1 {
-        font-size: 42px;
-    }
-
-    .home-about-us .heading-line,
-    .home-projects .home-project-line,
-    .home-services .heading-line,
-    .home-contact .heading-line {
-        width: 70px;
-        height: 3px;
-
-        margin-top: 12px;
-    }
-
-
-    /* Principle */
-
-    .principle-section {
-        padding:
-            50px 0 70px;
-    }
-
-    .principle-shell {
-        width: 90%;
-    }
-
-    .principle-grid {
-        grid-template-columns:
-            1fr;
-
-        gap: 55px;
-    }
-
-    .image-placeholder,
-    .principle-image {
-        max-width: 550px;
-
-        margin:
-            0 auto;
-    }
-
-    .principle-content {
-        max-width: 100%;
-    }
-
-    .section-title h2 {
-        font-size:
-            clamp(42px, 12vw, 58px);
-
-        letter-spacing: -1.5px;
-    }
-
-    .section-title>p:last-child {
-        font-size: 15px;
-    }
-
-
-    /* Contact */
-
-    .home-contact {
-        padding:
-            55px 20px 30px;
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE - PROJECT MOBILE / 600PX
-========================================= */
-
-@media (max-width: 600px) {
-
-    .home-projects {
-        padding:
-            65px 15px;
-    }
-
-    .home-project-grid {
-        width: 92%;
-
-        margin-top: 45px;
-
-        grid-template-columns:
-            1fr;
-
-        gap: 25px;
-    }
-
-    .home-project-card {
-        height: 450px;
-    }
-
-    .home-project-card-overlay h2 {
-        font-size: 40px;
-
-        transform:
-            translateY(0);
-    }
-
-    .home-project-card-view-more {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE - MOBILE / 480PX
-========================================= */
-
-@media (max-width: 480px) {
-
-    /* Headings */
-
-    .home-about-us h1,
-    .home-projects h1,
-    .home-services h1,
-    .home-contact h1 {
-        font-size: 36px;
-    }
-
-    .home-about-us .heading-line,
-    .home-projects .home-project-line,
-    .home-services .heading-line,
-    .home-contact .heading-line {
-        width: 60px;
-        height: 2px;
-
-        margin-top: 10px;
-    }
-
-
-    /* Principle */
-
-    .principle-section {
-        padding:
-            40px 0 60px;
-    }
-
-    .principle-image {
-        width: 100%;
-
-        aspect-ratio: 4 / 5;
-    }
-
-    .placeholder-index {
-        top: 22px;
-        left: 20px;
-
-        font-size: 23px;
-    }
-
-    .placeholder-label {
-        right: 18px;
-        bottom: 25px;
-
-        font-size: 8px;
-    }
-
-    .image-placeholder::before {
-        width: 150px;
-        height: 150px;
-
-        top: 50px;
-        left: 55px;
-    }
-
-    .image-placeholder::after {
-        width: 280px;
-        height: 280px;
-
-        bottom: -100px;
-    }
-
-    .eyebrow {
-        margin-bottom: 20px;
-    }
-
-    .section-title h2 {
-        margin-bottom: 20px;
-    }
-
-    .tick-list {
-        margin:
-            30px 0 35px;
-    }
-
-
-    /* Contact */
-
-    .home-contact {
-        padding:
-            45px 15px 25px;
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE - SMALL MOBILE / 400PX
-========================================= */
-
-@media (max-width: 400px) {
-
-    .home-project-card {
-        height: 400px;
-    }
-
-    .home-project-card-overlay h2 {
-        font-size: 35px;
-    }
-
-    .home-project-card-view-more {
-        font-size: 12px;
-
-        letter-spacing: 1.5px;
-    }
-}
-
-/* =========================================
-   HERO RESPONSIVE
-========================================= */
-
-@media (max-width: 768px) {
+    /* HERO */
 
     .hero {
         display: flex;
         flex-direction: column-reverse;
-        /* Image first */
         height: auto;
-        min-height: 100vh;
     }
 
     .hero-left,
@@ -1276,7 +947,113 @@
     }
 
     .hero-right {
-        height: 55vh;
+        height: 60vh;
+        overflow: hidden;
+    }
+
+    .hero-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0;
+        display: block;
+    }
+
+    .hero-left {
+        padding: 60px 40px;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 650px;
+        margin: auto;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(3rem, 5vw, 4rem);
+    }
+
+    .hero-content p {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .explore-btn {
+        justify-content: center;
+    }
+
+    /* PRINCIPLE */
+
+    .principle-shell {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .principle-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .principle-image,
+    .image-placeholder {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .principle-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .tick-list {
+        grid-template-columns: repeat(1fr);
+    }
+
+    /* PROJECT */
+
+    .home-project-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+
+}
+
+
+/* ===================================================
+   MOBILE (0px - 767px)
+=================================================== */
+
+@media (max-width:767px) {
+
+    /* HEADINGS */
+
+    .home-about-us h1,
+    .home-projects h1,
+    .home-services h1,
+    .home-contact h1 {
+        font-size: 38px;
+    }
+
+    /* HERO */
+
+    .hero {
+        display: flex;
+        flex-direction: column-reverse;
+        height: auto;
+
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-right {
+        height: 50vh;
+        overflow: hidden;
     }
 
     .hero-right img {
@@ -1284,13 +1061,11 @@
         height: 100%;
         object-fit: cover;
         border-radius: 0;
+        display: block;
     }
 
     .hero-left {
-        padding: 45px 25px 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        padding: 40px 22px;
         text-align: center;
     }
 
@@ -1299,37 +1074,168 @@
     }
 
     .hero-content h1 {
-        font-size: clamp(2.5rem, 9vw, 3.5rem);
+        font-size: 2.5rem;
     }
 
     .hero-content p {
         font-size: 16px;
-        margin-top: 20px;
+        line-height: 1.8;
     }
 
     .explore-btn {
-        margin-top: 30px;
         justify-content: center;
+        margin-top: 25px;
+    }
+
+    /* PRINCIPLE */
+
+
+
+    .principle-shell {
+        width: 100%;
+        max-width: 100%;
+
+    }
+
+    .principle-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .principle-image,
+    .image-placeholder {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .principle-content {
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .tick-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .text-button {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* PROJECT */
+
+    .home-project-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .home-project-card {
+        height: 420px;
+    }
+
+    /* CONTACT */
+
+    .home-contact {
+        padding: 50px 20px;
     }
 }
 
-@media (max-width: 480px) {
+
+/* ===================================================
+   SMALL MOBILE
+=================================================== */
+
+@media (max-width:480px) {
 
     .hero-right {
         height: 45vh;
     }
 
     .hero-left {
-        padding: 35px 20px 50px;
+        padding: 35px 20px;
     }
 
     .hero-content h1 {
-        font-size: 2.3rem;
-        line-height: 1.15;
+        font-size: 2.6rem;
+    }
+
+    .home-about-description p {
+        max-width: 100%;
+        margin: 0 auto;
+
+        font-size: 16px;
+        line-height: 2;
+
+        text-align: justify;
+        text-justify: inter-word;
+
+        hyphens: auto;
     }
 
     .hero-content p {
         font-size: 15px;
-        line-height: 1.8;
+    }
+
+    .home-about-us h1,
+    .home-projects h1,
+    .home-services h1,
+    .home-contact h1 {
+        font-size: 34px;
+    }
+
+    .home-project-card {
+        height: 380px;
+    }
+
+    .principle-section-title p {
+        max-width: 100%;
+        margin: 0 auto;
+
+        font-size: 16px;
+        line-height: 2;
+
+        text-align: justify;
+        text-justify: inter-word;
+        padding: 10px;
+        hyphens: auto;
+    }
+
+
+    .stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 6px;
+    }
+
+    .stat-row>div {
+        flex: 1;
+        padding: 0 4px;
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .stat-item strong {
+        width: 42px;
+        /* Same width for 7+, 48+, 06+ */
+        flex-shrink: 0;
+        font-size: 28px;
+        line-height: 1;
+        text-align: left;
+    }
+
+    .stat-item span {
+        font-size: 8px;
+        line-height: 1.3;
+        text-align: left;
     }
 }

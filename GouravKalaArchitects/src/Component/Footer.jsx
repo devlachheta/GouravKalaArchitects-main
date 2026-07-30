@@ -34,7 +34,7 @@ function Footer() {
           </div>
 
           {/* Explore */}
-          <div className="col-lg-2 col-md-6 col-6 footerColumn">
+          <div className="col-lg-2 col-md-6 col-12 footerColumn">
             <p className="footerLabel">Explore</p>
 
             <Link to="/about">Our studio</Link>
@@ -43,7 +43,8 @@ function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="col-lg-3 col-md-6 col-6 footerColumn">
+          <div className="col-lg-3 col-md-6 col-12 footerColumn">
+
             <p className="footerLabel">Contact</p>
             <a href="mailto:gouravkalaarchitects@gmail.com">
               gouravkalaarchitects@gmail.com
@@ -55,6 +56,7 @@ function Footer() {
 
             <p>Indore, India</p>
           </div>
+
 
           {/* Follow */}
           <div className="col-lg-2 col-md-6 col-12 footerColumn">

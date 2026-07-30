@@ -3,208 +3,213 @@
 =========================== */
 
 .cta-section {
-  padding: 55px 0;
+  position: relative;
+  width: 100%;
   height: 100vh;
-  background-size: cover;
-  background-position: center bottom 20%;
-  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  z-index: 0;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+.cta-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 40px 20px;
+
+  text-align: center;
+}
+
+.cta-title {
+  max-width: 850px;
+
+  margin-bottom: 35px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -.04em;
+
+  color: #2d2926;
 }
 
 .cta-hello {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  font-size: 1.25em;
-  font-weight: 500;
-  color: #A78466;
+  /* color: #A78466; */
+  font-size: bold;
+  color: #fff;
 }
-
-/* ===========================
-   CTA INNER BOX
-=========================== */
-
-.cta-inner {
-  display: flex;
-
-  min-height: 510px;
-
-  padding: 70px 30px;
-
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-
-}
-
-.cta-inner {
-  transform: translateY(100px);
-}
-
-
-/* ===========================
-   SMALL HEADING
-=========================== */
-
-.cta-eyebrow {
-  margin: 0 0 28px;
-
-  color: #8a7058;
-
-  font-size: 11px;
-  font-weight: 700;
-
-  letter-spacing: 0.18em;
-
-  text-transform: uppercase;
-}
-
-
-/* ===========================
-   MAIN HEADING
-=========================== */
-
-.cta-title {
-  max-width: 850px;
-
-  margin: 0 auto 35px;
-
-  color: #292622;
-
-  font-family: "Playfair Display", Georgia, serif;
-
-  font-size: 64px;
-  font-weight: 400;
-
-  line-height: 0.98;
-
-  letter-spacing: -0.045em;
-}
-
-
-/* ===========================
-   CTA BUTTON
-=========================== */
 
 .cta-button {
   display: inline-flex;
-
-  padding: 17px 26px;
-
   align-items: center;
-  justify-content: center;
-
   gap: 10px;
+
+  padding: 16px 28px;
 
   border-radius: 50px;
 
-  background: #302d29;
-
-  color: #ffffff;
+  background: #2d2926;
+  color: #fff;
 
   font-size: 11px;
   font-weight: 700;
 
-  letter-spacing: 0.03em;
-
   text-decoration: none;
 
-  box-shadow: 0 10px 20px rgba(48, 45, 41, 0.15);
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: .3s ease;
 }
-
-.cta-button svg {
-  font-size: 14px;
-}
-
-
-/* Hover */
 
 .cta-button:hover {
-  background: #47423c;
-
-  color: #ffffff;
-
-  text-decoration: none;
-
+  color: #fff;
   transform: translateY(-3px);
-
-  box-shadow: 0 14px 25px rgba(48, 45, 41, 0.2);
 }
 
+/* ===========================
+   1400px
+=========================== */
+
+@media (max-width:1400px) {
+
+  .cta-title {
+    font-size: 60px;
+  }
+
+}
+
+/* ===========================
+   1200px
+=========================== */
+
+@media (max-width:1200px) {
+
+  .cta-section {
+    height: 90vh;
+  }
+
+  .cta-hello {
+    font-size: 1.25em;
+  }
+
+  .cta-bg {
+    object-position: right center;
+  }
+
+  .cta-title {
+    font-size: 54px;
+    max-width: 700px;
+  }
+
+}
 
 /* ===========================
    TABLET
 =========================== */
 
-@media (max-width: 991px) {
+@media (max-width:991px) {
 
-  .cta-inner {
-    min-height: 450px;
+  .cta-section {
+    height: 75vh;
+  }
 
-    padding: 65px 35px;
+  .cta-hello {
+    font-size: 1.35em;
+    /* Increase to 1.3em or 1.35em if needed */
+  }
+
+  .cta-bg {
+    object-fit: cover;
+    object-position: right center;
   }
 
   .cta-title {
-    font-size: 54px;
+    font-size: 46px;
+    max-width: 600px;
   }
-}
 
+}
 
 /* ===========================
    MOBILE
 =========================== */
 
-@media (max-width: 767px) {
+@media (max-width:767px) {
 
   .cta-section {
-    padding: 35px 0;
+    height: 70vh;
   }
 
-  .cta-inner {
-    min-height: 400px;
-
-    padding: 55px 25px;
-  }
-
-  .cta-eyebrow {
-    margin-bottom: 22px;
-
-    font-size: 9px;
+  .cta-bg {
+    object-fit: cover;
+    object-position: right center;
   }
 
   .cta-title {
-    margin-bottom: 30px;
-
-    font-size: 42px;
-
-    line-height: 1.05;
+    font-size: 36px;
+    max-width: 330px;
+    line-height: 1.15;
   }
-}
 
+  .cta-button {
+    padding: 14px 24px;
+    font-size: 10px;
+  }
+
+}
 
 /* ===========================
    SMALL MOBILE
 =========================== */
 
-@media (max-width: 480px) {
+@media (max-width:480px) {
 
-  .cta-inner {
-    min-height: 360px;
+  .cta-section {
+    height: 65vh;
+  }
 
-    padding: 45px 20px;
+  .cta-bg {
+    object-fit: cover;
+    object-position: 90% center;
   }
 
   .cta-title {
-    font-size: 35px;
+    max-width: 260px;
+    font-size: 30px;
+    line-height: 1.2;
   }
 
   .cta-button {
-    padding: 15px 21px;
-
-    font-size: 10px;
+    padding: 13px 20px;
+    font-size: 9px;
   }
 }

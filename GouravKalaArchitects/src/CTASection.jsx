@@ -7,31 +7,33 @@ import CtaBg from "./assets/CTA-background.PNG";
 
 function CTASection() {
   return (
-    <section
-      className="cta-section"
-      style={{
-        backgroundImage: `url(${CtaBg})`,
-      }}
-    >
-      <div className="container">
-        <div className="cta-inner text-center">
+    <section className="cta-section">
 
-          <h2 className="cta-title">
-            A thoughtful space starts
-            <br className="d-none d-md-block" />
-            with a simple <span className="cta-hello">hello.</span>
-          </h2>
+      <img
+        src={CtaBg}
+        alt="CTA Background"
+        className="cta-bg"
+      />
 
-          <Link
-            to="/contact"
-            className="cta-button"
-          >
-            BOOK A CONSULTATION
-            <FiArrowUpRight />
-          </Link>
+      <div className="cta-overlay">
+        <div className="container">
+          <div className="cta-inner">
 
+            <h2 className="cta-title">
+              A thoughtful space starts
+              <br />
+              with a simple <span className="cta-hello">hello.</span>
+            </h2>
+
+            <Link to="/contact" className="cta-button">
+              BOOK A CONSULTATION
+              <FiArrowUpRight />
+            </Link>
+
+          </div>
         </div>
       </div>
+
     </section>
   );
 }

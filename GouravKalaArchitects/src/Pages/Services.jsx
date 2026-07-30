@@ -99,11 +99,34 @@ function Services() {
 
       <section className="services-hero">
 
-        {/* LEFT SIDE */}
+        {/* IMAGE */}
+        <motion.div
+          className="services-hero-right"
+          initial={{
+            opacity: 0,
+            x: 120,
+            scale: 1.08,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1.3,
+            ease: "easeOut",
+          }}
+        >
+          <img
+            src={Banner}
+            alt="Gourav Kala Architects Services"
+          />
+        </motion.div>
+
+        {/* TEXT */}
         <div className="services-hero-left">
 
           <div className="services-hero-content">
-
 
             <motion.h1
               className="services-hero-title"
@@ -154,37 +177,14 @@ function Services() {
                 ease: "easeOut",
               }}
             >
-              Whether you’re planning a new home or transforming an existing one, we provide complete architecture and interior design solutions—from concept to execution.
+              Whether you're planning a new home or transforming an existing one,
+              we provide complete architecture and interior design solutions—from
+              concept to execution.
             </motion.p>
 
           </div>
 
         </div>
-
-
-
-        <motion.div
-          className="services-hero-right"
-          initial={{
-            opacity: 0,
-            x: 120,
-            scale: 1.08,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.3,
-            ease: "easeOut",
-          }}
-        >
-          <img
-            src={Banner}
-            alt="Gourav Kala Architects Services"
-          />
-        </motion.div>
 
       </section>
       <section className="services-section">
