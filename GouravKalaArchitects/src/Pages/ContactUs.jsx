@@ -136,7 +136,7 @@ function ContactUs() {
     <>
 
       <section className="contact-section">
-        <div className="container studio">
+        {/* <div className="container studio">
           <div className="row">
             <div className="col-12 box-studio">
 
@@ -246,7 +246,7 @@ function ContactUs() {
             </div>
           </div>
         
-        </div> 
+        </div>  */}
 
 
         <div className="container-fluid contact-box">
