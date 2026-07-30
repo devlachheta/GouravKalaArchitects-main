@@ -158,94 +158,190 @@
     justify-content: center;
     align-items: center;
 
-    background: rgba(0, 0, 0, 0.94);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    animation: fadeIn .3s ease;
+    overflow: hidden;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+
+.lightbox-content {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
 }
 
 .lightbox-image {
-    max-width: 88vw;
-    max-height: 88vh;
+    max-width: 78vw;
+    max-height: 80vh;
+
+    width: auto;
+    height: auto;
+    justify-content: center;
     object-fit: contain;
+
+    border-radius: 10px;
+
     user-select: none;
+
+    cursor: grab;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+    transition: box-shadow 0.3s ease;
+}
+
+.lightbox-image:active {
+    cursor: grabbing;
 }
 
 /* ==========================================
-   Close Button
+   CLOSE BUTTON
 ========================================== */
 
 .lightbox-close {
-    position: absolute;
+    position: fixed;
+    /* changed from absolute */
     top: 30px;
     right: 35px;
 
-    background: transparent;
-    border: none;
+    z-index: 10002;
+    /* important */
 
-    color: #fff;
-    font-size: 32px;
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     cursor: pointer;
-    transition: .3s ease;
+
+    transition: .3s;
 }
 
 .lightbox-close:hover {
+    background: rgba(255, 255, 255, .2);
     transform: rotate(90deg);
-    opacity: .8;
+}
+
+.react-transform-wrapper {
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-transform-component {
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ==========================================
-   Navigation
+   PREV / NEXT
 ========================================== */
 
 .lightbox-prev,
 .lightbox-next {
+
     position: absolute;
+
     top: 50%;
+
     transform: translateY(-50%);
 
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 
     border: none;
-    background: transparent;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .12);
+
+    backdrop-filter: blur(10px);
 
     color: white;
-    font-size: 34px;
+
+    font-size: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     cursor: pointer;
 
-    transition: .3s ease;
+    transition: .3s;
+
 }
 
 .lightbox-prev {
-    left: 35px;
+
+    left: 28px;
+
 }
 
 .lightbox-next {
-    right: 35px;
+
+    right: 28px;
+
 }
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
-    transform: translateY(-50%) scale(1.15);
+
+    background: rgba(255, 255, 255, .2);
+
+    transform: translateY(-50%) scale(1.08);
+
 }
 
 /* ==========================================
-   Counter
+   COUNTER
 ========================================== */
 
 .lightbox-counter {
+
     position: absolute;
+
     bottom: 28px;
+
     left: 50%;
+
     transform: translateX(-50%);
 
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, .12);
+
+    backdrop-filter: blur(10px);
+
     color: white;
-    font-size: 15px;
+
+    font-size: 14px;
+
     letter-spacing: 2px;
-    font-weight: 500;
+
 }
 
 /* ==========================================

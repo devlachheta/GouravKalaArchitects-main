@@ -15,10 +15,7 @@ function InteriorGallery({ images, title }) {
   };
 
   // Convert images for ImageLightbox
-  const lightboxImages = images.map((img) => ({
-    src: img,
-  }));
-
+  const lightboxImages = images;
   return (
     <>
       <div className="interior-gallery">
@@ -41,7 +38,8 @@ function InteriorGallery({ images, title }) {
                   <div className="tall-image">
                     {block[0] && (
                       <GalleryImage
-                        src={block[0]}
+                        src={block[0].src}
+                        position={block[0].position}
                         alt={`${title} ${index + 1}`}
                         onClick={() => openLightbox(index)}
                       />
@@ -53,7 +51,8 @@ function InteriorGallery({ images, title }) {
                     {block[1] && (
                       <div className="stack-item">
                         <GalleryImage
-                          src={block[1]}
+                          src={block[1].src}
+                          position={block[1].position}
                           alt={`${title} ${index + 2}`}
                           onClick={() => openLightbox(index + 1)}
                         />
@@ -63,7 +62,8 @@ function InteriorGallery({ images, title }) {
                     {block[2] && (
                       <div className="stack-item">
                         <GalleryImage
-                          src={block[2]}
+                          src={block[2].src}
+                          position={block[2].position}
                           alt={`${title} ${index + 3}`}
                           onClick={() => openLightbox(index + 2)}
                         />
@@ -78,7 +78,8 @@ function InteriorGallery({ images, title }) {
                     {block[0] && (
                       <div className="stack-item">
                         <GalleryImage
-                          src={block[0]}
+                          src={block[0].src}
+                          position={block[0].position}
                           alt={`${title} ${index + 1}`}
                           onClick={() => openLightbox(index)}
                         />
@@ -88,7 +89,8 @@ function InteriorGallery({ images, title }) {
                     {block[1] && (
                       <div className="stack-item">
                         <GalleryImage
-                          src={block[1]}
+                          src={block[1].src}
+                          position={block[1].position}
                           alt={`${title} ${index + 2}`}
                           onClick={() => openLightbox(index + 1)}
                         />
@@ -100,7 +102,8 @@ function InteriorGallery({ images, title }) {
                   <div className="tall-image">
                     {block[2] && (
                       <GalleryImage
-                        src={block[2]}
+                        src={block[2].src}
+                        position={block[2].position}
                         alt={`${title} ${index + 3}`}
                         onClick={() => openLightbox(index + 2)}
                       />

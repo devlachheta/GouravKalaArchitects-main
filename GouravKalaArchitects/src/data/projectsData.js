@@ -243,12 +243,30 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/HPM1.webp",
-      "/projects/HPM2.webp",
-      "/projects/HPM3.webp",
-      "/projects/HPM4.webp",
-      "/projects/HPM5.webp",
-      "/projects/HPM6.webp",
+      {
+        src: "/projects/HPM1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/HPM2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/HPM3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/HPM4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/HPM5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/HPM6.webp",
+        position: "center center",
+      },
     ],
 
   },
@@ -260,7 +278,7 @@ const projectsData = [
   {
     id: 4,
     slug: "elegant-dining-space",
-    title: "Elegant Dining Space",
+
     category: "Interior",
 
     // PROJECT INFORMATION
@@ -272,36 +290,83 @@ const projectsData = [
     // Temporary image — replace later
     bannerImage: "/projects/2BHK/2BHK-banner.webp",
     bannerPosition: "center ",
-    // PROJECT DESCRIPTION
     description:
       "An elegant dining space designed with refined materials, warm textures, thoughtful lighting, and a balanced composition to create an inviting interior experience.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
     gallery: [
-      "/projects/2BHK/h5.webp",
-      "/projects/2BHK/h2.webp",
-      "/projects/2BHK/h4.webp",
-      "/projects/2BHK/h1.webp",
-      "/projects/2BHK/h3.webp",
-
-      "/projects/2BHK/b1.webp",
-      "/projects/2BHK/b2.webp",
-      "/projects/2BHK/b3.webp",
-      "/projects/2BHK/d1.webp",
-      "/projects/2BHK/d2.webp",
-      "/projects/2BHK/k1.webp",
-      "/projects/2BHK/k2.webp",
-      "/projects/2BHK/k3.webp",
-      "/projects/2BHK/r1.webp",
-      "/projects/2BHK/r2.webp",
-      "/projects/2BHK/r3.webp",
-      "/projects/2BHK/r4.webp",
-      "/projects/2BHK/r5.webp",
-
-
+      {
+        src: "/projects/2BHK/h5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/h2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/h4.webp",
+        position: "center",
+      },
+      {
+        src: "/projects/2BHK/h1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/chandan.webp",
+        position: "center 20%",
+      },
+      {
+        src: "/projects/2BHK/b1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/b2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/b3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/d1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/d2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/k1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/k2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/k3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/r1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/r2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/r3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/r4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/2BHK/r5.webp",
+        position: "center center",
+      },
     ],
-
     // PROJECT YOUTUBE VIDEO — OPTIONAL
     // youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
@@ -329,20 +394,58 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-
-      "/projects/K3Interior/k3project7.webp",
-      "/projects/K3Interior/k3project4.webp",
-      "/projects/K3Interior/k3project6.webp",
-      "/projects/K3Interior/k3project11.webp",
-      "/projects/K3Interior/k3project13.webp",
-      "/projects/K3Interior/k3project2.webp",
-      "/projects/K3Interior/k3project18.webp",
-      "/projects/K3Interior/k3project15.webp",
-      "/projects/K3Interior/k3project16.webp",
-      "/projects/K3Interior/k3project17.webp",
-      "/projects/K3Interior/k3project19.webp",
-      "/projects/K3Interior/k3bedroom.webp",
-      "/projects/K3Interior/k3project14.webp",
+      {
+        src: "/projects/K3Interior/k3project7.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project6.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project11.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project13.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project18.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project15.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project16.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project17.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project19.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3bedroom.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/K3Interior/k3project14.webp",
+        position: "center center",
+      },
     ],
   },
 
@@ -369,21 +472,54 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/3BHK/h1.webp",
-      "/projects/3BHK/h2.webp",
-      "/projects/3BHK/h3.webp",
-      "/projects/3BHK/h4.webp",
-      "/projects/3BHK/h5.webp",
-      "/projects/3BHK/h6.webp",
-
-      "/projects/3BHK/h8.webp",
-
-      "/projects/3BHK/3BHK-card.webp",
-      "/projects/3BHK/r1.webp",
-      "/projects/3BHK/r2.webp",
-      "/projects/3BHK/r3.webp",
-      "/projects/3BHK/r4.webp",
-
+      {
+        src: "/projects/3BHK/h1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/h2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/h3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/h4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/h5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/h6.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/h8.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/3BHK-card.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/r1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/r2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/r3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/3BHK/r4.webp",
+        position: "center center",
+      },
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -418,24 +554,78 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/Shobhit/h1.webp",
-      "/projects/Shobhit/h2.webp",
-      "/projects/Shobhit/h3.webp",
-      "/projects/Shobhit/c1.webp",
-      "/projects/Shobhit/c2.webp",
-      "/projects/Shobhit/d1.webp",
-      "/projects/Shobhit/k1.webp",
-      "/projects/Shobhit/k2.webp",
-      "/projects/Shobhit/k3.webp",
-      "/projects/Shobhit/k4.webp",
-      "/projects/Shobhit/m1.webp",
-      "/projects/Shobhit/s1.webp",
-      "/projects/Shobhit/s2.webp",
-      "/projects/Shobhit/b1.webp",
-      "/projects/Shobhit/b2.webp",
-      "/projects/Shobhit/b3.webp",
-      "/projects/Shobhit/b4.webp",
-      "/projects/Shobhit/b5.webp",
+      {
+        src: "/projects/Shobhit/h1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/h2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/h3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/c1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/c2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/d1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/k1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/k2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/k3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/k4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/m1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/s1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/s2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/b1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/b2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/b3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/b4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/Shobhit/b5.webp",
+        position: "center center",
+      },
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -463,28 +653,90 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/ashishInterior/ashishproject1.webp",
-      "/projects/ashishInterior/ashishproject2.webp",
-      "/projects/ashishInterior/ashishproject5.webp",
-      "/projects/ashishInterior/ashishproject6.webp",
-      "/projects/ashishInterior/ashishproject7.webp",
-      "/projects/ashishInterior/ashishproject8.webp",
-      "/projects/ashishInterior/ashishproject9.webp",
-      "/projects/ashishInterior/ashishproject10.webp",
-      "/projects/ashishInterior/ashishproject11.webp",
-      "/projects/ashishInterior/ashishproject12.webp",
-      "/projects/ashishInterior/ashishproject13.webp",
-      "/projects/ashishInterior/ashishproject14.webp",
-      "/projects/ashishInterior/ashishproject15.webp",
-      "/projects/ashishInterior/ashishproject16.webp",
-      "/projects/ashishInterior/ashishproject17.webp",
-      "/projects/ashishInterior/ashishproject18.webp",
-      "/projects/ashishInterior/ashishproject19.webp",
-      "/projects/ashishInterior/ashishproject20.webp",
-      "/projects/ashishInterior/ashishproject21.webp",
-      "/projects/ashishInterior/ashishproject22.webp",
-      "/projects/ashishInterior/ashishproject3.webp",
-
+      {
+        src: "/projects/ashishInterior/ashishproject1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject6.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject7.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject8.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject9.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject10.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject11.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject12.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject13.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject14.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject15.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject16.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject17.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject18.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject19.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject20.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject21.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject22.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/ashishInterior/ashishproject3.webp",
+        position: "center center",
+      },
     ],
 
     youtubeUrl: null,
@@ -500,31 +752,64 @@ const projectsData = [
     title: "Serene Bedroom Interior",
     category: "Interior",
     bannerImage: "/projects/MJInterior/MJBanner.webp",
-
-    // PROJECT DESCRIPTION
     description:
       "A serene bedroom interior designed with soft materials, calming tones, layered lighting, and thoughtful details to create a peaceful and sophisticated private space.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
     gallery: [
-      "/projects/MJInterior/MJProject1.webp",
-      "/projects/MJInterior/MJProject2.webp",
-      "/projects/MJInterior/MJProject11.webp",
-      "/projects/MJInterior/MJProject4.webp",
-      "/projects/MJInterior/MJProject5.webp",
-      "/projects/MJInterior/MJProject6.webp",
-      "/projects/MJInterior/MJProject7.webp",
-      "/projects/MJInterior/MJProject8.webp",
-      "/projects/MJInterior/MJProject10.webp",
-
-      "/projects/MJInterior/MJProject13.webp",
-      "/projects/MJInterior/MJProject14.webp",
-      "/projects/MJInterior/MJProject15.webp",
-      "/projects/MJInterior/MJProject16.webp",
+      {
+        src: "/projects/MJInterior/MJProject1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject11.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject6.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject7.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject8.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject10.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject13.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject14.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject15.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/MJInterior/MJProject16.webp",
+        position: "center center",
+      },
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
     youtubeUrl: null,
   },
 

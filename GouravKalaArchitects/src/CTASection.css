@@ -30,6 +30,9 @@
   align-items: center;
   justify-content: center;
 
+  background: rgba(0, 0, 0, 0.2);
+  /* Dark overlay */
+
   z-index: 2;
 }
 
@@ -199,13 +202,33 @@
 
   .cta-bg {
     object-fit: cover;
-    object-position: 90% center;
+    object-position: 100% center;
   }
 
   .cta-title {
-    max-width: 260px;
+    max-width: 350px;
     font-size: 30px;
+
     line-height: 1.2;
+    color: black;
+  }
+
+  .cta-hello {
+    font-weight: bold;
+    color: white;
+  }
+
+  .cta-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.50);
+    /* Dark overlay */
+
+    z-index: 2;
   }
 
   .cta-button {

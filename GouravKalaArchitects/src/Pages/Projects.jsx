@@ -165,7 +165,6 @@ function Projects() {
           project.category === active
       );
 
-
   return (
 
     <>
@@ -348,7 +347,7 @@ function Projects() {
 
       <section className="portfolio-section">
 
-        <div className="container">
+        <div className="container-fluid p-0">
 
           <div className="portfolio-filter">
 
