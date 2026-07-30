@@ -1,6 +1,6 @@
 
-import MadanBanner from "/projects/mpm/madanBanner.webp";
-import ProjectCover1 from "/projects/mpm/madanBanner.webp";
+
+
 
 const projectsData = [
   {
@@ -12,7 +12,7 @@ const projectsData = [
     plotArea: "7100 Sq. Ft.",
     buildUpArea: "5131 Sq. Ft.",
     status: "Completed",
-    bannerImage: MadanBanner,
+    bannerImage: "/projects/mpm/madanBanner.webp",
     bannerPosition: "center 20%",
     gallery: [
       {
@@ -25,7 +25,7 @@ const projectsData = [
       },
       {
         src: "/projects/mpm/madanproject3.webp",
-        position: "center 5%",
+        position: "10%  center",
       },
       {
         src: "/projects/mpm/madanproject4.webp",
@@ -38,6 +38,14 @@ const projectsData = [
       {
         src: "/projects/mpm/madanproject6.webp",
         position: "center bottom",
+      },
+      {
+        src: "/projects/mpm/madanproject7.webp",
+        position: "center 100%",
+      },
+      {
+        src: "/projects/mpm/madanproject10.webp",
+        position: "center ",
       },
     ]
   },
@@ -112,7 +120,7 @@ const projectsData = [
         position: "center center",
       },
       {
-        src: "/projects/hpm/HPM6.webp",
+        src: "/projects/hpm/HPM7.webp",
         position: "center center",
       },
       {
@@ -128,9 +136,10 @@ const projectsData = [
         position: "center center",
       },
       {
-        src: "/projects/hpm/HPM2.webp",
+        src: "/projects/hpm/HPM6.webp",
         position: "center center",
       },
+
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -149,7 +158,7 @@ const projectsData = [
     location: "Indore, India",
     year: "2026",
     status: "Completed",
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/hpm/HPM-banner.webp",
 
     // PROJECT DESCRIPTION
     description:
@@ -187,7 +196,7 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/hpm/HPM-banner.webp",
 
     // PROJECT DESCRIPTION
     description:
@@ -225,7 +234,7 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/hpm/HPM-banner.webp",
 
     // PROJECT DESCRIPTION
     description:
@@ -445,7 +454,6 @@ const projectsData = [
     location: "Indore, India",
     year: "2026",
     status: "Completed",
-
     bannerImage: "/projects/ashishInterior/ashishBanner.webp",
 
     // PROJECT DESCRIPTION
@@ -491,15 +499,7 @@ const projectsData = [
     slug: "serene-bedroom-interior",
     title: "Serene Bedroom Interior",
     category: "Interior",
-
-    // PROJECT INFORMATION
-    location: "Indore, India",
-    year: "2026",
-    status: "Completed",
-
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
-    bannerImage: ProjectCover1,
+    bannerImage: "/projects/MJInterior/MJBanner.webp",
 
     // PROJECT DESCRIPTION
     description:
@@ -508,12 +508,20 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/HPM1.webp",
-      "/projects/HPM2.webp",
-      "/projects/HPM3.webp",
-      "/projects/HPM4.webp",
-      "/projects/HPM5.webp",
-      "/projects/HPM6.webp",
+      "/projects/MJInterior/MJProject1.webp",
+      "/projects/MJInterior/MJProject2.webp",
+      "/projects/MJInterior/MJProject11.webp",
+      "/projects/MJInterior/MJProject4.webp",
+      "/projects/MJInterior/MJProject5.webp",
+      "/projects/MJInterior/MJProject6.webp",
+      "/projects/MJInterior/MJProject7.webp",
+      "/projects/MJInterior/MJProject8.webp",
+      "/projects/MJInterior/MJProject10.webp",
+
+      "/projects/MJInterior/MJProject13.webp",
+      "/projects/MJInterior/MJProject14.webp",
+      "/projects/MJInterior/MJProject15.webp",
+      "/projects/MJInterior/MJProject16.webp",
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL

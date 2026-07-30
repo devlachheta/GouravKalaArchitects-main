@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 function GalleryImage({
     src,
     alt,
-    position = "center center",
+    position = "center 38%",
     onClick,
 }) {
     return (
