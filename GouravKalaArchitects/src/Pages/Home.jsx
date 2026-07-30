@@ -321,7 +321,7 @@ function Home() {
           />
 
 
-          <div className="about-description">
+          <div className="home-about-description">
             {aboutLines.map((line, index) => (
               <motion.p
                 key={index}
@@ -364,7 +364,7 @@ function Home() {
 
             <div className="col-12 col-md-4">
               <div className="stat-item">
-                <CountUp end={7} suffix="+" />
+                <CountUp end={7} pad={2} suffix="+" />
 
                 <span>
                   Years of Thoughtful <br />
@@ -516,7 +516,7 @@ function Home() {
             {/* RIGHT SIDE - CONTENT */}
             <div className="principle-content">
 
-              <div className="section-title">
+              <div className=" principle-section-title">
 
 
                 <h2>

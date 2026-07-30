@@ -193,43 +193,19 @@
   font-size: 12px;
 }
 
-
 /* ===========================
    TABLET
 =========================== */
 
-@media (max-width: 991px) {
+@media (max-width:991px) {
 
   .footer {
-    padding-top: 60px;
+    padding: 60px 0 30px;
   }
 
   .footerTop {
+    row-gap: 45px;
     padding-bottom: 50px;
-
-    row-gap: 40px;
-  }
-
-  .footerLogo {
-    font-size: 43px;
-  }
-}
-
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media (max-width: 767px) {
-
-  .footer {
-    padding: 50px 0 25px;
-  }
-
-  .footerTop {
-    padding-bottom: 40px;
-
-    row-gap: 35px;
   }
 
   .footerBrand {
@@ -237,44 +213,268 @@
   }
 
   .footerLogo {
-    font-size: 40px;
+    font-size: 30px;
+    letter-spacing: .08em;
   }
 
   .footerBrand>p {
-    font-size: 19px;
+    margin-top: 15px;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .footerColumn {
+    margin-bottom: 10px;
+  }
+
+  .footerLabel {
+    margin-bottom: 16px !important;
+    font-size: 20px !important;
+  }
+
+  .footerColumn>a,
+  .footerColumn>p:not(.footerLabel) {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .socials {
+    gap: 12px;
+  }
+
+  .socials a {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
   }
 
   .footerBottom {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-    line-height: 1.5;
+    font-size: 12px;
   }
 }
 
-
 /* ===========================
-   SMALL MOBILE
+   MOBILE
 =========================== */
 
-@media (max-width: 480px) {
+@media (max-width:767px) {
 
   .footer {
-    padding-top: 45px;
-  }
-
-  .footerLogo {
-    font-size: 37px;
-  }
-
-  .footerBrand>p {
-    font-size: 18px;
+    padding: 50px 0 25px;
+    text-align: center;
   }
 
   .footerTop {
-    row-gap: 30px;
+    row-gap: 35px;
+    padding-bottom: 40px;
+  }
+
+  .footerBrand {
+    margin-bottom: 10px;
+  }
+
+  .footerLogo {
+    display: block;
+    font-size: 26px;
+    letter-spacing: .08em;
+  }
+
+  .footerBrand>p {
+    margin-top: 15px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .footerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerLabel {
+    margin-bottom: 15px !important;
+  }
+
+
+
+  .footerColumn>a,
+  .footerColumn>p:not(.footerLabel) {
+    width: auto;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+    margin-top: 5px;
+    gap: 12px;
+  }
+
+  .socials a {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+
+    font-size: 10px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width:480px) {
+
+  .footer {
+    padding: 45px 0 25px;
+  }
+
+  .footerTop {
+    row-gap: 22px;
+    padding-bottom: 30px;
+  }
+
+  /* Brand */
+
+  .footerBrand {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footerLogo {
+    display: block;
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .footerBrand p {
+    margin-top: 12px;
+    font-size: 23px;
+    line-height: 1.5;
+  }
+
+  /* Explore */
+
+  .footerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 30px !important;
+  }
+
+  .footerLabel {
+    width: 100%;
+    margin-bottom: 14px !important;
+    font-size: 15px !important;
+    text-align: left;
+  }
+
+  .footerColumn a,
+  .footerColumn p:not(.footerLabel) {
+    display: block;
+    width: 100%;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    text-align: left;
+  }
+
+  /* Connect */
+
+  .socials {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .socials a {
+
+    width: 36px;
+    height: 36px;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 14px;
+  }
+
+  /* Bottom */
+
+  .footerBottom {
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    text-align: center;
+
+    font-size: 13px;
+  }
+
+}
+
+/* ===========================
+   DESKTOP / MACBOOK
+=========================== */
+
+@media (min-width:992px) {
+
+  .footer {
+    padding: 80px 0 30px;
+  }
+
+  .footerTop {
+    padding-bottom: 70px;
+    align-items: flex-start;
+  }
+
+  .footerLogo {
+    font-size: 26px;
+    letter-spacing: 0.08em;
+  }
+
+  .footerBrand>p {
+    margin-top: 18px;
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 260px;
+    padding-left: 8px;
+  }
+
+  .footerLabel {
+    font-size: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .footerColumn>a,
+  .footerColumn>p:not(.footerLabel) {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .socials {
+    gap: 12px;
+  }
+
+  .socials a {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .footerBottom {
+    padding-top: 25px;
+    font-size: 15px;
   }
 }
