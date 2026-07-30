@@ -18,9 +18,10 @@
 
 .hero {
     display: flex;
-    height: 100vh;
+    flex-direction: row-reverse;
+    min-height: 100vh;
     overflow: hidden;
-    background-color: #fbfaf8;
+    background: #fbfaf8;
 }
 
 .hero-content h1 span span {
@@ -95,7 +96,7 @@
 
 .hero-right {
     position: relative;
-    width: 45%;
+    width: 50%;
 }
 
 .hero-right img {
@@ -937,8 +938,33 @@
 
     .hero {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         height: auto;
+    }
+
+
+
+
+    .hero-right {
+        height: auto;
+    }
+
+    .hero-right img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        border-radius: 0;
+    }
+
+    .hero-left {
+        padding: 60px 40px;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 650px;
+        margin: auto;
     }
 
     .hero-left,
@@ -946,24 +972,10 @@
         width: 100%;
     }
 
-    .hero-right {
-        height: 60vh;
-        overflow: hidden;
-    }
 
-    .hero-right img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 0;
-        display: block;
-    }
 
-    .hero-left {
-        padding: 60px 40px;
-        text-align: center;
-    }
+
+
 
     .hero-content {
         max-width: 650px;
@@ -1026,45 +1038,39 @@
    MOBILE (0px - 767px)
 =================================================== */
 
+
+
 @media (max-width:767px) {
-
-    /* HEADINGS */
-
-    .home-about-us h1,
-    .home-projects h1,
-    .home-services h1,
-    .home-contact h1 {
-        font-size: 38px;
-    }
-
-    /* HERO */
 
     .hero {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
+        width: 100%;
+        min-height: auto;
         height: auto;
-
     }
 
-    .hero-left,
+    /* IMAGE */
+
     .hero-right {
         width: 100%;
-    }
-
-    .hero-right {
-        height: 50vh;
-        overflow: hidden;
+        height: auto;
+        overflow: visible;
     }
 
     .hero-right img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0;
+        height: auto;
         display: block;
+        object-fit: cover;
+        object-position: top center;
+        border-radius: 0;
     }
 
+    /* TEXT */
+
     .hero-left {
+        width: 100%;
         padding: 40px 22px;
         text-align: center;
     }
@@ -1075,6 +1081,7 @@
 
     .hero-content h1 {
         font-size: 2.5rem;
+        line-height: 1.1;
     }
 
     .hero-content p {
@@ -1087,46 +1094,6 @@
         margin-top: 25px;
     }
 
-    /* PRINCIPLE */
-
-
-
-    .principle-shell {
-        width: 100%;
-        max-width: 100%;
-
-    }
-
-    .principle-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .principle-image,
-    .image-placeholder {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-
-    .principle-content {
-        max-width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .tick-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .text-button {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
-
-    /* PROJECT */
-
     .home-project-grid {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -1135,27 +1102,29 @@
     .home-project-card {
         height: 420px;
     }
-
-    /* CONTACT */
-
-    .home-contact {
-        padding: 50px 20px;
-    }
 }
-
 
 /* ===================================================
    SMALL MOBILE
 =================================================== */
 
 @media (max-width:480px) {
+    .hero-right {
+        height: 45vh;
+    }
+
+    .hero-right img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
 
     .hero-right {
         height: 45vh;
     }
 
     .hero-left {
-        padding: 35px 20px;
+        padding: 80px 20px;
     }
 
     .hero-content h1 {

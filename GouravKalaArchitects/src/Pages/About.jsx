@@ -1,6 +1,6 @@
 
 import CTASection from "../CTASection";
-
+import FounderImage from "../assets/founder-image.PNG"
 import "../styles/About.css";
 import { motion } from "framer-motion";
 import {
@@ -209,36 +209,30 @@ function About() {
           </motion.div>
         </section>
         <section className="about-story">
-
           <div className="container">
 
-            <div className="row g-5 align-items-start">
 
+
+            <div className="row g-0 align-items-start about-story-top">
+
+              {/* Left Image */}
               <div className="col-lg-6">
-
-                <p className="about-eyebrow">
-                  Our story
-                </p>
-
-                <h2 className="about-heading">
-
-                  Designed with purpose.
-
-                  <br />
-
-                  <em>
-                    Built on trust.
-                  </em>
-
-                </h2>
-
+                <div className="founder-image-wrapper">
+                  <img
+                    src={FounderImage}
+                    alt="Founders"
+                    className="founder-image"
+                  />
+                </div>
               </div>
 
-
-
+              {/* Right Text */}
               <div className="col-lg-6">
 
                 <div className="about-story-content">
+                  <p className="about-eyebrow">
+                    Our story
+                  </p>
 
                   <p>
                     At Gourav Kala Architects, we believe great design is about more than creating beautiful spaces—it’s about improving the way people live. Every project begins by understanding our clients, their lifestyle, and their aspirations, allowing us to create homes that are thoughtful, functional, and timeless.
@@ -248,8 +242,13 @@ function About() {
                     From architectural planning and interior design to space planning, construction, and renovations, we offer complete design solutions under one roof. Every drawing, material, and detail is carefully considered to ensure each project is not only visually refined but also practical for everyday living.
                   </p>
 
-
-
+                  <p>
+                    The firm is led by Founder,
+                    <span className="founder"> Ar. Gourav Choudhary</span>,
+                    and Co-Founder,
+                    <span className="founder"> Architect & Interior Designer Nandani Choudhary</span>,
+                    who share a common vision of creating meaningful architecture that balances aesthetics, functionality, and long-term value. Together, they lead every project with a hands-on approach, ensuring each design reflects the client’s personality while maintaining the highest standards of quality and execution. At Gourav Kala Architects, we don’t just design buildings—we create spaces that inspire, enrich lives, and stand the test of time.
+                  </p>
 
                 </div>
 
@@ -257,8 +256,9 @@ function About() {
 
             </div>
 
-          </div>
 
+
+          </div>
         </section>
 
         <section className="about-social">

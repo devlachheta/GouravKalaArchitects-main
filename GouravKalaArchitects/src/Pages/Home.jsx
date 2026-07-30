@@ -205,6 +205,28 @@ function Home() {
 
       <section className="hero">
 
+        {/* HERO IMAGE */}
+        <motion.div
+          className="hero-right"
+          initial={{
+            opacity: 0,
+            x: 120,
+            scale: 1.08,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1.3,
+            ease: "easeOut",
+          }}
+        >
+          <img src={Banner} alt="Hero" />
+        </motion.div>
+
+        {/* HERO CONTENT */}
         <div className="hero-left">
           <div className="hero-content">
 
@@ -245,8 +267,10 @@ function Home() {
             </motion.h1>
 
             <motion.p variants={itemVariants}>
-              Creating timeless homes through thoughtful architecture, refined interiors, and meticulous attention to detail.
+              Creating timeless homes through thoughtful architecture,
+              refined interiors, and meticulous attention to detail.
             </motion.p>
+
             <motion.div
               variants={itemVariants}
               whileHover={{ x: 6 }}
@@ -256,28 +280,10 @@ function Home() {
                 <span>↗</span>
               </Link>
             </motion.div>
+
           </div>
         </div>
 
-        <motion.div
-          className="hero-right"
-          initial={{
-            opacity: 0,
-            x: 120,
-            scale: 1.08,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.3,
-            ease: "easeOut",
-          }}
-        >
-          <img src={Banner} alt="Hero" />
-        </motion.div>
       </section>
       <section className="home-about-us">
         <motion.div

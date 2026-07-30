@@ -9,7 +9,7 @@
   left: 0;
   width: 100%;
   z-index: 9999;
-  padding: 12px 0;
+  padding: 23px 0;
   background: transparent;
   will-change: transform, opacity;
   transition:
@@ -171,7 +171,7 @@
 
 .header .dropdown-item {
   padding: 14px 28px;
-  background: transparent;
+  background: #fff;
   color: #4a4640;
   font-size: 15px;
   font-weight: 500;
@@ -242,28 +242,31 @@
   padding: 14px 0;
 }
 
-/* =========================================
-   TABLET & MOBILE
-========================================= */
 @media (max-width: 991px) {
-
   .header .container-fluid {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .header .navbar {
-    padding: 10px 0;
-    min-height: 64px;
+    padding: 15px 0;
   }
 
-  .header .navbar-brand {
-    font-size: 13px;
+  .header .navbar:has(.navbar-collapse.show) {
+    background: #fff;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
   }
 
-  .header .navbar-toggler {
-    width: 40px;
-    height: 40px;
+  .header .navbar-collapse.show {
+    margin-top: 0;
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    border-top: 1px solid #ebe7e1;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
   }
+
+
 
   .header .navbar-collapse {
     position: absolute;
@@ -271,25 +274,22 @@
     left: 0;
     right: 0;
 
-    margin: 0;
-    padding: 20px;
+    margin-top: 0;
+
+    padding: 26px 20px 30px;
 
     background: #fff;
 
-    border-top: 1px solid #ebe7e1;
+    border-radius: 0 0 12px 12px;
+
+    border-top: 1px solid #e4e0d9;
 
     box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
-
-    z-index: 9999;
-  }
-
-  .header .navbar:has(.navbar-collapse.show) {
-    background: #fff !important;
   }
 
   .header .navbar-nav {
-    gap: 12px;
-    align-items: flex-start;
+    align-items: flex-start !important;
+    gap: 14px;
   }
 
   .header .nav-item {
@@ -298,11 +298,38 @@
 
   .header .nav-link,
   .header .socials-toggle {
-    padding: 10px 0 !important;
-    color: #292723 !important;
     font-size: 14px;
     display: inline-flex;
-    width: fit-content;
+    width: max-content;
+    padding: 10px 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .header .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
+  .header .navbar {
+    padding: 12px 0;
+  }
+
+  .header .navbar-brand {
+    font-size: 13px;
+  }
+
+  .header .navbar-toggler {
+    width: 39px;
+    height: 39px;
+  }
+
+  .header .navbar-collapse {
+    margin-top: 12px;
+    padding: 18px;
+  }
+
+  .header .navbar-nav {
+    gap: 6px;
+  }
 }
