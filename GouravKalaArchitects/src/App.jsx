@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import "./App.css";
 import Home from "./Pages/Home";
@@ -7,37 +8,46 @@ import ProjectDetails from "./Pages/ProjectDetails";
 import ContactUs from "./Pages/ContactUs";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
+
 import FloatingContact from "./Component/FloatingContact";
 import Header from "./Component/Header";
 import Footer from "./Component/Footer";
 import ScrollToTop from "./Component/ScrollToTop";
+import SplashScreen from "./Component/SplashScreen"; // adjust path if needed
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 1800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (showSplash) {
+    return <SplashScreen />;
+  }
 
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Header />
-      <Routes>
 
+      <Header />
+
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route
-          path="/about"
-          element={<About />}
-        />
+        <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
-        <Route
-          path="/projects/:slug"
-          element={<ProjectDetails />}
-        />
+        <Route path="/projects/:slug" element={<ProjectDetails />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
+
       <FloatingContact />
-
       <Footer />
-
     </BrowserRouter>
   );
 }
