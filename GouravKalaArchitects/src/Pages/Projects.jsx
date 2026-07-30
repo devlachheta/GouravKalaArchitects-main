@@ -4,18 +4,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-// PROJECT CARD IMAGES
-import Residentail1 from "../assets/madanpaditarcover.jpg";
-import Residentail from "../assets/architecture1.jpg";
-import NRKCover from "../assets/nrkprojectdetail1.jpeg";
-import DinningSpace from "../assets/interior1.png";
-import BedRoom from "../assets/bedroominterior.jpeg";
-import LIVING from "../assets/livingroom1.png";
-
 // PROJECT BANNER IMAGES
 import ProjectCover1 from "../assets/projectcover1.png";
 import ProjectCover2 from "../assets/projectcover2.png";
-import HPMcard from "../assets/HPM-card.jpg";
 import ProjectCover4 from "../assets/projectcover4.png";
 import ProjectCover5 from "../assets/projectcover5.png";
 import ProjectCover6 from "../assets/projectcover6.jpeg";
@@ -67,10 +58,9 @@ function Projects() {
       slug: "project-hpm",
       title: "Project HPM",
       category: "Architecture",
-      image: Residentail,
+      image: "/projects/hpm/HPM2.webp",
+      imagePosition: "100% center",
       location: "Indore, India",
-
-
       plotArea: "8,490 Sq. Ft.",
       builtUpArea: "6,950 Sq. Ft."
     },
@@ -80,7 +70,7 @@ function Projects() {
       slug: "modern-villa",
       title: "Modern Villa",
       category: "Architecture",
-      image: Residentail1,
+      image: "",
     },
 
     {
@@ -88,7 +78,7 @@ function Projects() {
       slug: "contemporary-house",
       title: "Contemporary House",
       category: "Architecture",
-      image: Residentail,
+      image: "",
     },
 
     {
@@ -96,7 +86,7 @@ function Projects() {
       slug: "weekend-residence",
       title: "Weekend Residence",
       category: "Architecture",
-      image: Residentail1,
+      image: "",
     },
 
 
@@ -138,7 +128,8 @@ function Projects() {
       slug: "refined-living-space",
       title: "Refined Living Space",
       category: "Interior",
-      image: LIVING,
+      image: "/projects/ashishInterior/ashishproject2.webp",
+      imagePosition: " 15% center"
     },
 
     {
@@ -146,7 +137,7 @@ function Projects() {
       slug: "serene-bedroom-interior",
       title: "Serene Bedroom Interior",
       category: "Interior",
-      image: BedRoom,
+      image: "/projects/MJInterior/MJProject4.webp",
     },
 
   ];
@@ -265,7 +256,7 @@ function Projects() {
             <div className="carousel-item">
 
               <img
-                src={HPMcard}
+                src={ProjectCover4}
                 className="d-block w-100"
                 alt="Project 3"
               />
