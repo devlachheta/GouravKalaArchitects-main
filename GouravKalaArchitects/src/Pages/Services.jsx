@@ -14,7 +14,7 @@ import "../styles/Services.css";
 import { motion } from "framer-motion";
 
 import Banner from "../assets/gouravhero.PNG";
-import architectureImg from "../assets/Services-architects-image1.jpg";
+import architectureImg from "../assets/Services-architects-image1.webp";
 import interiorImg from "../assets/Services-interior.png";
 import landscapImg from "../assets/Services-landscap.png";
 import constructionImg from "../assets/Services-Construction.png";
@@ -22,42 +22,42 @@ import planingImg from "../assets/Services-planing.png";
 import renovationImg from "../assets/Services-renovation.png"
 const services = [
   {
-    icon: FiCompass,
+    icon: "🏛️",
     title: "Architecture",
     description:
-      "Custom residentail architecture,planning, elevations, and construction drawings.",
+      "Custom residential architecture, planning, elevations, and construction drawings.",
     image: architectureImg,
   },
   {
-    icon: FiHome,
-    title: "Interior design",
+    icon: "🛋️",
+    title: "Interior Design",
     description:
       "Thoughtful interiors with space planning, furniture design, lighting, and material selection.",
     image: interiorImg,
   },
   {
-    icon: FiFeather,
+    icon: "📐",
     title: "Landscape Design",
     description:
       "Functional outdoor spaces, gardens, courtyards, terraces, and site planning.",
     image: landscapImg,
   },
   {
-    icon: FiTool,
+    icon: "🔨",
     title: "Construction",
     description:
       "End-to-end execution, site supervision, project coordination, and turnkey solutions.",
     image: constructionImg,
   },
   {
-    icon: FiGrid,
+    icon: "📐",
     title: "Space Planning",
     description:
       "Optimized layouts that enhance functionality, comfort, and everyday living.",
     image: planingImg,
   },
   {
-    icon: FiBox,
+    icon: "🏗️",
     title: "Renovation & Remodeling",
     description:
       "Transforming existing homes with thoughtful redesigns and modern upgrades.",
@@ -206,7 +206,7 @@ function Services() {
 
           <div className="row g-4 services-grid">
             {services.map((service, index) => {
-              const Icon = service.icon;
+
 
               return (
                 <div
@@ -230,7 +230,7 @@ function Services() {
                         </span>
 
                         <div className="service-icon">
-                          <Icon />
+                          {service.icon}
                         </div>
 
                         <h3>{service.title}</h3>

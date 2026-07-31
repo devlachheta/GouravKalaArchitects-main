@@ -183,11 +183,30 @@
     padding-left .25s ease;
 }
 
+.header .dropdown-item {
+  padding: 14px 28px;
+  background: #fff;
+  color: #4a4640;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition:
+    background-color .3s ease,
+    color .3s ease,
+    padding-left .3s ease;
+}
+
 .header .dropdown-item:hover,
 .header .dropdown-item:focus {
-  background: transparent;
-  color: #292723;
+  background: #000;
+  color: #fff;
   padding-left: 34px;
+}
+
+.header .dropdown-item:active {
+  background: #000;
+  color: #fff;
 }
 
 .header .dropdown-item:active {
