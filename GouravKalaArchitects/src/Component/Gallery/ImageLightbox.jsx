@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-    TransformWrapper,
-    TransformComponent,
-} from "react-zoom-pan-pinch";
+import { useMotionValue } from "framer-motion";
 
 function ImageLightbox({
     images,
@@ -13,40 +10,52 @@ function ImageLightbox({
     onClose,
 }) {
 
-    const [canPan, setCanPan] = useState(false);
+
+    const [zoomed, setZoomed] = useState(false);
+    const [dragging, setDragging] = useState(false);
+    const [zoomOrigin, setZoomOrigin] = useState({
+        x: "50%",
+        y: "50%",
+    });
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+
+    const containerRef = useRef(null);
     const nextImage = () => {
+        setZoomed(false);
+        x.set(0);
+        y.set(0);
         setCurrentIndex((prev) => (prev + 1) % images.length);
     };
 
     const prevImage = () => {
+        setZoomed(false);
+        x.set(0);
+        y.set(0);
         setCurrentIndex((prev) =>
             prev === 0 ? images.length - 1 : prev - 1
         );
     };
 
     useEffect(() => {
-
         const handleKeyDown = (e) => {
-
             switch (e.key) {
-
                 case "Escape":
                     onClose();
                     break;
 
                 case "ArrowRight":
-                    nextImage();
+                    if (!zoomed) nextImage();
                     break;
 
                 case "ArrowLeft":
-                    prevImage();
+                    if (!zoomed) prevImage();
                     break;
 
                 default:
                     break;
-
             }
-
         };
 
         document.addEventListener("keydown", handleKeyDown);
@@ -56,8 +65,7 @@ function ImageLightbox({
             document.removeEventListener("keydown", handleKeyDown);
             document.body.style.overflow = "auto";
         };
-
-    }, []);
+    }, [zoomed, onClose]);
 
 
 
@@ -94,48 +102,99 @@ function ImageLightbox({
 
                 {/* Center Image */}
                 <div
+                    ref={containerRef}
                     className="lightbox-content"
                     onClick={(e) => e.stopPropagation()}
-                >
-                    <TransformWrapper
-                        key={currentIndex}
-                        initialScale={1}
-                        minScale={1}
-                        maxScale={5}
-                        centerOnInit
-                        centerZoomedOut
-                        limitToBounds={true}
-                        wheel={{
-                            step: 0.2,
-                        }}
-                        doubleClick={{
-                            mode: "zoomIn",
-                        }}
-                        pinch={{
-                            step: 5,
-                        }}
-                        panning={{
-                            disabled: false,
-                        }}
-                    >
-                        {({ resetTransform }) => (
-                            <TransformComponent>
-                                <motion.img
-                                    key={currentIndex}
-                                    src={images[currentIndex].src}
-                                    alt=""
-                                    className="lightbox-image"
-                                    draggable={false}
-                                    initial={{ opacity: 0, scale: 0.96 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.96 }}
-                                    transition={{ duration: 0.3 }}
-                                />
-                            </TransformComponent>
-                        )}
-                    </TransformWrapper>
-                </div>
+                    onWheel={(e) => {
+                        e.preventDefault();
 
+                        if (zoomed) return;
+
+                        if (e.deltaY > 0) {
+                            nextImage();
+                        } else {
+                            prevImage();
+                        }
+                    }}
+                >
+                    <motion.img
+                        key={currentIndex}
+                        src={images[currentIndex].src}
+                        alt=""
+                        className="lightbox-image"
+                        draggable={false}
+                        drag={zoomed}
+                        dragConstraints={containerRef}
+                        dragMomentum={false}
+                        dragElastic={0}
+                        whileDrag={{
+                            cursor: "grabbing",
+                        }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+
+                            if (dragging) return;
+
+                            if (!zoomed) {
+                                const rect = e.currentTarget.getBoundingClientRect();
+
+                                const clickX = ((e.clientX - rect.left) / rect.width) * 100;
+                                const clickY = ((e.clientY - rect.top) / rect.height) * 100;
+
+                                setZoomOrigin({
+                                    x: `${clickX}%`,
+                                    y: `${clickY}%`,
+                                });
+
+                                setZoomed(true);
+                            } else {
+                                setZoomed(false);
+
+                                x.set(0);
+                                y.set(0);
+
+                                setZoomOrigin({
+                                    x: "50%",
+                                    y: "50%",
+                                });
+                            }
+                        }}
+
+                        onDragStart={() => {
+                            setDragging(true);
+                        }}
+
+                        onDragEnd={() => {
+                            setTimeout(() => setDragging(false), 0);
+                        }}
+                        initial={{
+                            opacity: 0,
+                            scale: 1,
+                        }}
+
+                        animate={{
+                            opacity: 1,
+                            scale: zoomed ? 2.8 : 1,
+                        }}
+
+                        exit={{
+                            opacity: 0,
+                            scale: 1,
+                        }}
+
+                        transition={{
+                            duration: 0.35,
+                            ease: "easeInOut",
+                        }}
+
+                        style={{
+                            x,
+                            y,
+                            transformOrigin: `${zoomOrigin.x} ${zoomOrigin.y}`,
+                            cursor: zoomed ? "grab" : "zoom-in",
+                        }}
+                    />
+                </div>
                 {/* Next */}
                 <button
                     className="lightbox-next"

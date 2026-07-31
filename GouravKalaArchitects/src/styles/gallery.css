@@ -263,7 +263,7 @@
 .lightbox-prev,
 .lightbox-next {
 
-    position: absolute;
+    position: fixed;
 
     top: 50%;
 
@@ -274,6 +274,7 @@
 
     border: none;
     border-radius: 50%;
+    z-index: 10001;
 
     background: rgba(255, 255, 255, .12);
 

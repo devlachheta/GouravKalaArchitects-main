@@ -1,10 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/ProjectDetails.css";
 import projectsData from "../data/projectsData";
 import { useMemo, useEffect } from "react";
 import ProjectGallery from "../Component/Gallery/ProjectGallery";
-
 
 function ProjectDetails() {
 
@@ -39,35 +38,54 @@ function ProjectDetails() {
 
 
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
 
-  const project = useMemo(
-    () => projectsData.find(item => item.slug === slug),
-    [slug]
+  const filter = searchParams.get("filter") || "All";
+
+  const project = projectsData.find(
+    item => item.slug === slug
   );
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+
     window.scrollTo(0, 0);
-  }, [slug]);
+
+    if (project) {
+      document.title = `${project.title} | Madan Portfolio`;
+    }
+
+  }, [project]);
+
   if (!project) {
 
     return (
 
+
       <div className="project-not-found">
 
-        <h1>
-          Project not found
-        </h1>
+        <h1>Project Not Found</h1>
 
+        <p>
+          The project you're looking for doesn't exist.
+        </p>
+
+        <button
+          onClick={() => navigate(`/projects?filter=${filter}`)}
+        >
+          Back to Projects
+        </button>
       </div>
-
     );
-
   }
+
+
+
   const heroStyle = {
     backgroundImage: `url(${project.bannerImage})`,
     backgroundPosition: project.bannerPosition || "center",
   };
-
   return (
 
     <main className="project-details-page">
@@ -104,7 +122,7 @@ function ProjectDetails() {
         >
 
           <span className="project-detail-category">
-            {project.category}
+            {project.type}
           </span>
           <h1>
             {project.title}
@@ -166,7 +184,7 @@ function ProjectDetails() {
           </motion.div>
 
           <ProjectGallery
-            category={project.category}
+            category={project.type}
             gallery={project.gallery}
             title={project.title}
           />

@@ -2,7 +2,7 @@
 
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
-import Banner from "../assets/gouravhero.PNG";
+import Banner from "../assets/gourav11111.PNG";
 import { motion } from "framer-motion";
 import HomeProjectCard from "../Component/HomeProjectCard";
 import "../styles/home.css";

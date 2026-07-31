@@ -3,6 +3,7 @@ import "../styles/project.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 
 // PROJECT BANNER IMAGES
 import ProjectCover1 from "../assets/projectcover1.png";
@@ -11,16 +12,16 @@ import ProjectCover4 from "../assets/projectcover4.png";
 import ProjectCover5 from "../assets/projectcover5.png";
 import ProjectCover6 from "../assets/projectcover6.jpeg";
 import CTASection from "../CTASection";
+import projectsData from "../data/projectsData";
 
 
 function Projects() {
 
-  const [active, setActive] = useState("All");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const active = searchParams.get("filter") || "All";
 
   const navigate = useNavigate();
-
-
-
 
   const filters = [
     "All",
@@ -28,119 +29,7 @@ function Projects() {
     "Interior",
   ];
 
-  const projects = [
-    {
-      id: 1,
-      slug: "project-mpm",
-      title: "Project MPM",
-      category: "Architecture",
-      image: "/projects/mpm/madanprojectcard.webp",
-      imagePosition: "100% center",
-      location: "Indore, India",
-      plotArea: "7,100 Sq. Ft.",
-      builtUpArea: "5,131 Sq. Ft."
-    },
-
-    {
-      id: 2,
-      slug: "project-nrk",
-      title: "Project NRK",
-      category: "Architecture",
-      image: "/projects/nrk/nrkprojectcard.webp",
-      imagePosition: "10% center",
-      location: "Indore, India",
-      plotArea: "7,900 Sq. Ft.",
-      builtUpArea: "5,558 Sq. Ft."
-    },
-
-    {
-      id: 3,
-      slug: "project-hpm",
-      title: "Project HPM",
-      category: "Architecture",
-      image: "/projects/hpm/HPM2.webp",
-      imagePosition: "100% center",
-      location: "Indore, India",
-      plotArea: "8,490 Sq. Ft.",
-      builtUpArea: "6,950 Sq. Ft."
-    },
-
-    {
-      id: 7,
-      slug: "modern-villa",
-      title: "Modern Villa",
-      category: "Architecture",
-      image: "",
-    },
-
-    {
-      id: 8,
-      slug: "contemporary-house",
-      title: "Contemporary House",
-      category: "Architecture",
-      image: "",
-    },
-
-    {
-      id: 9,
-      slug: "weekend-residence",
-      title: "Weekend Residence",
-      category: "Architecture",
-      image: "",
-    },
-
-
-    {
-      id: 4,
-      slug: "elegant-dining-space",
-      title: "2 BHK",
-      category: "Interior",
-      image: "/projects/2BHK/2BHK-card.webp",
-    },
-
-    {
-      id: 5,
-      slug: "modern-living-room",
-      title: "K3",
-      category: "Interior",
-      image: "/projects/K3Interior/k3project11.webp",
-      imagePosition: "center 10%"
-    },
-
-    {
-      id: 6,
-      slug: "luxury-bedroom",
-      title: "3 BHK",
-      category: "Interior",
-      image: "/projects/3BHK/3BHK-card.webp",
-    },
-
-    {
-      id: 10,
-      slug: "contemporary-dining-interior",
-      title: "Contemporary Dining Interior",
-      category: "Interior",
-      image: "/projects/Shobhit/S-card.webp",
-    },
-
-    {
-      id: 11,
-      slug: "refined-living-space",
-      title: "Refined Living Space",
-      category: "Interior",
-      image: "/projects/ashishInterior/ashishproject2.webp",
-      imagePosition: " 15% center"
-    },
-
-    {
-      id: 12,
-      slug: "serene-bedroom-interior",
-      title: "Serene Bedroom Interior",
-      category: "Interior",
-      image: "/projects/MJInterior/MJProject4.webp",
-    },
-
-  ];
+  const projects = projectsData;
 
 
   const displayedProjects =
@@ -149,20 +38,20 @@ function Projects() {
         ...projects
           .filter(
             (project) =>
-              project.category === "Architecture"
+              project.type === "architecture"
           )
           .slice(0, 3),
 
         ...projects
           .filter(
             (project) =>
-              project.category === "Interior"
+              project.type === "interior"
           )
           .slice(0, 3),
       ]
       : projects.filter(
         (project) =>
-          project.category === active
+          project.type === active.toLowerCase()
       );
 
   return (
@@ -360,7 +249,11 @@ function Projects() {
                     ? "active-filter"
                     : ""
                 }
-                onClick={() => setActive(item)}
+                onClick={() =>
+                  setSearchParams({
+                    filter: item,
+                  })
+                }
               >
 
                 {item}
@@ -409,14 +302,15 @@ function Projects() {
                     }}
 
                     onClick={() =>
-                      navigate(`/projects/${project.slug}`)
-                    }
+                      navigate(
+                        `/projects/${project.slug}?filter=${active}`
+                      )}
                   >
 
 
                     {/* PROJECT IMAGE */}
 
-                    <div className="project-image">
+                    < div className="project-image">
 
                       <img
                         src={project.image}
@@ -428,7 +322,7 @@ function Projects() {
 
                       {active === "All" && (
                         <span className="project-category">
-                          {project.category}
+                          {project.type.charAt(0).toUpperCase() + project.type.slice(1)}
                         </span>
                       )}
 
@@ -475,7 +369,7 @@ function Projects() {
 
         </div>
 
-      </section>
+      </section >
 
       <CTASection />
 
