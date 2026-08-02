@@ -1,12 +1,12 @@
 .about-page {
-  background: #FBFAF8;
+  background: #f2f1ee;
 }
 
 .about-hero {
   display: flex;
   height: 100vh;
   overflow: hidden;
-  background: #FBFAF8;
+  background: #f2f1ee;
 }
 
 .about-hero-left {
@@ -380,7 +380,7 @@
 
 .about-social {
   padding: 110px 0;
-  background: #FBFAF8;
+  background: #f2f1ee;
 }
 
 .about-social-wrapper {

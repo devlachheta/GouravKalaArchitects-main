@@ -1,6 +1,6 @@
 .project-details-page {
   width: 100%;
-  background: #fbfaf8;
+  background: #f2f1ee;
 }
 
 .project-detail-hero {
@@ -73,7 +73,7 @@
 .project-gallery {
   padding: 30px 0 120px;
 
-  background: #fbfaf8;
+  background: #f2f1ee;
 }
 
 
@@ -183,7 +183,7 @@
   font-size: clamp(42px, 5vw, 68px);
   font-weight: 400;
 
-  color: #fbfaf8;
+  color: #f2f1ee;
 }
 
 
@@ -220,7 +220,7 @@
   align-items: center;
   justify-content: center;
 
-  background: #fbfaf8;
+  background: #f2f1ee;
 }
 
 .project-not-found h1 {

@@ -159,12 +159,15 @@ const projectsData = [
   {
     id: 7,
     slug: "modern-villa",
-    title: "Modern Villa",
+    title: "ASB",
     type: "architecture",
-    location: "Indore, India",
+    location: "Bhopal, India",
     year: "2026",
     status: "Completed",
-    bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
+    bannerImage: "/projects/architecture/asb/ASB-Banner.webp",
+    bannerPosition: "center 18%",
+    image: "/projects/architecture/asb/ASB-Card.webp",
+    imagePosition: "100% center",
 
     // PROJECT DESCRIPTION
     description:
@@ -172,17 +175,40 @@ const projectsData = [
 
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
+
     gallery: [
-      "/projects/HPM1.webp",
-      "/projects/HPM2.webp",
-      "/projects/HPM3.webp",
-      "/projects/HPM4.webp",
-      "/projects/HPM5.webp",
-      "/projects/HPM6.webp",
+      {
+        src: "/projects/architecture/asb/1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/architecture/asb/2.webp",
+        position: "center top",
+      },
+      {
+        src: "/projects/architecture/asb/3.webp",
+        position: "center 28%",
+      },
+      {
+        src: "/projects/architecture/asb/4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/architecture/asb/5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/architecture/asb/6.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/architecture/asb/7.webp",
+        position: "center center",
+      },
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
-    youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
+    youtubeUrl: "",
   },
 
 
@@ -192,8 +218,10 @@ const projectsData = [
   {
     id: 8,
     slug: "contemporary-house",
-    title: "Contemporary House",
+    title: "ASK",
     type: "architecture",
+
+
 
     // PROJECT INFORMATION
     location: "Indore, India",
@@ -202,8 +230,10 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
-
+    bannerImage: "/projects/architecture/ask/ASK-Banner.webp",
+    bannerPosition: "center 0%",
+    image: "/projects/architecture/ask/ASK-card.webp",
+    imagePosition: "100% center",
     // PROJECT DESCRIPTION
     description:
       "A contemporary home designed around simplicity, natural light, and thoughtfully connected spaces, creating a refined balance between comfort and modern architecture.",
@@ -211,12 +241,30 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
-      "/projects/HPM1.webp",
-      "/projects/HPM2.webp",
-      "/projects/HPM3.webp",
-      "/projects/HPM4.webp",
-      "/projects/HPM5.webp",
-      "/projects/HPM6.webp",
+      {
+        src: "/projects/architecture/ask/1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/architecture/ask/2.webp",
+        position: "center top",
+      },
+      {
+        src: "/projects/architecture/ask/3.webp",
+        position: "center 28%",
+      },
+      {
+        src: "/projects/architecture/ask/4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/architecture/ask/5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/architecture/ask/6.webp",
+        position: "20% center",
+      },
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -284,7 +332,7 @@ const projectsData = [
   {
     id: 4,
     slug: "elegant-dining-space",
-
+    title: "2 BHK",
     type: "interior",
 
     // PROJECT INFORMATION
@@ -295,31 +343,61 @@ const projectsData = [
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
     bannerImage: "/projects/interior/2BHK/2BHK-banner.webp",
-    bannerPosition: "center ",
+    bannerPosition: "center 20% ",
     image: "/projects/interior/2BHK/2BHK-card.webp",
     description:
       "An elegant dining space designed with refined materials, warm textures, thoughtful lighting, and a balanced composition to create an inviting interior experience.",
 
     gallery: [
       {
-        src: "/projects/interior/2BHK/h5.webp",
+        src: "/projects/interior/2BHK/l1.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/h2.webp",
+        src: "/projects/interior/2BHK/l2.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/h4.webp",
+        src: "/projects/interior/2BHK/l3.webp",
         position: "center",
       },
       {
-        src: "/projects/interior/2BHK/h1.webp",
+        src: "/projects/interior/2BHK/l4.webp",
+        position: "center center",
+      },
+
+
+      {
+        src: "/projects/interior/2BHK/k1.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/chandan.webp",
-        position: "center 20%",
+        src: "/projects/interior/2BHK/k2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/2BHK/k3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/2BHK/k4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/2BHK/k5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/2BHK/d1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/2BHK/d2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/2BHK/d3.webp",
+        position: "center center",
       },
       {
         src: "/projects/interior/2BHK/b1.webp",
@@ -334,45 +412,34 @@ const projectsData = [
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/d1.webp",
+        src: "/projects/interior/2BHK/b4.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/d2.webp",
+        src: "/projects/interior/2BHK/b5.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/k1.webp",
+        src: "/projects/interior/2BHK/b6.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/k2.webp",
+        src: "/projects/interior/2BHK/b7.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/k3.webp",
+        src: "/projects/interior/2BHK/b8.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/r1.webp",
+        src: "/projects/interior/2BHK/b9.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/2BHK/r2.webp",
+        src: "/projects/interior/2BHK/b10.webp",
         position: "center center",
       },
-      {
-        src: "/projects/interior/2BHK/r3.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/2BHK/r4.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/2BHK/r5.webp",
-        position: "center center",
-      },
+
     ],
     // PROJECT YOUTUBE VIDEO — OPTIONAL
     // youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
@@ -461,7 +528,7 @@ const projectsData = [
   {
     id: 6,
     slug: "luxury-bedroom",
-    title: "Luxury Bedroom",
+    title: "3BHK",
     type: "interior",
 
     // PROJECT INFORMATION
@@ -471,9 +538,9 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: "/projects/interior/3BHK/3BHK-banner.webp",
+    bannerImage: "/projects/interior/3BHK/3BHK-Banner.webp",
     bannerPosition: "center ",
-    image: "/projects/interior/3BHK/3BHK-card.webp",
+    image: "/projects/interior/3BHK/3BHK-Card.webp",
 
 
     // PROJECT DESCRIPTION
@@ -483,36 +550,33 @@ const projectsData = [
     // PROJECT GALLERY — 6 IMAGES
     // Temporary images — replace later
     gallery: [
+
       {
-        src: "/projects/interior/3BHK/h1.webp",
+        src: "/projects/interior/3BHK/l1.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/3BHK/h2.webp",
+        src: "/projects/interior/3BHK/l2.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/3BHK/h3.webp",
+        src: "/projects/interior/3BHK/l3.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/3BHK/h4.webp",
+        src: "/projects/interior/3BHK/gp1.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/3BHK/h5.webp",
+        src: "/projects/interior/3BHK/gp2.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/3BHK/h6.webp",
+        src: "/projects/interior/3BHK/gp3.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/3BHK/h8.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/3BHK/3BHK-card.webp",
+        src: "/projects/interior/3BHK/gp4.webp",
         position: "center center",
       },
       {
@@ -530,7 +594,18 @@ const projectsData = [
       {
         src: "/projects/interior/3BHK/r4.webp",
         position: "center center",
+      }, {
+        src: "/projects/interior/3BHK/r5.webp",
+        position: "center center",
       },
+      {
+        src: "/projects/interior/3BHK/r6.webp",
+        position: "center center",
+      }, {
+        src: "/projects/interior/3BHK/r7.webp",
+        position: "center center",
+      },
+
     ],
 
     // PROJECT YOUTUBE VIDEO — OPTIONAL
@@ -657,8 +732,8 @@ const projectsData = [
     location: "Indore, India",
     year: "2026",
     status: "Completed",
-    bannerImage: "/projects/interior/ashishInterior/ashishBanner.webp",
-    image: "/projects/interior/ashishInterior/ashishproject2.webp",
+    bannerImage: "/projects/interior/ashishInterior/Ashish-Banner.webp",
+    image: "/projects/interior/ashishInterior/Ashish-Card.webp",
     imagePosition: " 15% center",
 
     // PROJECT DESCRIPTION
@@ -669,87 +744,89 @@ const projectsData = [
     // Temporary images — replace later
     gallery: [
       {
-        src: "/projects/interior/ashishInterior/ashishproject1.webp",
+        src: "/projects/interior/ashishInterior/l1.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject2.webp",
+        src: "/projects/interior/ashishInterior/l2.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject5.webp",
+        src: "/projects/interior/ashishInterior/l3.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject6.webp",
+        src: "/projects/interior/ashishInterior/l4.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject7.webp",
+        src: "/projects/interior/ashishInterior/l5.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject8.webp",
+        src: "/projects/interior/ashishInterior/m1.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject9.webp",
+        src: "/projects/interior/ashishInterior/k1.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject10.webp",
+        src: "/projects/interior/ashishInterior/k2.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject11.webp",
+        src: "/projects/interior/ashishInterior/k3.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject12.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject13.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject14.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject15.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject16.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject17.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject18.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject19.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject20.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject21.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/interior/ashishInterior/ashishproject22.webp",
+        src: "/projects/interior/ashishInterior/k4.webp",
         position: "20% center",
       },
       {
-        src: "/projects/interior/ashishInterior/ashishproject3.webp",
+        src: "/projects/interior/ashishInterior/r1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/r2.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/r3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/r4.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/r5.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/r6.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/r7.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/s.webp",
+        position: "center center",
+      },
+
+
+      {
+        src: "/projects/interior/ashishInterior/l3.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/d1.webp",
+        position: "center center",
+      },
+      {
+        src: "/projects/interior/ashishInterior/d2.webp",
         position: "center center",
       },
     ],

@@ -21,7 +21,7 @@
     flex-direction: row-reverse;
     min-height: 100vh;
     overflow: hidden;
-    background: #c6c7b9;
+    background: #f2f1ee;
 }
 
 .hero-content h1 span span {
@@ -211,7 +211,7 @@
     width: 100%;
     padding: 60px 20px 55px;
     text-align: center;
-    background: #fbfaf8;
+    background: #f2f1ee;
 }
 
 
