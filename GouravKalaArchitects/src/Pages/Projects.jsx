@@ -1,21 +1,37 @@
 import "../styles/project.css";
 
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
-
-// PROJECT BANNER IMAGES
+import Carousel from "bootstrap/js/dist/carousel";
 import ProjectCover1 from "../assets/projectcover1.png";
-import ProjectCover2 from "../assets/projectcover2.png";
-import ProjectCover4 from "../assets/projectcover4.png";
-import ProjectCover5 from "../assets/projectcover5.png";
-import ProjectCover6 from "../assets/projectcover6.jpeg";
+import ProjectCover2 from "../assets/projectcover2.webp";
+import ProjectCover3 from "../assets/projectcover3.webp";
+import ProjectCover4 from "../assets/projectcover4.webp";
+import ProjectCover5 from "../assets/projectcover5.webp";
+import ProjectCover6 from "../assets/projectcover6.webp";
 import CTASection from "../CTASection";
-import projectsData from "../data/projectsData";
+import { useEffect, useState } from "react";
+import {
+  getArchitectureProjects,
+  getInteriorProjects,
+} from "../utils/projectUtils";
 
 
 function Projects() {
+
+  useEffect(() => {
+    const carouselElement = document.getElementById("projectCarousel");
+
+    if (carouselElement) {
+      new Carousel(carouselElement, {
+        interval: 1800,
+        ride: "carousel",
+        pause: false,
+        wrap: true,
+      });
+    }
+  }, []);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -29,31 +45,49 @@ function Projects() {
     "Interior",
   ];
 
-  const projects = projectsData;
 
+  const [architectureProjects, setArchitectureProjects] = useState([]);
+  const [interiorProjects, setInteriorProjects] = useState([]);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const architecture = await getArchitectureProjects();
+        const interior = await getInteriorProjects();
+
+        console.log("Architecture:", architecture);
+        console.log("Interior:", interior);
+
+
+        setArchitectureProjects(architecture);
+        setInteriorProjects(interior);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    }
+
+    fetchProjects();
+  }, []);
+
+  const projects = [
+    ...architectureProjects,
+    ...interiorProjects,
+  ];
 
   const displayedProjects =
     active === "All"
       ? [
         ...projects
-          .filter(
-            (project) =>
-              project.type === "architecture"
-          )
+          .filter(project => project.type === "architecture")
           .slice(0, 3),
 
         ...projects
-          .filter(
-            (project) =>
-              project.type === "interior"
-          )
+          .filter(project => project.type === "interior")
           .slice(0, 3),
       ]
       : projects.filter(
-        (project) =>
-          project.type === active.toLowerCase()
+        project => project.type === active.toLowerCase()
       );
-
   return (
 
     <>
@@ -63,7 +97,7 @@ function Projects() {
           id="projectCarousel"
           className="carousel slide carousel-fade"
           data-bs-ride="carousel"
-          data-bs-interval="1800"
+          data-bs-interval="1500"
         >
 
           <div className="carousel-indicators">
@@ -144,13 +178,16 @@ function Projects() {
             <div className="carousel-item">
 
               <img
-                src={ProjectCover4}
-                className="d-block w-100"
+                src={ProjectCover3}
+                className="project-cover3 d-block w-100"
                 alt="Project 3"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center 100%",
+                }}
               />
 
             </div>
-
 
             <div className="carousel-item">
 
@@ -227,6 +264,21 @@ function Projects() {
 
         </div>
 
+        <div
+          className="hero-explore"
+          onClick={() =>
+            document.querySelector(".portfolio-section").scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+        >
+          <span>EXPLORE MORE</span>
+
+          <div className="scroll-arrow">
+            ↓
+          </div>
+        </div>
+
       </section>
 
 
@@ -282,29 +334,56 @@ function Projects() {
 
                     initial={{
                       opacity: 0,
-                      scale: 1.06,
+                      x:
+                        index % 3 === 0
+                          ? -120
+                          : index % 3 === 2
+                            ? 120
+                            : 0,
+                      y: index % 3 === 1 ? 80 : 0,
+                      scale: 0.96,
                     }}
 
-                    animate={{
+                    whileInView={{
                       opacity: 1,
+                      x: 0,
+                      y: 0,
                       scale: 1,
                     }}
 
                     exit={{
                       opacity: 0,
-                      scale: 1.02,
+                      x:
+                        index % 3 === 0
+                          ? -120
+                          : index % 3 === 2
+                            ? 120
+                            : 0,
+                      y: index % 3 === 1 ? 80 : 0,
+                      scale: 0.96,
+                    }}
+
+                    viewport={{
+                      once: true,
+                      amount: 0.2,
+                    }}
+
+                    whileHover={{
+                      y: -10,
+                      transition: {
+                        duration: 0.3,
+                      },
                     }}
 
                     transition={{
                       duration: 1,
-                      delay: index * 0.08,
+                      delay: index * 0.12,
                       ease: [0.22, 1, 0.36, 1],
                     }}
 
                     onClick={() =>
-                      navigate(
-                        `/projects/${project.slug}?filter=${active}`
-                      )}
+                      navigate(`/projects/${project.slug}?filter=${active}`)
+                    }
                   >
 
 
@@ -329,7 +408,7 @@ function Projects() {
                       <div className="project-overlay">
 
                         <h3 className="project-title">
-                          {project.title}
+                          Project: {project.title}
                         </h3>
 
                         <p className="project-info">
@@ -337,15 +416,17 @@ function Projects() {
 
                           <span className="divider">|</span>
 
-                          <span>
-                            Plot: {project.plotArea}
-                          </span>
+                          {project.type === "architecture" ? (
+                            <>
+                              <span>Plot: {project.plotArea}</span>
 
-                          <span className="divider">|</span>
+                              <span className="divider">|</span>
 
-                          <span>
-                            Built-Up: {project.builtUpArea}
-                          </span>
+                              <span>Built-Up: {project.builtUpArea}</span>
+                            </>
+                          ) : (
+                            <span>Carpet-Area: {project.carpetArea}</span>
+                          )}
                         </p>
 
                         <button
@@ -354,7 +435,6 @@ function Projects() {
                         >
                           VIEW PROJECT
                         </button>
-
                       </div>
                     </div>
 

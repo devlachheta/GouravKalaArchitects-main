@@ -1,8 +1,58 @@
-.project-hero {
+/* .project-hero {
     width: 100%;
     min-height: calc(100vh - 90px);
     background: #faf9f7;
     overflow: hidden;
+} */
+
+.hero-explore {
+    position: absolute;
+    left: 50%;
+    bottom: 35px;
+    transform: translateX(-50%);
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: opacity .3s ease;
+}
+
+.hero-explore:hover {
+    opacity: .8;
+}
+
+.scroll-arrow {
+    font-size: 22px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(8px);
+    }
+
+    60% {
+        transform: translateY(4px);
+    }
 }
 
 .project-hero-row {

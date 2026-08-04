@@ -9,8 +9,6 @@ function ImageLightbox({
     setCurrentIndex,
     onClose,
 }) {
-
-
     const [zoomed, setZoomed] = useState(false);
     const [dragging, setDragging] = useState(false);
     const [zoomOrigin, setZoomOrigin] = useState({

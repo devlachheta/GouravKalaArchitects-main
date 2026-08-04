@@ -8,7 +8,7 @@ import {
   FaFacebookF,
   FaYoutube,
 } from "react-icons/fa";
-import Banner from "../assets/gouravhero.PNG";
+import Banner from "../assets/gourav11111.png";
 
 import { useEffect, useRef, useState } from "react";
 

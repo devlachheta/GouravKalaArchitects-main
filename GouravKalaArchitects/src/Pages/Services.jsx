@@ -13,7 +13,7 @@ import CTASection from "../CTASection";
 import "../styles/Services.css";
 import { motion } from "framer-motion";
 
-import Banner from "../assets/gouravhero.PNG";
+import Banner from "../assets/gourav11111.png";
 import architectureImg from "../assets/Services-architects-image1.webp";
 import interiorImg from "../assets/Services-interior.png";
 import landscapImg from "../assets/Services-landscap.png";

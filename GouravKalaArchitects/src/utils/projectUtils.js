@@ -1,57 +1,44 @@
 import projectsData from "../data/projectsData";
 
-// Get all projects
-export const getAllProjects = () => projectsData;
+import { client } from "../sanity/client";
 
-// Get architecture projects
-export const getArchitectureProjects = () =>
-    projectsData.filter(project => project.type === "architecture");
+import {
+    GET_ARCHITECTURE_PROJECTS,
+    GET_INTERIOR_PROJECTS,
+} from "../sanity/queries";
 
-// Get interior projects
-export const getInteriorProjects = () =>
-    projectsData.filter(project => project.type === "interior");
 
-// Find project by slug
-export const getProjectBySlug = (slug) =>
-    projectsData.find(project => project.slug === slug);
+// ========================================
+// GET ARCHITECTURE PROJECTS
+// ========================================
 
-// Get featured projects
-export const getFeaturedProjects = () =>
-    projectsData.filter(project => project.featured);
+export const getArchitectureProjects = async () => {
 
-// Get project by ID
-export const getProjectById = (id) =>
-    projectsData.find(project => project.id === id);
+    const sanityProjects = await client.fetch(GET_ARCHITECTURE_PROJECTS);
 
-// Get related projects
-export const getRelatedProjects = (currentProject, limit = 3) => {
-    return projectsData
-        .filter(
-            project =>
-                project.type === currentProject.type &&
-                project.id !== currentProject.id
-        )
-        .slice(0, limit);
+    return [
+        ...projectsData.filter(
+            (project) => project.type === "architecture"
+        ),
+
+        ...sanityProjects,
+    ];
 };
 
-// Previous project
-export const getPreviousProject = (currentSlug) => {
-    const index = projectsData.findIndex(
-        project => project.slug === currentSlug
-    );
 
-    if (index <= 0) return null;
+// ========================================
+// GET INTERIOR PROJECTS
+// ========================================
 
-    return projectsData[index - 1];
-};
+export const getInteriorProjects = async () => {
 
-// Next project
-export const getNextProject = (currentSlug) => {
-    const index = projectsData.findIndex(
-        project => project.slug === currentSlug
-    );
+    const sanityProjects = await client.fetch(GET_INTERIOR_PROJECTS);
 
-    if (index === -1 || index === projectsData.length - 1) return null;
+    return [
+        ...projectsData.filter(
+            (project) => project.type === "interior"
+        ),
 
-    return projectsData[index + 1];
+        ...sanityProjects,
+    ];
 };

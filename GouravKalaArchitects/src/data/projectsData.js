@@ -1,7 +1,4 @@
 
-
-
-
 const projectsData = [
   {
     id: 1,
@@ -12,7 +9,7 @@ const projectsData = [
     image: "/projects/architecture/mpm/madanprojectcard.webp",
     imagePosition: "100% center",
     plotArea: "7100 Sq. Ft.",
-    buildUpArea: "5131 Sq. Ft.",
+    builtUpArea: "5131 Sq. Ft.",
     status: "Completed",
     bannerImage: "/projects/architecture/mpm/madanBanner.webp",
     bannerPosition: "center 20%",
@@ -57,7 +54,7 @@ const projectsData = [
     title: "NRK",
     type: "architecture",
     plotArea: "7900 Sq. Ft.",
-    buildUpArea: "5558 Sq. Ft.",
+    builtUpArea: "5558 Sq. Ft.",
     location: "Indore, India",
     status: "Completed",
     bannerImage: "/projects/architecture/nrk/nrkBanner.webp",
@@ -106,6 +103,8 @@ const projectsData = [
     title: "Courtyard House",
     type: "architecture",
     location: "Indore, India",
+    plotArea: "",
+    builtUpArea: "",
     status: "Completed",
 
     // PROJECT BANNER IMAGE
@@ -162,6 +161,8 @@ const projectsData = [
     title: "Modern Villa",
     type: "architecture",
     location: "Indore, India",
+    plotArea: "",
+    builtUpArea: "",
     year: "2026",
     status: "Completed",
     bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
@@ -194,6 +195,8 @@ const projectsData = [
     slug: "contemporary-house",
     title: "Contemporary House",
     type: "architecture",
+    plotArea: "",
+    builtUpArea: "",
 
     // PROJECT INFORMATION
     location: "Indore, India",
@@ -232,6 +235,8 @@ const projectsData = [
     slug: "weekend-residence",
     title: "Weekend Residence",
     type: "architecture",
+    plotArea: "",
+    builtUpArea: "",
 
     // PROJECT INFORMATION
     location: "Indore, India",
@@ -284,9 +289,9 @@ const projectsData = [
   {
     id: 4,
     slug: "elegant-dining-space",
-
+    title: "2BHK",
     type: "interior",
-
+    carpetArea: "",
     // PROJECT INFORMATION
     location: "Indore, India",
     year: "2026",
@@ -388,10 +393,8 @@ const projectsData = [
     title: "K3",
     type: "interior",
     location: "Indore, India",
+    carpetArea: "",
     status: "Completed",
-
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
     bannerImage: "/projects/interior/K3Interior/k3Banner.webp",
     ImagePosition: "center 10%",
     image: "/projects/interior/K3Interior/k3project11.webp",
@@ -400,8 +403,6 @@ const projectsData = [
     description:
       "A modern living space designed with a refined material palette, comfortable proportions, natural light, and carefully selected details to create a warm and contemporary atmosphere.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
     gallery: [
       {
         src: "/projects/interior/K3Interior/k3project7.webp",
@@ -463,6 +464,7 @@ const projectsData = [
     slug: "luxury-bedroom",
     title: "Luxury Bedroom",
     type: "interior",
+    carpetArea: "",
 
     // PROJECT INFORMATION
     location: "Indore, India",
@@ -546,6 +548,7 @@ const projectsData = [
     slug: "contemporary-dining-interior",
     title: "Contemporary Dining Interior",
     type: "interior",
+    carpetArea: "",
 
     // PROJECT INFORMATION
     location: "Indore, India",
@@ -654,6 +657,7 @@ const projectsData = [
     slug: "refined-living-space",
     title: "Refined Living Space",
     type: "interior",
+    carpetArea: "",
     location: "Indore, India",
     year: "2026",
     status: "Completed",
@@ -766,6 +770,7 @@ const projectsData = [
     slug: "serene-bedroom-interior",
     title: "Serene Bedroom Interior",
     type: "interior",
+    carpetArea: "",
     bannerImage: "/projects/interior/MJInterior/MJBanner.webp",
     image: "/projects/interior/MJInterior/MJProject4.webp",
     description:

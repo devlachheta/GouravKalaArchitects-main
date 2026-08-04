@@ -8,7 +8,7 @@ import ProjectDetails from "./Pages/ProjectDetails";
 import ContactUs from "./Pages/ContactUs";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
-
+import TestSanity from "./TestSantiy";
 import FloatingContact from "./Component/FloatingContact";
 import Header from "./Component/Header";
 import Footer from "./Component/Footer";
@@ -42,6 +42,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/test" element={<TestSanity />} />
       </Routes>
 
       <FloatingContact />

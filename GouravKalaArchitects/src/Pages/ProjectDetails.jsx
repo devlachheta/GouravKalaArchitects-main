@@ -1,9 +1,13 @@
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/ProjectDetails.css";
-import projectsData from "../data/projectsData";
-import { useMemo, useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProjectGallery from "../Component/Gallery/ProjectGallery";
+import {
+  getArchitectureProjects,
+  getInteriorProjects,
+} from "../utils/projectUtils";
+import projectsData from "../data/projectsData";
 
 function ProjectDetails() {
 
@@ -36,35 +40,81 @@ function ProjectDetails() {
     ease: [0.22, 1, 0.36, 1],
   };
 
-
   const { slug } = useParams();
   const [searchParams] = useSearchParams();
 
   const filter = searchParams.get("filter") || "All";
 
-  const project = projectsData.find(
-    item => item.slug === slug
-  );
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    async function loadProject() {
+      try {
+        setLoading(true);
 
-    window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
 
-    if (project) {
-      document.title = `${project.title} | Madan Portfolio`;
+        // 1. Search in static projects
+        let foundProject = projectsData.find(
+          (item) => item.slug === slug
+        );
+
+        // 2. If not found, search in Sanity
+        if (!foundProject) {
+          const architecture = await getArchitectureProjects();
+          const interior = await getInteriorProjects();
+
+          const allProjects = [
+            ...architecture,
+            ...interior,
+          ];
+
+          foundProject = allProjects.find(
+            (item) => item.slug === slug
+          );
+        }
+
+        setProject(foundProject);
+
+        if (foundProject) {
+          document.title = `${foundProject.title} | Madan Portfolio`;
+        } else {
+          document.title = "Project Not Found";
+        }
+      } catch (error) {
+        console.error("Error loading project:", error);
+      } finally {
+        setLoading(false);
+      }
     }
 
-  }, [project]);
+    loadProject();
+  }, [slug]);
 
-  if (!project) {
-
+  // Loading state
+  if (loading) {
     return (
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "24px",
+        }}
+      >
+        Loading...
+      </div>
+    );
+  }
 
-
+  // Project not found
+  if (!project) {
+    return (
       <div className="project-not-found">
-
         <h1>Project Not Found</h1>
 
         <p>
@@ -80,12 +130,12 @@ function ProjectDetails() {
     );
   }
 
-
-
   const heroStyle = {
     backgroundImage: `url(${project.bannerImage})`,
     backgroundPosition: project.bannerPosition || "center",
   };
+
+  console.log("Project Details:", project);
   return (
 
     <main className="project-details-page">
@@ -129,7 +179,7 @@ function ProjectDetails() {
           </h1>
           <p>
             Plot Area:{project.plotArea} <br />
-            Built up Area: {project.buildUpArea}
+            Built up Area: {project.builtUpArea}
           </p>
 
           <div className="project-detail-location">
