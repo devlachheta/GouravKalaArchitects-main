@@ -1,22 +1,5 @@
 import "../styles/project.css";
 
-<<<<<<< HEAD
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-
-// PROJECT BANNER IMAGES
-import ProjectCover1 from "../assets/projectcover1.png";
-import ProjectCover2 from "../assets/projectcover2.png";
-import ProjectCover4 from "../assets/projectcover4.png";
-import ProjectCover5 from "../assets/projectcover5.png";
-import ProjectCover6 from "../assets/projectcover6.jpeg";
-
-import CTASection from "../CTASection";
-import projectsData from "../data/projectsData";
-import Header from "../Component/Header";
-
-function Projects() {
-=======
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
@@ -34,6 +17,8 @@ import {
   getInteriorProjects,
 } from "../utils/projectUtils";
 
+import Header from "../Component/Header";
+
 
 function Projects() {
 
@@ -50,7 +35,6 @@ function Projects() {
     }
   }, []);
 
->>>>>>> feature/CMS
   const [searchParams, setSearchParams] = useSearchParams();
 
   const active = searchParams.get("filter") || "All";
@@ -64,8 +48,6 @@ function Projects() {
   ];
 
 
-<<<<<<< HEAD
-=======
   const [architectureProjects, setArchitectureProjects] = useState([]);
   const [interiorProjects, setInteriorProjects] = useState([]);
 
@@ -94,22 +76,10 @@ function Projects() {
     ...interiorProjects,
   ];
 
->>>>>>> feature/CMS
   const displayedProjects =
     active === "All"
       ? [
         ...projects
-<<<<<<< HEAD
-          .filter((project) => project.type === "architecture")
-          .slice(0, 3),
-
-        ...projects
-          .filter((project) => project.type === "interior")
-          .slice(0, 3),
-      ]
-      : projects.filter(
-        (project) => project.type === active.toLowerCase()
-=======
           .filter(project => project.type === "architecture")
           .slice(0, 3),
 
@@ -119,13 +89,10 @@ function Projects() {
       ]
       : projects.filter(
         project => project.type === active.toLowerCase()
->>>>>>> feature/CMS
       );
   return (
     <>
-      {/* ===============================
-          HERO SECTION
-      =============================== */}
+
       <Header />
       <section className="project-hero">
         <div
@@ -269,10 +236,6 @@ function Projects() {
           </button>
         </div>
 
-<<<<<<< HEAD
-
-        <div className="project-hero-overlay"></div>
-=======
         <div
           className="hero-explore"
           onClick={() =>
@@ -288,7 +251,6 @@ function Projects() {
           </div>
         </div>
 
->>>>>>> feature/CMS
       </section>
 
       {/* ===============================
@@ -333,12 +295,8 @@ function Projects() {
                       y: index % 3 === 1 ? 80 : 0,
                       scale: 0.96,
                     }}
-<<<<<<< HEAD
-                    animate={{
-=======
 
                     whileInView={{
->>>>>>> feature/CMS
                       opacity: 1,
                       x: 0,
                       y: 0,
@@ -373,13 +331,7 @@ function Projects() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                     onClick={() =>
-<<<<<<< HEAD
-                      navigate(
-                        `/projects/${project.slug}?filter=${active}`
-                      )
-=======
                       navigate(`/projects/${project.slug}?filter=${active}`)
->>>>>>> feature/CMS
                     }
                   >
                     <div className="project-image">
@@ -418,16 +370,6 @@ function Projects() {
                             <>
                               <span>Plot: {project.plotArea}</span>
 
-<<<<<<< HEAD
-                          <span className="divider">
-                            |
-                          </span>
-
-                          <span>
-                            Built-Up:{" "}
-                            {project.builtUpArea}
-                          </span>
-=======
                               <span className="divider">|</span>
 
                               <span>Built-Up: {project.builtUpArea}</span>
@@ -435,7 +377,6 @@ function Projects() {
                           ) : (
                             <span>Carpet-Area: {project.carpetArea}</span>
                           )}
->>>>>>> feature/CMS
                         </p>
 
                         <button

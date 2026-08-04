@@ -9,11 +9,7 @@ import {
   FaFacebookF,
   FaYoutube,
 } from "react-icons/fa";
-<<<<<<< HEAD
 import Banner from "../assets/gH.png";
-=======
-import Banner from "../assets/gourav11111.png";
->>>>>>> feature/CMS
 
 import { useEffect, useRef, useState } from "react";
 
