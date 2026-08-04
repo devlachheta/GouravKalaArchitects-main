@@ -322,6 +322,31 @@
     width: max-content;
     padding: 10px 0 !important;
   }
+
+  .header .nav-item.dropdown {
+    position: relative;
+  }
+
+  .header .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0 !important;
+    right: auto !important;
+
+    width: 220px;
+    min-width: 220px;
+
+    margin: 0;
+
+    transform: none !important;
+  }
+
+  .header .dropdown.show .dropdown-menu,
+  .header .dropdown-menu.show {
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 576px) {

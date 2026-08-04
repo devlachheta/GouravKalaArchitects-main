@@ -2,13 +2,13 @@
 
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
-import Banner from "../assets/gourav11111.PNG";
+import Banner from "../assets/gH.png";
 import { motion } from "framer-motion";
 import HomeProjectCard from "../Component/HomeProjectCard";
 import "../styles/home.css";
 import Residential from "../assets/residential1.jpg";
 import Interior from "../assets/interior.png";
-
+import Header from "../Component/Header";
 import CTASection from "../CTASection";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
@@ -202,7 +202,7 @@ function Home() {
 
   return (
     <>
-
+      <Header />
       <section className="hero">
 
         {/* HERO IMAGE */}

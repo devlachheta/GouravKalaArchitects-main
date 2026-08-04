@@ -101,12 +101,12 @@
 
 .hero-right img {
     width: 100%;
-    height: 100%;
-
+    height: 100vh;
     object-fit: cover;
-
+    object-position: center top;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    display: block;
 }
 
 
@@ -663,8 +663,9 @@
 }
 
 .principle-section-title>p:last-child {
-    max-width: 650px;
-
+    max-width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
     margin: 0;
 
     font-size: 16px;
@@ -928,6 +929,25 @@
     text-transform: uppercase;
 }
 
+
+
+@media (min-width:1200px) {
+
+    .hero-left {
+        width: 50%;
+        padding: 70px;
+    }
+
+    .hero-right {
+        width: 50%;
+    }
+
+    .hero-content {
+        max-width: 560px;
+    }
+
+}
+
 /* ===================================================
    TABLET (768px - 1024px)
 =================================================== */
@@ -942,30 +962,27 @@
         height: auto;
     }
 
-
-
+    .hero-right {
+        order: 1;
+    }
 
     .hero-right {
-        height: auto;
+        height: 75vh;
     }
 
     .hero-right img {
         width: 100%;
-        height: auto;
-        object-fit: contain;
-        display: block;
-        border-radius: 0;
+        height: 75vh;
+        object-fit: cover;
+        object-position: center top;
     }
 
     .hero-left {
+        order: 2;
         padding: 60px 40px;
         text-align: center;
     }
 
-    .hero-content {
-        max-width: 650px;
-        margin: auto;
-    }
 
     .hero-left,
     .hero-right {
@@ -1015,8 +1032,15 @@
     }
 
     .tick-list {
-        grid-template-columns: repeat(1fr);
+        display: grid;
+
+        justify-content: center;
+        justify-items: start;
+        gap: 20px 50px;
+        width: fit-content;
+        margin: 38px auto 42px;
     }
+
 
     /* PROJECT */
 
@@ -1053,14 +1077,17 @@
         overflow: visible;
     }
 
+
     .hero-right img {
         width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-        object-position: top center;
+        height: 50vh;
+
         border-radius: 0;
     }
+
+
+
+
 
     /* TEXT */
 
@@ -1097,6 +1124,7 @@
     .home-project-card {
         height: 420px;
     }
+
 }
 
 /* ===================================================
@@ -1108,11 +1136,7 @@
         height: 45vh;
     }
 
-    .hero-right img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
+
 
     .hero-right {
         height: 45vh;
@@ -1208,7 +1232,7 @@
 =========================== */
 
     .principle-section {
-        padding: 50px 20px;
+        padding: 50px 0px;
     }
 
     .principle-grid {
@@ -1220,6 +1244,7 @@
     .principle-image {
         width: 100%;
         aspect-ratio: auto;
+
     }
 
     .principle-image img {
@@ -1231,12 +1256,13 @@
     .principle-content {
         width: 100%;
         max-width: 100%;
-        text-align: center;
+
     }
 
     .principle-section-title h2 {
         font-size: 2.3rem;
         line-height: 1.15;
+        text-align: center;
     }
 
     .principle-section-title p {
@@ -1247,16 +1273,28 @@
     }
 
     .tick-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        margin: 30px 0;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: center;
+        justify-items: start;
+        gap: 12px 35px;
+        width: fit-content;
+        margin: 30px auto;
     }
 
     .tick-list li {
         justify-content: flex-start;
     }
 
+    .principle-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .text-button {
+        display: inline-flex;
+        align-items: center;
         justify-content: center;
     }
+
 }

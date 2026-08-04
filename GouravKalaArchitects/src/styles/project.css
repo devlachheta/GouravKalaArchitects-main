@@ -63,6 +63,26 @@
     color: white;
 }
 
+.project-hero {
+    position: relative;
+}
+
+.project-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.45) 0%,
+            rgba(0, 0, 0, 0.25) 35%,
+            rgba(0, 0, 0, 0.10) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+#projectCarousel {
+    position: relative;
+    z-index: 1;
+}
+
 .project-grid {
 
     display: grid;
@@ -447,6 +467,7 @@
     .project-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+        padding-left: 6px;
     }
 
     .project-overlay {

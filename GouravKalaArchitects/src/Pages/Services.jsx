@@ -1,25 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  FiBox,
-  FiCompass,
-  FiFeather,
-  FiGrid,
-  FiHome,
-  FiTool,
-  FiArrowUpRight,
-} from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 import CTASection from "../CTASection";
+import Hero from "../Component/Hero";
 import "../styles/Services.css";
 import { motion } from "framer-motion";
-
-import Banner from "../assets/gouravhero.PNG";
+import Banner from "../assets/gH.png";
 import architectureImg from "../assets/Services-architects-image1.webp";
 import interiorImg from "../assets/Services-interior.png";
 import landscapImg from "../assets/Services-landscap.png";
 import constructionImg from "../assets/Services-Construction.png";
 import planingImg from "../assets/Services-planing.png";
-import renovationImg from "../assets/Services-renovation.png"
+import renovationImg from "../assets/Services-renovation.png";
+import Header from "../Component/Header";
+
 const services = [
   {
     icon: "🏛️",
@@ -66,127 +60,17 @@ const services = [
 ];
 
 function Services() {
-
-  const heroTitle = "Designing Every Detail.";
-  const heroTitle2 = "Building Every Experience";
-
-  const heroContainer = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.04,
-      },
-    },
-  };
-
-  const heroLetter = {
-    hidden: {
-      opacity: 0,
-      x: 50,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.45,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
   return (
     <>
-
-      <section className="services-hero">
-
-        {/* IMAGE */}
-        <motion.div
-          className="services-hero-right"
-          initial={{
-            opacity: 0,
-            x: 120,
-            scale: 1.08,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.3,
-            ease: "easeOut",
-          }}
-        >
-          <img
-            src={Banner}
-            alt="Gourav Kala Architects Services"
-          />
-        </motion.div>
-
-        {/* TEXT */}
-        <div className="services-hero-left">
-
-          <div className="services-hero-content">
-
-            <motion.h1
-              className="services-hero-title"
-              variants={heroContainer}
-              initial="hidden"
-              animate="visible"
-            >
-
-              {heroTitle.split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  variants={heroLetter}
-                  style={{
-                    display: "inline-block",
-                    whiteSpace: char === " " ? "pre" : "normal",
-                  }}
-                >
-                  {char}
-                </motion.span>
-              ))}
-
-              <br />
-
-              <em>
-                {heroTitle2.split("").map((char, index) => (
-                  <motion.span
-                    key={index}
-                    variants={heroLetter}
-                    style={{
-                      display: "inline-block",
-                      whiteSpace: char === " " ? "pre" : "normal",
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </em>
-
-            </motion.h1>
-
-            <motion.p
-              className="services-hero-description"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-                ease: "easeOut",
-              }}
-            >
-              Whether you're planning a new home or transforming an existing one,
-              we provide complete architecture and interior design solutions—from
-              concept to execution.
-            </motion.p>
-
-          </div>
-
-        </div>
-
-      </section>
+      <Header />
+      <Hero
+        eyebrow="OUR SERVICES"
+        title="Designing Every Detail."
+        secondTitle="Building Every Experience."
+        description="Whether you're planning a new home or transforming an existing one, we provide complete architecture and interior design solutions—from concept to execution."
+        image={Banner}
+        italicSecondTitle={true}
+      />
       <section className="services-section">
         <div className="container">
           <div className="row">

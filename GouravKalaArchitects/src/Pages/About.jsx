@@ -2,13 +2,14 @@
 import CTASection from "../CTASection";
 import FounderImage from "../assets/founder-image.PNG"
 import "../styles/About.css";
-import { motion } from "framer-motion";
+import Hero from "../Component/Hero";
+import Header from "../Component/Header";
 import {
   FaInstagram,
   FaFacebookF,
   FaYoutube,
 } from "react-icons/fa";
-import Banner from "../assets/gouravhero.PNG";
+import Banner from "../assets/gH.png";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -78,136 +79,17 @@ function CountUp({ end, duration = 1800, suffix = "" }) {
 function About() {
 
 
-  const heroTitle = "Designing Beyond";
-  const heroTitle2 = "Expectations.";
-
-  const heroContainer = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.04,
-      },
-    },
-  };
-
-  const heroLetter = {
-    hidden: {
-      opacity: 0,
-      x: 50,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.45,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 40,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-
-
-
-
   return (
     <>
+      <Header />
       <div className="about-page">
-        <section className="about-hero">
-
-          <div className="about-hero-left">
-            <div className="about-hero-content">
-
-              <motion.span
-                className="about-hero-sub-title"
-                initial={{ opacity: 0, x: -80 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.8,
-                  ease: "easeOut",
-                }}
-              >
-                OUR STUDIO
-              </motion.span>
-              <motion.h1
-                variants={heroContainer}
-                initial="hidden"
-                animate="visible"
-              >
-                {heroTitle.split("").map((char, index) => (
-                  <motion.span
-                    key={index}
-                    variants={heroLetter}
-                    style={{
-                      display: "inline-block",
-                      whiteSpace: char === " " ? "pre" : "normal",
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-
-                <br />
-
-                <span className="about-hero-second-line">
-                  {heroTitle2.split("").map((char, index) => (
-                    <motion.span
-                      key={index}
-                      variants={heroLetter}
-                      style={{
-                        display: "inline-block",
-                        whiteSpace: char === " " ? "pre" : "normal",
-                      }}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </span>
-              </motion.h1>
-
-              <motion.p variants={itemVariants}>
-                We create architecture and interiors that balance aesthetics, functionality, and the way you live—turning ideas into spaces that stand the test of time..
-              </motion.p>
-
-
-            </div>
-          </div>
-
-          <motion.div
-            className="about-hero-right"
-            initial={{
-              opacity: 0,
-              x: 120,
-              scale: 1.08,
-            }}
-            animate={{
-              opacity: 1,
-              x: 0,
-              scale: 1,
-            }}
-            transition={{
-              duration: 1.3,
-              ease: "easeOut",
-            }}
-          >
-            <img src={Banner} alt="Hero" />
-          </motion.div>
-        </section>
+        <Hero
+          eyebrow="OUR STUDIO"
+          title="Designing Beyond"
+          secondTitle="Expectations."
+          description="We create architecture and interiors that balance aesthetics, functionality, and the way you live—turning ideas into spaces that stand the test of time."
+          image={Banner}
+        />
         <section className="about-story">
           <div className="container">
 
@@ -216,7 +98,7 @@ function About() {
             <div className="row g-0 align-items-start about-story-top">
 
               {/* Left Image */}
-              <div className="col-lg-6">
+              <div className="col-xl-6">
                 <div className="founder-image-wrapper">
                   <img
                     src={FounderImage}
@@ -227,7 +109,7 @@ function About() {
               </div>
 
               {/* Right Text */}
-              <div className="col-lg-6">
+              <div className="col-xl-6">
 
                 <div className="about-story-content">
                   <p className="about-eyebrow">

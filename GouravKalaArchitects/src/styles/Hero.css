@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap");
+
+/* ===========================================
+   PAGE HERO
+=========================================== */
+
+.page-hero {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  min-height: 100vh;
+  background: #f2f1ee;
+  overflow: hidden;
+}
+
+.page-hero-left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+}
+
+.page-hero-content {
+  width: 100%;
+  max-width: 560px;
+}
+
+.page-hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  color: #8b7355;
+
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.page-hero-title {
+  margin: 0;
+
+  color: #202020;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.4rem;
+  font-weight: 600;
+
+  line-height: .95;
+  letter-spacing: -2px;
+}
+
+.page-hero-title span {
+  display: inline-block;
+}
+
+.page-hero-second-line,
+.page-hero-second-line span {
+  color: #a78466;
+}
+
+.page-hero-title em,
+.page-hero-title em span {
+  color: #a78466;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.page-hero-description {
+  margin-top: 38px;
+
+  color: #666;
+
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  line-height: 1.9;
+
+  max-width: 500px;
+}
+
+.page-hero-right {
+  width: 50%;
+  overflow: hidden;
+}
+
+.page-hero-right img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center top;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: block;
+}
+
+/* ===========================================
+   DESKTOP
+=========================================== */
+
+@media (min-width:1200px) {
+
+  .page-hero-left {
+    width: 50%;
+    padding: 70px;
+  }
+
+  .page-hero-right {
+    width: 50%;
+  }
+
+  .page-hero-content {
+    max-width: 560px;
+  }
+
+}
+
+/* ===========================================
+   TABLET
+=========================================== */
+
+@media (min-width:768px) and (max-width:1024px) {
+
+  .page-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .page-hero-left,
+  .page-hero-right {
+    width: 100%;
+  }
+
+  .page-hero-right {
+    order: 1;
+  }
+
+  .page-hero-left {
+    order: 2;
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .page-hero-content {
+    max-width: 680px;
+    margin: auto;
+  }
+
+  .page-hero-title {
+    font-size: clamp(3rem, 5vw, 4rem);
+    line-height: 1.05;
+  }
+
+  .page-hero-description {
+    max-width: 100%;
+    font-size: 18px;
+  }
+
+  .page-hero-right img {
+    width: 100%;
+    height: 75vh;
+    border-radius: 0;
+
+  }
+
+}
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media (max-width:767px) {
+
+  .page-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .page-hero-left,
+  .page-hero-right {
+    width: 100%;
+    height: 47vh;
+  }
+
+  .page-hero-right {
+    order: 1;
+  }
+
+  .page-hero-left {
+    order: 2;
+    padding: 45px 22px;
+    text-align: center;
+  }
+
+  .page-hero-content {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .page-hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .page-hero-title {
+    font-size: 2.8rem;
+    line-height: 1.08;
+    letter-spacing: -1px;
+  }
+
+  .page-hero-description {
+    max-width: 100%;
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .page-hero-right img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+}
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+
+@media (max-width:480px) {
+
+  .page-hero-left {
+    padding: 40px 20px;
+  }
+
+  .page-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .page-hero-description {
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+
+}

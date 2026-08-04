@@ -4,7 +4,7 @@ import "../styles/Header.css";
 
 function Header() {
     const [scrolled, setScrolled] = useState("top");
-
+    const [socialOpen, setSocialOpen] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
@@ -115,16 +115,26 @@ function Header() {
                                 </NavLink>
                             </li>
 
-                            <li className="nav-item dropdown">
+                            <li
+                                className="nav-item dropdown"
+                                onMouseEnter={() => window.innerWidth > 991 && setSocialOpen(true)}
+                                onMouseLeave={() => window.innerWidth > 991 && setSocialOpen(false)}
+                            >
                                 <a
                                     href="#"
                                     className="nav-link socials-toggle"
-                                    onClick={(e) => e.preventDefault()}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+
+                                        if (window.innerWidth <= 991) {
+                                            setSocialOpen(!socialOpen);
+                                        }
+                                    }}
                                 >
                                     SOCIALS
                                 </a>
 
-                                <ul className="dropdown-menu dropdown-menu-end">
+                                <ul className={`dropdown-menu  ${socialOpen ? "show" : ""}`}>
                                     <li>
                                         <a
                                             className="dropdown-item"

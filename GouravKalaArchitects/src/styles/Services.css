@@ -1,103 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap");
-
-/* ==========================
-   HERO
-========================== */
-
-.services-hero {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  min-height: 100vh;
-  background: #f2f1ee;
-  overflow: hidden;
-}
-
-.services-hero-left {
-  width: 45%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 70px;
-}
-
-.services-hero-content {
-  width: 100%;
-  max-width: 600px;
-}
-
-.services-hero-title {
-  margin: 0;
-  color: #202020;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 3.8rem;
-  line-height: .95;
-  font-weight: 600;
-  letter-spacing: -2px;
-}
-
-.services-hero-title em {
-  color: #a78466;
-  font-style: italic;
-  font-weight: 500;
-}
-
-.services-hero-description {
-  margin-top: 40px;
-  font-family: "Inter", sans-serif;
-  font-size: 17px;
-  line-height: 1.8;
-  color: #666;
-}
-
 .service-card-link {
   display: block;
   text-decoration: none !important;
   color: inherit;
 }
 
-.services-hero-right {
-  width: 55%;
-  overflow: hidden;
-}
-
-.services-hero-right img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: top center;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-}
-
-/* ======================================================
-   SERVICES SECTION
-====================================================== */
-
 .services-section {
   padding: 120px 0;
   background: #fff;
 }
 
-.services-hero-eyebrow {
-  display: block;
-  margin-bottom: 28px;
-  color: #9c8877;
-  font-family: "Inter", sans-serif;
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-}
-
 .services-grid {
   margin-top: 60px;
 }
-
-/* ======================================================
-   SERVICE CARD
-====================================================== */
 
 .service-card {
   position: relative;
@@ -139,6 +53,12 @@
   font-family: "Cormorant Garamond", serif;
 }
 
+.services-hero-eyebrow {
+
+  font-size: 30px;
+  font-weight: 500;
+}
+
 .service-icon {
   display: flex;
   align-items: center;
@@ -171,9 +91,8 @@
   right: 30px;
   bottom: 28px;
   color: #fff;
+  transition: .4s;
 }
-
-/* Hover */
 
 .service-card:hover .service-card-image {
   transform: scale(1.08);
@@ -191,10 +110,6 @@
 .service-card:hover .card-arrow {
   transform: translate(5px, -5px);
 }
-
-/* ======================================================
-   STATEMENT
-====================================================== */
 
 .service-statement {
   padding: 120px 0;
@@ -215,48 +130,26 @@
   font-style: italic;
 }
 
-/* ======================================================
-   DESKTOP / MACBOOK
-====================================================== */
+@media (min-width:1400px) {
 
-@media (min-width:1200px) {
-
-  .services-hero {
-    min-height: 100vh;
-  }
-
-  .services-hero-left {
-    width: 50%;
-    padding: 0 !important;
-
-  }
-
-  .services-hero-content {
-    max-width: 620px;
-  }
-
-  .services-hero-right {
-    width: 57%;
-  }
-
-  .services-hero-right img {
-    object-fit: cover;
-    object-position: center top;
-  }
-
-
-
-  .services-hero-eyebrow {
-    text-align: center;
-    font-size: 60px;
-  }
-
-  .services-hero-description {
-    font-size: 17px;
+  .services-section {
+    padding: 130px 0;
   }
 
   .services-grid {
-    margin-top: 70px;
+    margin-top: 10px;
+  }
+
+  .service-card {
+    height: 440px;
+  }
+
+}
+
+@media (min-width:1200px) and (max-width:1399px) {
+
+  .services-section {
+    padding: 120px 0;
   }
 
   .service-card {
@@ -265,168 +158,112 @@
 
 }
 
-/* ======================================================
-   TABLET (768px - 1024px)
-====================================================== */
+@media (min-width:768px) and (max-width:1199px) {
 
-@media (min-width:768px) and (max-width:1024px) {
-
-  .services-hero {
-    display: flex;
-    flex-direction: column;
-    height: auto;
+  .services-section {
+    padding: 100px 0;
   }
 
-  /* IMAGE */
-
-  .services-hero-right {
-    width: 100%;
-    height: auto;
+  .services-grid {
+    margin-top: 50px;
   }
 
-  .services-hero-right img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    border-radius: 0;
+  .service-card {
+    height: 360px;
   }
 
-  /* TEXT */
-
-  .services-hero-left {
-    width: 100%;
-    padding: 60px 40px;
-    text-align: center;
+  .service-card-content {
+    padding: 28px;
   }
 
-  .services-hero-content {
-    max-width: 650px;
-    margin: auto;
+  .service-icon {
+    margin-top: 35px;
   }
 
-  .services-hero-title {
-    font-size: clamp(3rem, 5vw, 4rem);
-    line-height: 1.05;
+  .service-card h3 {
+    font-size: 24px;
   }
 
-  .services-hero-description {
-    font-size: 18px;
-    line-height: 1.8;
-  }
-
-  .services-hero-eyebrow {
-    text-align: center;
-    font-size: 34px;
-  }
 }
-
-
-
-/* ======================================================
-   MOBILE
-====================================================== */
-/* ==========================================
-   MOBILE (0px - 767px)
-========================================== */
 
 @media (max-width:767px) {
 
-  .services-hero {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: auto;
-    height: auto;
-  }
-
-  /* IMAGE */
-
-  .services-hero-right {
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
-
-  .services-hero-right img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0;
-  }
-
-  /* TEXT */
-
-  .services-hero-left {
-    width: 100%;
-    font-size: larger;
-    padding: 160px 9px 50px !important;
-  }
-
-  .services-hero-content {
-    max-width: 100%;
-  }
-
-  .services-hero-title {
-    font-size: 3rem;
-    line-height: 1.05;
-  }
-
-  .services-hero-description {
-    margin-top: 20px;
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-
-
-  .services-hero-eyebrow {
-
-
-    font-size: 28px;
-
-    text-align: center;
-  }
-
   .services-section {
     padding: 80px 0;
-    background: #fff;
   }
 
+  .services-grid {
+    margin-top: 40px;
+  }
+
+  .service-card {
+    height: 340px;
+  }
+
+  .service-card-content {
+    padding: 25px;
+  }
+
+  .service-icon {
+    width: 46px;
+    height: 46px;
+    margin-top: 28px;
+  }
+
+  .service-card h3 {
+    font-size: 22px;
+  }
+
+  .service-card p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
 
 }
-
-/* ======================================================
-   SMALL MOBILE
-====================================================== */
 
 @media (max-width:480px) {
 
-  .services-hero-right {
-    height: 300px;
+  .services-section {
+    padding: 70px 0;
   }
 
-  .services-hero-right img {
-    object-fit: cover;
-    object-position: top center;
+  .service-card {
+    height: 310px;
   }
 
-  .services-hero-left {
-    padding: 35px 20px 45px;
+  .service-card-content {
+    padding: 22px;
   }
 
-  .services-hero-title {
-    font-size: 2.45rem;
-  }
-
-  .services-hero-description {
+  .service-number {
     font-size: 14px;
   }
-}
 
-/* ======================================================
-   TOUCH DEVICES
-====================================================== */
+  .service-icon {
+    width: 42px;
+    height: 42px;
+    margin-top: 22px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+  }
+
+  .service-card p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .card-arrow {
+    right: 22px;
+    bottom: 22px;
+  }
+
+  .services-hero-eyebrow {
+    padding-left: 20px
+  }
+
+}
 
 @media (hover:none) {
 

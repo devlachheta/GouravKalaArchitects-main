@@ -10,10 +10,11 @@ import About from "./Pages/About";
 import Services from "./Pages/Services";
 
 import FloatingContact from "./Component/FloatingContact";
-import Header from "./Component/Header";
+
 import Footer from "./Component/Footer";
 import ScrollToTop from "./Component/ScrollToTop";
-import SplashScreen from "./Component/SplashScreen"; // adjust path if needed
+import SplashScreen from "./Component/SplashScreen";
+
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -33,7 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />

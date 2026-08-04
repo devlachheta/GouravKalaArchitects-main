@@ -2,82 +2,6 @@
   background: #f2f1ee;
 }
 
-.about-hero {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  background: #f2f1ee;
-}
-
-.about-hero-left {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 60px;
-
-}
-
-.about-hero-right {
-  width: 50%;
-  position: relative;
-}
-
-.about-hero-right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-
-}
-
-.about-hero-content {
-  max-width: 520px;
-}
-
-.about-hero-sub-title {
-  display: block;
-  margin-bottom: 12px;
-  color: #000;
-  font-family: Inter, sans-serif;
-  font-size: 12px;
-  letter-spacing: 3px;
-}
-
-.about-hero-content h1 {
-  max-width: 800px;
-  width: 100%;
-  margin: 0;
-  color: #292622;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 3.8rem;
-  font-weight: 600;
-  line-height: .95;
-  letter-spacing: -4px;
-}
-
-.about-hero-content h1 span span {
-  display: inline-block;
-}
-
-.about-hero-second-line,
-.about-hero-second-line span {
-  color: #A78466;
-  font-style: italic;
-}
-
-.about-hero-content p {
-  margin-top: 35px;
-  max-width: 480px;
-  color: #666;
-  font-size: 18px;
-  line-height: 1.9;
-}
-
-.founder {
-  font-weight: 700;
-}
 
 .about-story {
   padding: 80px 0;
@@ -90,6 +14,10 @@
   align-items: flex-start;
   gap: 80px !important;
 
+}
+
+.founder {
+  font-weight: 700;
 }
 
 .founder-image-wrapper {
@@ -107,10 +35,10 @@
   border-radius: 18px !important;
 }
 
+
 .about-story-content {
   width: 100%;
-  max-width: 520px;
-  margin-right: 20px !important;
+  max-width: 100%;
 }
 
 .about-eyebrow {
@@ -473,14 +401,8 @@
 
 @media (min-width:1025px) and (max-width:1400px) {
 
-  .about-hero-left {
-    padding: 60px;
-  }
 
-  .about-hero-content h1 {
-    font-size: 5rem;
-    max-width: 650px;
-  }
+
 
   .about-story-top {
     gap: 50px;
@@ -502,148 +424,87 @@
 }
 
 
-/* ==========================================================
-   TABLET (768px - 1024px)
-========================================================== */
-
 @media (min-width:768px) and (max-width:1024px) {
 
-  .about-hero {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .about-hero-left,
-  .about-hero-right {
-    width: 100%;
-  }
-
-  .about-hero-right {
-    order: 1;
-  }
-
-  .about-hero-left {
-    order: 2;
-    padding: 60px 40px;
-    text-align: center;
-  }
-
-  .about-hero-right img {
-    width: 100%;
-    object-position: center top;
-    border-radius: 0;
-  }
-
-  .about-hero-content {
-    max-width: 700px;
-    margin: auto;
-  }
-
-  .about-hero-content h1 {
-    width: 100%;
-    max-width: 100%;
-    font-size: 4rem;
-    letter-spacing: -2px;
-    line-height: 1.1;
-  }
-
-  .about-hero-content p {
-    max-width: 100%;
-    font-size: 18px;
-  }
-
   .about-story {
-    padding: 80px 0;
+    padding: 70px 0;
+  }
+
+  .about-story .container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .about-story-top {
     display: block;
   }
 
+  .founder-image-wrapper {
+    width: 100%;
+    max-width: 890px;
+    margin: 0 auto 35px;
+  }
+
   .founder-image {
-    height: 500px;
-    margin-bottom: 40px;
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .about-story-content {
-    max-width: 100%;
+    width: 100%;
+    max-width: 890px;
+    margin: 0 auto;
   }
 
   .about-story-content p {
-    width: 690px;
-  }
-
-  .about-heading {
-    margin-top: 50px;
-    text-align: center;
-  }
-
-  .about-eyebrow {
-    margin-bottom: 25px;
-    font-size: 14px;
-  }
-
-  .value-card {
-    min-height: auto;
-    padding: 25px;
-    border-right: none;
-  }
-
-  .about-values .col-md-4:not(:first-child) .value-card {
-    padding-left: 25px;
-  }
-
-  .team-card {
-    margin-bottom: 40px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 2;
+    text-align: justify;
   }
 
   .about-social {
     padding: 80px 0;
   }
 
+  .about-social .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
   .about-social-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
+    display: block;
   }
 
   .about-social-left {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    border-right: none;
-    padding-right: 0;
-  }
-
-  .social-card {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 25px;
     border: none;
-  }
+    padding-right: 0;
 
-  .social-icon {
-    font-size: 30px;
-    margin-bottom: 12px;
-  }
-
-  .social-info strong {
-    font-size: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
   }
 
   .about-social-right {
-    max-width: 100%;
-    text-align: center;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
   }
 
   .about-social-right h2 {
-    font-size: 48px;
+    font-size: 46px;
+  }
+
+  .about-social-right p {
+    width: 100%;
+    max-width: 100%;
   }
 
 }
-
 
 /* ==========================================================
    MOBILE (0px - 767px)
@@ -651,55 +512,13 @@
 
 @media (max-width:767px) {
 
-  .about-hero {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .about-hero-left,
-  .about-hero-right {
-    width: 100%;
-  }
-
-  .about-hero-right {
-    order: 1;
-  }
-
-  .about-hero-left {
-    order: 2;
-    padding: 40px 22px;
-    text-align: center;
-  }
-
-  .about-hero-right img {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-  }
-
-  .about-hero-content {
-    max-width: 95%;
-  }
-
-  .about-hero-content h1 {
-    width: 100%;
-    font-size: 2.8rem;
-    line-height: 1.1;
-    letter-spacing: -1px;
-  }
-
-  .about-hero-content p {
-    max-width: 100%;
-    font-size: 16px;
-  }
-
   .about-story {
     padding: 70px 8px;
   }
 
   .about-story-top {
     display: block;
-    margin-right: 11px;
+
   }
 
   .founder-image {
@@ -779,24 +598,14 @@
 
   .about-social-right p {
     font-size: 16px;
+
   }
 
 }
 
 
-/* ==========================================================
-   SMALL MOBILE (0px - 480px)
-========================================================== */
-
 @media (max-width:480px) {
 
-  .about-hero-left {
-    padding: 40px 20px;
-  }
-
-  .about-hero-content h1 {
-    font-size: 2.4rem;
-  }
 
   .founder-image {
     height: 280px;
