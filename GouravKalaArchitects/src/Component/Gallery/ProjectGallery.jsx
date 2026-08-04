@@ -1,7 +1,7 @@
 import ArchitectureGallery from "./ArchitectureGallery";
 import InteriorGallery from "./InteriorGallery";
 
-function ProjectGallery({ category, gallery, title }) {
+function ProjectGallery({ category, gallery, title, carpetArea }) {
 
     const projectCategory = category?.toLowerCase();
 
@@ -19,6 +19,7 @@ function ProjectGallery({ category, gallery, title }) {
             <InteriorGallery
                 images={gallery}
                 title={title}
+                carpetArea={carpetArea}
             />
         );
     }
