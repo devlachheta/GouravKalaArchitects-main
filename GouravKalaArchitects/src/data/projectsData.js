@@ -160,13 +160,7 @@ const projectsData = [
     slug: "modern-villa",
     title: "ASB",
     type: "architecture",
-<<<<<<< HEAD
     location: "Bhopal, India",
-=======
-    location: "Indore, India",
-    plotArea: "",
-    builtUpArea: "",
->>>>>>> feature/CMS
     year: "2026",
     status: "Completed",
     bannerImage: "/projects/architecture/asb/ASB-Banner.webp",
@@ -341,11 +335,7 @@ const projectsData = [
   {
     id: 4,
     slug: "elegant-dining-space",
-<<<<<<< HEAD
     title: "2 BHK",
-=======
-    title: "2BHK",
->>>>>>> feature/CMS
     type: "interior",
     carpetArea: "",
     // PROJECT INFORMATION
