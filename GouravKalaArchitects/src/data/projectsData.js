@@ -460,9 +460,9 @@ const projectsData = [
     location: "Indore, India",
     carpetArea: "",
     status: "Completed",
-    bannerImage: "/projects/interior/K3Interior/k3Banner.webp",
+    bannerImage: "/projects/interior/k3/k3Banner.webp",
     ImagePosition: "center 10%",
-    image: "/projects/interior/K3Interior/k3project11.webp",
+    image: "/projects/interior/k3/k3project11.webp",
     imagePosition: "center 10%",
     // PROJECT DESCRIPTION
     description:
@@ -470,55 +470,55 @@ const projectsData = [
 
     gallery: [
       {
-        src: "/projects/interior/K3Interior/k3project7.webp",
+        src: "/projects/interior/k3/k3project7.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project4.webp",
+        src: "/projects/interior/k3/k3project4.webp",
         position: "center 38%",
       },
       {
-        src: "/projects/interior/K3Interior/k3project6.webp",
+        src: "/projects/interior/k3/k3project6.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project11.webp",
+        src: "/projects/interior/k3/k3project11.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project13.webp",
+        src: "/projects/interior/k3/k3project13.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project2.webp",
+        src: "/projects/interior/k3/k3project2.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project18.webp",
+        src: "/projects/interior/k3/k3project18.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project15.webp",
+        src: "/projects/interior/k3/k3project15.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project16.webp",
+        src: "/projects/interior/k3/k3project16.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project17.webp",
+        src: "/projects/interior/k3/k3project17.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project19.webp",
+        src: "/projects/interior/k3/k3project19.webp",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3bedroom.webp",
+        src: "/projects/interior/k3/k3bedroom.png",
         position: "center center",
       },
       {
-        src: "/projects/interior/K3Interior/k3project14.webp",
+        src: "/projects/interior/k3/k3project14.webp",
         position: "center center",
       },
     ],
