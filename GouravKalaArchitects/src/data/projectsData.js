@@ -95,6 +95,7 @@ const projectsData = [
         position: "center center",
       },
     ],
+    youtubeUrl: "https://youtu.be/QIY_AGXm_Qc?si=v31pRoyPq5SbeWVl",
   },
 
   {
@@ -147,7 +148,7 @@ const projectsData = [
     ],
 
 
-    youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
+    youtubeUrl: "https://youtu.be/c4cPDOfvXdM?si=ZGulfvhwVHnH-gsZ",
   },
 
 
