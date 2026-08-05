@@ -1,10 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/Header.css";
 
 function Header() {
     const [scrolled, setScrolled] = useState("top");
     const [socialOpen, setSocialOpen] = useState(false);
+
+    const navRef = useRef(null);
+    const togglerRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            const menu = document.getElementById("mainNavbar");
+
+            if (
+                menu &&
+                menu.classList.contains("show") &&
+                navRef.current &&
+                !navRef.current.contains(e.target)
+            ) {
+                togglerRef.current.click();
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
@@ -24,10 +49,10 @@ function Header() {
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
     return (
         <header className="header">
             <nav
+                ref={navRef}
                 className={`navbar navbar-expand-lg ${scrolled === "visible"
                     ? "navbar-visible"
                     : scrolled === "hidden"
@@ -42,7 +67,9 @@ function Header() {
                     </Link>
 
                     <button
+                        ref={togglerRef}
                         className="navbar-toggler"
+
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#mainNavbar"

@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
 
-
-/* =========================================
-   GLOBAL
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -12,9 +7,6 @@
 }
 
 
-/* =========================================
-   HERO SECTION
-========================================= */
 
 .hero {
     display: flex;
@@ -110,10 +102,6 @@
 }
 
 
-/* =========================================
-   ABOUT US - HOME
-========================================= */
-
 .home-about-us {
     padding:
         80px 20px 20px;
@@ -202,11 +190,6 @@
     transform-origin: center;
 }
 
-
-/* =========================================
-   OUR PROJECTS - HOME
-========================================= */
-
 .home-projects {
     width: 100%;
     padding: 60px 20px 55px;
@@ -216,7 +199,7 @@
 
 
 
-/* Project Heading */
+
 
 .home-projects h1 {
     margin: 0;
@@ -234,8 +217,6 @@
 }
 
 
-/* Project Heading Line */
-
 .home-project-line {
     width: 80px;
     height: 3px;
@@ -249,10 +230,6 @@
     transform-origin: center;
 }
 
-
-/* =========================================
-   PROJECT GRID - 2 CARDS
-========================================= */
 
 .home-project-grid {
     width: 92%;
@@ -268,9 +245,6 @@
 
 
 
-/* =========================================
-   PROJECT CARD
-========================================= */
 .home-project-card {
     position: relative;
     display: block;
@@ -282,10 +256,6 @@
     border-radius: 20px;
     text-decoration: none;
 }
-
-
-/* Project Image */
-
 
 .home-project-card img {
     display: block;
@@ -303,7 +273,6 @@
         filter 0.8s ease;
 }
 
-/* Project Overlay */
 
 .home-project-card-overlay {
     position: absolute;
@@ -324,7 +293,7 @@
 }
 
 
-/* Project Title */
+
 
 .home-project-card-overlay h2 {
     margin: 0;
@@ -396,9 +365,6 @@
 }
 
 
-/* =========================================
-   FLOATING CONTACT
-========================================= */
 
 .floating-contact {
     position: fixed;
@@ -432,9 +398,7 @@
 }
 
 
-/* =========================================
-   PRINCIPLE SECTION
-========================================= */
+
 
 .principle-section {
     width: 100%;
@@ -464,9 +428,6 @@
 }
 
 
-/* =========================================
-   PRINCIPLE IMAGE
-========================================= */
 
 .principle-image {
     width: 100%;
@@ -494,9 +455,6 @@
 }
 
 
-/* =========================================
-   IMAGE PLACEHOLDER
-========================================= */
 
 .image-placeholder {
     position: relative;
@@ -612,10 +570,6 @@
 }
 
 
-/* =========================================
-   PRINCIPLE CONTENT
-========================================= */
-
 .principle-content {
     max-width: 650px;
 }
@@ -675,9 +629,6 @@
 }
 
 
-/* =========================================
-   TICK LIST
-========================================= */
 
 .tick-list {
     list-style: none;
@@ -713,9 +664,7 @@
 }
 
 
-/* =========================================
-   TEXT BUTTON
-========================================= */
+
 
 .text-button {
     display: inline-flex;
@@ -757,9 +706,7 @@
 }
 
 
-/* =========================================
-   OUR SERVICES HEADING
-========================================= */
+
 
 .home-services {
     width: 100%;
@@ -797,10 +744,6 @@
 }
 
 
-/* =========================================
-   COMMON SECTION HEADINGS
-========================================= */
-
 .home-about-us h1,
 .home-projects h1,
 .home-services h1 {
@@ -834,10 +777,6 @@
     transform-origin: center;
 }
 
-
-/* =========================================
-   CONTACT HEADING
-========================================= */
 
 .home-contact {
     width: 100%;
@@ -948,13 +887,10 @@
 
 }
 
-/* ===================================================
-   TABLET (768px - 1024px)
-=================================================== */
 
 @media (min-width:768px) and (max-width:1024px) {
 
-    /* HERO */
+
 
     .hero {
         display: flex;
@@ -1007,7 +943,7 @@
         justify-content: center;
     }
 
-    /* PRINCIPLE */
+
 
     .principle-shell {
         width: 100%;
@@ -1042,8 +978,6 @@
     }
 
 
-    /* PROJECT */
-
     .home-project-grid {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -1051,13 +985,6 @@
 
 
 }
-
-
-/* ===================================================
-   MOBILE (0px - 767px)
-=================================================== */
-
-
 
 @media (max-width:767px) {
 
@@ -1069,14 +996,11 @@
         height: auto;
     }
 
-    /* IMAGE */
-
     .hero-right {
         width: 100%;
         height: auto;
         overflow: visible;
     }
-
 
     .hero-right img {
         width: 100%;
@@ -1084,12 +1008,6 @@
 
         border-radius: 0;
     }
-
-
-
-
-
-    /* TEXT */
 
     .hero-left {
         width: 100%;
@@ -1127,9 +1045,7 @@
 
 }
 
-/* ===================================================
-   SMALL MOBILE
-=================================================== */
+
 
 @media (max-width:480px) {
     .hero-right {
@@ -1214,7 +1130,7 @@
 
     .stat-item strong {
         width: 42px;
-        /* Same width for 7+, 48+, 06+ */
+
         flex-shrink: 0;
         font-size: 28px;
         line-height: 1;
@@ -1227,9 +1143,7 @@
         text-align: left;
     }
 
-    /* ===========================
-   PRINCIPLE SECTION - MOBILE
-=========================== */
+
 
     .principle-section {
         padding: 50px 0px;

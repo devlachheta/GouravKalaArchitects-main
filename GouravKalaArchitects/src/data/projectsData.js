@@ -107,18 +107,17 @@ const projectsData = [
     builtUpArea: "",
     status: "Completed",
 
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
+
     bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
     bannerPosition: "center 10%",
     image: "/projects/architecture/hpm/HPM2.webp",
     imagePosition: "100% center",
-    // PROJECT DESCRIPTION
+
     description:
       "A thoughtfully designed residence centered around an open courtyard, creating a seamless connection between natural light, landscape, and everyday living.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
+
+
     gallery: [
       {
         src: "/projects/architecture/hpm/HPM1.webp",
@@ -147,14 +146,12 @@ const projectsData = [
 
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
+
     youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
 
 
-  // =====================================================
-  // ARCHITECTURE PROJECT 4 — MODERN VILLA
-  // =====================================================
+
   {
     id: 7,
     slug: "modern-villa",
@@ -168,12 +165,12 @@ const projectsData = [
     image: "/projects/architecture/asb/ASB-Card.webp",
     imagePosition: "100% center",
 
-    // PROJECT DESCRIPTION
+
     description:
       "A modern villa designed with clean architectural lines, open living spaces, natural light, and a strong connection between indoor and outdoor environments.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
+
+
 
     gallery: [
       {
@@ -206,14 +203,10 @@ const projectsData = [
       },
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
+
     youtubeUrl: "",
   },
 
-
-  // =====================================================
-  // ARCHITECTURE PROJECT 5 — CONTEMPORARY HOUSE
-  // =====================================================
   {
     id: 8,
     slug: "contemporary-house",
@@ -224,23 +217,22 @@ const projectsData = [
 
 
 
-    // PROJECT INFORMATION
+
     location: "Indore, India",
     year: "2026",
     status: "Completed",
 
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
+
     bannerImage: "/projects/architecture/ask/ASK-Banner.webp",
     bannerPosition: "center 0%",
     image: "/projects/architecture/ask/ASK-card.webp",
     imagePosition: "100% center",
-    // PROJECT DESCRIPTION
+
     description:
       "A contemporary home designed around simplicity, natural light, and thoughtfully connected spaces, creating a refined balance between comfort and modern architecture.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
+
+
     gallery: [
       {
         src: "/projects/architecture/ask/1.webp",
@@ -268,83 +260,26 @@ const projectsData = [
       },
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
+
     youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
   },
 
 
-  // =====================================================
-  // ARCHITECTURE PROJECT 6 — WEEKEND RESIDENCE
-  // =====================================================
-  {
-    id: 9,
-    slug: "weekend-residence",
-    title: "Weekend Residence",
-    type: "architecture",
-    plotArea: "",
-    builtUpArea: "",
-
-    // PROJECT INFORMATION
-    location: "Indore, India",
-    year: "2026",
-    status: "Completed",
-
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
-    bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
-
-    // PROJECT DESCRIPTION
-    description:
-      "A peaceful weekend residence designed to create a relaxed connection with nature through open spaces, natural light, and thoughtful architectural planning.",
-
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
-    gallery: [
-      {
-        src: "/projects/HPM1.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM2.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM3.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM4.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM5.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM6.webp",
-        position: "center center",
-      },
-    ],
-
-  },
 
 
-  // =====================================================
-  // INTERIOR PROJECT 1 — ELEGANT DINING SPACE
-  // =====================================================
+
   {
     id: 4,
     slug: "elegant-dining-space",
     title: "2 BHK",
     type: "interior",
     carpetArea: "",
-    // PROJECT INFORMATION
+
     location: "Indore, India",
     year: "2026",
     status: "Completed",
 
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
+
     bannerImage: "/projects/interior/2BHK/2BHK-banner.webp",
     bannerPosition: "center 20% ",
     image: "/projects/interior/2BHK/2BHK-card.webp",
@@ -444,14 +379,12 @@ const projectsData = [
       },
 
     ],
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
-    // youtubeUrl: "https://www.youtube.com/embed/GurEg1t3Xko",
+
+    youtubeUrl: null,
   },
 
 
-  // =====================================================
-  // INTERIOR PROJECT 2 — MODERN LIVING ROOM
-  // =====================================================
+
   {
     id: 5,
     slug: "modern-living-room",
@@ -464,7 +397,7 @@ const projectsData = [
     ImagePosition: "center 10%",
     image: "/projects/interior/k3/k3project11.webp",
     imagePosition: "center 10%",
-    // PROJECT DESCRIPTION
+
     description:
       "A modern living space designed with a refined material palette, comfortable proportions, natural light, and carefully selected details to create a warm and contemporary atmosphere.",
 
@@ -531,24 +464,23 @@ const projectsData = [
     type: "interior",
     carpetArea: "",
 
-    // PROJECT INFORMATION
+
     location: "Indore, India",
     year: "2026",
     status: "Completed",
 
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
+
     bannerImage: "/projects/interior/3BHK/3BHK-banner.webp",
     bannerPosition: "center ",
     image: "/projects/interior/3BHK/3BHK-card.webp",
 
 
-    // PROJECT DESCRIPTION
+
     description:
       "A sophisticated bedroom interior designed around comfort, warmth, and understated luxury, combining soft textures, thoughtful lighting, and refined material details.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
+
+
     gallery: [
 
       {
@@ -608,14 +540,10 @@ const projectsData = [
 
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
     youtubeUrl: null,
   },
 
 
-  // =====================================================
-  // INTERIOR PROJECT 4 — CONTEMPORARY DINING INTERIOR
-  // =====================================================
   {
     id: 10,
     slug: "contemporary-dining-interior",
@@ -623,24 +551,17 @@ const projectsData = [
     type: "interior",
     carpetArea: "",
 
-    // PROJECT INFORMATION
     location: "Indore, India",
     year: "2026",
     status: "Completed",
 
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
     bannerImage: "/projects/interior/Shobhit/S-banner.webp",
     bannerPosition: "center bottom 5%",
     image: "/projects/interior/Shobhit/S-card.webp",
 
-
-    // PROJECT DESCRIPTION
     description:
       "A contemporary dining interior shaped through elegant proportions, warm materials, ambient lighting, and carefully considered details that create a welcoming dining experience.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
     gallery: [
       {
         src: "/projects/interior/Shobhit/h1.webp",
@@ -717,14 +638,9 @@ const projectsData = [
 
     ],
 
-    // PROJECT YOUTUBE VIDEO — OPTIONAL
     youtubeUrl: null,
   },
 
-
-  // =====================================================
-  // INTERIOR PROJECT 5 — REFINED LIVING SPACE
-  // =====================================================
   {
     id: 11,
     slug: "refined-living-space",
@@ -738,12 +654,12 @@ const projectsData = [
     image: "/projects/interior/ashishInterior/Ashish-Card.webp",
     imagePosition: " 15% center",
 
-    // PROJECT DESCRIPTION
+
     description:
       "A refined living space that combines contemporary furniture, natural textures, subtle lighting, and balanced spatial planning to create an elegant yet comfortable environment.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
+
+
     gallery: [
       {
         src: "/projects/interior/ashishInterior/l1.webp",
@@ -837,9 +753,6 @@ const projectsData = [
   },
 
 
-  // =====================================================
-  // INTERIOR PROJECT 6 — SERENE BEDROOM INTERIOR
-  // =====================================================
   {
     id: 12,
     slug: "serene-bedroom-interior",

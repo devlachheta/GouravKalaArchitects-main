@@ -21,7 +21,6 @@
 
 
 
-/* HERO CONTENT */
 
 .project-detail-hero-content {
   position: absolute;
@@ -121,7 +120,7 @@
 
   overflow: hidden;
 
-  /* Border radius for all 6 gallery images */
+
   border-radius: 16px;
 }
 
@@ -209,9 +208,6 @@
 }
 
 
-/* =========================================
-   PROJECT NOT FOUND
-========================================= */
 
 .project-not-found {
   min-height: 70vh;
@@ -228,10 +224,6 @@
   font-weight: 400;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
 
 @media (max-width: 991px) {
 
@@ -252,13 +244,10 @@
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
 
 @media (max-width: 768px) {
 
-  /* BANNER */
+
 
   .project-detail-hero {
     height: 75vh;
@@ -276,7 +265,6 @@
   }
 
 
-  /* ABOUT */
 
   .project-detail-info {
     padding: 65px 0;
@@ -299,7 +287,6 @@
   }
 
 
-  /* GALLERY */
 
   .project-gallery {
     padding: 20px 0 80px;
@@ -316,8 +303,6 @@
   }
 
 
-  /* VIDEO */
-
   .project-film {
     padding: 70px 0 80px;
   }
@@ -328,10 +313,6 @@
 
 }
 
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
 
 @media (max-width: 480px) {
 

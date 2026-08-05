@@ -21,7 +21,7 @@
   max-width: 90%;
 }
 
-/* Tablet */
+
 @media (max-width: 991px) {
   .gka-subtitle {
     font-size: 5rem;
@@ -29,7 +29,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 767px) {
   .gka-subtitle {
     font-size: 3.8rem;
@@ -38,7 +38,6 @@
   }
 }
 
-/* Small Mobile */
 @media (max-width: 480px) {
   .gka-subtitle {
     font-size: 3rem;

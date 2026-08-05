@@ -142,9 +142,6 @@ function Projects() {
               data-bs-slide-to="5"
             ></button>
           </div>
-
-          {/* Images */}
-
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
@@ -199,8 +196,6 @@ function Projects() {
             </div>
           </div>
 
-          {/* Previous */}
-
           <button
             className="carousel-control-prev"
             type="button"
@@ -216,8 +211,6 @@ function Projects() {
               Previous
             </span>
           </button>
-
-          {/* Next */}
 
           <button
             className="carousel-control-next"
@@ -253,9 +246,6 @@ function Projects() {
 
       </section>
 
-      {/* ===============================
-          PORTFOLIO
-      =============================== */}
 
       <section className="portfolio-section">
         <div className="container-fluid p-0">

@@ -36,22 +36,19 @@ function ContactUs() {
     const projectType = formData.get("projectType");
     const errors = [];
 
-    // Name Validation
+
     if (!/^[A-Za-z\s]{3,50}$/.test(name)) {
       errors.push("• Please enter a valid full name.");
     }
 
-    // Email Validation
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errors.push("• Please enter a valid email address.");
     }
 
-    // Mobile Validation
     if (!/^(\+91|91)?[6-9]\d{9}$/.test(phone)) {
       errors.push("• Please enter a valid mobile number.");
     }
 
-    // Project Type Validation
     if (!projectType) {
       errors.push("• Please select a project type.");
     }

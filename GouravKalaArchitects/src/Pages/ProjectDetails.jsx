@@ -57,12 +57,11 @@ function ProjectDetails() {
 
         window.scrollTo(0, 0);
 
-        // 1. Search in static projects
+
         let foundProject = projectsData.find(
           (item) => item.slug === slug
         );
 
-        // 2. If not found, search in Sanity
         if (!foundProject) {
           const architecture = await getArchitectureProjects();
           const interior = await getInteriorProjects();
@@ -94,7 +93,7 @@ function ProjectDetails() {
     loadProject();
   }, [slug]);
 
-  // Loading state
+
   if (loading) {
     return (
       <div
@@ -111,7 +110,7 @@ function ProjectDetails() {
     );
   }
 
-  // Project not found
+
   if (!project) {
     return (
       <div className="project-not-found">
@@ -140,7 +139,7 @@ function ProjectDetails() {
 
     <main className="project-details-page">
 
-      {/* Hero */}
+
 
       <section
         className="project-detail-hero"
@@ -194,8 +193,6 @@ function ProjectDetails() {
 
       </section>
 
-      {/* Gallery */}
-
       <section className="project-gallery">
 
         <div className="container">
@@ -242,8 +239,6 @@ function ProjectDetails() {
 
       </section>
 
-      {/* PROJECT FILM */}
-
       {
         project.youtubeUrl && (
 
@@ -251,9 +246,6 @@ function ProjectDetails() {
           <section className="project-film">
 
             <div className="container">
-
-
-              {/* FILM HEADING */}
 
               <motion.div
 
@@ -296,9 +288,6 @@ function ProjectDetails() {
 
               </motion.div>
 
-
-
-              {/* VIDEO */}
 
               <motion.div
 

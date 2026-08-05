@@ -97,7 +97,7 @@ function About() {
 
             <div className="row g-0 align-items-start about-story-top">
 
-              {/* Left Image */}
+
               <div className="col-xl-6">
                 <div className="founder-image-wrapper">
                   <img
@@ -108,7 +108,7 @@ function About() {
                 </div>
               </div>
 
-              {/* Right Text */}
+
               <div className="col-xl-6">
 
                 <div className="about-story-content">

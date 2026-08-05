@@ -205,7 +205,7 @@ function Home() {
       <Header />
       <section className="hero">
 
-        {/* HERO IMAGE */}
+
         <motion.div
           className="hero-right"
           initial={{
@@ -226,7 +226,7 @@ function Home() {
           <img src={Banner} alt="Hero" />
         </motion.div>
 
-        {/* HERO CONTENT */}
+
         <div className="hero-left">
           <div className="hero-content">
 
@@ -512,14 +512,14 @@ function Home() {
 
           <div className="principle-grid">
 
-            {/* LEFT SIDE - IMAGE PLACEHOLDER */}
+
             <div className="principle-image">
               <img src={Banner} alt="Gourav Kala Architects service" />
 
 
             </div>
 
-            {/* RIGHT SIDE - CONTENT */}
+
             <div className="principle-content">
 
               <div className=" principle-section-title">
@@ -537,7 +537,7 @@ function Home() {
               </div>
 
 
-              {/* TICK LIST */}
+
               <ul className="tick-list">
                 <li>
                   <FiCheck />
@@ -569,7 +569,7 @@ function Home() {
               </ul>
 
 
-              {/* BUTTON */}
+
               <Link className="text-button" to="/services">
                 How we work
                 <FiArrowDownRight />
