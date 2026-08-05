@@ -538,9 +538,9 @@ const projectsData = [
 
     // PROJECT BANNER IMAGE
     // Temporary image — replace later
-    bannerImage: "/projects/interior/3BHK/3BHK-Banner.webp",
+    bannerImage: "/projects/interior/3BHK/3BHK-banner.webp",
     bannerPosition: "center ",
-    image: "/projects/interior/3BHK/3BHK-Card.webp",
+    image: "/projects/interior/3BHK/3BHK-card.webp",
 
 
     // PROJECT DESCRIPTION
