@@ -35,10 +35,10 @@ export const GET_ARCHITECTURE_PROJECTS = `
 
   "bannerImage": bannerImage.asset->url,
 
-  "gallery": gallery[]{
-    "src": asset->url,
-    position
-  }
+ "gallery": gallery[]{
+  "src": image.asset->url,
+  position
+}
 }
 `;
 
@@ -81,9 +81,9 @@ export const GET_ARCHITECTURE_PROJECT = `
   "bannerImage": bannerImage.asset->url,
 
   "gallery": gallery[]{
-    "src": asset->url,
-    position
-  }
+  "src": image.asset->url,
+  position
+}
 }
 `;
 // ==========================================================
