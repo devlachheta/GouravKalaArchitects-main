@@ -276,57 +276,57 @@ const projectsData = [
   // =====================================================
   // ARCHITECTURE PROJECT 6 — WEEKEND RESIDENCE
   // =====================================================
-  {
-    id: 9,
-    slug: "weekend-residence",
-    title: "Weekend Residence",
-    type: "architecture",
-    plotArea: "",
-    builtUpArea: "",
+  // {
+  //   id: 9,
+  //   slug: "weekend-residence",
+  //   title: "Weekend Residence",
+  //   type: "architecture",
+  //   plotArea: "",
+  //   builtUpArea: "",
 
-    // PROJECT INFORMATION
-    location: "Indore, India",
-    year: "2026",
-    status: "Completed",
+  //   // PROJECT INFORMATION
+  //   location: "Indore, India",
+  //   year: "2026",
+  //   status: "Completed",
 
-    // PROJECT BANNER IMAGE
-    // Temporary image — replace later
-    bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
+  //   // PROJECT BANNER IMAGE
+  //   // Temporary image — replace later
+  //   bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
 
-    // PROJECT DESCRIPTION
-    description:
-      "A peaceful weekend residence designed to create a relaxed connection with nature through open spaces, natural light, and thoughtful architectural planning.",
+  //   // PROJECT DESCRIPTION
+  //   description:
+  //     "A peaceful weekend residence designed to create a relaxed connection with nature through open spaces, natural light, and thoughtful architectural planning.",
 
-    // PROJECT GALLERY — 6 IMAGES
-    // Temporary images — replace later
-    gallery: [
-      {
-        src: "/projects/HPM1.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM2.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM3.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM4.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM5.webp",
-        position: "center center",
-      },
-      {
-        src: "/projects/HPM6.webp",
-        position: "center center",
-      },
-    ],
+  //   // PROJECT GALLERY — 6 IMAGES
+  //   // Temporary images — replace later
+  //   gallery: [
+  //     {
+  //       src: "/projects/HPM1.webp",
+  //       position: "center center",
+  //     },
+  //     {
+  //       src: "/projects/HPM2.webp",
+  //       position: "center center",
+  //     },
+  //     {
+  //       src: "/projects/HPM3.webp",
+  //       position: "center center",
+  //     },
+  //     {
+  //       src: "/projects/HPM4.webp",
+  //       position: "center center",
+  //     },
+  //     {
+  //       src: "/projects/HPM5.webp",
+  //       position: "center center",
+  //     },
+  //     {
+  //       src: "/projects/HPM6.webp",
+  //       position: "center center",
+  //     },
+  //   ],
 
-  },
+  // },
 
 
   // =====================================================
