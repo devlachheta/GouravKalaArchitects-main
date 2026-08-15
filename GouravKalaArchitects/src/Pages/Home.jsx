@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
 import Banner from "../assets/gH.png";
 import { motion } from "framer-motion";
+import { getHomepageStatistics } from "../services/sanityService";
 import HomeProjectCard from "../Component/HomeProjectCard";
 import "../styles/home.css";
 import Residential from "../assets/residential1.jpg";
@@ -74,6 +75,11 @@ function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
 }
 function Home() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(false);
+  const [homepageStats, setHomepageStats] = useState({
+    years: 7,
+    projects: 48,
+    cities: 6,
+  });
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 150) {
@@ -87,7 +93,25 @@ function Home() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    const fetchHomepageStats = async () => {
+      try {
+        const data = await getHomepageStatistics();
 
+        if (data) {
+          setHomepageStats({
+            years: Number.parseInt(data.years, 10) || 7,
+            projects: Number.parseInt(data.projects, 10) || 48,
+            cities: Number.parseInt(data.cities, 10) || 6,
+          });
+        }
+      } catch (error) {
+        console.error("Failed to fetch homepage statistics:", error);
+      }
+    };
+
+    fetchHomepageStats();
+  }, []);
   const heroTitle = "Designed to Last.";
   const heroTitle2 = "Built to Belong.";
 
@@ -370,7 +394,11 @@ function Home() {
 
             <div className="col-12 col-md-4">
               <div className="stat-item">
-                <CountUp end={7} pad={2} suffix="+" />
+                <CountUp
+                  end={homepageStats.years}
+                  pad={2}
+                  suffix="+"
+                />
 
                 <span>
                   Years of Thoughtful <br />
@@ -381,7 +409,10 @@ function Home() {
 
             <div className="col-12 col-md-4">
               <div className="stat-item">
-                <CountUp end={48} suffix="+" />
+                <CountUp
+                  end={homepageStats.projects}
+                  suffix="+"
+                />
 
                 <span>
                   Projects Shaped <br />
@@ -392,7 +423,11 @@ function Home() {
 
             <div className="col-12 col-md-4">
               <div className="stat-item">
-                <CountUp end={6} pad={2} suffix="+" />
+                <CountUp
+                  end={homepageStats.cities}
+                  pad={2}
+                  suffix="+"
+                />
 
                 <span>
                   Cities Across <br />

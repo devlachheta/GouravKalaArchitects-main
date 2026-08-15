@@ -170,3 +170,23 @@ export const GET_INTERIOR_PROJECT = `
   }
 }
 `;
+
+export const GET_HOMEPAGE_STATISTICS = `
+*[_type == "homepage"][0]{
+    years,
+    projects,
+    cities
+}
+`;
+
+// ==========================================================
+// GET ABOUT SOCIAL STATISTICS
+// ==========================================================
+
+export const GET_ABOUT_SOCIAL_STATISTICS = `
+*[_type == "about"][0]{
+    instagramFollowers,
+    facebookFollowers,
+    youtubeSubscribers
+}
+`;
