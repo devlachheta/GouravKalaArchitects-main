@@ -4,6 +4,8 @@ import {
     GET_INTERIOR_PROJECTS,
     GET_ARCHITECTURE_PROJECT,
     GET_INTERIOR_PROJECT,
+    GET_HOMEPAGE_STATISTICS,
+    GET_ABOUT_SOCIAL_STATISTICS,
 } from "../sanity/queries";
 
 // Get all architecture projects
@@ -24,4 +26,14 @@ export const getArchitectureProject = async (slug) => {
 // Get single interior project by slug
 export const getInteriorProject = async (slug) => {
     return await client.fetch(GET_INTERIOR_PROJECT, { slug });
+};
+
+// Get homepage statistics
+export const getHomepageStatistics = async () => {
+    return await client.fetch(GET_HOMEPAGE_STATISTICS);
+};
+
+// Get About social statistics
+export const getAboutSocialStatistics = async () => {
+    return await client.fetch(GET_ABOUT_SOCIAL_STATISTICS);
 };
