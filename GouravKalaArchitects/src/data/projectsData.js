@@ -107,18 +107,12 @@ const projectsData = [
     plotArea: "",
     builtUpArea: "",
     status: "Completed",
-
-
     bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
     bannerPosition: "center 10%",
     image: "/projects/architecture/hpm/HPM2.webp",
     imagePosition: "100% center",
-
     description:
       "A thoughtfully designed residence centered around an open courtyard, creating a seamless connection between natural light, landscape, and everyday living.",
-
-
-
     gallery: [
       {
         src: "/projects/architecture/hpm/HPM1.webp",

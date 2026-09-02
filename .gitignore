@@ -1,0 +1,53 @@
+# =========================
+# Python / Django
+# =========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Django
+db.sqlite3
+*.log
+
+# Django media files
+media/
+
+# Environment variables
+.env
+.env.*
+
+# =========================
+# Node / React / Vite
+# =========================
+
+node_modules/
+dist/
+build/
+
+# Environment files
+*.local
+
+# =========================
+# Sanity
+# =========================
+
+.sanity/
+
+# =========================
+# VS Code
+# =========================
+
+.vscode/
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
