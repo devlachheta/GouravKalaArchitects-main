@@ -4,6 +4,7 @@ import FounderImage from "../assets/founder-image.PNG"
 import "../styles/About.css";
 import Hero from "../Component/Hero";
 import Header from "../Component/Header";
+import { getAboutSocialStatistics } from "../services/sanityService";
 import {
   FaInstagram,
   FaFacebookF,
@@ -77,7 +78,31 @@ function CountUp({ end, duration = 1800, suffix = "" }) {
   );
 }
 function About() {
+  const [socialStats, setSocialStats] = useState({
+    instagramFollowers: 100000,
+    facebookFollowers: 98000,
+    youtubeSubscribers: 67000,
+  });
 
+  useEffect(() => {
+    const fetchSocialStats = async () => {
+      try {
+        const data = await getAboutSocialStatistics();
+
+        if (data) {
+          setSocialStats({
+            instagramFollowers: data.instagramFollowers ?? 100000,
+            facebookFollowers: data.facebookFollowers ?? 98000,
+            youtubeSubscribers: data.youtubeSubscribers ?? 67000,
+          });
+        }
+      } catch (error) {
+        console.error("Failed to fetch About social statistics:", error);
+      }
+    };
+
+    fetchSocialStats();
+  }, []);
 
   return (
     <>
@@ -161,7 +186,10 @@ function About() {
 
                   <div className="social-info">
                     <strong>
-                      <CountUp end={100} suffix="K+" />
+                      <CountUp
+                        end={Math.floor(socialStats.instagramFollowers / 1000)}
+                        suffix="K+"
+                      />
                     </strong>
 
                     <span>Instagram Followers</span>
@@ -178,7 +206,10 @@ function About() {
 
                   <div className="social-info">
                     <strong>
-                      <CountUp end={98} suffix="K+" />
+                      <CountUp
+                        end={Math.floor(socialStats.facebookFollowers / 1000)}
+                        suffix="K+"
+                      />
                     </strong>
 
                     <span>Facebook Followers</span>
@@ -195,7 +226,10 @@ function About() {
 
                   <div className="social-info">
                     <strong>
-                      <CountUp end={67} suffix="K+" />
+                      <CountUp
+                        end={Math.floor(socialStats.youtubeSubscribers / 1000)}
+                        suffix="K+"
+                      />
                     </strong>
 
                     <span>YouTube Subscribers</span>
@@ -213,9 +247,12 @@ function About() {
                 </h2>
 
                 <p>
-                  With a growing community of over 100,000 followers on Instagram,
-                  98,000 on Facebook, and 67,000 YouTube subscribers, we've built a
-                  trusted platform where we share architecture, interior design,
+                  With a growing community of over{" "}
+                  {socialStats.instagramFollowers.toLocaleString()} followers on Instagram,
+                  {` `}
+                  {socialStats.facebookFollowers.toLocaleString()} on Facebook, and{" "}
+                  {socialStats.youtubeSubscribers.toLocaleString()} YouTube subscribers,
+                  we've built a trusted platform where we share architecture, interior design,
                   construction insights, and practical guidance.
                 </p>
 
