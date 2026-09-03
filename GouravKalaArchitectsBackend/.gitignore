@@ -1,0 +1,47 @@
+# =========================
+# Python / Django
+# =========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Django
+db.sqlite3
+*.log
+
+# Local database / migration backup files
+data.json
+data_backup.json
+
+# Django media files
+media/
+
+# Environment variables
+.env
+.env.*
+
+# =========================
+# Uploaded project images
+# =========================
+
+projects/cards/
+projects/gallery/
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+# VS Code
+# =========================
+
+.vscode/
