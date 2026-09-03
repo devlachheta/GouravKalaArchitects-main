@@ -65,11 +65,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "gka_cms",
+        "USER": "postgres",
+        "PASSWORD": "root",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -99,7 +102,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR 
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

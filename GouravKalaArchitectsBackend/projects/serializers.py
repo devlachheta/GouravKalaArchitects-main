@@ -8,11 +8,11 @@ class ProjectImageSerializer(serializers.ModelSerializer):
         model = ProjectImage
         fields = [
             "id",
+            "project",
             "image",
             "position",
             "display_order",
         ]
-
 
 class ProjectSerializer(serializers.ModelSerializer):
 
