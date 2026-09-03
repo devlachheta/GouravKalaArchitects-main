@@ -91,9 +91,9 @@ function About() {
 
         if (data) {
           setSocialStats({
-            instagramFollowers: data.instagramFollowers ?? 100000,
-            facebookFollowers: data.facebookFollowers ?? 98000,
-            youtubeSubscribers: data.youtubeSubscribers ?? 67000,
+            instagramFollowers: data.instagram_followers ?? 100000,
+            facebookFollowers: data.facebook_followers ?? 98000,
+            youtubeSubscribers: data.youtube_subscribers ?? 67000,
           });
         }
       } catch (error) {
