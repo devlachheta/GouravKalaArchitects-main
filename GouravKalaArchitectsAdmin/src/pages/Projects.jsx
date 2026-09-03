@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import {
     Plus,
@@ -21,8 +22,16 @@ function Projects() {
     const [error, setError] = useState("");
 
     const [search, setSearch] = useState("");
+    const [searchParams] = useSearchParams();
 
-    const [filterType, setFilterType] = useState("all");
+    const typeFromUrl = searchParams.get("type");
+
+    const [filterType, setFilterType] = useState(
+        typeFromUrl === "architecture" ||
+            typeFromUrl === "interior"
+            ? typeFromUrl
+            : "all"
+    );
 
 
     // ================= FETCH PROJECTS =================
@@ -61,6 +70,19 @@ function Projects() {
         fetchProjects();
 
     }, []);
+
+    useEffect(() => {
+
+        if (
+            typeFromUrl === "architecture" ||
+            typeFromUrl === "interior"
+        ) {
+            setFilterType(typeFromUrl);
+        } else {
+            setFilterType("all");
+        }
+
+    }, [typeFromUrl]);
 
 
     // ================= FILTER PROJECTS =================

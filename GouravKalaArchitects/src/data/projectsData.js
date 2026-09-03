@@ -6,6 +6,7 @@ const projectsData = [
     title: "MPM",
     type: "architecture",
     location: "Indore, India",
+    year: "2026",
     image: "/projects/architecture/mpm/madanprojectcard.webp",
     imagePosition: "100% center",
     plotArea: "7100 Sq. Ft.",
@@ -46,7 +47,9 @@ const projectsData = [
         src: "/projects/architecture/mpm/madanproject10.webp",
         position: "center ",
       },
-    ]
+    ],
+
+    youtubeUrl: "",
   },
   {
     id: 2,
@@ -56,6 +59,7 @@ const projectsData = [
     plotArea: "7900 Sq. Ft.",
     builtUpArea: "5558 Sq. Ft.",
     location: "Indore, India",
+    year: "2026",
     status: "Completed",
     bannerImage: "/projects/architecture/nrk/nrkBanner.webp",
     bannerPosition: "center 10%",
@@ -106,6 +110,7 @@ const projectsData = [
     location: "Indore, India",
     plotArea: "",
     builtUpArea: "",
+    year: "2026",
     status: "Completed",
     bannerImage: "/projects/architecture/hpm/HPM-banner.webp",
     bannerPosition: "center 10%",
@@ -159,14 +164,8 @@ const projectsData = [
     bannerPosition: "center 18%",
     image: "/projects/architecture/asb/ASB-Card.webp",
     imagePosition: "100% center",
-
-
     description:
       "A modern villa designed with clean architectural lines, open living spaces, natural light, and a strong connection between indoor and outdoor environments.",
-
-
-
-
     gallery: [
       {
         src: "/projects/architecture/asb/1.webp",
@@ -323,12 +322,9 @@ const projectsData = [
     title: "2 BHK",
     type: "interior",
     carpetArea: "",
-
     location: "Indore, India",
     year: "2026",
     status: "Completed",
-
-
     bannerImage: "/projects/interior/2BHK/2BHK-banner.webp",
     bannerPosition: "center 20% ",
     image: "/projects/interior/2BHK/2BHK-card.webp",

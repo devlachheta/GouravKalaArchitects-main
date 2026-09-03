@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import AddProject from "./pages/AddProject";
 import EditProject from "./pages/EditProject";
+import ViewProject from "./pages/ViewProject";
 
 import AdminLayout from "./layouts/AdminLayout";
 
@@ -44,16 +45,6 @@ function App() {
           />
 
           <Route
-            path="/projects/architecture"
-            element={<Projects />}
-          />
-
-          <Route
-            path="/projects/interior"
-            element={<Projects />}
-          />
-
-          <Route
             path="/projects/add"
             element={<AddProject />}
           />
@@ -61,6 +52,11 @@ function App() {
           <Route
             path="/projects/edit/:id"
             element={<EditProject />}
+          />
+
+          <Route
+            path="/projects/:id"
+            element={<ViewProject />}
           />
 
         </Route>

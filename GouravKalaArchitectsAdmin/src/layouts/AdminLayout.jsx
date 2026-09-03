@@ -1,4 +1,9 @@
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import {
+    NavLink,
+    Outlet,
+    useNavigate,
+    useLocation,
+} from "react-router-dom";
 import {
     LayoutDashboard,
     FolderKanban,
@@ -14,6 +19,7 @@ import {
 
 function AdminLayout() {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogout = () => {
         localStorage.removeItem("access_token");
@@ -65,7 +71,10 @@ function AdminLayout() {
                             to="/projects"
                             end
                             className={({ isActive }) =>
-                                `sidebar-link ${isActive ? "active" : ""}`
+                                `sidebar-link ${isActive && !location.search
+                                    ? "active"
+                                    : ""
+                                }`
                             }
                         >
                             <FolderKanban size={20} />
@@ -74,9 +83,14 @@ function AdminLayout() {
 
 
                         <NavLink
-                            to="/projects/architecture"
-                            className={({ isActive }) =>
-                                `sidebar-link ${isActive ? "active" : ""}`
+                            to="/projects?type=architecture"
+                            className={() =>
+                                `sidebar-link ${location.pathname === "/projects" &&
+                                    new URLSearchParams(location.search).get("type") ===
+                                    "architecture"
+                                    ? "active"
+                                    : ""
+                                }`
                             }
                         >
                             <Building2 size={20} />
@@ -85,9 +99,14 @@ function AdminLayout() {
 
 
                         <NavLink
-                            to="/projects/interior"
-                            className={({ isActive }) =>
-                                `sidebar-link ${isActive ? "active" : ""}`
+                            to="/projects?type=interior"
+                            className={() =>
+                                `sidebar-link ${location.pathname === "/projects" &&
+                                    new URLSearchParams(location.search).get("type") ===
+                                    "interior"
+                                    ? "active"
+                                    : ""
+                                }`
                             }
                         >
                             <Sofa size={20} />

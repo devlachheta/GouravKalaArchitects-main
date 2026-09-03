@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import "../styles/ProjectDetails.css";
 import { useEffect, useState } from "react";
 import ProjectGallery from "../Component/Gallery/ProjectGallery";
-import {
-  getArchitectureProjects,
-  getInteriorProjects,
-} from "../utils/projectUtils";
-import projectsData from "../data/projectsData";
+
 
 function ProjectDetails() {
 
@@ -58,24 +54,26 @@ function ProjectDetails() {
         window.scrollTo(0, 0);
 
 
-        let foundProject = projectsData.find(
+
+        const response = await fetch(
+          "http://127.0.0.1:8000/api/public/projects/"
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+
+        const data = await response.json();
+
+        const allProjects = Array.isArray(data)
+          ? data
+          : data.results || [];
+
+        const foundProject = allProjects.find(
           (item) => item.slug === slug
         );
 
-        if (!foundProject) {
-          const architecture = await getArchitectureProjects();
-          const interior = await getInteriorProjects();
-
-          const allProjects = [
-            ...architecture,
-            ...interior,
-          ];
-
-          foundProject = allProjects.find(
-            (item) => item.slug === slug
-          );
-        }
-
+        
         setProject(foundProject);
 
         if (foundProject) {
