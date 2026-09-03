@@ -22,6 +22,28 @@ class HomepageView(APIView):
 
         return Response(serializer.data)
 
+    def patch(self, request):
+
+        homepage = Homepage.objects.first()
+
+        if not homepage:
+            homepage = Homepage.objects.create()
+
+        serializer = HomepageSerializer(
+            homepage,
+            data=request.data,
+            partial=True
+        )
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(
+            serializer.errors,
+            status=400
+        )
+
 
 class AboutView(APIView):
 
@@ -39,3 +61,25 @@ class AboutView(APIView):
         serializer = AboutSerializer(about)
 
         return Response(serializer.data)
+
+    def patch(self, request):
+
+        about = About.objects.first()
+
+        if not about:
+            about = About.objects.create()
+
+        serializer = AboutSerializer(
+            about,
+            data=request.data,
+            partial=True
+        )
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(
+            serializer.errors,
+            status=400
+        )

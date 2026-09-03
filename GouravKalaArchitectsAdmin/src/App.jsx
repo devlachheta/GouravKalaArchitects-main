@@ -12,7 +12,10 @@ import AddProject from "./pages/AddProject";
 import EditProject from "./pages/EditProject";
 
 import AdminLayout from "./layouts/AdminLayout";
-
+import Home from "./pages/Home";
+import About from "./pages/About";
+import ForgotPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
 
@@ -27,12 +30,27 @@ function App() {
           path="/login"
           element={<Login />}
         />
-
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+        <Route
+          path="/reset-password/:uid/:token"
+          element={<ResetPassword />}
+        />
 
         {/* ================= ADMIN ================= */}
 
         <Route element={<AdminLayout />}>
+          <Route
+            path="/home"
+            element={<Home />}
+          />
 
+          <Route
+            path="/about"
+            element={<About />}
+          />
           <Route
             path="/dashboard"
             element={<Dashboard />}

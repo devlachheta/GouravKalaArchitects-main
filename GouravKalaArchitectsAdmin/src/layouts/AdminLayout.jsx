@@ -4,6 +4,8 @@ import {
     FolderKanban,
     Building2,
     Sofa,
+    House,
+    Info,
     Settings,
     User,
     LogOut,
@@ -50,7 +52,35 @@ function AdminLayout() {
                         <LayoutDashboard size={20} />
                         <span>Dashboard</span>
                     </NavLink>
+                    {/* ================= CONTENT ================= */}
 
+                    <div className="sidebar-section">
+
+                        <div className="sidebar-section-title">
+                            CONTENT
+                        </div>
+
+                        <NavLink
+                            to="/home"
+                            className={({ isActive }) =>
+                                `sidebar-link ${isActive ? "active" : ""}`
+                            }
+                        >
+                            <House size={20} />
+                            <span>Home</span>
+                        </NavLink>
+
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) =>
+                                `sidebar-link ${isActive ? "active" : ""}`
+                            }
+                        >
+                            <Info size={20} />
+                            <span>About</span>
+                        </NavLink>
+
+                    </div>
 
                     {/* Projects */}
 
@@ -221,7 +251,7 @@ function AdminLayout() {
                     </span>
 
                     <span>
-                        Version 1.0.0
+                        developed by dev and sagar
                     </span>
 
                 </footer>

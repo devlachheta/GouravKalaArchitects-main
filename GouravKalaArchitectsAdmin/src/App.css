@@ -171,6 +171,9 @@
 
 .sidebar-nav {
   flex: 1;
+  min-height: 0;
+
+  overflow-y: auto;
 
   padding: 28px 12px;
 }
@@ -1237,6 +1240,29 @@
   overflow: hidden;
 }
 
+.projects-homecard {
+  background: white;
+
+  border: 1px solid #e1e1e1;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+  padding: 15px;
+}
+
+.projects-aboutcard {
+  background: white;
+
+  border: 1px solid #e1e1e1;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+  padding: 15px;
+}
+
+
 
 /* =========================================================
    TABLE
@@ -1513,6 +1539,59 @@
   color: #343a3e;
 }
 
+/* =========================================================
+   FORGOT PASSWORD LINK
+========================================================= */
+
+.forgot-password {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.forgot-password a {
+  color: #777;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-password a:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+.forgot-password-success {
+  margin-bottom: 18px;
+  padding: 10px 12px;
+
+  border-radius: 6px;
+
+  background: #eaf6ec;
+  color: #398344;
+
+  font-size: 13px;
+}
+
+.back-to-login {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.back-to-login a {
+  color: #666;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.back-to-login a:hover {
+  color: #222;
+  text-decoration: underline;
+}
 
 /* =========================================================
    RESPONSIVE

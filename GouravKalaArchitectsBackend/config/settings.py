@@ -170,4 +170,13 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
 ]
+# Password reset email - development
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+DEFAULT_FROM_EMAIL = "GKA Admin <noreply@gouravkalaarchitects.com>"
+
+FRONTEND_URL = "http://localhost:5173"
