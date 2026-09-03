@@ -1728,6 +1728,7 @@
 /* SECTION */
 
 .form-section {
+  margin-top: 20px;
   background: white;
 
   border: 1px solid #e1e1e1;
@@ -1800,7 +1801,7 @@
 
   font-weight: 500;
 
-  color: #353b40;
+  color: #000;
 }
 
 .form-group label span {
@@ -1975,4 +1976,1372 @@
     grid-column: auto;
   }
 
+}
+
+
+/* ==========================================
+   BACK TO PROJECTS BUTTON
+========================================== */
+
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 10px 17px;
+
+  background: #ffffff;
+
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+
+  color: #242424;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  transition: all 0.25s ease;
+}
+
+
+/* Arrow */
+
+.back-arrow {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* Hover */
+
+.secondary-btn:hover {
+  background: #181818;
+
+  border-color: #181818;
+
+  color: #ffffff;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+
+  transform: translateY(-2px);
+}
+
+
+/* Move arrow on hover */
+
+.secondary-btn:hover .back-arrow {
+  transform: translateX(-3px);
+}
+
+
+/* Click */
+
+.secondary-btn:active {
+  transform: translateY(0);
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Focus */
+
+.secondary-btn:focus {
+  outline: none;
+}
+
+/* =========================================================
+   EDIT PROJECT - MAIN IMAGES
+========================================================= */
+
+.edit-main-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+
+/* =========================================================
+   MAIN IMAGE CARD
+========================================================= */
+
+.edit-image-card {
+  min-width: 0;
+
+  background: #181818;
+
+  border: 1px solid #2a2a2a;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.edit-image-header {
+  margin-bottom: 16px;
+}
+
+.edit-image-header h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+
+  color: #ffffff;
+}
+
+.edit-image-header p {
+  margin: 0;
+
+  color: #aaa;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   MAIN IMAGE PREVIEW
+========================================================= */
+
+.edit-image-preview-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 280px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #111;
+
+  margin-bottom: 16px;
+}
+
+.edit-image-preview-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   MAIN IMAGE REMOVE BUTTON
+========================================================= */
+
+.image-remove-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  z-index: 10;
+
+  padding: 8px 13px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: rgba(0, 0, 0, 0.82);
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.image-remove-btn:hover {
+  background: #b91c1c;
+}
+
+.image-remove-btn:active {
+  transform: translateY(1px);
+}
+
+
+/* =========================================================
+   IMAGE REMOVED STATE
+========================================================= */
+
+.image-removed-box {
+  width: 100%;
+  height: 280px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  background: #111;
+
+  border: 1px dashed #444;
+
+  color: #777;
+
+  font-size: 13px;
+
+  margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   MAIN IMAGE UPLOAD AREA
+========================================================= */
+
+.image-upload-area {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 7px;
+
+  margin-bottom: 18px;
+}
+
+
+/* SELECT FILE BUTTON */
+
+.image-upload-label {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  background: #252525;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 6px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.image-upload-label:hover {
+  background: #303030;
+
+  border-color: #555;
+}
+
+.image-upload-label input {
+  display: none;
+}
+
+
+/* SELECTED FILE NAME */
+
+.selected-file-name {
+  display: block;
+
+  max-width: 100%;
+
+  margin-top: 2px;
+
+  color: #999;
+
+  font-size: 12px;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   IMAGE POSITION
+========================================================= */
+
+.edit-image-card input[type="text"] {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 11px 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #d7d7d7;
+
+  border-radius: 7px;
+
+  color: #222;
+
+  font-size: 13px;
+
+  outline: none;
+}
+
+.edit-image-card input[type="text"]:focus {
+  border-color: #999;
+
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================================================
+   PROJECT GALLERY
+========================================================= */
+
+.gallery-grid {
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  gap: 20px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   GALLERY CARD
+   3 CARDS PER ROW
+========================================================= */
+
+.gallery-preview-card {
+  grid-column: span 2;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #181818;
+
+  border: 1px solid #2a2a2a;
+
+  border-radius: 12px;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gallery-preview-card:hover {
+  border-color: #3a3a3a;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   GALLERY IMAGE
+========================================================= */
+
+.gallery-image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  height: 190px;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+.gallery-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   REMOVE BUTTON
+========================================================= */
+
+.remove-gallery-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  z-index: 10;
+
+  padding: 7px 12px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: rgba(0, 0, 0, 0.82);
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.remove-gallery-btn:hover {
+  background: #b91c1c;
+}
+
+.remove-gallery-btn:active {
+  transform: translateY(1px);
+}
+
+.remove-gallery-btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   GALLERY INFORMATION
+========================================================= */
+
+.gallery-info {
+  padding: 14px 16px 16px;
+
+  background: #181818;
+}
+
+
+/* =========================================================
+   GALLERY TITLE
+========================================================= */
+
+.gallery-title {
+  margin-bottom: 12px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   EDITABLE GALLERY ROW
+========================================================= */
+
+.gallery-edit-row {
+  display: grid;
+
+  grid-template-columns: 85px minmax(0, 1fr);
+
+  gap: 12px;
+
+  align-items: end;
+}
+
+
+/* =========================================================
+   GALLERY FIELD
+========================================================= */
+
+.gallery-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  min-width: 0;
+}
+
+.gallery-field label {
+  display: block;
+
+  margin: 0;
+
+  color: #999999;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   GALLERY INPUT
+========================================================= */
+
+.gallery-field input {
+  width: 100%;
+
+  height: 36px;
+
+  box-sizing: border-box;
+
+  padding: 7px 9px;
+
+  background: #222222;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 5px;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.gallery-field input:hover {
+  background: #252525;
+
+  border-color: #555555;
+}
+
+.gallery-field input:focus {
+  background: #222222;
+
+  border-color: #9c7b32;
+
+  box-shadow:
+    0 0 0 2px rgba(156, 123, 50, 0.12);
+}
+
+
+/* =========================================================
+   DISPLAY ORDER
+========================================================= */
+
+.gallery-order-field input {
+  text-align: center;
+}
+
+
+/* =========================================================
+   GALLERY UPLOAD AREA
+========================================================= */
+
+.gallery-upload-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin: 24px 0 28px;
+}
+
+
+/* =========================================================
+   SELECT GALLERY IMAGES BUTTON
+========================================================= */
+
+.gallery-upload-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  background: #181818;
+
+  border: 1px solid #333333;
+
+  border-radius: 6px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.gallery-upload-btn:hover {
+  background: #292929;
+
+  border-color: #444444;
+}
+
+.gallery-upload-btn input {
+  display: none;
+}
+
+
+/* =========================================================
+   UPLOAD HINT
+========================================================= */
+
+.gallery-upload-hint {
+  color: #888888;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   NEW GALLERY SECTION
+========================================================= */
+
+.new-gallery-section {
+  margin-top: 36px;
+
+  padding-top: 28px;
+
+  border-top: 1px solid #2a2a2a;
+}
+
+.new-gallery-header {
+  margin-bottom: 20px;
+}
+
+.new-gallery-header h3 {
+  margin: 0 0 6px;
+
+  color: #111111;
+
+  font-size: 18px;
+}
+
+.new-gallery-header p {
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   NO GALLERY
+========================================================= */
+
+.no-gallery {
+  min-height: 150px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #111111;
+
+  border: 1px dashed #333333;
+
+  border-radius: 8px;
+
+  color: #777777;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .edit-main-images {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-preview-card {
+    grid-column: span 1;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-preview-card {
+    grid-column: span 1;
+  }
+
+  .gallery-image-wrapper {
+    height: 220px;
+  }
+
+  .edit-image-preview-wrapper {
+    height: 250px;
+  }
+
+  .image-removed-box {
+    height: 250px;
+  }
+
+  .gallery-upload-area {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .gallery-edit-row {
+    grid-template-columns: 80px minmax(0, 1fr);
+
+    gap: 10px;
+  }
+
+}
+
+/* =========================================================
+   VIEW PROJECT PAGE
+========================================================= */
+
+.view-project-page {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32px;
+  background: #f7f7f7;
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.view-project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* .view-edit-btn {
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  padding: 10px 16px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+} */
+/* ==========================================
+   VIEW PROJECT - BACK & EDIT BUTTONS
+========================================== */
+
+.view-back-btn,
+.view-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 17px;
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  color: #242424;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* ==========================================
+   BACK ARROW
+========================================== */
+
+.view-back-btn .back-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.view-back-btn:hover,
+.view-edit-btn:hover {
+  background: #181818;
+  border-color: #181818;
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   BACK ARROW ANIMATION
+========================================== */
+
+.view-back-btn:hover .back-arrow {
+  transform: translateX(-3px);
+}
+
+
+/* ==========================================
+   CLICK
+========================================== */
+
+.view-back-btn:active,
+.view-edit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ==========================================
+   FOCUS
+========================================== */
+
+.view-back-btn:focus,
+.view-edit-btn:focus {
+  outline: none;
+}
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.view-project-title-section {
+  background: #fff;
+
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+
+  padding: 28px;
+
+  margin-bottom: 24px;
+}
+
+.view-project-title-section h1 {
+  margin: 0 0 12px;
+
+  font-size: 32px;
+  line-height: 1.2;
+
+  color: #111;
+}
+
+.view-project-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 13px;
+
+  color: #777;
+
+  text-transform: capitalize;
+}
+
+.view-project-meta span:first-child {
+  font-weight: 600;
+  color: #444;
+}
+
+
+/* =========================================================
+   BANNER IMAGE
+========================================================= */
+
+.view-banner-section {
+  width: 100%;
+
+  height: 480px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: #111;
+
+  margin-bottom: 24px;
+}
+
+.view-banner-section img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   COMMON SECTION
+========================================================= */
+
+.view-section {
+  background: #fff;
+
+  border: 1px solid #e2e2e2;
+
+  border-radius: 12px;
+
+  padding: 28px;
+
+  margin-bottom: 24px;
+
+  box-sizing: border-box;
+}
+
+.view-section-header {
+  margin-bottom: 24px;
+}
+
+.view-section-header h2 {
+  margin: 0 0 6px;
+
+  font-size: 21px;
+
+  color: #111;
+}
+
+.view-section-header p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #777;
+}
+
+
+/* =========================================================
+   PROJECT INFORMATION
+========================================================= */
+
+.project-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.project-info-item {
+  min-width: 0;
+
+  padding: 18px;
+
+  background: #f7f7f7;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 8px;
+}
+
+.project-info-item span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 12px;
+
+  color: #888;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.project-info-item strong {
+  display: block;
+
+  font-size: 14px;
+
+  color: #222;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.project-description {
+  padding: 20px;
+
+  background: #f7f7f7;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 8px;
+
+  color: #444;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.view-card-image {
+  width: 100%;
+
+  max-width: 650px;
+
+  height: 350px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #111;
+}
+
+.view-card-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   PROJECT GALLERY
+========================================================= */
+
+.view-gallery-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   GALLERY CARD
+========================================================= */
+
+.view-gallery-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #181818;
+
+  border: 1px solid #2a2a2a;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   GALLERY IMAGE
+========================================================= */
+
+.view-gallery-image {
+  width: 100%;
+
+  height: 220px;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+.view-gallery-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   GALLERY INFO
+========================================================= */
+
+.view-gallery-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 14px 16px;
+}
+
+.view-gallery-info strong {
+  margin-bottom: 3px;
+
+  color: #fff;
+
+  font-size: 14px;
+}
+
+.view-gallery-info span {
+  color: #999;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   NO GALLERY
+========================================================= */
+
+.view-no-gallery {
+  min-height: 150px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px dashed #ccc;
+
+  border-radius: 8px;
+
+  background: #fafafa;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   YOUTUBE
+========================================================= */
+
+.youtube-project-link {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 18px;
+
+  border-radius: 6px;
+
+  background: #181818;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  transition: 0.2s ease;
+}
+
+.youtube-project-link:hover {
+  background: #333;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.view-project-loading {
+  min-height: 400px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.view-project-error {
+  padding: 20px;
+
+  margin-bottom: 16px;
+
+  border: 1px solid #f0caca;
+
+  border-radius: 8px;
+
+  background: #fff5f5;
+
+  color: #b91c1c;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .project-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .view-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .view-banner-section {
+    height: 400px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .view-project-page {
+    padding: 20px;
+  }
+
+  .view-project-header {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .view-back-btn,
+  .view-edit-btn {
+    width: 100%;
+  }
+
+  .view-project-title-section {
+    padding: 20px;
+  }
+
+  .view-project-title-section h1 {
+    font-size: 25px;
+  }
+
+  .view-project-meta {
+    flex-wrap: wrap;
+  }
+
+  .view-banner-section {
+    height: 280px;
+
+    border-radius: 8px;
+  }
+
+  .view-section {
+    padding: 20px;
+  }
+
+  .project-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .view-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .view-gallery-image {
+    height: 240px;
+  }
+
+  .view-card-image {
+    height: 280px;
+  }
 }

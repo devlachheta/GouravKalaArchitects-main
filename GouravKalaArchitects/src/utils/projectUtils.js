@@ -1,44 +1,33 @@
-import projectsData from "../data/projectsData";
+const API_URL = "http://127.0.0.1:8000/api/public/projects/";
 
-import { client } from "../sanity/client";
+const getAllProjects = async () => {
+    const response = await fetch(API_URL);
 
-import {
-    GET_ARCHITECTURE_PROJECTS,
-    GET_INTERIOR_PROJECTS,
-} from "../sanity/queries";
+    if (!response.ok) {
+        throw new Error("Failed to fetch projects");
+    }
 
+    const data = await response.json();
 
-// ========================================
-// GET ARCHITECTURE PROJECTS
-// ========================================
-
-export const getArchitectureProjects = async () => {
-
-    const sanityProjects = await client.fetch(GET_ARCHITECTURE_PROJECTS);
-
-    return [
-        ...projectsData.filter(
-            (project) => project.type === "architecture"
-        ),
-
-        ...sanityProjects,
-    ];
+    return Array.isArray(data)
+        ? data
+        : data.results || [];
 };
 
 
-// ========================================
-// GET INTERIOR PROJECTS
-// ========================================
+export const getArchitectureProjects = async () => {
+    const projects = await getAllProjects();
+
+    return projects.filter(
+        (project) => project.type === "architecture"
+    );
+};
+
 
 export const getInteriorProjects = async () => {
+    const projects = await getAllProjects();
 
-    const sanityProjects = await client.fetch(GET_INTERIOR_PROJECTS);
-
-    return [
-        ...projectsData.filter(
-            (project) => project.type === "interior"
-        ),
-
-        ...sanityProjects,
-    ];
+    return projects.filter(
+        (project) => project.type === "interior"
+    );
 };
