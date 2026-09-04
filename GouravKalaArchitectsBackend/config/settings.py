@@ -52,6 +52,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Cloudinary
+    "cloudinary_storage",
+    "cloudinary",
+
     # Django REST Framework
     "rest_framework",
 
@@ -300,3 +304,18 @@ DEFAULT_FROM_EMAIL = (
 )
 
 FRONTEND_URL = "http://localhost:5173"
+
+
+
+# =========================================================
+# CLOUDINARY MEDIA STORAGE
+# =========================================================
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
