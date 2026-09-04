@@ -208,25 +208,15 @@ const projectsData = [
     type: "architecture",
     plotArea: "",
     builtUpArea: "",
-
-
-
-
     location: "Indore, India",
     year: "2026",
     status: "Completed",
-
-
     bannerImage: "/projects/architecture/ask/ASK-Banner.webp",
     bannerPosition: "center 0%",
     image: "/projects/architecture/ask/ASK-card.webp",
     imagePosition: "100% center",
-
     description:
       "A contemporary home designed around simplicity, natural light, and thoughtfully connected spaces, creating a refined balance between comfort and modern architecture.",
-
-
-
     gallery: [
       {
         src: "/projects/architecture/ask/1.webp",

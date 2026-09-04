@@ -169,6 +169,33 @@ function EditProject() {
 
     };
 
+    // ==========================================
+    // BANNER POSITION
+    // ==========================================
+
+    const handleBannerPositionChange = (e) => {
+        const value = e.target.value;
+
+        setFormData((prev) => ({
+            ...prev,
+            banner_position: value,
+        }));
+    };
+
+
+    // ==========================================
+    // CARD IMAGE POSITION
+    // ==========================================
+
+    const handleCardImagePositionChange = (e) => {
+        const value = e.target.value;
+
+        setFormData((prev) => ({
+            ...prev,
+            card_image_position: value,
+        }));
+    };
+
 
     // ==========================================
     // BANNER IMAGE
@@ -274,8 +301,27 @@ function EditProject() {
         }
 
 
+        // Find the highest display order from
+        // existing and newly selected images.
+        const highestOrder = Math.max(
+
+            ...(project?.gallery || []).map(
+                (image) =>
+                    Number(image.display_order) || 0
+            ),
+
+            ...newGalleryImages.map(
+                (image) =>
+                    Number(image.display_order) || 0
+            ),
+
+            0
+
+        );
+
+
         const newImages = files.map(
-            (file) => ({
+            (file, index) => ({
 
                 file,
 
@@ -284,6 +330,9 @@ function EditProject() {
 
                 position:
                     "center center",
+
+                display_order:
+                    highestOrder + index + 1,
 
             })
         );
@@ -334,6 +383,42 @@ function EditProject() {
 
     };
 
+
+    // ==========================================
+    // CHANGE NEW GALLERY IMAGE DISPLAY ORDER
+    // ==========================================
+
+    const handleNewGalleryOrderChange = (
+        index,
+        value
+    ) => {
+
+        setNewGalleryImages(
+            (prev) => {
+
+                const updated = [...prev];
+
+
+                updated[index] = {
+
+                    ...updated[index],
+
+                    display_order:
+                        value === ""
+                            ? ""
+                            : Number(value),
+
+                };
+
+
+                return updated;
+
+            }
+        );
+
+    };
+
+
     // ==========================================
     // CHANGE EXISTING GALLERY IMAGE
     // ==========================================
@@ -343,26 +428,48 @@ function EditProject() {
         field,
         value
     ) => {
+
         setProject((prev) => {
+
             if (!prev) {
                 return prev;
             }
 
+
             return {
+
                 ...prev,
-                gallery: prev.gallery.map((image) =>
-                    image.id === imageId
-                        ? {
-                            ...image,
-                            [field]:
-                                field === "display_order"
-                                    ? Number(value)
-                                    : value,
-                        }
-                        : image
+
+                gallery: prev.gallery.map(
+                    (image) =>
+
+                        image.id === imageId
+
+                            ? {
+
+                                ...image,
+
+                                [field]:
+                                    field === "display_order"
+
+                                        ? (
+                                            value === ""
+                                                ? ""
+                                                : Number(value)
+                                        )
+
+                                        : value,
+
+                            }
+
+                            : image
+
                 ),
+
             };
+
         });
+
     };
 
 
@@ -499,8 +606,10 @@ function EditProject() {
                     await api.patch(
                         `project-images/${image.id}/`,
                         {
+
                             display_order:
                                 index + 1,
+
                         }
                     );
 
@@ -572,7 +681,9 @@ function EditProject() {
                 await api.patch(
                     `projects/${id}/`,
                     {
+
                         banner_image: null,
+
                     }
                 );
 
@@ -591,7 +702,9 @@ function EditProject() {
                 await api.patch(
                     `projects/${id}/`,
                     {
+
                         card_image: null,
+
                     }
                 );
 
@@ -599,7 +712,36 @@ function EditProject() {
 
 
             // ==================================
-            // 4. UPLOAD NEW BANNER / CARD
+            // 4. UPDATE EXISTING GALLERY IMAGES
+            // ==================================
+
+            const existingGallery =
+                project?.gallery || [];
+
+
+            for (const image of existingGallery) {
+
+                await api.patch(
+                    `project-images/${image.id}/`,
+                    {
+
+                        position:
+                            image.position ||
+                            "center center",
+
+                        display_order:
+                            Number(
+                                image.display_order
+                            ) || 1,
+
+                    }
+                );
+
+            }
+
+
+            // ==================================
+            // 5. UPLOAD NEW BANNER / CARD
             // ==================================
 
             if (
@@ -635,10 +777,14 @@ function EditProject() {
                     `projects/${id}/`,
                     imageData,
                     {
+
                         headers: {
+
                             "Content-Type":
                                 "multipart/form-data",
+
                         },
+
                     }
                 );
 
@@ -646,7 +792,7 @@ function EditProject() {
 
 
             // ==================================
-            // 5. ADD NEW GALLERY IMAGES
+            // 6. ADD NEW GALLERY IMAGES
             // ==================================
 
             if (
@@ -658,8 +804,9 @@ function EditProject() {
                     project?.gallery || [];
 
 
-                let highestOrder =
+                const highestOrder =
                     existingGallery.length > 0
+
                         ? Math.max(
                             ...existingGallery.map(
                                 (image) =>
@@ -668,6 +815,7 @@ function EditProject() {
                                     ) || 0
                             )
                         )
+
                         : 0;
 
 
@@ -707,7 +855,12 @@ function EditProject() {
 
                     imageData.append(
                         "display_order",
-                        highestOrder + index + 1
+                        Number(
+                            item.display_order
+                        ) ||
+                        highestOrder +
+                        index +
+                        1
                     );
 
 
@@ -715,10 +868,14 @@ function EditProject() {
                         "project-images/",
                         imageData,
                         {
+
                             headers: {
+
                                 "Content-Type":
                                     "multipart/form-data",
+
                             },
+
                         }
                     );
 
@@ -728,14 +885,14 @@ function EditProject() {
 
 
             // ==================================
-            // 6. REFRESH PROJECT
+            // 7. REFRESH PROJECT
             // ==================================
 
             await fetchProject();
 
 
             // ==================================
-            // 7. RESET IMAGE STATES
+            // 8. RESET IMAGE STATES
             // ==================================
 
             setBannerFile(null);
@@ -869,6 +1026,22 @@ function EditProject() {
 
 
     // ==========================================
+    // SORT EXISTING GALLERY
+    // ==========================================
+
+    const sortedGallery =
+        [...(project?.gallery || [])].sort(
+            (a, b) =>
+                (
+                    Number(a.display_order) || 0
+                ) -
+                (
+                    Number(b.display_order) || 0
+                )
+        );
+
+
+    // ==========================================
     // UI
     // ==========================================
 
@@ -917,7 +1090,6 @@ function EditProject() {
             </div>
 
 
-
             {/* =================================
                 BASIC INFORMATION
             ================================= */}
@@ -958,7 +1130,6 @@ function EditProject() {
                     </div>
 
 
-
                     <div className="form-group">
 
                         <label>
@@ -984,7 +1155,6 @@ function EditProject() {
                     </div>
 
 
-
                     <div className="form-group">
 
                         <label>
@@ -1002,7 +1172,6 @@ function EditProject() {
                     </div>
 
 
-
                     <div className="form-group">
 
                         <label>
@@ -1018,7 +1187,6 @@ function EditProject() {
                         />
 
                     </div>
-
 
 
                     <div className="form-group">
@@ -1053,7 +1221,6 @@ function EditProject() {
                 </div>
 
             </div>
-
 
 
             {/* =================================
@@ -1096,7 +1263,6 @@ function EditProject() {
                     </div>
 
 
-
                     <div className="form-group">
 
                         <label>
@@ -1112,7 +1278,6 @@ function EditProject() {
                         />
 
                     </div>
-
 
 
                     <div className="form-group">
@@ -1135,7 +1300,6 @@ function EditProject() {
                 </div>
 
             </div>
-
 
 
             {/* =================================
@@ -1177,7 +1341,6 @@ function EditProject() {
             </div>
 
 
-
             {/* =================================
                 VIDEO
             ================================= */}
@@ -1217,7 +1380,6 @@ function EditProject() {
             </div>
 
 
-
             {/* =================================
                 PROJECT IMAGES
             ================================= */}
@@ -1236,7 +1398,6 @@ function EditProject() {
                     </p>
 
                 </div>
-
 
 
                 <div className="edit-main-images">
@@ -1277,6 +1438,12 @@ function EditProject() {
                                             : project?.banner_image
                                     }
                                     alt="Project banner"
+                                    style={{
+                                        objectFit: "cover",
+                                        objectPosition:
+                                            formData.banner_position ||
+                                            "center center",
+                                    }}
                                 />
 
 
@@ -1303,7 +1470,6 @@ function EditProject() {
                             </div>
 
                         )}
-
 
 
                         {/* FILE INPUT */}
@@ -1341,7 +1507,6 @@ function EditProject() {
                         </div>
 
 
-
                         {/* POSITION */}
 
                         <div className="form-group">
@@ -1352,20 +1517,15 @@ function EditProject() {
 
                             <input
                                 type="text"
-                                name="banner_position"
-                                value={
-                                    formData.banner_position
-                                }
-                                onChange={
-                                    handleChange
-                                }
-                                placeholder="center"
+                                value={formData.banner_position || ""}
+                                onChange={handleBannerPositionChange}
+                                placeholder="center center"
+                                autoComplete="off"
                             />
 
                         </div>
 
                     </div>
-
 
 
                     {/* =================================
@@ -1403,6 +1563,12 @@ function EditProject() {
                                             : project?.card_image
                                     }
                                     alt="Project card"
+                                    style={{
+                                        objectFit: "cover",
+                                        objectPosition:
+                                            formData.card_image_position ||
+                                            "center center",
+                                    }}
                                 />
 
 
@@ -1429,7 +1595,6 @@ function EditProject() {
                             </div>
 
                         )}
-
 
 
                         {/* FILE INPUT */}
@@ -1467,7 +1632,6 @@ function EditProject() {
                         </div>
 
 
-
                         {/* POSITION */}
 
                         <div className="form-group">
@@ -1478,14 +1642,10 @@ function EditProject() {
 
                             <input
                                 type="text"
-                                name="card_image_position"
-                                value={
-                                    formData.card_image_position
-                                }
-                                onChange={
-                                    handleChange
-                                }
-                                placeholder="center"
+                                value={formData.card_image_position || ""}
+                                onChange={handleCardImagePositionChange}
+                                placeholder="center center"
+                                autoComplete="off"
                             />
 
                         </div>
@@ -1496,7 +1656,6 @@ function EditProject() {
                 </div>
 
             </div>
-
 
 
             {/* =================================
@@ -1517,7 +1676,6 @@ function EditProject() {
                     </p>
 
                 </div>
-
 
 
                 {/* =================================
@@ -1553,16 +1711,15 @@ function EditProject() {
                 </div>
 
 
-
                 {/* =================================
                     EXISTING GALLERY
                 ================================= */}
 
-                {project?.gallery?.length > 0 ? (
+                {sortedGallery.length > 0 ? (
 
                     <div className="gallery-grid">
 
-                        {project.gallery.map(
+                        {sortedGallery.map(
                             (image, index) => (
 
                                 <div
@@ -1577,8 +1734,13 @@ function EditProject() {
 
                                         <img
                                             src={image.image}
-                                            alt={`Gallery image ${index + 1
-                                                }`}
+                                            alt={`Gallery image ${index + 1}`}
+                                            style={{
+                                                objectFit: "cover",
+                                                objectPosition:
+                                                    image.position ||
+                                                    "center center",
+                                            }}
                                         />
 
 
@@ -1608,18 +1770,21 @@ function EditProject() {
                                     </div>
 
 
-
                                     {/* INFORMATION */}
 
                                     <div className="gallery-info">
 
                                         <div className="gallery-title">
+
                                             Image {index + 1}
+
                                         </div>
+
 
                                         <div className="gallery-edit-row">
 
                                             <div className="gallery-field gallery-order-field">
+
                                                 <label>
                                                     Display Order
                                                 </label>
@@ -1627,7 +1792,9 @@ function EditProject() {
                                                 <input
                                                     type="number"
                                                     min="1"
-                                                    value={image.display_order ?? ""}
+                                                    value={
+                                                        image.display_order ?? ""
+                                                    }
                                                     onChange={(e) =>
                                                         handleExistingGalleryChange(
                                                             image.id,
@@ -1636,9 +1803,12 @@ function EditProject() {
                                                         )
                                                     }
                                                 />
+
                                             </div>
 
+
                                             <div className="gallery-field">
+
                                                 <label>
                                                     Position
                                                 </label>
@@ -1658,6 +1828,7 @@ function EditProject() {
                                                     }
                                                     placeholder="center center"
                                                 />
+
                                             </div>
 
                                         </div>
@@ -1680,7 +1851,6 @@ function EditProject() {
                     </div>
 
                 )}
-
 
 
                 {/* =================================
@@ -1706,7 +1876,6 @@ function EditProject() {
                         </div>
 
 
-
                         <div className="gallery-grid">
 
                             {newGalleryImages.map(
@@ -1726,8 +1895,13 @@ function EditProject() {
                                                 src={
                                                     item.preview
                                                 }
-                                                alt={`New gallery ${index + 1
-                                                    }`}
+                                                alt={`New gallery ${index + 1}`}
+                                                style={{
+                                                    objectFit: "cover",
+                                                    objectPosition:
+                                                        item.position ||
+                                                        "center center",
+                                                }}
                                             />
 
 
@@ -1750,7 +1924,6 @@ function EditProject() {
                                         </div>
 
 
-
                                         {/* INFORMATION */}
 
                                         <div className="gallery-info">
@@ -1763,25 +1936,53 @@ function EditProject() {
                                             </div>
 
 
-                                            <div className="gallery-position">
+                                            <div className="gallery-edit-row">
 
-                                                <label>
-                                                    Position
-                                                </label>
+                                                <div className="gallery-field gallery-order-field">
 
-                                                <input
-                                                    type="text"
-                                                    value={
-                                                        item.position
-                                                    }
-                                                    onChange={(e) =>
-                                                        handleNewGalleryPositionChange(
-                                                            index,
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                    placeholder="center center"
-                                                />
+                                                    <label>
+                                                        Display Order
+                                                    </label>
+
+                                                    <input
+                                                        type="number"
+                                                        min="1"
+                                                        value={
+                                                            item.display_order ?? ""
+                                                        }
+                                                        onChange={(e) =>
+                                                            handleNewGalleryOrderChange(
+                                                                index,
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+
+                                                </div>
+
+
+                                                <div className="gallery-field">
+
+                                                    <label>
+                                                        Position
+                                                    </label>
+
+                                                    <input
+                                                        type="text"
+                                                        value={
+                                                            item.position ||
+                                                            "center center"
+                                                        }
+                                                        onChange={(e) =>
+                                                            handleNewGalleryPositionChange(
+                                                                index,
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                        placeholder="center center"
+                                                    />
+
+                                                </div>
 
                                             </div>
 
@@ -1800,7 +2001,6 @@ function EditProject() {
                 )}
 
             </div>
-
 
 
             {/* =================================
