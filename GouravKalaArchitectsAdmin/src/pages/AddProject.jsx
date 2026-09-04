@@ -652,10 +652,12 @@ function AddProject() {
                                         key={`${galleryImage.file.name}-${index}`}
                                     >
 
+                                        {/* FILE INFORMATION */}
+
                                         <div className="gallery-file-info">
 
                                             <strong>
-                                                {index + 1}.
+                                                Image {index + 1}
                                             </strong>
 
                                             <span>
@@ -664,7 +666,38 @@ function AddProject() {
 
                                         </div>
 
+
+                                        {/* EDITABLE FIELDS */}
+
                                         <div className="gallery-fields">
+
+                                            {/* DISPLAY ORDER */}
+
+                                            <div className="form-group">
+
+                                                <label>
+                                                    Display Order
+                                                </label>
+
+                                                <input
+                                                    type="number"
+                                                    min="1"
+                                                    value={
+                                                        galleryImage.display_order
+                                                    }
+                                                    onChange={(e) =>
+                                                        handleGalleryChange(
+                                                            index,
+                                                            "display_order",
+                                                            Number(
+                                                                e.target.value
+                                                            )
+                                                        )
+                                                    }
+                                                />
+
+                                            </div>
+
 
                                             {/* POSITION */}
 
@@ -691,32 +724,6 @@ function AddProject() {
 
                                             </div>
 
-                                            {/* ORDER */}
-
-                                            <div className="form-group">
-
-                                                <label>
-                                                    Display Order
-                                                </label>
-
-                                                <input
-                                                    type="number"
-                                                    min="1"
-                                                    value={
-                                                        galleryImage.display_order
-                                                    }
-                                                    onChange={(e) =>
-                                                        handleGalleryChange(
-                                                            index,
-                                                            "display_order",
-                                                            Number(
-                                                                e.target.value
-                                                            )
-                                                        )
-                                                    }
-                                                />
-
-                                            </div>
 
                                             {/* REMOVE */}
 

@@ -2472,7 +2472,7 @@
 
   grid-template-columns: 85px minmax(0, 1fr);
 
-  gap: 12px;
+  gap: 10px;
 
   align-items: end;
 }
@@ -2518,13 +2518,13 @@
 
   box-sizing: border-box;
 
-  padding: 7px 9px;
+  padding: 7px 10px;
 
   background: #222222;
 
   border: 1px solid #3a3a3a;
 
-  border-radius: 5px;
+  border-radius: 6px;
 
   color: #ffffff;
 
