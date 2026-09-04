@@ -114,7 +114,6 @@
 /* =========================================================
    SIDEBAR
 ========================================================= */
-
 .admin-sidebar {
   position: fixed;
   left: 0;
@@ -130,6 +129,10 @@
   flex-direction: column;
 
   z-index: 100;
+
+  overflow: hidden;
+
+  transition: width 0.3s ease;
 }
 
 
@@ -309,12 +312,35 @@
 
   display: flex;
   flex-direction: column;
+
+  transition: margin-left 0.3s ease;
 }
 
+/* =========================================================
+   SIDEBAR TOGGLE
+========================================================= */
+
+.admin-layout.sidebar-closed .admin-sidebar {
+  width: 0;
+}
+
+.admin-layout.sidebar-closed .admin-main {
+  margin-left: 0;
+}
+
+.admin-layout.sidebar-closed .admin-header {
+  left: 0;
+}
 
 /* Header */
 
 .admin-header {
+  position: fixed;
+
+  top: 0;
+  left: 263px;
+  right: 0;
+
   height: 84px;
 
   background: white;
@@ -328,6 +354,12 @@
   align-items: center;
 
   justify-content: space-between;
+
+  z-index: 90;
+
+  box-sizing: border-box;
+
+  transition: left 0.3s ease;
 }
 
 .header-left,
@@ -465,7 +497,7 @@
 .admin-content {
   flex: 1;
 
-  padding: 35px;
+  padding: 119px 35px 35px;
 }
 
 
