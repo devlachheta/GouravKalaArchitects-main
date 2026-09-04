@@ -1,0 +1,2119 @@
+/* =========================================================
+   BOOK CONSULTATION
+   Complete stylesheet for Steps 1–6
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL PAGE
+========================================================= */
+
+.book-consultation-page {
+    min-height: 100vh;
+    background: #f8f7f4;
+    color: #171717;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.book-consultation-page *,
+.book-consultation-page *::before,
+.book-consultation-page *::after {
+    box-sizing: border-box;
+}
+
+.book-consultation-page button,
+.book-consultation-page input,
+.book-consultation-page select,
+.book-consultation-page textarea {
+    font: inherit;
+}
+
+.book-consultation-page button {
+    border: 0;
+}
+
+.book-consultation-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================
+   MAIN STEP SECTION
+========================================================= */
+
+.bc-step-section {
+    width: min(1280px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 92px 0 80px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.bc-section-heading {
+    max-width: 850px;
+    margin-bottom: 42px;
+}
+
+.bc-eyebrow {
+    display: block;
+    margin-bottom: 14px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    color: #66615a;
+}
+
+.bc-section-heading h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.04;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+
+    color: #171717;
+}
+
+.bc-section-heading p {
+    margin: 18px 0 0;
+    max-width: 650px;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: #55514b;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.bc-progress {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    margin: 0 0 76px;
+}
+
+.bc-progress-step {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    flex-shrink: 0;
+
+    color: #a5a19b;
+}
+
+.bc-progress-step span:first-child {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+
+    border: 1px solid #d2cec7;
+
+    color: #8c8881;
+}
+
+.bc-progress-step p {
+    margin: 0;
+
+    font-size: 11px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.bc-progress-step.active {
+    color: #171717;
+}
+
+.bc-progress-step.active span:first-child {
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
+}
+
+.bc-progress-step.completed {
+    color: #171717;
+}
+
+.bc-progress-step.completed span:first-child {
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
+}
+
+.bc-progress-line {
+    flex: 1;
+    height: 1px;
+
+    min-width: 18px;
+    margin: 0 14px;
+
+    background: #d6d2cb;
+}
+
+.bc-progress-line.active,
+.bc-progress-line.completed {
+    background: #171717;
+}
+
+
+/* =========================================================
+   STEP 1
+   CONSULTATION
+========================================================= */
+
+.bc-consultation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.bc-consultation-card {
+    position: relative;
+
+    width: 100%;
+    min-height: 285px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 34px;
+
+    background: #ffffff;
+    border: 1px solid #d8d4cd;
+
+    color: #171717;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.bc-consultation-card:hover {
+    border-color: #171717;
+    transform: translateY(-2px);
+}
+
+.bc-consultation-card.selected {
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
+}
+
+
+/* Card Header */
+
+.bc-card-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.bc-card-duration {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: #77736d;
+}
+
+.bc-consultation-card.selected .bc-card-duration {
+    color: #aaa69f;
+}
+
+.bc-card-header h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+
+/* Radio */
+
+.bc-radio {
+    width: 27px;
+    height: 27px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d3cfc8;
+
+    color: #171717;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.bc-radio.checked {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.bc-radio svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* Price */
+
+.bc-price {
+    margin-top: 30px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+
+/* Description */
+
+.bc-card-description {
+    margin-top: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bc-card-description div {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.bc-card-description svg {
+    width: 13px;
+    height: 13px;
+
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.bc-card-description span {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #68635c;
+}
+
+.bc-consultation-card.selected .bc-card-description span {
+    color: #c3bfb8;
+}
+
+
+/* Select Button */
+
+.bc-select-button {
+    margin-top: auto;
+    padding-top: 25px;
+
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #66615a;
+}
+
+.bc-consultation-card.selected .bc-select-button {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+.bc-message {
+    width: 100%;
+    padding: 28px;
+
+    border: 1px solid #d8d4cd;
+    background: #ffffff;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #66615a;
+}
+
+.bc-error {
+    color: #8a4a4a;
+    background: #faf5f5;
+    border-color: #dfcccc;
+}
+
+
+/* =========================================================
+   STEP 2
+   SELECTED CONSULTATION
+========================================================= */
+
+.bc-selected-consultation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 24px 28px;
+    margin-bottom: 26px;
+
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-selected-consultation>div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.bc-selected-consultation span {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #aaa69f;
+}
+
+.bc-selected-consultation strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.bc-selected-price {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   STEP 2
+   DATE / TIME
+========================================================= */
+
+.bc-date-time-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr) minmax(360px, 0.85fr);
+
+    gap: 24px;
+    align-items: stretch;
+}
+
+.bc-calendar-container,
+.bc-time-container {
+    background: #ffffff;
+    border: 1px solid #d8d4cd;
+    padding: 34px;
+}
+
+
+/* Subheading */
+
+.bc-subheading {
+    padding-bottom: 25px;
+    margin-bottom: 24px;
+
+    border-bottom: 1px solid #e1ddd6;
+}
+
+.bc-subheading h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.bc-subheading p {
+    margin: 8px 0 0;
+
+    font-size: 11px;
+    color: #817c75;
+}
+
+
+/* Calendar */
+
+.bc-calendar {
+    width: 100%;
+}
+
+.bc-calendar-header {
+    display: grid;
+
+    grid-template-columns: 42px 1fr 42px;
+
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+.bc-calendar-header strong {
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.bc-calendar-header button {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: 1px solid #d4d0c9;
+
+    color: #171717;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.bc-calendar-header button:hover:not(:disabled) {
+    background: #f3f1ed;
+    border-color: #171717;
+}
+
+.bc-calendar-header button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.bc-calendar-header svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* Weekdays */
+
+.bc-calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+
+    margin-bottom: 8px;
+}
+
+.bc-calendar-weekdays span {
+    padding: 8px 0;
+
+    text-align: center;
+
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #8b867e;
+}
+
+
+/* Calendar Days */
+
+.bc-calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.bc-calendar-empty {
+    aspect-ratio: 1 / 1;
+}
+
+.bc-calendar-day {
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: 1px solid transparent;
+
+    color: #252525;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.bc-calendar-day:hover:not(:disabled) {
+    border-color: #171717;
+    background: #f4f2ee;
+}
+
+.bc-calendar-day.selected {
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
+}
+
+.bc-calendar-day.disabled,
+.bc-calendar-day:disabled {
+    color: #c2beb7;
+    cursor: not-allowed;
+}
+
+
+/* Calendar Legend */
+
+.bc-calendar-legend {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 24px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e2ded7;
+}
+
+.bc-calendar-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 9px;
+    color: #817c75;
+}
+
+.bc-calendar-legend i {
+    width: 7px;
+    height: 7px;
+
+    display: block;
+
+    border-radius: 50%;
+}
+
+.available-dot {
+    background: #d0ccc5;
+}
+
+.unavailable-dot {
+    background: #ebe8e3;
+}
+
+.selected-dot {
+    background: #171717;
+}
+
+
+/* =========================================================
+   TIME SLOTS
+========================================================= */
+
+.bc-time-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.bc-time-slots {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.bc-time-slot {
+    min-height: 48px;
+
+    background: #faf9f6;
+    border: 1px solid #d5d1ca;
+
+    color: #171717;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.bc-time-slot:hover {
+    border-color: #171717;
+    background: #ffffff;
+}
+
+.bc-time-slot.selected {
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
+}
+
+
+/* Empty slots */
+
+.bc-empty-slots {
+    min-height: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #faf9f6;
+    border: 1px solid #e5e1da;
+}
+
+.bc-empty-slots span {
+    display: block;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+
+    color: #44413c;
+}
+
+.bc-empty-slots p {
+    margin: 10px 0 0;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    color: #858079;
+}
+
+.bc-timezone {
+    margin: auto 0 0;
+    padding-top: 22px;
+
+    font-size: 9px;
+    line-height: 1.5;
+
+    color: #858079;
+}
+
+
+/* =========================================================
+   STEP 3
+   DETAILS
+========================================================= */
+
+.bc-details-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr) minmax(320px, 0.75fr);
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+.bc-details-form {
+    background: #ffffff;
+    border: 1px solid #d5d2ca;
+
+    padding: 42px;
+}
+
+.bc-details-heading {
+    margin-bottom: 38px;
+}
+
+.bc-details-heading .bc-eyebrow {
+    margin-bottom: 12px;
+}
+
+.bc-details-heading h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+/* Form */
+
+.bc-form-group {
+    margin-bottom: 25px;
+}
+
+.bc-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.bc-form-group label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+
+    color: #555555;
+}
+
+.bc-form-group input,
+.bc-form-group select,
+.bc-form-group textarea {
+    width: 100%;
+
+    border: 1px solid #d0cdc6;
+    background: #faf9f6;
+
+    color: #171717;
+
+    padding: 15px 16px;
+    border-radius: 0;
+
+    outline: none;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.bc-form-group input {
+    height: 52px;
+}
+
+.bc-form-group select {
+    height: 52px;
+    cursor: pointer;
+}
+
+.bc-form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.bc-form-group input::placeholder,
+.bc-form-group textarea::placeholder {
+    color: #999999;
+}
+
+.bc-form-group input:focus,
+.bc-form-group select:focus,
+.bc-form-group textarea:focus {
+    border-color: #171717;
+    background: #ffffff;
+}
+
+
+/* Form error */
+
+.bc-form-error {
+    margin-top: 20px;
+    padding: 13px 16px;
+
+    border: 1px solid #d8c7c7;
+    background: #faf5f5;
+
+    color: #8a4a4a;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   STEP 3 SUMMARY
+========================================================= */
+
+.bc-details-summary {
+    position: sticky;
+    top: 30px;
+
+    padding: 34px;
+
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-summary-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    color: #aaa69f;
+}
+
+.bc-details-summary h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.bc-summary-price {
+    margin-top: 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+}
+
+.bc-summary-divider {
+    height: 1px;
+
+    margin: 25px 0;
+
+    background: #363636;
+}
+
+.bc-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    margin-bottom: 21px;
+}
+
+.bc-summary-item:last-of-type {
+    margin-bottom: 0;
+}
+
+.bc-summary-item span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #99958e;
+}
+
+.bc-summary-item strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.bc-change-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.bc-change-button svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   STEP 4
+   REVIEW
+========================================================= */
+
+.bc-review-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr) minmax(330px, 0.75fr);
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+.bc-review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.bc-review-card {
+    background: #ffffff;
+    border: 1px solid #d8d4cd;
+
+    padding: 30px;
+}
+
+.bc-review-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid #e2ded7;
+}
+
+.bc-review-card-header .bc-eyebrow {
+    margin-bottom: 8px;
+}
+
+.bc-review-card-header h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.bc-review-edit {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 0;
+
+    background: transparent;
+
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #66615a;
+
+    cursor: pointer;
+}
+
+.bc-review-edit:hover {
+    color: #171717;
+}
+
+
+/* Review Info */
+
+.bc-review-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.bc-review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.bc-review-info span {
+    font-size: 9px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: #88837b;
+}
+
+.bc-review-info strong {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: #252525;
+}
+
+
+/* Review Customer */
+
+.bc-review-details {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.bc-review-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.bc-review-detail-row span {
+    font-size: 9px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: #88837b;
+}
+
+.bc-review-detail-row strong {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: #252525;
+}
+
+
+/* =========================================================
+   REVIEW SUMMARY
+========================================================= */
+
+.bc-review-summary {
+    position: sticky;
+    top: 30px;
+
+    padding: 34px;
+
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-review-summary>h3 {
+    margin: 0 0 28px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.bc-review-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    padding: 19px 0;
+
+    border-bottom: 1px solid #363636;
+}
+
+.bc-review-summary-item span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #99958e;
+}
+
+.bc-review-summary-item strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.bc-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.bc-total-row span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #aaa69f;
+}
+
+.bc-total-row strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.bc-payment-note {
+    margin: 22px 0;
+
+    font-size: 10px;
+    line-height: 1.6;
+
+    color: #85817a;
+}
+
+.bc-payment-button {
+    width: 100%;
+    min-height: 53px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: #ffffff;
+    color: #171717;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.bc-payment-button:hover {
+    background: #e9e7e2;
+}
+
+.bc-payment-button svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================================
+   STEP 5
+   PAYMENT
+========================================================= */
+
+.bc-payment-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr) minmax(330px, 0.75fr);
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+.bc-payment-content {
+    min-width: 0;
+}
+
+.bc-payment-card {
+    background: #ffffff;
+    border: 1px solid #d8d4cd;
+
+    padding: 42px;
+}
+
+.bc-payment-card>.bc-eyebrow {
+    margin-bottom: 12px;
+}
+
+.bc-payment-card h3 {
+    margin: 0;
+
+    max-width: 620px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.bc-payment-description {
+    max-width: 650px;
+
+    margin: 17px 0 0;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #68635c;
+}
+
+
+/* Payment Method */
+
+.bc-payment-method {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 34px;
+    padding: 20px;
+
+    border: 1px solid #d9d5ce;
+    background: #faf9f6;
+}
+
+.bc-payment-method-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #171717;
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+}
+
+.bc-payment-method div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bc-payment-method strong {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.bc-payment-method span {
+    font-size: 10px;
+    color: #858079;
+}
+
+
+/* Security Features */
+
+.bc-security-info {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 28px;
+}
+
+.bc-security-item {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #dedad3;
+}
+
+.bc-security-item:first-child {
+    border-top: 1px solid #dedad3;
+}
+
+.bc-security-item svg {
+    width: 13px;
+    height: 13px;
+
+    flex-shrink: 0;
+}
+
+.bc-security-item span {
+    font-size: 10px;
+    line-height: 1.5;
+
+    color: #66615a;
+}
+
+
+/* Payment Gateway Note */
+
+.bc-payment-gateway-note {
+    margin-top: 28px;
+    padding: 20px;
+
+    background: #f5f3ef;
+}
+
+.bc-payment-gateway-note span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #77726b;
+}
+
+.bc-payment-gateway-note p {
+    margin: 0;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    color: #6c6760;
+}
+
+
+/* Payment Error */
+
+.bc-payment-error {
+    margin-top: 18px;
+    padding: 14px 16px;
+
+    border: 1px solid #d8c7c7;
+    background: #faf5f5;
+
+    color: #8a4a4a;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PAYMENT SUMMARY
+========================================================= */
+
+.bc-payment-summary {
+    position: sticky;
+    top: 30px;
+
+    padding: 34px;
+
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-payment-summary>h3 {
+    margin: 0 0 28px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.bc-payment-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #363636;
+}
+
+.bc-payment-summary-item span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #99958e;
+}
+
+.bc-payment-summary-item strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: 400;
+}
+
+.bc-payment-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 25px;
+}
+
+.bc-payment-total span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #aaa69f;
+}
+
+.bc-payment-total strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.bc-pay-button {
+    width: 100%;
+    min-height: 57px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    background: #ffffff;
+    color: #171717;
+
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.bc-pay-button:hover:not(:disabled) {
+    background: #e9e7e2;
+}
+
+.bc-pay-button:disabled {
+    background: #aaa69f;
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+.bc-pay-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.bc-secure-note {
+    margin: 17px 0 0;
+
+    text-align: center;
+
+    font-size: 9px;
+    line-height: 1.6;
+
+    color: #858079;
+}
+
+
+/* =========================================================
+   STEP 6
+   CONFIRMATION
+========================================================= */
+
+.bc-confirmation-section {
+    padding-bottom: 100px;
+}
+
+.bc-confirmation {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.bc-confirmation-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 24px;
+
+    border-radius: 50%;
+
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-confirmation-icon svg {
+    width: 29px;
+    height: 29px;
+
+    stroke-width: 1.5;
+}
+
+.bc-confirmation .bc-eyebrow {
+    margin-bottom: 15px;
+}
+
+.bc-confirmation h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.08;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+}
+
+.bc-confirmation-intro {
+    max-width: 590px;
+
+    margin: 18px auto 42px;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #66615a;
+}
+
+
+/* Confirmation Card */
+
+.bc-confirmation-card {
+    text-align: left;
+
+    background: #ffffff;
+    border: 1px solid #d8d4cd;
+}
+
+.bc-confirmation-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 28px;
+
+    border-bottom: 1px solid #e1ddd6;
+}
+
+.bc-confirmation-card-header .bc-eyebrow {
+    margin-bottom: 9px;
+}
+
+.bc-confirmation-card-header h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.bc-confirmation-status {
+    flex-shrink: 0;
+
+    padding: 7px 10px;
+
+    border: 1px solid #d0cdc6;
+
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: #55514b;
+}
+
+.bc-confirmation-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 1px;
+
+    background: #dedad3;
+}
+
+.bc-confirmation-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 22px;
+
+    background: #ffffff;
+}
+
+.bc-confirmation-detail span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #88837c;
+}
+
+.bc-confirmation-detail strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 400;
+}
+
+
+/* Next Steps */
+
+.bc-confirmation-next {
+    margin-top: 40px;
+    padding: 28px;
+
+    border-top: 1px solid #d8d4cd;
+    border-bottom: 1px solid #d8d4cd;
+
+    text-align: left;
+}
+
+.bc-confirmation-next .bc-eyebrow {
+    margin-bottom: 10px;
+}
+
+.bc-confirmation-next p {
+    max-width: 680px;
+
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.7;
+
+    color: #6b665f;
+}
+
+
+/* Confirmation Actions */
+
+.bc-confirmation-actions {
+    display: flex;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.bc-confirmation-home,
+.bc-confirmation-contact {
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 24px;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.bc-confirmation-home {
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-confirmation-home:hover {
+    background: #303030;
+}
+
+.bc-confirmation-contact {
+    border: 1px solid #bdb9b2;
+    background: transparent;
+    color: #171717;
+}
+
+.bc-confirmation-contact:hover {
+    border-color: #171717;
+    background: #ffffff;
+}
+
+.bc-confirmation-contact svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bc-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 40px;
+    padding-top: 25px;
+
+    border-top: 1px solid #d8d4cd;
+}
+
+.bc-back-button,
+.bc-next-button {
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 23px;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.bc-back-button {
+    background: transparent;
+    border: 1px solid #bdb9b2;
+    color: #171717;
+}
+
+.bc-back-button:hover {
+    border-color: #171717;
+    background: #ffffff;
+}
+
+.bc-next-button {
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-next-button:hover:not(:disabled) {
+    background: #303030;
+}
+
+.bc-next-button:disabled {
+    background: #d8d5cf;
+    color: #99958e;
+    cursor: not-allowed;
+}
+
+.bc-back-button svg,
+.bc-next-button svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .bc-step-section {
+        width: min(100% - 48px, 900px);
+        padding: 70px 0;
+    }
+
+    .bc-progress {
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .bc-progress-step p {
+        display: none;
+    }
+
+    .bc-progress-line {
+        min-width: 35px;
+    }
+
+    .bc-date-time-grid,
+    .bc-details-layout,
+    .bc-review-layout,
+    .bc-payment-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .bc-details-summary,
+    .bc-review-summary,
+    .bc-payment-summary {
+        position: static;
+    }
+
+    .bc-details-summary,
+    .bc-review-summary,
+    .bc-payment-summary {
+        order: 2;
+    }
+
+    .bc-review-content,
+    .bc-payment-content {
+        order: 1;
+    }
+
+    .bc-confirmation-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .bc-step-section {
+        width: calc(100% - 32px);
+        padding: 52px 0 60px;
+    }
+
+    .bc-section-heading {
+        margin-bottom: 30px;
+    }
+
+    .bc-section-heading h2 {
+        font-size: 40px;
+    }
+
+    .bc-section-heading p {
+        font-size: 13px;
+    }
+
+    .bc-progress {
+        margin-bottom: 48px;
+    }
+
+    .bc-progress-step span:first-child {
+        width: 23px;
+        height: 23px;
+    }
+
+    .bc-progress-line {
+        min-width: 15px;
+        margin: 0 7px;
+    }
+
+
+    /* Consultation */
+
+    .bc-consultation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bc-consultation-card {
+        min-height: 255px;
+        padding: 28px;
+    }
+
+    .bc-card-header h3 {
+        font-size: 24px;
+    }
+
+
+    /* Selected consultation */
+
+    .bc-selected-consultation {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+    .bc-selected-price {
+        width: 100%;
+
+        padding-top: 15px;
+
+        border-top: 1px solid #363636;
+    }
+
+
+    /* Calendar */
+
+    .bc-calendar-container,
+    .bc-time-container,
+    .bc-details-form,
+    .bc-review-card,
+    .bc-payment-card {
+        padding: 24px;
+    }
+
+    .bc-calendar-header {
+        grid-template-columns: 38px 1fr 38px;
+    }
+
+    .bc-calendar-header button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .bc-calendar-day {
+        font-size: 11px;
+    }
+
+    .bc-time-slots {
+        grid-template-columns: 1fr;
+    }
+
+    .bc-calendar-legend {
+        flex-wrap: wrap;
+    }
+
+
+    /* Details */
+
+    .bc-details-summary,
+    .bc-review-summary,
+    .bc-payment-summary {
+        padding: 27px;
+    }
+
+
+    /* Review */
+
+    .bc-review-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bc-review-card-header {
+        flex-direction: column;
+    }
+
+
+    /* Payment */
+
+    .bc-payment-card h3 {
+        font-size: 27px;
+    }
+
+
+    /* Confirmation */
+
+    .bc-confirmation-card-header {
+        flex-direction: column;
+    }
+
+    .bc-confirmation-details {
+        grid-template-columns: 1fr;
+    }
+
+    .bc-confirmation-actions {
+        flex-direction: column;
+    }
+
+    .bc-confirmation-home,
+    .bc-confirmation-contact {
+        width: 100%;
+    }
+
+
+    /* Navigation */
+
+    .bc-navigation {
+        flex-direction: column-reverse;
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+    .bc-back-button,
+    .bc-next-button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .bc-step-section {
+        width: calc(100% - 24px);
+        padding-top: 40px;
+    }
+
+    .bc-section-heading h2 {
+        font-size: 34px;
+    }
+
+    .bc-consultation-card {
+        min-height: 235px;
+        padding: 23px;
+    }
+
+    .bc-card-header h3 {
+        font-size: 22px;
+    }
+
+    .bc-calendar-container,
+    .bc-time-container,
+    .bc-details-form,
+    .bc-review-card,
+    .bc-payment-card {
+        padding: 20px;
+    }
+
+    .bc-confirmation h2 {
+        font-size: 36px;
+    }
+
+    .bc-confirmation-card-header {
+        padding: 22px;
+    }
+
+    .bc-confirmation-detail {
+        padding: 19px;
+    }
+}

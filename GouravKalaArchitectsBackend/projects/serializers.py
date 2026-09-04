@@ -1,5 +1,10 @@
 from rest_framework import serializers
-from .models import Project, ProjectImage
+from .models import (
+    Project,
+    ProjectImage,
+    Consultation,
+    Booking,
+)
 
 
 class ProjectImageSerializer(serializers.ModelSerializer):
@@ -13,6 +18,7 @@ class ProjectImageSerializer(serializers.ModelSerializer):
             "position",
             "display_order",
         ]
+
 
 class ProjectSerializer(serializers.ModelSerializer):
 
@@ -28,6 +34,7 @@ class ProjectSerializer(serializers.ModelSerializer):
             "title",
             "slug",
             "type",
+            "display_order",   # ADD THIS
             "location",
             "plot_area",
             "built_up_area",
@@ -44,9 +51,6 @@ class ProjectSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         ]
-
-
-
 
 class PublicProjectImageSerializer(serializers.ModelSerializer):
 
@@ -119,6 +123,7 @@ class PublicProjectSerializer(serializers.ModelSerializer):
             "slug",
             "title",
             "type",
+            "display_order", 
             "location",
             "image",
             "imagePosition",
@@ -132,4 +137,66 @@ class PublicProjectSerializer(serializers.ModelSerializer):
             "description",
             "gallery",
             "youtubeUrl",
+        ]
+
+
+
+class ConsultationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Consultation
+        fields = [
+            "id",
+            "title",
+            "description",
+            "duration",
+            "price",
+            "is_active",
+        ]
+
+
+
+
+class BookingSerializer(serializers.ModelSerializer):
+
+    consultation_title = serializers.CharField(
+        source="consultation.title",
+        read_only=True,
+    )
+
+    consultation_duration = serializers.IntegerField(
+        source="consultation.duration",
+        read_only=True,
+    )
+
+    class Meta:
+        model = Booking
+        fields = [
+            "id",
+            "consultation",
+            "consultation_title",
+            "consultation_duration",
+            "customer_name",
+            "customer_email",
+            "customer_phone",
+            "booking_date",
+            "start_time",
+            "end_time",
+            "amount",
+            "payment_status",
+            "booking_status",
+            "razorpay_order_id",
+            "razorpay_payment_id",
+            "created_at",
+            "updated_at",
+        ]
+
+        read_only_fields = [
+            "amount",
+            "payment_status",
+            "booking_status",
+            "razorpay_order_id",
+            "razorpay_payment_id",
+            "created_at",
+            "updated_at",
         ]

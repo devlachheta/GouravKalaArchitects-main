@@ -1,0 +1,580 @@
+/* =========================================================
+   BOOK CONSULTATION
+========================================================= */
+
+.bc-step-section {
+    width: min(1100px, calc(100% - 60px));
+    margin: 0 auto;
+    padding: 42px 0 55px;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.bc-progress {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 52px;
+}
+
+.bc-progress-step {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    color: #aaa7a0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+}
+
+.bc-progress-step>span:first-child {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d0ccc5;
+
+    font-size: 8px;
+
+    color: #8b877f;
+}
+
+.bc-progress-step.active {
+    color: #171717;
+}
+
+.bc-progress-step.active>span:first-child {
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
+}
+
+.bc-progress-step p {
+    margin: 0;
+}
+
+.bc-progress-line {
+    flex: 1;
+
+    height: 1px;
+
+    margin: 0 12px;
+
+    background: #d7d3cc;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.bc-section-heading {
+    margin-bottom: 27px;
+}
+
+.bc-section-heading .bc-eyebrow {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 9px;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+
+    color: #67635d;
+}
+
+.bc-section-heading h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+    line-height: 1.15;
+
+    font-weight: 400;
+
+    letter-spacing: -0.025em;
+
+    color: #171717;
+}
+
+.bc-section-heading p {
+    margin: 9px 0 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    color: #65615b;
+}
+
+
+/* =========================================================
+   CONSULTATION GRID
+========================================================= */
+
+.bc-consultation-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.bc-consultation-card {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border: 1px solid #d4d0c9;
+
+    color: #171717;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.bc-consultation-card:hover {
+    border-color: #99958e;
+}
+
+.bc-consultation-card.selected {
+    border-color: #171717;
+
+    box-shadow:
+        0 0 0 1px #171717;
+}
+
+
+/* =========================================================
+   RADIO SELECT AREA
+========================================================= */
+
+.bc-card-select-area {
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    z-index: 5;
+
+    width: 18px;
+    height: 18px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid #bcb8b0;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.bc-card-radio {
+    width: 14px;
+    height: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #aaa69f;
+
+    border-radius: 50%;
+}
+
+.bc-card-radio.active {
+    border-color: #171717;
+}
+
+.bc-card-radio.active span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #171717;
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.bc-card-image {
+    width: 100%;
+    height: 135px;
+
+    overflow: hidden;
+
+    background: #e9e6e0;
+}
+
+.bc-card-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    filter: saturate(0.7);
+
+    transition: transform 0.35s ease;
+}
+
+.bc-consultation-card:hover .bc-card-image img {
+    transform: scale(1.025);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.bc-card-content {
+    padding: 17px 19px 18px;
+}
+
+
+/* =========================================================
+   DURATION
+========================================================= */
+
+.bc-card-duration {
+    margin-bottom: 4px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    color: #4f4b45;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.bc-card-content h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 21px;
+    line-height: 1.2;
+
+    font-weight: 400;
+
+    color: #171717;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.bc-card-price {
+    margin-top: 7px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #171717;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.bc-card-features {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    margin-top: 14px;
+
+    min-height: 38px;
+}
+
+.bc-card-feature {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 7px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+    line-height: 1.45;
+
+    color: #57534d;
+}
+
+.bc-card-feature svg {
+    width: 10px;
+    height: 10px;
+
+    flex-shrink: 0;
+
+    margin-top: 1px;
+
+    stroke-width: 2;
+}
+
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
+
+.bc-card-button {
+    width: 100%;
+
+    min-height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #bbb7b0;
+
+    color: #171717;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.bc-card-button:hover {
+    border-color: #171717;
+}
+
+.bc-card-button svg {
+    width: 11px;
+    height: 11px;
+}
+
+.bc-consultation-card.selected .bc-card-button {
+    background: #171717;
+
+    border-color: #171717;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+.bc-message {
+    padding: 22px;
+
+    border: 1px solid #d5d1ca;
+
+    background: #ffffff;
+
+    font-size: 11px;
+
+    color: #66615b;
+}
+
+.bc-message.bc-error {
+    background: #faf5f5;
+
+    border-color: #dbc9c9;
+
+    color: #8a4a4a;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bc-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 27px;
+
+    padding-top: 19px;
+
+    border-top: 1px solid #d5d1ca;
+}
+
+.bc-back-button,
+.bc-next-button {
+    min-height: 39px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 17px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.bc-back-button {
+    background: transparent;
+
+    color: #3f3b36;
+}
+
+.bc-back-button:hover {
+    color: #171717;
+}
+
+.bc-next-button {
+    background: #171717;
+
+    color: #ffffff;
+}
+
+.bc-next-button:hover:not(:disabled) {
+    background: #2c2c2c;
+}
+
+.bc-next-button:disabled {
+    background: #dedbd5;
+
+    color: #9d9992;
+
+    cursor: not-allowed;
+}
+
+.bc-back-button svg,
+.bc-next-button svg {
+    width: 12px;
+    height: 12px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .bc-step-section {
+        width: calc(100% - 40px);
+    }
+
+    .bc-progress-step p {
+        display: none;
+    }
+
+    .bc-progress-line {
+        min-width: 18px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .bc-step-section {
+        width: calc(100% - 28px);
+
+        padding: 35px 0 45px;
+    }
+
+    .bc-progress {
+        margin-bottom: 38px;
+
+        overflow-x: auto;
+
+        padding-bottom: 5px;
+    }
+
+    .bc-progress-step {
+        flex-shrink: 0;
+    }
+
+    .bc-progress-line {
+        min-width: 14px;
+
+        margin: 0 6px;
+    }
+
+    .bc-section-heading h2 {
+        font-size: 31px;
+    }
+
+    .bc-consultation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bc-card-image {
+        height: 155px;
+    }
+
+    .bc-navigation {
+        gap: 12px;
+    }
+
+    .bc-next-button {
+        padding: 0 14px;
+    }
+}

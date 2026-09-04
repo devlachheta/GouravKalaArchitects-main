@@ -4,7 +4,6 @@ import FounderImage from "../assets/founder-image.PNG"
 import "../styles/About.css";
 import Hero from "../Component/Hero";
 import Header from "../Component/Header";
-import { getAboutSocialStatistics } from "../services/sanityService";
 import {
   FaInstagram,
   FaFacebookF,
@@ -13,6 +12,7 @@ import {
 import Banner from "../assets/gH.png";
 
 import { useEffect, useRef, useState } from "react";
+import api from "../services/api";
 
 function CountUp({ end, duration = 1800, suffix = "" }) {
   const [count, setCount] = useState(0);
@@ -87,17 +87,23 @@ function About() {
   useEffect(() => {
     const fetchSocialStats = async () => {
       try {
-        const data = await getAboutSocialStatistics();
+        const response = await api.get("about/");
 
-        if (data) {
-          setSocialStats({
-            instagramFollowers: data.instagram_followers ?? 100000,
-            facebookFollowers: data.facebook_followers ?? 98000,
-            youtubeSubscribers: data.youtube_subscribers ?? 67000,
-          });
-        }
+        setSocialStats({
+          instagramFollowers:
+            response.data.instagram_followers ?? 100000,
+
+          facebookFollowers:
+            response.data.facebook_followers ?? 98000,
+
+          youtubeSubscribers:
+            response.data.youtube_subscribers ?? 67000,
+        });
       } catch (error) {
-        console.error("Failed to fetch About social statistics:", error);
+        console.error(
+          "Failed to fetch About social statistics:",
+          error
+        );
       }
     };
 

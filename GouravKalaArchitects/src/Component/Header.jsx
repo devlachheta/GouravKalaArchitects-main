@@ -208,6 +208,14 @@ function Header() {
                                 </ul>
                             </li>
 
+                            <li className="nav-item consultation-nav-item">
+                                <NavLink
+                                    to="/book-consultation"
+                                    className="consultation-nav-button"
+                                >
+                                    <span>BOOK A CONSULTATION</span>
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
 

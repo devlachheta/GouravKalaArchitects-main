@@ -4,16 +4,18 @@ import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
 import Banner from "../assets/gH.png";
 import { motion } from "framer-motion";
-import { getHomepageStatistics } from "../services/sanityService";
 import HomeProjectCard from "../Component/HomeProjectCard";
 import "../styles/home.css";
 import Residential from "../assets/residential1.jpg";
 import Interior from "../assets/interior.png";
 import Header from "../Component/Header";
 import CTASection from "../CTASection";
-import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
+import api from "../services/api";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
+
+
+
 function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
@@ -96,22 +98,24 @@ function Home() {
   useEffect(() => {
     const fetchHomepageStats = async () => {
       try {
-        const data = await getHomepageStatistics();
+        const response = await api.get("homepage/");
 
-        if (data) {
-          setHomepageStats({
-            years: Number.parseInt(data.years, 10) || 7,
-            projects: Number.parseInt(data.projects, 10) || 48,
-            cities: Number.parseInt(data.cities, 10) || 6,
-          });
-        }
+        setHomepageStats({
+          years: Number.parseInt(response.data.years, 10) || 7,
+          projects: Number.parseInt(response.data.projects, 10) || 48,
+          cities: Number.parseInt(response.data.cities, 10) || 6,
+        });
       } catch (error) {
-        console.error("Failed to fetch homepage statistics:", error);
+        console.error(
+          "Failed to fetch homepage statistics:",
+          error
+        );
       }
     };
 
     fetchHomepageStats();
   }, []);
+
   const heroTitle = "Designed to Last.";
   const heroTitle2 = "Built to Belong.";
 

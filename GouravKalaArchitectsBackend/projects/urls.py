@@ -4,6 +4,8 @@ from .views import (
     ProjectViewSet,
     ProjectImageViewSet,
     PublicProjectViewSet,
+    ConsultationViewSet,
+    BookingViewSet,
 )
 
 
@@ -31,6 +33,18 @@ router.register(
     r"public/projects",
     PublicProjectViewSet,
     basename="public-project"
+)
+
+router.register(
+    r"consultations",
+    ConsultationViewSet,
+    basename="consultation"
+)
+
+router.register(
+    r"bookings",
+    BookingViewSet,
+    basename="booking"
 )
 
 

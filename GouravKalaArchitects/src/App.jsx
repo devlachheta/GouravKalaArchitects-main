@@ -8,9 +8,8 @@ import ProjectDetails from "./Pages/ProjectDetails";
 import ContactUs from "./Pages/ContactUs";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
-import TestSanity from "./TestSantiy";
 import FloatingContact from "./Component/FloatingContact";
-
+import BookConsultation from "./Pages/BookConsultation/BookConsultation";
 import Footer from "./Component/Footer";
 import ScrollToTop from "./Component/ScrollToTop";
 import SplashScreen from "./Component/SplashScreen";
@@ -43,7 +42,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/test" element={<TestSanity />} />
+        <Route path="/book-consultation" element={<BookConsultation />} />
       </Routes>
 
       <FloatingContact />
