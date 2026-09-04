@@ -212,7 +212,7 @@ const projectsData = [
     year: "2026",
     status: "Completed",
     bannerImage: "/projects/architecture/ask/ASK-Banner.webp",
-    bannerPosition: "center 0%",
+    bannerPosition: "center",
     image: "/projects/architecture/ask/ASK-card.webp",
     imagePosition: "100% center",
     description:

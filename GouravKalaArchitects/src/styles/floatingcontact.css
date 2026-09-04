@@ -10,6 +10,11 @@
     z-index: 9999;
 }
 
+
+/* =========================================
+   COMMON BUTTON
+   ========================================= */
+
 .floatingContact a {
     width: 56px;
     height: 56px;
@@ -18,6 +23,7 @@
     justify-content: center;
     align-items: center;
 
+    position: relative;
     border-radius: 50%;
 
     color: #fff;
@@ -29,21 +35,71 @@
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-}
 
-.floatingContact a:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 14px 28px rgba(32, 29, 25, 0.3);
-}
-
-.whatsappButton {
-    background: #25D366;
+    /* Keeps ripple layers behind the button */
+    isolation: isolate;
 }
 
 
-.callButton {
-    background: #3D3A36;
+/* =========================================
+   CONTINUOUS RIPPLE
+   ========================================= */
+
+.floatingContact a::before,
+.floatingContact a::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    animation: contactRipple 2.4s ease-out infinite;
 }
+
+
+/* Second ripple starts halfway through
+   the first ripple */
+.floatingContact a::after {
+    animation-delay: 1.2s;
+}
+
+
+/* =========================================
+   RIPPLE ANIMATION
+   ========================================= */
+
+@keyframes contactRipple {
+
+    0% {
+        transform: scale(1);
+        opacity: 0.55;
+    }
+
+    70% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   INSTAGRAM
+   ========================================= */
 
 .instagramButton {
     background: linear-gradient(45deg,
@@ -54,7 +110,68 @@
             #bc1888);
 }
 
+.instagramButton::before,
+.instagramButton::after {
+    border: 2px solid rgba(180, 25, 70, 0.45);
+}
+
+
+/* =========================================
+   WHATSAPP
+   ========================================= */
+
+.whatsappButton {
+    background: #25D366;
+}
+
+.whatsappButton::before,
+.whatsappButton::after {
+    border: 2.5px solid rgba(20, 170, 80, 0.45);
+}
+
+
+/* =========================================
+   PHONE
+   ========================================= */
+
+.callButton {
+    background: #3D3A36;
+}
+
+.callButton::before,
+.callButton::after {
+    border: 2px solid rgba(40, 38, 35, 0.45);
+}
+
+
+/* =========================================
+   ICON
+   ========================================= */
+
+.floatingContact a svg {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================
+   HOVER EFFECT
+   ========================================= */
+
+.floatingContact a:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    box-shadow:
+        0 14px 28px rgba(32, 29, 25, 0.3);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
 @media (max-width: 768px) {
+
     .floatingContact {
         left: 16px;
         bottom: 16px;
@@ -63,6 +180,7 @@
     .floatingContact a {
         width: 50px;
         height: 50px;
+
         font-size: 22px;
     }
 }

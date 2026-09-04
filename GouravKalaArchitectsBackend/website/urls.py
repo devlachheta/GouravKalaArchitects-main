@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import HomepageView, AboutView
+from .views import HomepageView, AboutView, ContactFormView
 
 
 urlpatterns = [
@@ -15,6 +15,12 @@ urlpatterns = [
         "about/",
         AboutView.as_view(),
         name="about",
+    ),
+
+    path(
+        "contact/",
+        ContactFormView.as_view(),
+        name="contact",
     ),
 
 ]
