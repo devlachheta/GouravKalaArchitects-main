@@ -54,5 +54,13 @@ Thumbs.db
 
 
 # Django uploaded project images
+GouravKalaArchitectsBackend/projects/banners/
 GouravKalaArchitectsBackend/projects/cards/
 GouravKalaArchitectsBackend/projects/gallery/
+
+
+# Local database backups
+*.backup
+
+# Local media backup archive
+project_media.zip
