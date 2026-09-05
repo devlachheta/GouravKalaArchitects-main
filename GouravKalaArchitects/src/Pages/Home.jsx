@@ -1,5 +1,3 @@
-
-
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
 import Banner from "../assets/gH.png";
@@ -13,8 +11,7 @@ import CTASection from "../CTASection";
 import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
-
-
+import Reels from "../Component/Reels";
 
 function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
   const [count, setCount] = useState(0);
@@ -78,9 +75,9 @@ function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
 function Home() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(false);
   const [homepageStats, setHomepageStats] = useState({
-    years: 7,
-    projects: 48,
-    cities: 6,
+    years: 0,
+    projects: 0,
+    cities: 0,
   });
   useEffect(() => {
     const handleScroll = () => {
@@ -101,9 +98,9 @@ function Home() {
         const response = await api.get("homepage/");
 
         setHomepageStats({
-          years: Number.parseInt(response.data.years, 10) || 7,
-          projects: Number.parseInt(response.data.projects, 10) || 48,
-          cities: Number.parseInt(response.data.cities, 10) || 6,
+          years: Number.parseInt(response.data.years, 10) || 0,
+          projects: Number.parseInt(response.data.projects, 10) || 0,
+          cities: Number.parseInt(response.data.cities, 10) || 0,
         });
       } catch (error) {
         console.error(
@@ -115,7 +112,6 @@ function Home() {
 
     fetchHomepageStats();
   }, []);
-
   const heroTitle = "Designed to Last.";
   const heroTitle2 = "Built to Belong.";
 
@@ -667,6 +663,7 @@ function Home() {
         </motion.div>
 
       </section>
+      <Reels />
       <CTASection />
     </>
   );

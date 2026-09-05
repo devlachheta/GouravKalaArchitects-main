@@ -1,48 +1,50 @@
 from django.db import models
+from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 
 
 class Homepage(models.Model):
-
-    years = models.CharField(
-        max_length=20,
-        default="07+"
-    )
-
-    projects = models.CharField(
-        max_length=20,
-        default="48+"
-    )
-
-    cities = models.CharField(
-        max_length=20,
-        default="06+"
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )
+    years = models.CharField(max_length=20, blank=True, default="")
+    projects = models.CharField(max_length=20, blank=True, default="")
+    cities = models.CharField(max_length=20, blank=True, default="")
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "Homepage Statistics"
-
-
+        return "Homepage"
+    
 class About(models.Model):
+    instagram_followers = models.PositiveIntegerField(default=0)
+    facebook_followers = models.PositiveIntegerField(default=0)
+    youtube_followers = models.PositiveIntegerField(default=0)
+    updated_at = models.DateTimeField(auto_now=True)
 
-    instagram_followers = models.PositiveIntegerField(
-        default=100000
+    def __str__(self):
+        return "About"
+
+
+class Reel(models.Model):
+    video = models.FileField(
+        upload_to="reels/",
+        storage=VideoMediaCloudinaryStorage()
     )
-
-    facebook_followers = models.PositiveIntegerField(
-        default=98000
+    title = models.CharField(
+        max_length=200,
+        blank=True
     )
-
-    youtube_subscribers = models.PositiveIntegerField(
-        default=67000
+    is_active = models.BooleanField(
+        default=True
     )
-
-    updated_at = models.DateTimeField(
-        auto_now=True
+    order = models.PositiveIntegerField(
+        default=0
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True
     )
 
     def __str__(self):
-        return "About Social Statistics"
+        return self.title or f"Reel {self.id}"
+
+    def delete(self, *args, **kwargs):
+        if self.video:
+            self.video.delete(save=False)
+
+        super().delete(*args, **kwargs)
