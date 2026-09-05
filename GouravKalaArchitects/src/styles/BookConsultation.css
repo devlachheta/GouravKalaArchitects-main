@@ -177,1062 +177,1021 @@
     background: #171717;
 }
 
-
 /* =========================================================
-   STEP 1
-   CONSULTATION
+   STEP 1 - CONSULTATION
 ========================================================= */
 
-.bc-consultation-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-}
-
-.bc-consultation-card {
-    position: relative;
-
+.consultation-step-one {
     width: 100%;
-    min-height: 285px;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 65px 6vw 35px;
+
+    background: #f8f7f4;
+    color: #171717;
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+}
 
-    padding: 34px;
 
-    background: #ffffff;
-    border: 1px solid #d8d4cd;
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.consultation-progress {
+    width: 100%;
+    max-width: 1050px;
+
+    margin: 15px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   PROGRESS STEP
+========================================================= */
+
+.progress-step {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    opacity: 0.38;
+
+    transition: opacity 0.25s ease;
+}
+
+.progress-step.active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PROGRESS NUMBER
+========================================================= */
+
+.progress-number {
+    width: 36px;
+    height: 36px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #aaa7a1;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+}
+
+.progress-step.active .progress-number {
+    background: #171717;
+    border-color: #171717;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   PROGRESS LABEL
+========================================================= */
+
+.progress-label {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PROGRESS LINE
+========================================================= */
+
+.progress-line {
+    width: 75px;
+    height: 1px;
+
+    background: #c9c5bf;
+
+    flex-shrink: 1;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.consultation-intro {
+    width: 100%;
+    max-width: 800px;
+
+    margin: 70px auto 45px;
+
+    text-align: center;
+}
+
+
+
+
+/* =========================================================
+   INTRO TITLE
+========================================================= */
+
+.consultation-intro h1 {
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -1.5px;
 
     color: #171717;
-    text-align: left;
+}
+
+
+/* =========================================================
+   INTRO DESCRIPTION
+========================================================= */
+
+.consultation-intro p {
+    max-width: 600px;
+
+    margin: 18px auto 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    color: #55514c;
+}
+
+
+/* =========================================================
+   CARDS WRAPPER
+========================================================= */
+
+.consultation-cards-wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.consultation-cards {
+    width: 100%;
+    max-width: 600px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.consultation-card {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    height: 400px;
+
+    box-sizing: border-box;
+
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border: 1px solid #d7d3cd;
+
+    border-radius: 10px;
+
+    color: #171717;
 
     cursor: pointer;
 
     transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.bc-consultation-card:hover {
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.consultation-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   SELECTED CARD
+========================================================= */
+
+.consultation-card.selected {
+    background: #171717;
+
     border-color: #171717;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.consultation-card-header {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   DURATION
+========================================================= */
+
+.consultation-duration {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 1.8px;
+
+    line-height: 1.5;
+}
+
+.consultation-card.selected .consultation-duration {
+    color: #eeeeee;
+}
+
+
+/* =========================================================
+   RADIO
+========================================================= */
+
+.consultation-radio {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    box-sizing: border-box;
+
+    border: 1px solid #aaa7a1;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.consultation-radio.active {
+    border: 2px solid #ffffff;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   RADIO DOT
+========================================================= */
+
+.consultation-radio-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #171717;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.consultation-card-body {
+    flex: 1;
+
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.consultation-card-body h2 {
+    margin: 0 0 17px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(30px, 3vw, 43px);
+    font-weight: 400;
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+}
+
+.consultation-card.selected .consultation-card-body h2 {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.consultation-price {
+    margin-bottom: 23px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 23px;
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+.consultation-card.selected .consultation-price {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.consultation-divider {
+    width: 100%;
+    height: 1px;
+
+    margin-bottom: 24px;
+
+    background: #ddd9d3;
+}
+
+.consultation-card.selected .consultation-divider {
+    background: #494949;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.consultation-features {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.consultation-feature {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.consultation-card.selected .consultation-feature {
+    color: #eeeeee;
+}
+
+
+/* =========================================================
+   FEATURE CHECK
+========================================================= */
+
+.feature-check {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+
+    margin-top: 2px;
+
+    stroke-width: 1.7;
+}
+
+
+/* =========================================================
+   SELECT BUTTON
+========================================================= */
+
+.consultation-select-button {
+    align-self: flex-start;
+
+    min-width: 145px;
+
+    height: 40px;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    border: 1px solid #171717;
+
+    border-radius: 7px;
+
+    background: #171717;
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    letter-spacing: 1.6px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.consultation-select-button:hover {
     transform: translateY(-2px);
 }
 
-.bc-consultation-card.selected {
-    background: #171717;
-    border-color: #171717;
-    color: #ffffff;
+.consultation-select-button svg {
+    width: 16px;
+    height: 16px;
 }
 
 
-/* Card Header */
+/* =========================================================
+   SELECTED BUTTON
+========================================================= */
 
-.bc-card-header {
-    width: 100%;
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.bc-card-duration {
-    display: block;
-    margin-bottom: 10px;
-
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-
-    color: #77736d;
-}
-
-.bc-consultation-card.selected .bc-card-duration {
-    color: #aaa69f;
-}
-
-.bc-card-header h3 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 28px;
-    line-height: 1.15;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-}
-
-
-/* Radio */
-
-.bc-radio {
-    width: 27px;
-    height: 27px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #d3cfc8;
+.consultation-select-button.selected-button {
+    background: #ffffff;
 
     color: #171717;
 
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.bc-radio.checked {
-    background: #ffffff;
     border-color: #ffffff;
 }
 
-.bc-radio svg {
-    width: 14px;
-    height: 14px;
-}
-
-
-/* Price */
-
-.bc-price {
-    margin-top: 30px;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
-    font-weight: 400;
-}
-
-
-/* Description */
-
-.bc-card-description {
-    margin-top: 24px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.bc-card-description div {
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-}
-
-.bc-card-description svg {
-    width: 13px;
-    height: 13px;
-
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.bc-card-description span {
-    font-size: 11px;
-    line-height: 1.5;
-    color: #68635c;
-}
-
-.bc-consultation-card.selected .bc-card-description span {
-    color: #c3bfb8;
-}
-
-
-/* Select Button */
-
-.bc-select-button {
-    margin-top: auto;
-    padding-top: 25px;
-
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-
-    color: #66615a;
-}
-
-.bc-consultation-card.selected .bc-select-button {
-    color: #ffffff;
+.consultation-select-button.selected-button:hover {
+    background: #eeeeee;
 }
 
 
 /* =========================================================
-   LOADING / ERROR
+   NEXT BUTTON AREA
 ========================================================= */
 
-.bc-message {
+.consultation-step-footer {
     width: 100%;
-    padding: 28px;
+    max-width: 940px;
 
-    border: 1px solid #d8d4cd;
-    background: #ffffff;
+    margin: 10px auto 0;
 
-    font-size: 13px;
-    line-height: 1.6;
+    display: flex;
 
-    color: #66615a;
-}
-
-.bc-error {
-    color: #8a4a4a;
-    background: #faf5f5;
-    border-color: #dfcccc;
+    justify-content: flex-end;
 }
 
 
 /* =========================================================
-   STEP 2
-   SELECTED CONSULTATION
+   NEXT BUTTON
 ========================================================= */
 
-.bc-selected-consultation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 24px 28px;
-    margin-bottom: 26px;
-
-    background: #171717;
-    color: #ffffff;
-}
-
-.bc-selected-consultation>div:first-child {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.bc-selected-consultation span {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #aaa69f;
-}
-
-.bc-selected-consultation strong {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 22px;
-    font-weight: 400;
-}
-
-.bc-selected-price {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 25px;
-}
-
-
-/* =========================================================
-   STEP 2
-   DATE / TIME
-========================================================= */
-
-.bc-date-time-grid {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.15fr) minmax(360px, 0.85fr);
-
-    gap: 24px;
-    align-items: stretch;
-}
-
-.bc-calendar-container,
-.bc-time-container {
-    background: #ffffff;
-    border: 1px solid #d8d4cd;
-    padding: 34px;
-}
-
-
-/* Subheading */
-
-.bc-subheading {
-    padding-bottom: 25px;
-    margin-bottom: 24px;
-
-    border-bottom: 1px solid #e1ddd6;
-}
-
-.bc-subheading h3 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 23px;
-    line-height: 1.3;
-    font-weight: 400;
-}
-
-.bc-subheading p {
-    margin: 8px 0 0;
-
-    font-size: 11px;
-    color: #817c75;
-}
-
-
-/* Calendar */
-
-.bc-calendar {
-    width: 100%;
-}
-
-.bc-calendar-header {
-    display: grid;
-
-    grid-template-columns: 42px 1fr 42px;
-
-    align-items: center;
-    gap: 12px;
-
-    margin-bottom: 28px;
-}
-
-.bc-calendar-header strong {
-    text-align: center;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 23px;
-    font-weight: 400;
-}
-
-.bc-calendar-header button {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: transparent;
-    border: 1px solid #d4d0c9;
-
-    color: #171717;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.bc-calendar-header button:hover:not(:disabled) {
-    background: #f3f1ed;
-    border-color: #171717;
-}
-
-.bc-calendar-header button:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-}
-
-.bc-calendar-header svg {
-    width: 17px;
-    height: 17px;
-}
-
-
-/* Weekdays */
-
-.bc-calendar-weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-
-    margin-bottom: 8px;
-}
-
-.bc-calendar-weekdays span {
-    padding: 8px 0;
-
-    text-align: center;
-
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    color: #8b867e;
-}
-
-
-/* Calendar Days */
-
-.bc-calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-}
-
-.bc-calendar-empty {
-    aspect-ratio: 1 / 1;
-}
-
-.bc-calendar-day {
-    aspect-ratio: 1 / 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: transparent;
-    border: 1px solid transparent;
-
-    color: #252525;
-
-    font-size: 12px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.bc-calendar-day:hover:not(:disabled) {
-    border-color: #171717;
-    background: #f4f2ee;
-}
-
-.bc-calendar-day.selected {
-    background: #171717;
-    border-color: #171717;
-    color: #ffffff;
-}
-
-.bc-calendar-day.disabled,
-.bc-calendar-day:disabled {
-    color: #c2beb7;
-    cursor: not-allowed;
-}
-
-
-/* Calendar Legend */
-
-.bc-calendar-legend {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    margin-top: 24px;
-    padding-top: 20px;
-
-    border-top: 1px solid #e2ded7;
-}
-
-.bc-calendar-legend span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-
-    font-size: 9px;
-    color: #817c75;
-}
-
-.bc-calendar-legend i {
-    width: 7px;
-    height: 7px;
-
-    display: block;
-
-    border-radius: 50%;
-}
-
-.available-dot {
-    background: #d0ccc5;
-}
-
-.unavailable-dot {
-    background: #ebe8e3;
-}
-
-.selected-dot {
-    background: #171717;
-}
-
-
-/* =========================================================
-   TIME SLOTS
-========================================================= */
-
-.bc-time-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.bc-time-slots {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-}
-
-.bc-time-slot {
-    min-height: 48px;
-
-    background: #faf9f6;
-    border: 1px solid #d5d1ca;
-
-    color: #171717;
-
-    font-size: 12px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.bc-time-slot:hover {
-    border-color: #171717;
-    background: #ffffff;
-}
-
-.bc-time-slot.selected {
-    background: #171717;
-    border-color: #171717;
-    color: #ffffff;
-}
-
-
-/* Empty slots */
-
-.bc-empty-slots {
-    min-height: 250px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 30px;
-
-    text-align: center;
-
-    background: #faf9f6;
-    border: 1px solid #e5e1da;
-}
-
-.bc-empty-slots span {
-    display: block;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 18px;
-
-    color: #44413c;
-}
-
-.bc-empty-slots p {
-    margin: 10px 0 0;
-
-    font-size: 11px;
-    line-height: 1.6;
-
-    color: #858079;
-}
-
-.bc-timezone {
-    margin: auto 0 0;
-    padding-top: 22px;
-
-    font-size: 9px;
-    line-height: 1.5;
-
-    color: #858079;
-}
-
-
-/* =========================================================
-   STEP 3
-   DETAILS
-========================================================= */
-
-.bc-details-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.5fr) minmax(320px, 0.75fr);
-
-    gap: 24px;
-
-    align-items: start;
-}
-
-.bc-details-form {
-    background: #ffffff;
-    border: 1px solid #d5d2ca;
-
-    padding: 42px;
-}
-
-.bc-details-heading {
-    margin-bottom: 38px;
-}
-
-.bc-details-heading .bc-eyebrow {
-    margin-bottom: 12px;
-}
-
-.bc-details-heading h3 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 30px;
-    font-weight: 400;
-}
-
-
-/* Form */
-
-.bc-form-group {
-    margin-bottom: 25px;
-}
-
-.bc-form-group:last-child {
-    margin-bottom: 0;
-}
-
-.bc-form-group label {
-    display: block;
-
-    margin-bottom: 9px;
-
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-
-    color: #555555;
-}
-
-.bc-form-group input,
-.bc-form-group select,
-.bc-form-group textarea {
-    width: 100%;
-
-    border: 1px solid #d0cdc6;
-    background: #faf9f6;
-
-    color: #171717;
-
-    padding: 15px 16px;
-    border-radius: 0;
-
-    outline: none;
-
-    font-size: 13px;
-
-    transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
-}
-
-.bc-form-group input {
+.consultation-next-button {
     height: 52px;
-}
 
-.bc-form-group select {
-    height: 52px;
-    cursor: pointer;
-}
+    min-width: 125px;
 
-.bc-form-group textarea {
-    min-height: 130px;
-    resize: vertical;
-    line-height: 1.6;
-}
+    padding: 0 23px;
 
-.bc-form-group input::placeholder,
-.bc-form-group textarea::placeholder {
-    color: #999999;
-}
-
-.bc-form-group input:focus,
-.bc-form-group select:focus,
-.bc-form-group textarea:focus {
-    border-color: #171717;
-    background: #ffffff;
-}
-
-
-/* Form error */
-
-.bc-form-error {
-    margin-top: 20px;
-    padding: 13px 16px;
-
-    border: 1px solid #d8c7c7;
-    background: #faf5f5;
-
-    color: #8a4a4a;
-
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-
-/* =========================================================
-   STEP 3 SUMMARY
-========================================================= */
-
-.bc-details-summary {
-    position: sticky;
-    top: 30px;
-
-    padding: 34px;
-
-    background: #171717;
-    color: #ffffff;
-}
-
-.bc-summary-label {
-    display: block;
-
-    margin-bottom: 15px;
-
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-
-    color: #aaa69f;
-}
-
-.bc-details-summary h3 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
-    line-height: 1.2;
-    font-weight: 400;
-}
-
-.bc-summary-price {
-    margin-top: 18px;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
-}
-
-.bc-summary-divider {
-    height: 1px;
-
-    margin: 25px 0;
-
-    background: #363636;
-}
-
-.bc-summary-item {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-
-    margin-bottom: 21px;
-}
-
-.bc-summary-item:last-of-type {
-    margin-bottom: 0;
-}
-
-.bc-summary-item span {
-    font-size: 9px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-
-    color: #99958e;
-}
-
-.bc-summary-item strong {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 15px;
-    font-weight: 400;
-}
-
-.bc-change-button {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-
-    cursor: pointer;
-}
-
-.bc-change-button svg {
-    width: 14px;
-    height: 14px;
-}
-
-
-/* =========================================================
-   STEP 4
-   REVIEW
-========================================================= */
-
-.bc-review-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.5fr) minmax(330px, 0.75fr);
-
-    gap: 24px;
-
-    align-items: start;
-}
-
-.bc-review-content {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.bc-review-card {
-    background: #ffffff;
-    border: 1px solid #d8d4cd;
-
-    padding: 30px;
-}
-
-.bc-review-card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding-bottom: 22px;
-    margin-bottom: 22px;
-
-    border-bottom: 1px solid #e2ded7;
-}
-
-.bc-review-card-header .bc-eyebrow {
-    margin-bottom: 8px;
-}
-
-.bc-review-card-header h3 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 23px;
-    line-height: 1.2;
-    font-weight: 400;
-}
-
-.bc-review-edit {
     display: inline-flex;
     align-items: center;
-
-    padding: 7px 0;
-
-    background: transparent;
-
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    color: #66615a;
-
-    cursor: pointer;
-}
-
-.bc-review-edit:hover {
-    color: #171717;
-}
-
-
-/* Review Info */
-
-.bc-review-info-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.bc-review-info {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.bc-review-info span {
-    font-size: 9px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-
-    color: #88837b;
-}
-
-.bc-review-info strong {
-    font-size: 13px;
-    line-height: 1.5;
-    font-weight: 400;
-
-    color: #252525;
-}
-
-
-/* Review Customer */
-
-.bc-review-details {
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
-}
-
-.bc-review-detail-row {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.bc-review-detail-row span {
-    font-size: 9px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-
-    color: #88837b;
-}
-
-.bc-review-detail-row strong {
-    font-size: 13px;
-    line-height: 1.5;
-    font-weight: 400;
-
-    color: #252525;
-}
-
-
-/* =========================================================
-   REVIEW SUMMARY
-========================================================= */
-
-.bc-review-summary {
-    position: sticky;
-    top: 30px;
-
-    padding: 34px;
-
-    background: #171717;
-    color: #ffffff;
-}
-
-.bc-review-summary>h3 {
-    margin: 0 0 28px;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
-    line-height: 1.2;
-    font-weight: 400;
-}
-
-.bc-review-summary-item {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-
-    padding: 19px 0;
-
-    border-bottom: 1px solid #363636;
-}
-
-.bc-review-summary-item span {
-    font-size: 9px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-
-    color: #99958e;
-}
-
-.bc-review-summary-item strong {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 15px;
-    line-height: 1.4;
-    font-weight: 400;
-}
-
-.bc-total-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 25px 0;
-
-    border-bottom: 1px solid #4a4a4a;
-}
-
-.bc-total-row span {
-    font-size: 9px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-
-    color: #aaa69f;
-}
-
-.bc-total-row strong {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 26px;
-    font-weight: 400;
-}
-
-.bc-payment-note {
-    margin: 22px 0;
-
-    font-size: 10px;
-    line-height: 1.6;
-
-    color: #85817a;
-}
-
-.bc-payment-button {
-    width: 100%;
-    min-height: 53px;
-
-    display: flex;
-    align-items: center;
     justify-content: center;
 
     gap: 12px;
 
-    background: #ffffff;
-    color: #171717;
+    border: 1px solid #171717;
 
-    font-size: 10px;
+    border-radius: 7px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+
+    letter-spacing: 1.8px;
 
     cursor: pointer;
 
-    transition: background 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-.bc-payment-button:hover {
-    background: #e9e7e2;
+.consultation-next-button svg {
+    width: 17px;
+    height: 17px;
+
+    stroke-width: 1.7;
 }
 
-.bc-payment-button svg {
-    width: 15px;
-    height: 15px;
+.consultation-next-button:hover {
+    background: #ffffff;
+
+    color: #171717;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+    .consultation-step-one {
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+
+    .consultation-intro {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .consultation-cards {
+        max-width: 870px;
+    }
+
+    .consultation-card {
+        padding: 36px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 1000px) {
+    .consultation-step-one {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    .consultation-progress {
+        gap: 11px;
+    }
+
+    .progress-line {
+        width: 45px;
+    }
+
+    .progress-label {
+        font-size: 9px;
+    }
+
+    .consultation-intro {
+        margin-top: 60px;
+        margin-bottom: 38px;
+    }
+
+    .consultation-intro h1 {
+        font-size: 42px;
+    }
+
+    .consultation-cards {
+        max-width: 800px;
+
+        gap: 18px;
+    }
+
+    .consultation-card {
+        min-height: 390px;
+
+        padding: 27px;
+    }
+
+    .consultation-card-body {
+        padding-top: 30px;
+    }
+
+    .consultation-card-body h2 {
+        font-size: 34px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+    .consultation-step-one {
+        padding: 35px 25px 40px;
+    }
+
+    .consultation-progress {
+        gap: 7px;
+    }
+
+    .progress-step {
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+    .progress-number {
+        width: 32px;
+        height: 32px;
+    }
+
+    .progress-label {
+        font-size: 8px;
+
+        letter-spacing: 0.8px;
+    }
+
+    .progress-line {
+        width: 28px;
+    }
+
+    .consultation-intro {
+        margin-top: 55px;
+        margin-bottom: 38px;
+    }
+
+    .consultation-intro h1 {
+        font-size: 37px;
+    }
+
+    .consultation-intro p {
+        font-size: 14px;
+    }
+
+    .consultation-cards {
+        gap: 15px;
+    }
+
+    .consultation-card {
+        min-height: 350px;
+
+        padding: 22px;
+    }
+
+    .consultation-card-body {
+        padding-top: 27px;
+    }
+
+    .consultation-card-body h2 {
+        font-size: 28px;
+    }
+
+    .consultation-price {
+        font-size: 20px;
+    }
+
+    .consultation-feature {
+        font-size: 11px;
+    }
+
+    .consultation-select-button {
+        min-width: 125px;
+
+        height: 46px;
+
+        padding: 0 18px;
+
+        font-size: 10px;
+    }
+
+    .consultation-step-footer {
+        max-width: 650px;
+
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+    .consultation-step-one {
+        padding: 28px 18px 35px;
+    }
+
+    /* -----------------------------------------
+     PROGRESS
+  ----------------------------------------- */
+
+    .consultation-progress {
+        width: 100%;
+
+        gap: 3px;
+    }
+
+    .progress-step {
+        flex: 1;
+
+        min-width: 0;
+    }
+
+    .progress-number {
+        width: 29px;
+        height: 29px;
+
+        font-size: 9px;
+    }
+
+    .progress-label {
+        font-size: 6.5px;
+
+        letter-spacing: 0.5px;
+
+        text-align: center;
+    }
+
+    .progress-line {
+        width: 15px;
+    }
+
+
+    /* -----------------------------------------
+     INTRO
+  ----------------------------------------- */
+
+    .consultation-intro {
+        margin-top: 45px;
+        margin-bottom: 35px;
+    }
+
+
+
+    .consultation-intro h1 {
+        font-size: 32px;
+
+        letter-spacing: -1px;
+    }
+
+    .consultation-intro p {
+        max-width: 360px;
+
+        margin-top: 14px;
+
+        font-size: 13px;
+
+        line-height: 1.55;
+    }
+
+
+    /* -----------------------------------------
+     CARDS
+  ----------------------------------------- */
+
+    .consultation-cards-wrapper {
+        width: 100%;
+    }
+
+    .consultation-cards {
+        width: 100%;
+
+        max-width: 430px;
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .consultation-card {
+        aspect-ratio: auto;
+
+        min-height: 410px;
+
+        padding: 24px;
+    }
+
+    .consultation-card-body {
+        padding-top: 32px;
+    }
+
+    .consultation-card-body h2 {
+        font-size: 35px;
+
+        line-height: 1.05;
+    }
+
+    .consultation-price {
+        font-size: 22px;
+    }
+
+    .consultation-feature {
+        font-size: 13px;
+    }
+
+    .consultation-select-button {
+        min-width: 140px;
+
+        height: 48px;
+
+        font-size: 11px;
+    }
+
+
+    /* -----------------------------------------
+     NEXT
+  ----------------------------------------- */
+
+    .consultation-step-footer {
+        width: 100%;
+
+        max-width: 430px;
+
+        margin-top: 20px;
+    }
+
+    .consultation-next-button {
+        min-width: 120px;
+
+        height: 49px;
+
+        padding: 0 20px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+    .consultation-step-one {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .consultation-progress {
+        gap: 2px;
+    }
+
+    .progress-line {
+        width: 9px;
+    }
+
+    .progress-number {
+        width: 26px;
+        height: 26px;
+    }
+
+    .progress-label {
+        font-size: 5.5px;
+    }
+
+    .consultation-intro {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    .consultation-intro h1 {
+        font-size: 28px;
+    }
+
+    .consultation-intro p {
+        font-size: 12px;
+    }
+
+    .consultation-card {
+        min-height: 390px;
+
+        padding: 20px;
+    }
+
+    .consultation-duration {
+        font-size: 8px;
+
+        letter-spacing: 1.2px;
+    }
+
+    .consultation-radio {
+        width: 27px;
+        height: 27px;
+    }
+
+    .consultation-card-body {
+        padding-top: 28px;
+    }
+
+    .consultation-card-body h2 {
+        font-size: 30px;
+    }
+
+    .consultation-price {
+        font-size: 20px;
+    }
+
+    .consultation-feature {
+        font-size: 12px;
+    }
+
+    .consultation-select-button {
+        min-width: 132px;
+
+        height: 45px;
+
+        padding: 0 16px;
+    }
+
+    .consultation-next-button {
+        height: 46px;
+
+        min-width: 112px;
+    }
 }
 
 

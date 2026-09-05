@@ -1,0 +1,1278 @@
+/* =========================================================
+   BOOK CONSULTATION
+   STEP 4 - REVIEW
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.bc-step-four {
+  width: min(1280px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 70px 0 65px;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.bc-step-four .consultation-progress {
+  width: 100%;
+
+  max-width: 1050px;
+
+  margin: 0 auto 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   PROGRESS STEP
+========================================================= */
+
+.bc-step-four .progress-step {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  opacity: 0.38;
+
+  transition: opacity 0.2s ease;
+}
+
+.bc-step-four .progress-step.active,
+.bc-step-four .progress-step.completed {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   PROGRESS NUMBER
+========================================================= */
+
+.bc-step-four .progress-number {
+  width: 36px;
+  height: 36px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #aaa7a1;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  color: #171717;
+}
+
+
+/* COMPLETED + ACTIVE */
+
+.bc-step-four .progress-step.active .progress-number,
+.bc-step-four .progress-step.completed .progress-number {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   PROGRESS LABEL
+========================================================= */
+
+.bc-step-four .progress-label {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 1.4px;
+
+  white-space: nowrap;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   PROGRESS LINE
+========================================================= */
+
+.bc-step-four .progress-line {
+  width: 70px;
+
+  height: 1px;
+
+  background: #c9c5bf;
+
+  flex-shrink: 1;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.bc-step-four-heading {
+  width: 100%;
+
+  max-width: 850px;
+
+  margin-left: 85px;
+
+  margin-bottom: 42px;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.bc-step-four-heading .bc-eyebrow {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: #66615a;
+}
+
+
+/* =========================================================
+   HEADING TITLE
+========================================================= */
+
+.bc-step-four-heading h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(42px, 5vw, 64px);
+
+  line-height: 1.04;
+
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   HEADING DESCRIPTION
+========================================================= */
+
+.bc-step-four-heading p {
+  max-width: 620px;
+
+  margin: 16px 0 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  color: #55514b;
+}
+
+
+/* =========================================================
+   REVIEW LAYOUT
+========================================================= */
+
+.bc-step-four .bc-review-layout {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr) minmax(320px, 0.8fr);
+
+  gap: 18px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT REVIEW CONTENT
+========================================================= */
+
+.bc-step-four .bc-review-content {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   REVIEW CARD
+========================================================= */
+
+.bc-step-four .bc-review-card {
+  width: 100%;
+
+  padding: 30px 34px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #d5d2ca;
+
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   REVIEW CARD HEADER
+========================================================= */
+
+.bc-step-four .bc-review-card-header {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 20px;
+
+  margin-bottom: 22px;
+
+  border-bottom: 1px solid #dedad3;
+}
+
+
+/* =========================================================
+   CARD EYEBROW
+========================================================= */
+
+.bc-step-four .bc-review-card-header .bc-eyebrow {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color: #77726b;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.bc-step-four .bc-review-card-header h3 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
+
+.bc-step-four .bc-review-edit {
+  flex-shrink: 0;
+
+  padding: 7px 0;
+
+  background: transparent;
+
+  border: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: #66615a;
+
+  cursor: pointer;
+}
+
+.bc-step-four .bc-review-edit:hover {
+  color: #171717;
+}
+
+
+/* =========================================================
+   REVIEW INFO GRID
+========================================================= */
+
+.bc-step-four .bc-review-info-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   REVIEW INFO
+========================================================= */
+
+.bc-step-four .bc-review-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+/* =========================================================
+   REVIEW INFO LABEL
+========================================================= */
+
+.bc-step-four .bc-review-info span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color: #88837b;
+}
+
+
+/* =========================================================
+   REVIEW INFO VALUE
+========================================================= */
+
+.bc-step-four .bc-review-info strong {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  color: #252525;
+}
+
+
+/* =========================================================
+   CUSTOMER DETAILS
+========================================================= */
+
+.bc-step-four .bc-review-details {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+
+/* =========================================================
+   CUSTOMER DETAIL ROW
+========================================================= */
+
+.bc-step-four .bc-review-detail-row {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+/* =========================================================
+   CUSTOMER DETAIL LABEL
+========================================================= */
+
+.bc-step-four .bc-review-detail-row span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color: #88837b;
+}
+
+
+/* =========================================================
+   CUSTOMER DETAIL VALUE
+========================================================= */
+
+.bc-step-four .bc-review-detail-row strong {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  color: #252525;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   RIGHT SUMMARY
+========================================================= */
+
+.bc-step-four .bc-review-summary {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 440px;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background: #171717;
+
+  color: #ffffff;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SUMMARY INDICATOR
+========================================================= */
+
+.bc-step-four .bc-review-summary::after {
+  content: "";
+
+  position: absolute;
+
+  top: 20px;
+
+  right: 21px;
+
+  width: 23px;
+
+  height: 23px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+.bc-step-four .bc-review-summary::before {
+  content: "";
+
+  position: absolute;
+
+  top: 28px;
+
+  right: 29px;
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #171717;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   SUMMARY HEADER
+========================================================= */
+
+.bc-step-four .bc-review-summary-header {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   SUMMARY LABEL
+========================================================= */
+
+.bc-step-four .bc-summary-label {
+  display: block;
+
+  padding-right: 40px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+
+  color: #aaa69f;
+}
+
+
+/* =========================================================
+   SUMMARY TITLE
+========================================================= */
+
+.bc-step-four .bc-review-summary h3 {
+  margin: 0;
+
+  padding-right: 35px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SUMMARY ITEM
+========================================================= */
+
+.bc-step-four .bc-review-summary-item {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-top: 22px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #404040;
+}
+
+
+/* =========================================================
+   SUMMARY ITEM LABEL
+========================================================= */
+
+.bc-step-four .bc-review-summary-item span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color: #99958e;
+}
+
+
+/* =========================================================
+   SUMMARY ITEM VALUE
+========================================================= */
+
+.bc-step-four .bc-review-summary-item strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TOTAL
+========================================================= */
+
+.bc-step-four .bc-review-total {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid #404040;
+}
+
+
+/* =========================================================
+   TOTAL LABEL
+========================================================= */
+
+.bc-step-four .bc-review-total span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: #aaa69f;
+}
+
+
+/* =========================================================
+   TOTAL VALUE
+========================================================= */
+
+.bc-step-four .bc-review-total strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 26px;
+
+  line-height: 1;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   PAYMENT NOTE
+========================================================= */
+
+.bc-step-four .bc-payment-note {
+  margin: 22px 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+
+  color: #85817a;
+}
+
+
+/* =========================================================
+   PAYMENT BUTTON
+========================================================= */
+
+.bc-step-four .bc-payment-button {
+  width: 100%;
+
+  min-height: 53px;
+
+  padding: 0 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #ffffff;
+
+  color: #171717;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.bc-step-four .bc-payment-button:hover {
+  background: #e9e7e2;
+
+  border-color: #e9e7e2;
+}
+
+
+.bc-step-four .bc-payment-button svg {
+  width: 15px;
+
+  height: 15px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bc-step-four .bc-navigation {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 25px auto 0;
+
+  padding-top: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-top: 1px solid #d8d4cd;
+}
+
+
+/* =========================================================
+   BACK / NEXT
+========================================================= */
+
+.bc-step-four .bc-back-button,
+.bc-step-four .bc-next-button {
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 21px;
+
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.bc-step-four .bc-back-button {
+  background: transparent;
+
+  border: 1px solid #bdb9b2;
+
+  color: #171717;
+}
+
+
+.bc-step-four .bc-back-button:hover {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NEXT BUTTON
+========================================================= */
+
+.bc-step-four .bc-next-button {
+  min-width: 150px;
+
+  background: #171717;
+
+  border: 1px solid #171717;
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+
+.bc-step-four .bc-next-button:hover {
+  background: #303030;
+}
+
+
+.bc-step-four .bc-back-button svg,
+.bc-step-four .bc-next-button svg {
+  width: 14px;
+
+  height: 14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .bc-step-four {
+    width: min(100% - 48px, 900px);
+
+    padding: 60px 0;
+  }
+
+
+  /* Progress */
+
+  .bc-step-four .consultation-progress {
+    gap: 11px;
+  }
+
+
+  .bc-step-four .progress-line {
+    width: 45px;
+  }
+
+
+  .bc-step-four .progress-label {
+    font-size: 9px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-four-heading {
+    margin-left: 0;
+  }
+
+
+  /* Layout */
+
+  .bc-step-four .bc-review-layout {
+    grid-template-columns:
+      minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  }
+
+
+  /* Cards */
+
+  .bc-step-four .bc-review-card,
+  .bc-step-four .bc-review-summary {
+    padding: 27px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Progress */
+
+  .bc-step-four .consultation-progress {
+    gap: 7px;
+  }
+
+
+  .bc-step-four .progress-step {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+
+  .bc-step-four .progress-number {
+    width: 32px;
+
+    height: 32px;
+  }
+
+
+  .bc-step-four .progress-label {
+    font-size: 8px;
+
+    letter-spacing: 0.8px;
+  }
+
+
+  .bc-step-four .progress-line {
+    width: 28px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-four-heading h2 {
+    font-size: 42px;
+  }
+
+
+  /* Layout */
+
+  .bc-step-four .bc-review-layout {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  /* Summary */
+
+  .bc-step-four .bc-review-summary {
+    min-height: auto;
+
+    position: relative;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .bc-step-four {
+    width: calc(100% - 32px);
+
+    padding: 45px 0 55px;
+  }
+
+
+  /* Progress */
+
+  .bc-step-four .consultation-progress {
+    width: 100%;
+
+    gap: 3px;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    padding-bottom: 5px;
+  }
+
+
+  .bc-step-four .progress-step {
+    flex: 1;
+
+    min-width: 0;
+  }
+
+
+  .bc-step-four .progress-number {
+    width: 29px;
+
+    height: 29px;
+
+    font-size: 9px;
+  }
+
+
+  .bc-step-four .progress-label {
+    font-size: 6.5px;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+  }
+
+
+  .bc-step-four .progress-line {
+    width: 15px;
+
+    min-width: 15px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-four-heading {
+    margin-bottom: 30px;
+  }
+
+
+  .bc-step-four-heading h2 {
+    font-size: 36px;
+  }
+
+
+  .bc-step-four-heading p {
+    font-size: 13px;
+  }
+
+
+  /* Review Cards */
+
+  .bc-step-four .bc-review-card {
+    padding: 24px 20px;
+  }
+
+
+  .bc-step-four .bc-review-card-header {
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding-bottom: 18px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .bc-step-four .bc-review-card-header h3 {
+    font-size: 23px;
+  }
+
+
+  .bc-step-four .bc-review-info-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  /* Summary */
+
+  .bc-step-four .bc-review-summary {
+    padding: 24px 20px;
+  }
+
+
+  .bc-step-four .bc-review-summary h3 {
+    font-size: 23px;
+  }
+
+
+  .bc-step-four .bc-review-total strong {
+    font-size: 24px;
+  }
+
+
+  /* Navigation */
+
+  .bc-step-four .bc-navigation {
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+
+  .bc-step-four .bc-back-button,
+  .bc-step-four .bc-next-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .bc-step-four {
+    width: calc(100% - 24px);
+
+    padding-top: 38px;
+  }
+
+
+  /* Progress */
+
+  .bc-step-four .progress-line {
+    width: 8px;
+
+    min-width: 8px;
+  }
+
+
+  .bc-step-four .progress-number {
+    width: 26px;
+
+    height: 26px;
+  }
+
+
+  .bc-step-four .progress-label {
+    font-size: 5.5px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-four-heading h2 {
+    font-size: 32px;
+  }
+
+
+  /* Cards */
+
+  .bc-step-four .bc-review-card {
+    padding: 20px 18px;
+  }
+
+
+  .bc-step-four .bc-review-summary {
+    padding: 20px 18px;
+  }
+
+
+  .bc-step-four .bc-review-summary h3 {
+    font-size: 22px;
+  }
+
+
+  .bc-step-four .bc-review-total strong {
+    font-size: 23px;
+  }
+
+}
