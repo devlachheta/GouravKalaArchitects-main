@@ -1,0 +1,1443 @@
+/* =========================================================
+   BOOK CONSULTATION
+   STEP 2 - DATE & TIME
+========================================================= */
+
+.bc-step-two {
+  width: min(1280px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 70px 0 65px;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.bc-step-two .consultation-progress {
+  width: 100%;
+  max-width: 1050px;
+
+  margin: 0 auto 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+}
+
+.bc-step-two .progress-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  opacity: 0.38;
+
+  transition: opacity 0.2s ease;
+}
+
+.bc-step-two .progress-step.active,
+.bc-step-two .progress-step.completed {
+  opacity: 1;
+}
+
+.bc-step-two .progress-number {
+  width: 36px;
+  height: 36px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #aaa7a1;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  color: #171717;
+}
+
+.bc-step-two .progress-step.active .progress-number,
+.bc-step-two .progress-step.completed .progress-number {
+  background: #171717;
+  border-color: #171717;
+  color: #ffffff;
+}
+
+.bc-step-two .progress-label {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 1.4px;
+
+  white-space: nowrap;
+
+  color: #171717;
+}
+
+.bc-step-two .progress-line {
+  width: 70px;
+  height: 1px;
+
+  background: #c9c5bf;
+
+  flex-shrink: 1;
+}
+
+
+/* =========================================================
+   HEADING ROW
+========================================================= */
+
+.bc-step-two-heading-row {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 65px;
+
+  margin-bottom: 35px;
+}
+
+.bc-step-two-heading-row .bc-section-heading {
+  width: auto;
+  max-width: 570px;
+
+  flex: 0 1 480px;
+
+  margin-bottom: 0;
+}
+
+.bc-step-two-heading-row .bc-eyebrow {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: #66615a;
+}
+
+.bc-step-two-heading-row .bc-section-heading h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(40px, 4.5vw, 56px);
+
+  line-height: 1.04;
+
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+
+  color: #171717;
+}
+
+.bc-step-two-heading-row .bc-section-heading p {
+  margin: 14px 0 0;
+
+  max-width: 580px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  color: #55514b;
+}
+
+
+/* =========================================================
+   SELECTED CONSULTATION
+========================================================= */
+
+.bc-selected-consultation-box {
+  width: 430px;
+  min-width: 430px;
+  height: 78px;
+
+  margin-left: 0;
+  margin-right: 0;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 22px;
+
+  box-sizing: border-box;
+
+  background: #171717;
+  color: #ffffff;
+
+  border-radius: 5px;
+}
+
+.bc-selected-consultation-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+}
+
+.bc-selected-consultation-icon svg {
+  width: 22px;
+  height: 22px;
+
+  stroke-width: 1.5;
+}
+
+.bc-selected-consultation-divider {
+  width: 1px;
+  height: 38px;
+
+  margin: 0 17px;
+
+  background: #555555;
+
+  flex-shrink: 0;
+}
+
+.bc-selected-consultation-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.bc-selected-consultation-text span {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.35;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   DATE / TIME GRID
+========================================================= */
+
+.bc-date-time-grid {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+
+  /*
+    Important:
+    Both cards stretch to exactly the same height.
+  */
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   BOTH CARDS
+========================================================= */
+
+.bc-calendar-container,
+.bc-time-container {
+  position: relative;
+
+  width: 100%;
+
+  /*
+    Both cards have the same fixed height.
+  */
+  height: 450px;
+  min-height: 450px;
+
+  background: #171717;
+
+  border: 1px solid #171717;
+
+  border-radius: 5px;
+
+  padding: 18px 22px;
+
+  box-sizing: border-box;
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TOP RIGHT INDICATOR
+========================================================= */
+
+.bc-calendar-container::after,
+.bc-time-container::after {
+  content: "";
+
+  position: absolute;
+
+  top: 20px;
+  right: 21px;
+
+  width: 23px;
+  height: 23px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+.bc-calendar-container::before,
+.bc-time-container::before {
+  content: "";
+
+  position: absolute;
+
+  top: 28px;
+  right: 29px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #171717;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   SUBHEADING
+========================================================= */
+
+.bc-subheading {
+  flex-shrink: 0;
+
+  padding-bottom: 11px;
+
+  margin-bottom: 12px;
+
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.bc-subheading h3 {
+  margin: 0;
+
+  padding-right: 42px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 21px;
+
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+.bc-subheading p {
+  margin: 5px 0 0;
+
+  padding-right: 40px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  color: #bdbdbd;
+}
+
+
+/* =========================================================
+   CALENDAR CONTAINER
+========================================================= */
+
+.bc-calendar-container {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.bc-calendar {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   CALENDAR HEADER
+========================================================= */
+
+.bc-calendar-header {
+  flex-shrink: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    40px 1fr 40px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.bc-calendar-header strong {
+  text-align: center;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 24px;
+
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   CALENDAR NAVIGATION
+========================================================= */
+
+.bc-calendar-header button {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  border: 1px solid transparent;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bc-calendar-header button:hover:not(:disabled) {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  color: #171717;
+}
+
+.bc-calendar-header button:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+.bc-calendar-header button svg {
+  width: 15px;
+  height: 15px;
+}
+
+
+/* =========================================================
+   WEEKDAYS
+========================================================= */
+
+.bc-calendar-weekdays {
+  flex-shrink: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 5px;
+
+  margin-bottom: 5px;
+}
+
+.bc-calendar-weekdays span {
+  padding: 4px 0;
+
+  text-align: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: #999999;
+}
+
+
+/* =========================================================
+   CALENDAR DAYS
+========================================================= */
+
+.bc-calendar-days {
+  flex: 1;
+
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+
+  grid-auto-rows: 1fr;
+
+  gap: 5px;
+}
+
+.bc-calendar-empty {
+  min-height: 0;
+}
+
+
+/* =========================================================
+   CALENDAR DAY
+========================================================= */
+
+.bc-calendar-day {
+  width: 100%;
+  height: 100%;
+
+  min-height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  border: 1px solid transparent;
+
+  border-radius: 3px;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bc-calendar-day:hover:not(:disabled) {
+  border-color: #ffffff;
+
+  background: #2c2c2c;
+}
+
+.bc-calendar-day.selected {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  color: #171717;
+
+  font-weight: 500;
+}
+
+.bc-calendar-day.disabled,
+.bc-calendar-day:disabled {
+  color: #5c5c5c;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CALENDAR LEGEND
+========================================================= */
+
+.bc-calendar-legend {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 10px;
+
+  padding-top: 10px;
+
+  border-top: 1px solid #4b4b4b;
+}
+
+.bc-calendar-legend span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  color: #aaa7a1;
+}
+
+.bc-calendar-legend i {
+  width: 7px;
+  height: 7px;
+
+  display: block;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+.available-dot {
+  background: #777777;
+}
+
+.unavailable-dot {
+  background: #444444;
+}
+
+.selected-dot {
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   TIME CONTAINER
+========================================================= */
+
+.bc-time-container {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   TIME SLOTS CONTENT
+========================================================= */
+
+.bc-time-slots-content {
+  flex: 1;
+
+  min-height: 0;
+
+  width: 100%;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  padding-right: 5px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TIME SLOT SCROLLBAR
+========================================================= */
+
+.bc-time-slots-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.bc-time-slots-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bc-time-slots-content::-webkit-scrollbar-thumb {
+  background: #555555;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   TIME SLOTS
+========================================================= */
+
+.bc-time-slots {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+
+/* =========================================================
+   TIME SLOT
+========================================================= */
+
+.bc-time-slot {
+  width: 100%;
+
+  min-height: 40px;
+
+  background: transparent;
+
+  border: 1px solid transparent;
+
+  border-radius: 3px;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bc-time-slot:hover {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  color: #171717;
+}
+
+.bc-time-slot.selected {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  color: #171717;
+
+  font-weight: 500;
+}
+
+.bc-time-slot:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   EMPTY TIME SLOTS
+========================================================= */
+
+.bc-empty-slots {
+  min-height: 115px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 18px;
+
+  text-align: center;
+
+  background: #202020;
+
+  border: 1px solid #4b4b4b;
+
+  border-radius: 3px;
+
+  box-sizing: border-box;
+}
+
+.bc-empty-slots svg {
+  margin-bottom: 7px;
+
+  color: #ffffff;
+}
+
+.bc-empty-slots span {
+  display: block;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  color: #ffffff;
+}
+
+.bc-empty-slots p {
+  max-width: 280px;
+
+  margin: 6px 0 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  color: #999999;
+}
+
+
+/* =========================================================
+   TIMEZONE
+========================================================= */
+
+.bc-timezone {
+  flex-shrink: 0;
+
+  margin: 10px 0 0;
+
+  padding-top: 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  line-height: 1.4;
+
+  color: #999999;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.bc-step-two .slot-error {
+  margin-top: 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  color: #d58d8d;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bc-step-two .bc-navigation {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 25px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #d8d4cd;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.bc-step-two .bc-back-button,
+.bc-step-two .bc-next-button {
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 0 21px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  border-radius: 5px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bc-step-two .bc-back-button {
+  background: transparent;
+
+  border: 1px solid #bdb9b2;
+
+  color: #171717;
+}
+
+.bc-step-two .bc-back-button:hover {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #ffffff;
+}
+
+.bc-step-two .bc-next-button {
+  min-width: 110px;
+
+  background: #171717;
+
+  border: 1px solid #171717;
+
+  color: #ffffff;
+}
+
+.bc-step-two .bc-next-button:hover:not(:disabled) {
+  background: #303030;
+}
+
+.bc-step-two .bc-next-button:disabled {
+  background: #d8d5cf;
+
+  border-color: #d8d5cf;
+
+  color: #99958e;
+
+  cursor: not-allowed;
+}
+
+.bc-step-two .bc-back-button svg,
+.bc-step-two .bc-next-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .bc-step-two {
+    width: min(100% - 48px, 900px);
+
+    padding: 60px 0;
+  }
+
+  .bc-step-two .consultation-progress {
+    gap: 11px;
+  }
+
+  .bc-step-two .progress-line {
+    width: 45px;
+  }
+
+  .bc-step-two .progress-label {
+    font-size: 9px;
+  }
+
+  .bc-step-two-heading-row {
+    gap: 20px;
+  }
+
+  .bc-step-two-heading-row .bc-section-heading {
+    max-width: 500px;
+
+    flex-basis: 500px;
+  }
+
+  .bc-selected-consultation-box {
+    width: 360px;
+
+    min-width: 360px;
+  }
+
+  .bc-date-time-grid {
+    max-width: 100%;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: stretch;
+  }
+
+  .bc-calendar-container,
+  .bc-time-container {
+    height: 500px;
+
+    min-height: 500px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .bc-step-two .consultation-progress {
+    gap: 7px;
+  }
+
+  .bc-step-two .progress-step {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+  .bc-step-two .progress-number {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bc-step-two .progress-label {
+    font-size: 8px;
+
+    letter-spacing: 0.8px;
+  }
+
+  .bc-step-two .progress-line {
+    width: 28px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-two-heading-row {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 22px;
+  }
+
+  .bc-step-two-heading-row .bc-section-heading {
+    width: 100%;
+
+    max-width: 100%;
+
+    flex: none;
+  }
+
+  .bc-step-two-heading-row .bc-section-heading h2 {
+    font-size: 42px;
+  }
+
+
+  /* Summary */
+
+  .bc-selected-consultation-box {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+
+  /* Cards */
+
+  .bc-date-time-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bc-calendar-container,
+  .bc-time-container {
+    height: 480px;
+
+    min-height: 480px;
+
+    padding: 22px;
+  }
+
+
+  /* Calendar */
+
+  .bc-calendar-header strong {
+    font-size: 22px;
+  }
+
+  .bc-calendar-day {
+    min-height: 34px;
+
+    font-size: 12px;
+  }
+
+
+  /* Time */
+
+  .bc-time-slot {
+    min-height: 42px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .bc-step-two {
+    width: calc(100% - 32px);
+
+    padding: 45px 0 55px;
+  }
+
+
+  /* Progress */
+
+  .bc-step-two .consultation-progress {
+    width: 100%;
+
+    gap: 3px;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    padding-bottom: 5px;
+  }
+
+  .bc-step-two .progress-step {
+    flex: 1;
+
+    min-width: 0;
+  }
+
+  .bc-step-two .progress-number {
+    width: 29px;
+    height: 29px;
+
+    font-size: 9px;
+  }
+
+  .bc-step-two .progress-label {
+    font-size: 6.5px;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+  }
+
+  .bc-step-two .progress-line {
+    width: 15px;
+
+    min-width: 15px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-two-heading-row {
+    margin-bottom: 30px;
+  }
+
+  .bc-step-two-heading-row .bc-section-heading h2 {
+    font-size: 36px;
+  }
+
+  .bc-step-two-heading-row .bc-section-heading p {
+    font-size: 13px;
+  }
+
+
+  /* Summary */
+
+  .bc-selected-consultation-box {
+    min-height: 76px;
+
+    height: auto;
+
+    padding: 17px;
+  }
+
+
+  /* Cards */
+
+  .bc-calendar-container,
+  .bc-time-container {
+    height: 430px;
+
+    min-height: 430px;
+
+    padding: 20px;
+  }
+
+
+  /* Calendar */
+
+  .bc-calendar-header {
+    grid-template-columns: 34px 1fr 34px;
+
+    margin-bottom: 10px;
+  }
+
+  .bc-calendar-header button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .bc-calendar-header strong {
+    font-size: 20px;
+  }
+
+  .bc-calendar-weekdays {
+    gap: 3px;
+  }
+
+  .bc-calendar-days {
+    gap: 3px;
+  }
+
+  .bc-calendar-day {
+    min-height: 30px;
+
+    font-size: 11px;
+  }
+
+
+  /* Time */
+
+  .bc-time-slots {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+  }
+
+  .bc-time-slot {
+    min-height: 40px;
+
+    font-size: 11px;
+  }
+
+
+  /* Navigation */
+
+  .bc-step-two .bc-navigation {
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+  .bc-step-two .bc-back-button,
+  .bc-step-two .bc-next-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .bc-step-two {
+    width: calc(100% - 24px);
+
+    padding-top: 38px;
+  }
+
+
+  /* Progress */
+
+  .bc-step-two .progress-line {
+    width: 8px;
+
+    min-width: 8px;
+  }
+
+  .bc-step-two .progress-number {
+    width: 26px;
+    height: 26px;
+  }
+
+  .bc-step-two .progress-label {
+    font-size: 5.5px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-two-heading-row .bc-section-heading h2 {
+    font-size: 32px;
+  }
+
+
+  /* Summary */
+
+  .bc-selected-consultation-box {
+    padding: 15px;
+  }
+
+  .bc-selected-consultation-text span {
+    font-size: 13px;
+  }
+
+
+  /* Cards */
+
+  .bc-calendar-container,
+  .bc-time-container {
+    height: 400px;
+
+    min-height: 400px;
+
+    padding: 18px;
+  }
+
+
+  /* Calendar */
+
+  .bc-calendar-header {
+    grid-template-columns: 30px 1fr 30px;
+  }
+
+  .bc-calendar-header button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .bc-calendar-header strong {
+    font-size: 18px;
+  }
+
+  .bc-calendar-weekdays {
+    gap: 2px;
+  }
+
+  .bc-calendar-weekdays span {
+    font-size: 7px;
+  }
+
+  .bc-calendar-days {
+    gap: 2px;
+  }
+
+  .bc-calendar-day {
+    min-height: 27px;
+
+    font-size: 10px;
+  }
+
+
+  /* Legend */
+
+  .bc-calendar-legend {
+    gap: 10px;
+
+    margin-top: 8px;
+
+    padding-top: 8px;
+  }
+
+  .bc-calendar-legend span {
+    font-size: 7px;
+  }
+
+
+  /* Time */
+
+  .bc-time-slot {
+    min-height: 38px;
+
+    font-size: 10px;
+  }
+
+  .bc-timezone {
+    font-size: 7px;
+  }
+}

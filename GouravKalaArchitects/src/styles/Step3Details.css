@@ -1,0 +1,1054 @@
+/* =========================================================
+   BOOK CONSULTATION
+   STEP 3 - YOUR DETAILS
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.bc-step-three {
+  width: min(1280px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 70px 0 65px;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.bc-step-three .consultation-progress {
+  width: 100%;
+
+  max-width: 1050px;
+
+  margin: 0 auto 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   PROGRESS STEP
+========================================================= */
+
+.bc-step-three .progress-step {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  opacity: 0.38;
+
+  transition: opacity 0.2s ease;
+}
+
+.bc-step-three .progress-step.active,
+.bc-step-three .progress-step.completed {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   PROGRESS NUMBER
+========================================================= */
+
+.bc-step-three .progress-number {
+  width: 36px;
+  height: 36px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #aaa7a1;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  color: #171717;
+}
+
+.bc-step-three .progress-step.active .progress-number,
+.bc-step-three .progress-step.completed .progress-number {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   PROGRESS LABEL
+========================================================= */
+
+.bc-step-three .progress-label {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 1.4px;
+
+  white-space: nowrap;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   PROGRESS LINE
+========================================================= */
+
+.bc-step-three .progress-line {
+  width: 70px;
+
+  height: 1px;
+
+  background: #c9c5bf;
+
+  flex-shrink: 1;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.bc-step-three-heading {
+  width: 100%;
+
+  max-width: 850px;
+  margin-left: 85px;
+
+
+}
+
+.bc-step-three-heading .bc-eyebrow {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: #66615a;
+}
+
+.bc-step-three-heading h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(42px, 5vw, 64px);
+
+  line-height: 1.04;
+
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+
+  color: #171717;
+}
+
+.bc-step-three-heading p {
+  max-width: 620px;
+
+  margin: 16px 0 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  color: #55514b;
+}
+
+
+/* =========================================================
+   MAIN DETAILS LAYOUT
+========================================================= */
+
+.bc-step-three .bc-details-layout {
+  width: 100%;
+
+  max-width: 1100px;
+  margin-top: 0;
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr) minmax(320px, 0.8fr);
+
+  gap: 18px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   DETAILS FORM CARD
+========================================================= */
+
+.bc-step-three .bc-details-form {
+  width: 100%;
+
+  min-height: 440px;
+
+  padding: 30px 34px;
+  margin-top: 30px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #d5d2ca;
+
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   FORM HEADING
+========================================================= */
+
+.bc-step-three .bc-details-heading {
+  padding-bottom: 18px;
+
+  margin-bottom: 25px;
+
+  border-bottom: 1px solid #dedad3;
+}
+
+.bc-step-three .bc-details-heading .bc-eyebrow {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color: #77726b;
+}
+
+.bc-step-three .bc-details-heading h3 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 27px;
+
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.bc-step-three .bc-form-group {
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+.bc-step-three .bc-form-group:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   FORM LABEL
+========================================================= */
+
+.bc-step-three .bc-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color: #55514b;
+}
+
+
+/* =========================================================
+   FORM INPUT
+========================================================= */
+
+.bc-step-three .bc-form-group input {
+  width: 100%;
+
+  height: 50px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+
+  background: #faf9f6;
+
+  border: 1px solid #d0cdc6;
+
+  border-radius: 3px;
+
+  outline: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
+
+  color: #171717;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.bc-step-three .bc-form-group input::placeholder {
+  color: #999999;
+}
+
+.bc-step-three .bc-form-group input:hover {
+  border-color: #aaa69f;
+}
+
+.bc-step-three .bc-form-group input:focus {
+  background: #ffffff;
+
+  border-color: #171717;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+========================================================= */
+
+.bc-step-three .bc-details-summary {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 440px;
+
+  padding: 30px 30px;
+
+  box-sizing: border-box;
+
+  background: #171717;
+
+  color: #ffffff;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SUMMARY INDICATOR
+========================================================= */
+
+.bc-step-three .bc-details-summary::after {
+  content: "";
+
+  position: absolute;
+
+  top: 20px;
+
+  right: 21px;
+
+  width: 23px;
+
+  height: 23px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+.bc-step-three .bc-details-summary::before {
+  content: "";
+
+  position: absolute;
+
+  top: 28px;
+
+  right: 29px;
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #171717;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   SUMMARY HEADER
+========================================================= */
+
+.bc-step-three .bc-summary-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.bc-step-three .bc-summary-label {
+  display: block;
+
+  padding-right: 40px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+
+  color: #aaa69f;
+}
+
+
+/* =========================================================
+   SUMMARY TITLE
+========================================================= */
+
+.bc-step-three .bc-details-summary h3 {
+  margin: 0;
+
+  padding-right: 35px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SUMMARY PRICE
+========================================================= */
+
+.bc-step-three .bc-summary-price {
+  margin-top: 16px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  line-height: 1;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SUMMARY DIVIDER
+========================================================= */
+
+.bc-step-three .bc-summary-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 22px 0;
+
+  background: #404040;
+}
+
+
+/* =========================================================
+   SUMMARY ITEM
+========================================================= */
+
+.bc-step-three .bc-summary-item {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-bottom: 18px;
+}
+
+.bc-step-three .bc-summary-item span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color: #99958e;
+}
+
+.bc-step-three .bc-summary-item strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   CHANGE BUTTON
+========================================================= */
+
+.bc-step-three .bc-change-button {
+  width: 100%;
+
+  min-height: 42px;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: transparent;
+
+  border: 0;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.bc-step-three .bc-change-button:hover {
+  color: #d8d4cd;
+}
+
+.bc-step-three .bc-change-button svg {
+  width: 15px;
+
+  height: 15px;
+
+  stroke-width: 1.5;
+}
+
+
+/* =========================================================
+   FORM ERROR
+========================================================= */
+
+.bc-step-three .bc-form-error {
+  width: 100%;
+
+  max-width: 680px;
+  margin-left: 85px;
+
+  padding: 12px 15px;
+
+  box-sizing: border-box;
+
+  background: #faf5f5;
+
+  border: 1px solid #d8c7c7;
+
+  color: black;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 20px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bc-step-three .bc-navigation {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 25px auto 0;
+
+  padding-top: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-top: 1px solid #d8d4cd;
+}
+
+
+/* =========================================================
+   BACK / NEXT BUTTONS
+========================================================= */
+
+.bc-step-three .bc-back-button,
+.bc-step-three .bc-next-button {
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 21px;
+
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.bc-step-three .bc-back-button {
+  background: transparent;
+
+  border: 1px solid #bdb9b2;
+
+  color: #171717;
+}
+
+.bc-step-three .bc-back-button:hover {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+.bc-step-three .bc-next-button {
+  min-width: 150px;
+
+  background: #171717;
+
+  border: 1px solid #171717;
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+.bc-step-three .bc-next-button:hover {
+  background: #303030;
+}
+
+.bc-step-three .bc-back-button svg,
+.bc-step-three .bc-next-button svg {
+  width: 14px;
+
+  height: 14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .bc-step-three {
+    width: min(100% - 48px, 900px);
+
+    padding: 60px 0;
+  }
+
+
+  /* Progress */
+
+  .bc-step-three .consultation-progress {
+    gap: 11px;
+  }
+
+  .bc-step-three .progress-line {
+    width: 45px;
+  }
+
+  .bc-step-three .progress-label {
+    font-size: 9px;
+  }
+
+
+  /* Layout */
+
+  .bc-step-three .bc-details-layout {
+    grid-template-columns:
+      minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  }
+
+
+  /* Cards */
+
+  .bc-step-three .bc-details-form,
+  .bc-step-three .bc-details-summary {
+    min-height: 420px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .bc-step-three .consultation-progress {
+    gap: 7px;
+  }
+
+  .bc-step-three .progress-step {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+  .bc-step-three .progress-number {
+    width: 32px;
+
+    height: 32px;
+  }
+
+  .bc-step-three .progress-label {
+    font-size: 8px;
+
+    letter-spacing: 0.8px;
+  }
+
+  .bc-step-three .progress-line {
+    width: 28px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-three-heading h2 {
+    font-size: 42px;
+  }
+
+
+  /* Layout */
+
+  .bc-step-three .bc-details-layout {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  /* Summary */
+
+  .bc-step-three .bc-details-summary {
+    min-height: auto;
+
+    position: relative;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .bc-step-three {
+    width: calc(100% - 32px);
+
+    padding: 45px 0 55px;
+  }
+
+
+  /* Progress */
+
+  .bc-step-three .consultation-progress {
+    width: 100%;
+
+    gap: 3px;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    padding-bottom: 5px;
+  }
+
+  .bc-step-three .progress-step {
+    flex: 1;
+
+    min-width: 0;
+  }
+
+  .bc-step-three .progress-number {
+    width: 29px;
+
+    height: 29px;
+
+    font-size: 9px;
+  }
+
+  .bc-step-three .progress-label {
+    font-size: 6.5px;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+  }
+
+  .bc-step-three .progress-line {
+    width: 15px;
+
+    min-width: 15px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-three-heading {
+    margin-bottom: 30px;
+  }
+
+  .bc-step-three-heading h2 {
+    font-size: 36px;
+  }
+
+  .bc-step-three-heading p {
+    font-size: 13px;
+  }
+
+
+  /* Form */
+
+  .bc-step-three .bc-details-form {
+    min-height: auto;
+
+    padding: 24px 20px;
+  }
+
+  .bc-step-three .bc-details-heading {
+    margin-bottom: 23px;
+  }
+
+  .bc-step-three .bc-details-heading h3 {
+    font-size: 24px;
+  }
+
+
+  /* Summary */
+
+  .bc-step-three .bc-details-summary {
+    min-height: auto;
+
+    padding: 24px 20px;
+  }
+
+  .bc-step-three .bc-details-summary h3 {
+    font-size: 23px;
+  }
+
+
+  /* Navigation */
+
+  .bc-step-three .bc-navigation {
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+  .bc-step-three .bc-back-button,
+  .bc-step-three .bc-next-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .bc-step-three {
+    width: calc(100% - 24px);
+
+    padding-top: 38px;
+  }
+
+
+  /* Progress */
+
+  .bc-step-three .progress-line {
+    width: 8px;
+
+    min-width: 8px;
+  }
+
+  .bc-step-three .progress-number {
+    width: 26px;
+
+    height: 26px;
+  }
+
+  .bc-step-three .progress-label {
+    font-size: 5.5px;
+  }
+
+
+  /* Heading */
+
+  .bc-step-three-heading h2 {
+    font-size: 32px;
+  }
+
+
+  /* Form */
+
+  .bc-step-three .bc-details-form {
+    padding: 20px 18px;
+  }
+
+  .bc-step-three .bc-form-group input {
+    height: 48px;
+  }
+
+
+  /* Summary */
+
+  .bc-step-three .bc-details-summary {
+    padding: 20px 18px;
+  }
+
+  .bc-step-three .bc-summary-price {
+    font-size: 23px;
+  }
+}
