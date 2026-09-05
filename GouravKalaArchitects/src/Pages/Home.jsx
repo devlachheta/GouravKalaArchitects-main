@@ -12,6 +12,7 @@ import Interior from "../assets/interior.png";
 import Header from "../Component/Header";
 import CTASection from "../CTASection";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import Reels from "../Component/Reels";
 import { useEffect, useRef, useState } from "react";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
 function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
@@ -616,6 +617,7 @@ function Home() {
 
         </div>
       </section>
+      <Reels />
       <section className="home-contact">
 
         <motion.div

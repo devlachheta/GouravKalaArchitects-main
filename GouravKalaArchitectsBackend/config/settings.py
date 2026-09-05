@@ -52,20 +52,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # Cloudinary
     "cloudinary_storage",
     "cloudinary",
 
-    # Django REST Framework
     "rest_framework",
 
-    # CORS
     "corsheaders",
 
-    # JWT blacklist
     "rest_framework_simplejwt.token_blacklist",
 
-    # Project apps
     "accounts",
     "projects",
     "website",
@@ -256,19 +251,15 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
 
-    # Access token expires after 30 minutes
     "ACCESS_TOKEN_LIFETIME":
         timedelta(minutes=30),
 
-    # Refresh token expires after 7 days
     "REFRESH_TOKEN_LIFETIME":
         timedelta(days=7),
 
-    # Rotate refresh tokens
     "ROTATE_REFRESH_TOKENS":
         True,
 
-    # Blacklist old refresh tokens
     "BLACKLIST_AFTER_ROTATION":
         True,
 }
@@ -298,7 +289,10 @@ CORS_ALLOWED_ORIGINS = [
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
+
+EMAIL_PORT = int(
+    os.getenv("EMAIL_PORT", 587)
+)
 
 EMAIL_USE_TLS = (
     os.getenv("EMAIL_USE_TLS", "True").lower() == "true"
@@ -317,16 +311,24 @@ CONTACT_RECEIVER_EMAIL = os.getenv(
 FRONTEND_URL = "http://localhost:5173"
 
 
-
 # =========================================================
 # CLOUDINARY MEDIA STORAGE
 # =========================================================
 
 STORAGES = {
+
     "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+
+        "BACKEND":
+            "cloudinary_storage.storage.MediaCloudinaryStorage",
+
     },
+
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+
+        "BACKEND":
+            "django.contrib.staticfiles.storage.StaticFilesStorage",
+
     },
+
 }
