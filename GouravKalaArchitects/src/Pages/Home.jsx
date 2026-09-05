@@ -14,8 +14,6 @@ import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
 
-
-
 function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
@@ -78,9 +76,9 @@ function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
 function Home() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(false);
   const [homepageStats, setHomepageStats] = useState({
-    years: 7,
-    projects: 48,
-    cities: 6,
+    years: 0,
+    projects: 0,
+    cities: 0,
   });
   useEffect(() => {
     const handleScroll = () => {
@@ -101,9 +99,9 @@ function Home() {
         const response = await api.get("homepage/");
 
         setHomepageStats({
-          years: Number.parseInt(response.data.years, 10) || 7,
-          projects: Number.parseInt(response.data.projects, 10) || 48,
-          cities: Number.parseInt(response.data.cities, 10) || 6,
+          years: Number.parseInt(response.data.years, 10) || 0,
+          projects: Number.parseInt(response.data.projects, 10) || 0,
+          cities: Number.parseInt(response.data.cities, 10) || 0,
         });
       } catch (error) {
         console.error(

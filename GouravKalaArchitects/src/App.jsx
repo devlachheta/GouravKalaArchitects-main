@@ -9,7 +9,7 @@ import ContactUs from "./Pages/ContactUs";
 import About from "./Pages/About";
 import Services from "./Pages/Services";
 import FloatingContact from "./Component/FloatingContact";
-import BookConsultation from "./Pages/BookConsultation";
+import BookConsultation from "./Pages/BookConsultation/BookConsultation";
 import Footer from "./Component/Footer";
 import ScrollToTop from "./Component/ScrollToTop";
 import SplashScreen from "./Component/SplashScreen";
