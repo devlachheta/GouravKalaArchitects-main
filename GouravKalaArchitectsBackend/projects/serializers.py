@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from django.utils import timezone
+from datetime import timedelta
 from .models import (
     Project,
     ProjectImage,
@@ -200,3 +202,22 @@ class BookingSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         ]
+
+    def validate_booking_date(self, value):
+        today = timezone.localdate()
+
+        # Booking must be at least 2 days from today
+        minimum_date = today + timedelta(days=2)
+
+        if value < minimum_date:
+            raise serializers.ValidationError(
+                "Bookings can only be made at least 2 days in advance."
+            )
+
+        # Sunday = 6 in Python's weekday()
+        if value.weekday() == 6:
+            raise serializers.ValidationError(
+                "Bookings are not available on Sundays."
+            )
+
+        return value

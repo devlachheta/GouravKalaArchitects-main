@@ -646,7 +646,6 @@ function Home() {
               </motion.span>
             ))}
           </motion.h1>
-
           <motion.div
             className="heading-line"
             initial={{ scaleX: 0 }}
@@ -661,9 +660,7 @@ function Home() {
               ease: [0.22, 1, 0.36, 1],
             }}
           />
-
         </motion.div>
-
       </section>
       <CTASection />
     </>
