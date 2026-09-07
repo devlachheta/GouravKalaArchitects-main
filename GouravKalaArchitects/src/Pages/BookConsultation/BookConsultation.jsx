@@ -308,7 +308,22 @@ function BookConsultation() {
             0
         );
 
-        if (normalizedDate < today) {
+        // Booking must be at least 2 days in advance
+
+        const minimumBookingDate = new Date(today);
+
+        minimumBookingDate.setDate(
+            minimumBookingDate.getDate() + 2
+        );
+
+        minimumBookingDate.setHours(
+            0,
+            0,
+            0,
+            0
+        );
+
+        if (normalizedDate < minimumBookingDate) {
             return;
         }
 
@@ -539,10 +554,7 @@ function BookConsultation() {
          * Add empty spaces before the first day.
          * Convert Sunday from 0 to 6 so Monday is the first day.
          */
-        const startingDay =
-            firstDay === 0
-                ? 6
-                : firstDay - 1;
+        const startingDay = firstDay;
 
 
         for (
@@ -592,10 +604,23 @@ function BookConsultation() {
             0
         );
 
-        return checkDate < today;
+        // Booking must be at least 2 days in advance
+        const minimumBookingDate = new Date(today);
+
+        minimumBookingDate.setDate(
+            minimumBookingDate.getDate() + 2
+        );
+
+        minimumBookingDate.setHours(
+            0,
+            0,
+            0,
+            0
+        );
+
+        return checkDate < minimumBookingDate;
 
     };
-
 
     const isSunday = (date) => {
 
