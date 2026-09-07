@@ -10,6 +10,8 @@ import Residential from "../assets/residential1.jpg";
 import Interior from "../assets/interior.png";
 import Header from "../Component/Header";
 import CTASection from "../CTASection";
+import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import Reels from "../Component/Reels";
 import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
@@ -618,6 +620,7 @@ function Home() {
 
         </div>
       </section>
+      <Reels />
       <section className="home-contact">
 
         <motion.div
@@ -665,6 +668,9 @@ function Home() {
         </motion.div>
 
       </section>
+      <Reels />
+
+
       <CTASection />
     </>
   );

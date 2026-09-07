@@ -11,7 +11,9 @@ import Projects from "./pages/Projects";
 import AddProject from "./pages/AddProject";
 import EditProject from "./pages/EditProject";
 import ViewProject from "./pages/ViewProject";
-
+import Reels from "./pages/Reels";
+import AddReel from "./pages/AddReel";
+import EditReel from "./pages/EditReel";
 import AdminLayout from "./layouts/AdminLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -19,30 +21,27 @@ import ForgotPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
 
 function App() {
-
   return (
     <BrowserRouter>
-
       <Routes>
-
-        {/* ================= LOGIN ================= */}
 
         <Route
           path="/login"
           element={<Login />}
         />
+
         <Route
           path="/forgot-password"
           element={<ForgotPassword />}
         />
+
         <Route
           path="/reset-password/:uid/:token"
           element={<ResetPassword />}
         />
 
-        {/* ================= ADMIN ================= */}
-
         <Route element={<AdminLayout />}>
+
           <Route
             path="/home"
             element={<Home />}
@@ -52,6 +51,7 @@ function App() {
             path="/about"
             element={<About />}
           />
+
           <Route
             path="/dashboard"
             element={<Dashboard />}
@@ -77,10 +77,20 @@ function App() {
             element={<ViewProject />}
           />
 
+          <Route
+            path="/reels"
+            element={<Reels />}
+          />
+
+          <Route
+            path="/reels/add"
+            element={<AddReel />}
+          />
+          <Route
+            path="/reels/edit/:id"
+            element={<EditReel />}
+          />
         </Route>
-
-
-        {/* ================= DEFAULT ================= */}
 
         <Route
           path="*"
@@ -93,7 +103,6 @@ function App() {
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }

@@ -14,7 +14,7 @@ import {
     Sofa,
     House,
     Info,
-    Settings,
+    Clapperboard,
     User,
     LogOut,
     Menu,
@@ -269,21 +269,17 @@ function AdminLayout() {
                     <div className="sidebar-section sidebar-secondary">
 
 
-                        {/* Settings */}
-
                         <NavLink
-                            to="/settings"
+                            to="/reels"
                             className={({ isActive }) =>
                                 `sidebar-link ${isActive ? "active" : ""}`
                             }
                         >
-
-                            <Settings size={20} />
+                            <Clapperboard size={20} />
 
                             <span>
-                                Settings
+                                Reels
                             </span>
-
                         </NavLink>
 
 
