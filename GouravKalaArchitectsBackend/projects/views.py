@@ -8,6 +8,12 @@ from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 
+import hmac
+import hashlib
+import json
+
+from django.views.decorators.csrf import csrf_exempt
+
 import razorpay
 
 from rest_framework import viewsets, status
@@ -355,6 +361,8 @@ class ConsultationViewSet(
             # Check booking conflicts
             # -------------------------------------------------
 
+            payment_hold_cutoff = timezone.now() - timedelta(minutes=10)
+
             has_conflict = Booking.objects.filter(
                 booking_date=booking_date,
                 start_time__lt=end_time,
@@ -366,6 +374,9 @@ class ConsultationViewSet(
                     "failed",
                     "refunded",
                 ]
+            ).exclude(
+                payment_status="pending",
+                created_at__lte=payment_hold_cutoff,
             ).exists()
 
             if not has_conflict:
@@ -523,6 +534,46 @@ class BookingViewSet(
                     "error": (
                         "Payment signature "
                         "verification failed."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+
+        # -------------------------------------------------
+        # VERIFY PAYMENT AMOUNT
+        # -------------------------------------------------
+
+        try:
+            payment_details = client.payment.fetch(
+                razorpay_payment_id
+            )
+
+            expected_amount = int(
+                booking.amount * 100
+            )
+
+            paid_amount = payment_details.get(
+                "amount"
+            )
+
+            if paid_amount != expected_amount:
+                return Response(
+                    {
+                        "error": (
+                            "Payment amount does not "
+                            "match the booking amount."
+                        )
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        except Exception:
+            return Response(
+                {
+                    "error": (
+                        "Unable to verify payment "
+                        "amount."
                     )
                 },
                 status=status.HTTP_400_BAD_REQUEST,
@@ -949,11 +1000,216 @@ class BookingViewSet(
             status=status.HTTP_200_OK,
         )
 
+
+    @csrf_exempt
+    @action(
+        detail=False,
+        methods=["post"],
+        url_path="razorpay-webhook",
+    )
+    def razorpay_webhook(self, request):
+
+        # -------------------------------------------------
+        # GET WEBHOOK DATA
+        # -------------------------------------------------
+
+        webhook_signature = request.headers.get(
+            "X-Razorpay-Signature"
+        )
+
+        if not webhook_signature:
+            return Response(
+                {
+                    "error": "Missing Razorpay webhook signature."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        raw_body = request.body
+
+        # -------------------------------------------------
+        # VERIFY WEBHOOK SIGNATURE
+        # -------------------------------------------------
+
+        expected_signature = hmac.new(
+            settings.RAZORPAY_WEBHOOK_SECRET.encode(),
+            raw_body,
+            hashlib.sha256,
+        ).hexdigest()
+
+        if not hmac.compare_digest(
+            expected_signature,
+            webhook_signature,
+        ):
+            return Response(
+                {
+                    "error": "Invalid webhook signature."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # PARSE WEBHOOK
+        # -------------------------------------------------
+
+        try:
+            payload = json.loads(
+                raw_body.decode("utf-8")
+            )
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            return Response(
+                {
+                    "error": "Invalid webhook payload."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        event = payload.get("event")
+
+        # -------------------------------------------------
+        # PAYMENT CAPTURED
+        # -------------------------------------------------
+
+        if event == "payment.captured":
+
+            payment_entity = (
+                payload
+                .get("payload", {})
+                .get("payment", {})
+                .get("entity", {})
+            )
+
+            razorpay_order_id = payment_entity.get(
+                "order_id"
+            )
+
+            razorpay_payment_id = payment_entity.get(
+                "id"
+            )
+
+            if not razorpay_order_id:
+                return Response(
+                    {
+                        "error": (
+                            "Razorpay order ID not found."
+                        )
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            try:
+                booking = Booking.objects.get(
+                    razorpay_order_id=razorpay_order_id
+                )
+            except Booking.DoesNotExist:
+                return Response(
+                    {
+                        "message": (
+                            "Booking not found. "
+                            "Webhook ignored."
+                        )
+                    },
+                    status=status.HTTP_200_OK,
+                )
+
+            # Already processed
+            if booking.payment_status == "paid":
+                return Response(
+                    {
+                        "message": (
+                            "Payment already processed."
+                        )
+                    },
+                    status=status.HTTP_200_OK,
+                )
+
+            booking.razorpay_payment_id = (
+                razorpay_payment_id
+            )
+
+            booking.payment_status = "paid"
+            booking.booking_status = "confirmed"
+
+            booking.save(
+                update_fields=[
+                    "razorpay_payment_id",
+                    "payment_status",
+                    "booking_status",
+                    "updated_at",
+                ]
+            )
+
+            return Response(
+                {
+                    "message": (
+                        "Payment captured and "
+                        "booking confirmed."
+                    )
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        # -------------------------------------------------
+        # PAYMENT FAILED
+        # -------------------------------------------------
+
+        if event == "payment.failed":
+
+            payment_entity = (
+                payload
+                .get("payload", {})
+                .get("payment", {})
+                .get("entity", {})
+            )
+
+            razorpay_order_id = payment_entity.get(
+                "order_id"
+            )
+
+            if razorpay_order_id:
+
+                try:
+                    booking = Booking.objects.get(
+                        razorpay_order_id=razorpay_order_id
+                    )
+
+                    if booking.payment_status != "paid":
+                        booking.payment_status = "failed"
+
+                        booking.save(
+                            update_fields=[
+                                "payment_status",
+                                "updated_at",
+                            ]
+                        )
+
+                except Booking.DoesNotExist:
+                    pass
+
+            return Response(
+                {
+                    "message": "Payment failure received."
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        # -------------------------------------------------
+        # OTHER EVENTS
+        # -------------------------------------------------
+
+        return Response(
+            {
+                "message": "Webhook received."
+            },
+            status=status.HTTP_200_OK,
+        )
+
     @action(
         detail=False,
         methods=["post"],
         url_path="create",
     )
+
     def create_booking(self, request):
 
         consultation_id = request.data.get("consultation_id")
@@ -1153,8 +1409,11 @@ class BookingViewSet(
         # -------------------------------------------------
         # CREATE BOOKING
         # -------------------------------------------------
+        
 
         with transaction.atomic():
+
+            payment_hold_cutoff = timezone.now() - timedelta(minutes=10)
 
             conflicting_booking = (
                 Booking.objects
@@ -1173,6 +1432,10 @@ class BookingViewSet(
                         "refunded",
                     ]
                 )
+                .exclude(
+                    payment_status="pending",
+                    created_at__lte=payment_hold_cutoff,
+                )
                 .first()
             )
 
@@ -1187,6 +1450,10 @@ class BookingViewSet(
                     status=status.HTTP_409_CONFLICT,
                 )
 
+            # -------------------------------------------------
+            # CREATE BOOKING
+            # -------------------------------------------------
+
             booking = Booking.objects.create(
                 consultation=consultation,
                 customer_name=customer_name,
@@ -1195,11 +1462,7 @@ class BookingViewSet(
                 booking_date=booking_date,
                 start_time=start_time,
                 end_time=end_time,
-
-                # IMPORTANT:
-                # Price comes from Django database.
                 amount=consultation.price,
-
                 payment_status="pending",
                 booking_status="pending",
             )
@@ -1240,27 +1503,27 @@ class BookingViewSet(
                 ]
             )
 
-        # -------------------------------------------------
-        # RESPONSE
-        # -------------------------------------------------
+            # -------------------------------------------------
+            # RESPONSE
+            # -------------------------------------------------
 
-        serializer = self.get_serializer(
-            booking
-        )
+            serializer = self.get_serializer(
+                booking
+            )
 
-        return Response(
-            {
-                "message": (
-                    "Booking created and "
-                    "Razorpay order created."
-                ),
-                "booking": serializer.data,
-                "razorpay": {
-                    "key_id": settings.RAZORPAY_KEY_ID,
-                    "order_id": razorpay_order["id"],
-                    "amount": razorpay_order["amount"],
-                    "currency": razorpay_order["currency"],
+            return Response(
+                {
+                    "message": (
+                        "Booking created and "
+                        "Razorpay order created."
+                    ),
+                    "booking": serializer.data,
+                    "razorpay": {
+                        "key_id": settings.RAZORPAY_KEY_ID,
+                        "order_id": razorpay_order["id"],
+                        "amount": razorpay_order["amount"],
+                        "currency": razorpay_order["currency"],
+                    },
                 },
-            },
-            status=status.HTTP_201_CREATED,
-        )
+                status=status.HTTP_201_CREATED,
+            )

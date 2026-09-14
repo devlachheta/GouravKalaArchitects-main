@@ -665,9 +665,6 @@ function Home() {
           />
         </motion.div>
       </section>
-      <Reels />
-
-
       <CTASection />
     </>
   );

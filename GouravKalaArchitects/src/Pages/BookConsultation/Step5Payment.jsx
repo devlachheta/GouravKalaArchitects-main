@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     FiArrowLeft,
     FiArrowRight,
@@ -18,6 +18,37 @@ function Step5Payment({
     paymentError,
     handlePreviousStep,
 }) {
+
+    const [refundPolicyAccepted, setRefundPolicyAccepted] =
+        useState(false);
+
+    const [policyError, setPolicyError] = useState("");
+
+    const handleProceedToPayment = () => {
+
+        if (!refundPolicyAccepted) {
+            setPolicyError(
+                "Please confirm that you understand the cancellation and refund policy."
+            );
+            return;
+        }
+
+        setPolicyError("");
+
+        handlePayment();
+    };
+
+    const handlePolicyChange = (event) => {
+
+        setRefundPolicyAccepted(
+            event.target.checked
+        );
+
+        if (event.target.checked) {
+            setPolicyError("");
+        }
+    };
+
     return (
         <section className="bc-step-section">
 
@@ -165,6 +196,25 @@ function Step5Payment({
 
                         </div>
 
+
+                        {/* CANCELLATION & REFUND POLICY */}
+
+                        <div className="bc-refund-policy">
+
+                            <span className="bc-refund-policy-title">
+                                CANCELLATION & REFUND POLICY
+                            </span>
+
+                            <p>
+                                Once payment has been successfully
+                                completed, the consultation fee is
+                                <strong> non-refundable</strong>.
+                                Cancelling a confirmed booking does
+                                not qualify for a refund.
+                            </p>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -232,10 +282,37 @@ function Step5Payment({
                     </div>
 
 
+                    {/* POLICY CHECKBOX */}
+
+                    <label className="bc-refund-checkbox">
+
+                        <input
+                            type="checkbox"
+                            checked={refundPolicyAccepted}
+                            onChange={handlePolicyChange}
+                            disabled={processingPayment}
+                        />
+
+                        <span>
+                            I understand that the consultation
+                            fee is non-refundable once payment
+                            is completed.
+                        </span>
+
+                    </label>
+
+
+                    {policyError && (
+                        <div className="bc-policy-error">
+                            {policyError}
+                        </div>
+                    )}
+
+
                     <button
                         type="button"
                         className="bc-pay-button"
-                        onClick={handlePayment}
+                        onClick={handleProceedToPayment}
                         disabled={processingPayment}
                     >
                         {processingPayment
@@ -275,6 +352,7 @@ function Step5Payment({
                     type="button"
                     className="bc-back-button"
                     onClick={handlePreviousStep}
+                    disabled={processingPayment}
                 >
                     <FiArrowLeft />
                     Back

@@ -110,11 +110,15 @@ class WorkingHoursAdmin(admin.ModelAdmin):
     ordering = ("day_of_week",)
 
 
+
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
+
     list_display = (
+        "id",
         "customer_name",
         "customer_email",
+        "customer_phone",
         "consultation",
         "booking_date",
         "start_time",
@@ -129,6 +133,7 @@ class BookingAdmin(admin.ModelAdmin):
         "payment_status",
         "booking_status",
         "booking_date",
+        "consultation",
     )
 
     search_fields = (
@@ -142,4 +147,65 @@ class BookingAdmin(admin.ModelAdmin):
     ordering = (
         "-booking_date",
         "-start_time",
+    )
+
+    readonly_fields = (
+        "razorpay_order_id",
+        "razorpay_payment_id",
+        "razorpay_signature",
+        "created_at",
+        "updated_at",
+    )
+
+    fieldsets = (
+        (
+            "Customer Information",
+            {
+                "fields": (
+                    "customer_name",
+                    "customer_email",
+                    "customer_phone",
+                )
+            },
+        ),
+        (
+            "Booking Information",
+            {
+                "fields": (
+                    "consultation",
+                    "booking_date",
+                    "start_time",
+                    "end_time",
+                    "amount",
+                )
+            },
+        ),
+        (
+            "Payment",
+            {
+                "fields": (
+                    "payment_status",
+                    "razorpay_order_id",
+                    "razorpay_payment_id",
+                    "razorpay_signature",
+                )
+            },
+        ),
+        (
+            "Booking Status",
+            {
+                "fields": (
+                    "booking_status",
+                )
+            },
+        ),
+        (
+            "System Information",
+            {
+                "fields": (
+                    "created_at",
+                    "updated_at",
+                )
+            },
+        ),
     )

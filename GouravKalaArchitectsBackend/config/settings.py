@@ -340,3 +340,5 @@ STORAGES = {
     },
 
 }
+
+RAZORPAY_WEBHOOK_SECRET = "gka_webhook_2026_change_this"

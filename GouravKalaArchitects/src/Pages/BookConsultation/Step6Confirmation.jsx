@@ -6,6 +6,7 @@ import {
 
 function Step6Confirmation({
     renderProgressStep,
+    booking,
     selectedConsultation,
     selectedDate,
     selectedTime,
@@ -25,6 +26,7 @@ function Step6Confirmation({
                     "Consultation",
                     1
                 )}
+
 
                 {renderProgressStep(
                     "02",
@@ -99,10 +101,19 @@ function Step6Confirmation({
 
                     </div>
 
-
                     <div className="bc-confirmation-details">
 
                         <div className="bc-confirmation-detail">
+
+
+                            <span>
+                                BOOKING ID
+                            </span>
+
+                            <strong>
+                                #{booking?.id || "—"}
+                            </strong>
+
 
                             <span>
                                 DATE
@@ -172,11 +183,10 @@ function Step6Confirmation({
                     <span className="bc-eyebrow">
                         WHAT HAPPENS NEXT
                     </span>
-
                     <p>
-                        A confirmation with your consultation details
-                        will be sent to your email. Please keep an eye
-                        on your inbox before the scheduled appointment.
+                        Your booking confirmation and invoice have been
+                        sent to your email address. Please keep an eye
+                        on your inbox for your consultation details.
                     </p>
 
                 </div>

@@ -1419,6 +1419,7 @@ function BookConsultation() {
                         renderProgressStep
                     }
 
+                    booking={booking}
                     selectedConsultation={
                         selectedConsultation
                     }
