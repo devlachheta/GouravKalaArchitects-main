@@ -19,6 +19,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ForgotPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
+import BlockedSlots from "./pages/BlockedSlots";
+import AddBlock from "./pages/AddBlock";
 
 function App() {
   return (
@@ -89,6 +91,14 @@ function App() {
           <Route
             path="/reels/edit/:id"
             element={<EditReel />}
+          />
+          <Route
+            path="/blocked-slots"
+            element={<BlockedSlots />}
+          />
+          <Route
+            path="/blocked-slots/add"
+            element={<AddBlock />}
           />
         </Route>
 
