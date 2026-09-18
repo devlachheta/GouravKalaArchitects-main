@@ -429,7 +429,32 @@ class ConsultationViewSet(
             }
         )
 
-    
+    # -----------------------------------------------------
+    # FULL DAY BLOCKED DATES
+    # -----------------------------------------------------
+
+    @action(
+        detail=False,
+        methods=["get"],
+        url_path="blocked-dates",
+    )
+    def blocked_dates(self, request):
+
+        blocked_dates = BlockedSlot.objects.filter(
+            is_active=True,
+            start_time__isnull=True,
+            end_time__isnull=True,
+        ).values_list(
+            "booking_date",
+            flat=True,
+        )
+
+        return Response({
+            "blocked_dates": [
+                date.strftime("%Y-%m-%d")
+                for date in blocked_dates
+            ]
+        })    
 # =========================================================
 # BOOKING API
 # =========================================================
@@ -1579,6 +1604,253 @@ class BookingViewSet(
                 },
                 status=status.HTTP_201_CREATED,
             )
+            
+     # -----------------------------------------------------
+    # ADMIN BOOKING - NO PAYMENT
+    # -----------------------------------------------------
+
+    @action(
+        detail=False,
+        methods=["post"],
+        url_path="admin-create",
+        permission_classes=[IsAdminUser],
+    )
+    def admin_create_booking(self, request):
+        consultation_id = (
+                request.data.get("consultation_id")
+                or request.data.get("consultation"))
+        customer_name = request.data.get("customer_name")
+        customer_email = request.data.get("customer_email")
+        customer_phone = request.data.get("customer_phone")
+        booking_date = request.data.get("booking_date")
+        start_time = request.data.get("start_time")
+
+        # Required fields
+        if not all([
+            consultation_id,
+            customer_name,
+            customer_email,
+            customer_phone,
+            booking_date,
+            start_time,
+        ]):
+            return Response(
+                {
+                    "error": "All booking fields are required."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+            
+         # Get consultation
+        try:
+            consultation = Consultation.objects.get(
+                id=consultation_id,
+                is_active=True,
+            )
+        except Consultation.DoesNotExist:
+            return Response(
+                {
+                    "error": "Invalid consultation selected."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+                # -------------------------------------------------
+        # VALIDATE DATE
+        # -------------------------------------------------
+
+        try:
+            booking_date = datetime.strptime(
+                booking_date,
+                "%Y-%m-%d"
+            ).date()
+        except (ValueError, TypeError):
+            return Response(
+                {
+                    "error": (
+                        "Invalid booking date format. "
+                        "Use YYYY-MM-DD."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # VALIDATE TIME
+        # -------------------------------------------------
+
+        try:
+            start_time = datetime.strptime(
+                start_time,
+                "%H:%M"
+            ).time()
+        except (ValueError, TypeError):
+            return Response(
+                {
+                    "error": (
+                        "Invalid start time format. "
+                        "Use HH:MM."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CHECK WORKING HOURS
+        # -------------------------------------------------
+
+        working_hours = WorkingHours.objects.filter(
+            day_of_week=booking_date.weekday(),
+            is_active=True,
+        ).first()
+
+        if not working_hours:
+            return Response(
+                {
+                    "error": "No working hours configured for this day."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CALCULATE END TIME
+        # -------------------------------------------------
+
+        start_datetime = datetime.combine(
+            booking_date,
+            start_time,
+        )
+
+        end_datetime = (
+            start_datetime
+            + timedelta(minutes=consultation.duration)
+        )
+
+        end_time = end_datetime.time()
+
+        # -------------------------------------------------
+        # CHECK WORKING HOURS BOUNDARY
+        # -------------------------------------------------
+
+        working_start = datetime.combine(
+            booking_date,
+            working_hours.start_time,
+        )
+
+        working_end = datetime.combine(
+            booking_date,
+            working_hours.end_time,
+        )
+
+        if (
+            start_datetime < working_start
+            or end_datetime > working_end
+        ):
+            return Response(
+                {
+                    "error": (
+                        "Selected time is outside "
+                        "working hours."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CHECK SLOT ALIGNMENT
+        # -------------------------------------------------
+
+        minutes_from_start = (
+            start_datetime - working_start
+        ).total_seconds() / 60
+
+        if minutes_from_start % consultation.duration != 0:
+            return Response(
+                {
+                    "error": (
+                        "Invalid time slot for "
+                        "this consultation."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CREATE ADMIN BOOKING
+        # -------------------------------------------------
+
+        with transaction.atomic():
+
+            conflicting_booking = (
+                Booking.objects
+                .select_for_update()
+                .filter(
+                    booking_date=booking_date,
+                    start_time__lt=end_time,
+                    end_time__gt=start_time,
+                )
+                .exclude(
+                    booking_status="cancelled"
+                )
+                .exclude(
+                    payment_status__in=[
+                        "failed",
+                        "refunded",
+                    ]
+                )
+                .first()
+            )
+
+            if conflicting_booking:
+                return Response(
+                    {
+                        "error": (
+                            "This time slot is "
+                            "already booked."
+                        )
+                    },
+                    status=status.HTTP_409_CONFLICT,
+                )
+
+            # IMPORTANT:
+            # Do NOT check BlockedSlot here.
+            # Admin is allowed to book blocked dates/times.
+
+            booking = Booking.objects.create(
+                consultation=consultation,
+                customer_name=customer_name,
+                customer_email=customer_email,
+                customer_phone=customer_phone,
+                booking_date=booking_date,
+                start_time=start_time,
+                end_time=end_time,
+                amount=consultation.price,
+                payment_status="paid",
+                booking_status="confirmed",
+            )
+
+        # -------------------------------------------------
+        # RESPONSE
+        # -------------------------------------------------
+
+        serializer = self.get_serializer(booking)
+
+        return Response(
+            {
+                "message": "Booking created successfully by admin.",
+                "payment_required": False,
+                "booking": serializer.data,
+            },
+            status=status.HTTP_201_CREATED,
+        )    
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
 # =========================================================

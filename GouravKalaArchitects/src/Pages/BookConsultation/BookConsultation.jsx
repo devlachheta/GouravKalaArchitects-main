@@ -45,6 +45,7 @@ function BookConsultation() {
     today.setHours(0, 0, 0, 0);
 
     const [selectedDate, setSelectedDate] = useState(null);
+    const [blockedDates, setBlockedDates] = useState([]);
 
     const [currentMonth, setCurrentMonth] = useState(
         new Date(
@@ -138,7 +139,39 @@ function BookConsultation() {
         fetchConsultations();
 
     }, []);
+    /* =========================================================
+       LOAD FULL DAY BLOCKED DATES
+    ========================================================= */
 
+    useEffect(() => {
+
+        const fetchBlockedDates = async () => {
+
+            try {
+
+                const response = await api.get(
+                    "consultations/blocked-dates/"
+                );
+
+                setBlockedDates(
+                    response.data?.blocked_dates || []
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Error loading blocked dates:",
+                    error
+                );
+
+                setBlockedDates([]);
+
+            }
+        };
+
+        fetchBlockedDates();
+
+    }, []);
 
     /* =========================================================
        FORMAT DATE FOR API
@@ -328,6 +361,13 @@ function BookConsultation() {
         }
 
         if (normalizedDate.getDay() === 0) {
+            return;
+        }
+        if (
+            blockedDates.includes(
+                formatDateForAPI(normalizedDate)
+            )
+        ) {
             return;
         }
 
@@ -1190,7 +1230,9 @@ function BookConsultation() {
                     isSameDate={
                         isSameDate
                     }
-
+                    blockedDates={
+                        blockedDates
+                    }
                     selectedDate={
                         selectedDate
                     }

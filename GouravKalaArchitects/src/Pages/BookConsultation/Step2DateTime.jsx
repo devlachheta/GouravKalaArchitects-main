@@ -20,10 +20,11 @@ function Step2DateTime({
 
     goToPreviousMonth,
     goToNextMonth,
-
     getDaysInMonth,
+
     isPastDate,
     isSunday,
+    blockedDates,
     isSameDate,
 
     selectedDate,
@@ -248,11 +249,16 @@ function Step2DateTime({
                                         );
                                     }
 
-
                                     const disabled =
                                         isPastDate(date) ||
-                                        isSunday(date);
-
+                                        isSunday(date) ||
+                                        blockedDates.includes(
+                                            `${date.getFullYear()}-${String(
+                                                date.getMonth() + 1
+                                            ).padStart(2, "0")}-${String(
+                                                date.getDate()
+                                            ).padStart(2, "0")}`
+                                        );
                                     const selected =
                                         isSameDate(
                                             date,
