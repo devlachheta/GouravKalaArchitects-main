@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { ArrowLeft, Save } from "lucide-react";
+import {
+  ArrowLeft,
+  Save,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import api from "../services/api";
 
 function AddBlock() {
-
   const navigate = useNavigate();
 
   // ==========================================
@@ -22,28 +24,36 @@ function AddBlock() {
   });
 
   const [saving, setSaving] = useState(false);
+
   const [error, setError] = useState("");
 
+  // ==========================================
+  // FORMAT TIME
+  // ==========================================
+
+  const formatTime = (time) => {
+    if (!time) {
+      return "";
+    }
+
+    const [hours, minutes] = time.split(":");
+
+    const hour = Number(hours);
+
+    const suffix =
+      hour >= 12 ? "PM" : "AM";
+
+    const displayHour =
+      hour % 12 || 12;
+
+    return `${displayHour}:${minutes} ${suffix}`;
+  };
 
   // ==========================================
   // TIME OPTIONS
   // 10:00 AM - 6:00 PM
   // 15 MINUTE INTERVAL
   // ==========================================
-
-  const formatTime = (time) => {
-
-    const [hours, minutes] = time.split(":");
-
-    const hour = Number(hours);
-
-    const suffix = hour >= 12 ? "PM" : "AM";
-
-    const displayHour = hour % 12 || 12;
-
-    return `${displayHour}:${minutes} ${suffix}`;
-  };
-
 
   const timeOptions = [];
 
@@ -52,12 +62,20 @@ function AddBlock() {
     minutes <= 18 * 60;
     minutes += 15
   ) {
+    const hours = Math.floor(
+      minutes / 60
+    );
 
-    const hours = Math.floor(minutes / 60);
     const mins = minutes % 60;
 
     const value =
-      `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
+      `${String(hours).padStart(
+        2,
+        "0"
+      )}:${String(mins).padStart(
+        2,
+        "0"
+      )}`;
 
     timeOptions.push({
       value,
@@ -65,13 +83,11 @@ function AddBlock() {
     });
   }
 
-
   // ==========================================
   // HANDLE INPUT
   // ==========================================
 
   const handleChange = (event) => {
-
     const {
       name,
       value,
@@ -91,29 +107,26 @@ function AddBlock() {
     setError("");
   };
 
-
   // ==========================================
   // SAVE BLOCK
   // ==========================================
 
   const handleSubmit = async (event) => {
-
     event.preventDefault();
 
     setError("");
-
 
     // ------------------------------------------
     // DATE VALIDATION
     // ------------------------------------------
 
     if (!formData.booking_date) {
-
-      setError("Please select a date.");
+      setError(
+        "Please select a date."
+      );
 
       return;
     }
-
 
     // ------------------------------------------
     // TIME VALIDATION
@@ -125,7 +138,6 @@ function AddBlock() {
         !formData.start_time ||
         !formData.end_time
       ) {
-
         setError(
           "Please select both start time and end time."
         );
@@ -133,12 +145,10 @@ function AddBlock() {
         return;
       }
 
-
       if (
         formData.start_time >=
         formData.end_time
       ) {
-
         setError(
           "End time must be after start time."
         );
@@ -147,18 +157,14 @@ function AddBlock() {
       }
     }
 
-
     try {
-
       setSaving(true);
-
 
       // --------------------------------------
       // API PAYLOAD
       // --------------------------------------
 
       const payload = {
-
         booking_date:
           formData.booking_date,
 
@@ -179,7 +185,6 @@ function AddBlock() {
           formData.is_active,
       };
 
-
       // --------------------------------------
       // CREATE BLOCK
       // --------------------------------------
@@ -189,9 +194,8 @@ function AddBlock() {
         payload
       );
 
-
       // --------------------------------------
-      // GO BACK TO BLOCKED SLOTS
+      // RETURN TO BLOCKED SLOTS
       // --------------------------------------
 
       navigate("/blocked-slots");
@@ -203,34 +207,38 @@ function AddBlock() {
         err
       );
 
-
       const responseData =
         err.response?.data;
 
-
       if (
         responseData &&
-        typeof responseData === "object"
+        typeof responseData ===
+        "object"
       ) {
 
         const firstError =
-          Object.values(responseData)[0];
+          Object.values(
+            responseData
+          )[0];
 
-
-        if (Array.isArray(firstError)) {
-
+        if (
+          Array.isArray(
+            firstError
+          )
+        ) {
           setError(
             firstError[0]
           );
 
         } else if (
-          typeof firstError === "string"
+          typeof firstError ===
+          "string"
         ) {
-
-          setError(firstError);
+          setError(
+            firstError
+          );
 
         } else {
-
           setError(
             "Failed to create blocked slot."
           );
@@ -244,24 +252,20 @@ function AddBlock() {
       }
 
     } finally {
-
       setSaving(false);
     }
   };
-
 
   // ==========================================
   // RENDER
   // ==========================================
 
   return (
-
     <div className="add-block-page">
 
-
       {/* =====================================
-                HEADER
-            ====================================== */}
+          HEADER
+      ====================================== */}
 
       <div className="add-block-header">
 
@@ -271,10 +275,17 @@ function AddBlock() {
             type="button"
             className="add-block-back-btn"
             onClick={() =>
-              navigate("/blocked-slots")
+              navigate(
+                "/blocked-slots"
+              )
             }
+            disabled={saving}
           >
             <ArrowLeft size={18} />
+
+            <span>
+              Back
+            </span>
           </button>
 
 
@@ -286,7 +297,7 @@ function AddBlock() {
 
             <p>
               Block a consultation date
-              or specific time range.
+              or a specific time range.
             </p>
 
           </div>
@@ -297,38 +308,36 @@ function AddBlock() {
 
 
       {/* =====================================
-                ERROR
-            ====================================== */}
+          ERROR
+      ====================================== */}
 
       {error && (
-
         <div className="add-block-error">
           {error}
         </div>
-
       )}
 
 
       {/* =====================================
-                FORM CARD
-            ====================================== */}
+          FORM CARD
+      ====================================== */}
 
       <div className="add-block-card">
 
         <form onSubmit={handleSubmit}>
 
-
           {/* =================================
-                        DATE
-                    ================================== */}
+              DATE
+          ================================== */}
 
           <div className="add-block-field">
 
-            <label>
+            <label htmlFor="booking_date">
               Date
             </label>
 
             <input
+              id="booking_date"
               type="date"
               name="booking_date"
               value={
@@ -337,18 +346,19 @@ function AddBlock() {
               onChange={
                 handleChange
               }
+              disabled={saving}
             />
 
           </div>
 
 
           {/* =================================
-                        FULL DAY
-                    ================================== */}
+              FULL DAY
+          ================================== */}
 
-          <div className="add-block-full-day">
+          <div className="add-block-option">
 
-            <label>
+            <label className="add-block-checkbox-label">
 
               <input
                 type="checkbox"
@@ -359,6 +369,7 @@ function AddBlock() {
                 onChange={
                   handleChange
                 }
+                disabled={saving}
               />
 
               <span>
@@ -368,31 +379,32 @@ function AddBlock() {
             </label>
 
             <p>
-              This will block all consultation
-              times for the selected date.
+              This will block all
+              consultation times for
+              the selected date.
             </p>
 
           </div>
 
 
           {/* =================================
-                        TIME RANGE
-                    ================================== */}
+              TIME RANGE
+          ================================== */}
 
           {!formData.full_day && (
 
             <div className="add-block-time-row">
 
-
               {/* START TIME */}
 
               <div className="add-block-field">
 
-                <label>
+                <label htmlFor="start_time">
                   Start Time
                 </label>
 
                 <select
+                  id="start_time"
                   name="start_time"
                   value={
                     formData.start_time
@@ -400,6 +412,7 @@ function AddBlock() {
                   onChange={
                     handleChange
                   }
+                  disabled={saving}
                 >
 
                   <option value="">
@@ -432,11 +445,12 @@ function AddBlock() {
 
               <div className="add-block-field">
 
-                <label>
+                <label htmlFor="end_time">
                   End Time
                 </label>
 
                 <select
+                  id="end_time"
                   name="end_time"
                   value={
                     formData.end_time
@@ -444,6 +458,7 @@ function AddBlock() {
                   onChange={
                     handleChange
                   }
+                  disabled={saving}
                 >
 
                   <option value="">
@@ -477,16 +492,17 @@ function AddBlock() {
 
 
           {/* =================================
-                        REASON
-                    ================================== */}
+              REASON
+          ================================== */}
 
           <div className="add-block-field">
 
-            <label>
+            <label htmlFor="reason">
               Reason
             </label>
 
             <input
+              id="reason"
               type="text"
               name="reason"
               value={
@@ -496,18 +512,19 @@ function AddBlock() {
                 handleChange
               }
               placeholder="Enter reason for blocking"
+              disabled={saving}
             />
 
           </div>
 
 
           {/* =================================
-                        ACTIVE STATUS
-                    ================================== */}
+              ACTIVE STATUS
+          ================================== */}
 
-          <div className="add-block-full-day">
+          <div className="add-block-option">
 
-            <label>
+            <label className="add-block-checkbox-label">
 
               <input
                 type="checkbox"
@@ -518,6 +535,7 @@ function AddBlock() {
                 onChange={
                   handleChange
                 }
+                disabled={saving}
               />
 
               <span>
@@ -527,16 +545,17 @@ function AddBlock() {
             </label>
 
             <p>
-              Active blocks will prevent customers
-              from selecting the blocked time.
+              Active blocks will prevent
+              customers from selecting
+              the blocked time.
             </p>
 
           </div>
 
 
           {/* =================================
-                        ACTIONS
-                    ================================== */}
+              ACTIONS
+          ================================== */}
 
           <div className="add-block-actions">
 
@@ -544,7 +563,9 @@ function AddBlock() {
               type="button"
               className="add-block-cancel-btn"
               onClick={() =>
-                navigate("/blocked-slots")
+                navigate(
+                  "/blocked-slots"
+                )
               }
               disabled={saving}
             >

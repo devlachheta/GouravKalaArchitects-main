@@ -399,6 +399,10 @@ function Step2DateTime({
                                                 selectedTime ===
                                                 slotValue;
 
+                                            const isUnavailable =
+                                                slot.status === "booked" ||
+                                                slot.status === "blocked";
+
                                             return (
                                                 <button
                                                     key={
@@ -409,12 +413,18 @@ function Step2DateTime({
                                                     className={`bc-time-slot ${isSelected
                                                         ? "selected"
                                                         : ""
+                                                        } ${isUnavailable
+                                                            ? "booked"
+                                                            : ""
                                                         }`}
-                                                    onClick={() =>
-                                                        setSelectedTime(
-                                                            slotValue
-                                                        )
-                                                    }
+                                                    disabled={isUnavailable}
+                                                    onClick={() => {
+                                                        if (!isUnavailable) {
+                                                            setSelectedTime(
+                                                                slotValue
+                                                            );
+                                                        }
+                                                    }}
                                                 >
                                                     {formatTime(
                                                         slot.start_time

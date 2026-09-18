@@ -795,12 +795,14 @@
   font-weight: 500;
 }
 
-.bc-time-slot:disabled {
-  opacity: 0.35;
-
+.bc-time-slot:disabled,
+.bc-time-slot.booked {
+  opacity: 0.65;
   cursor: not-allowed;
+  background: transparent;
+  border-color: transparent;
+  color: #777777;
 }
-
 
 /* =========================================================
    EMPTY TIME SLOTS

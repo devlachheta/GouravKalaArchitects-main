@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django import forms
 from adminsortable2.admin import SortableAdminMixin
 
 from .models import (
@@ -7,6 +8,7 @@ from .models import (
     Consultation,
     WorkingHours,
     Booking,
+    BlockedSlot,
 )
 
 
@@ -209,3 +211,72 @@ class BookingAdmin(admin.ModelAdmin):
             },
         ),
     )
+ 
+ 
+from django import forms
+
+class BlockedSlotForm(forms.ModelForm):
+
+    class Meta:
+        model = BlockedSlot
+
+        fields = (
+            "booking_date",
+            "start_time",
+            "end_time",
+            "reason",
+            "is_active",
+        )
+
+        widgets = {
+            "booking_date": forms.DateInput(
+                attrs={
+                    "type": "date",
+                }
+            ),
+
+            "start_time": forms.TimeInput(
+                format="%H:%M",
+                attrs={
+                    "type": "time",
+                    "min": "10:00",
+                    "max": "18:00",
+                    "step": "900",
+                },
+            ),
+
+            "end_time": forms.TimeInput(
+                format="%H:%M",
+                attrs={
+                    "type": "time",
+                    "min": "10:00",
+                    "max": "18:00",
+                    "step": "900",
+                },
+            ),
+        }   
+@admin.register(BlockedSlot)
+class BlockedSlotAdmin(admin.ModelAdmin):
+    form = BlockedSlotForm
+    list_display = (
+        "booking_date",
+        "start_time",
+        "end_time",
+        "reason",
+        "is_active",
+        "created_at",
+    )
+
+    list_filter = (
+        "booking_date",
+        "is_active",
+    )
+
+    search_fields = (
+        "reason",
+    )
+
+    ordering = (
+        "-booking_date",
+        "start_time",
+    )    

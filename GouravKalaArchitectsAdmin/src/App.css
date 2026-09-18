@@ -4452,291 +4452,520 @@
   cursor: not-allowed;
 }
 
-
-/* ==========================================
+/* =========================================================
    ADD BLOCK PAGE
-========================================== */
+========================================================= */
 
 .add-block-page {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1128px;
   margin: 0 auto;
-  padding: 10px 0 40px;
+  padding: 40px 0 60px;
+  box-sizing: border-box;
 }
 
 
-/* ==========================================
+/* =========================================================
    HEADER
-========================================== */
+========================================================= */
 
 .add-block-header {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .add-block-header-left {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.add-block-header-left>div {
+  flex: 1;
 }
 
 .add-block-header h1 {
   margin: 0;
-  font-size: 28px;
+
+  color: #111;
+
+  font-size: 32px;
+  line-height: 1.2;
+
   font-weight: 600;
 }
 
 .add-block-header p {
-  margin: 6px 0 0;
-  color: #777;
+  margin: 8px 0 0;
+
+  color: #6d6d6d;
+
   font-size: 14px;
+  line-height: 1.5;
 }
 
 
-/* ==========================================
+/* =========================================================
    BACK BUTTON
-========================================== */
+========================================================= */
 
 .add-block-back-btn {
-  width: 40px;
-  height: 40px;
-
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  gap: 7px;
+
+  height: 42px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d8d8d8;
+  border-radius: 7px;
 
   background: #fff;
   color: #333;
 
+  font-size: 13px;
+  font-weight: 500;
+
   cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .add-block-back-btn:hover {
-  background: #f5f5f5;
+  background: #f7f7f7;
+
+  border-color: #c8c8c8;
+
+  transform: translateX(-1px);
+}
+
+.add-block-back-btn:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
 }
 
 
-/* ==========================================
+/* =========================================================
    ERROR
-========================================== */
+========================================================= */
 
 .add-block-error {
+  width: 100%;
+
+  box-sizing: border-box;
+
   margin-bottom: 20px;
+
   padding: 13px 16px;
 
   border: 1px solid #f0caca;
+
   border-radius: 8px;
 
   background: #fff1f1;
-  color: #c62828;
+
+  color: #b42318;
 
   font-size: 14px;
 }
 
 
-/* ==========================================
+/* =========================================================
    FORM CARD
-========================================== */
+========================================================= */
 
 .add-block-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 32px;
+
   background: #fff;
 
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
+  border: 1px solid #dedede;
 
-  padding: 30px;
-}
+  border-radius: 10px;
 
-.add-block-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 
-/* ==========================================
-   FORM FIELD
-========================================== */
+/* =========================================================
+   FIELD
+========================================================= */
 
 .add-block-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  margin-bottom: 24px;
 }
 
 .add-block-field label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #333;
-}
+  display: block;
 
-.add-block-field input,
-.add-block-field select {
-  width: 100%;
-  height: 45px;
+  margin-bottom: 9px;
 
-  padding: 0 13px;
-
-  border: 1px solid #ddd;
-  border-radius: 7px;
-
-  background: #fff;
   color: #222;
 
   font-size: 14px;
 
-  outline: none;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.add-block-field input[type="text"],
+.add-block-field input[type="date"],
+.add-block-field select {
+  width: 100%;
+
+  height: 46px;
+
   box-sizing: border-box;
-}
 
-.add-block-field input:focus,
-.add-block-field select:focus {
-  border-color: #222;
-}
+  padding: 0 14px;
 
-
-/* ==========================================
-   FULL DAY / ACTIVE
-========================================== */
-
-.add-block-full-day {
-  padding: 15px;
-
-  border: 1px solid #e8e8e8;
-  border-radius: 8px;
-
-  background: #fafafa;
-}
-
-.add-block-full-day label {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-.add-block-full-day input {
-  width: 17px;
-  height: 17px;
-
-  cursor: pointer;
-}
-
-.add-block-full-day p {
-  margin: 7px 0 0 26px;
-
-  color: #777;
-  font-size: 12px;
-}
-
-
-/* ==========================================
-   TIME ROW
-========================================== */
-
-.add-block-time-row {
-  display: flex;
-  gap: 20px;
-}
-
-.add-block-time-row .add-block-field {
-  flex: 1;
-}
-
-
-/* ==========================================
-   ACTIONS
-========================================== */
-
-.add-block-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-
-  margin-top: 5px;
-  padding-top: 20px;
-
-  border-top: 1px solid #eee;
-}
-
-.add-block-cancel-btn,
-.add-block-save-btn {
-  height: 43px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 0 20px;
+  border: 1px solid #d8d8d8;
 
   border-radius: 7px;
 
+  outline: none;
+
+  background: #fff;
+
+  color: #222;
+
+  font-family: inherit;
+
   font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   DATE INPUT
+========================================================= */
+
+.add-block-field input[type="date"] {
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.add-block-field select {
+  cursor: pointer;
+
+  appearance: auto;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.add-block-field input::placeholder {
+  color: #999;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.add-block-field input[type="text"]:focus,
+.add-block-field input[type="date"]:focus,
+.add-block-field select:focus {
+  border-color: #999;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.add-block-field input:disabled,
+.add-block-field select:disabled {
+  background: #f5f5f5;
+
+  color: #999;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FULL DAY / ACTIVE OPTION
+========================================================= */
+
+.add-block-option {
+  margin-bottom: 24px;
+
+  padding: 16px 18px;
+
+  border-radius: 8px;
+
+  background: #f7f7f7;
+}
+
+.add-block-checkbox-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #333;
+
+  font-size: 14px;
+
   font-weight: 500;
 
   cursor: pointer;
 }
 
-.add-block-cancel-btn {
-  background: #fff;
-  color: #333;
+.add-block-checkbox-label input {
+  width: 17px;
+  height: 17px;
 
-  border: 1px solid #ddd;
+  margin: 0;
+
+  cursor: pointer;
 }
 
-.add-block-cancel-btn:hover {
-  background: #f5f5f5;
-}
-
-.add-block-save-btn {
-  background: #111;
-  color: #fff;
-
-  border: 1px solid #111;
-}
-
-.add-block-save-btn:hover {
-  background: #333;
-}
-
-.add-block-cancel-btn:disabled,
-.add-block-save-btn:disabled {
-  opacity: 0.5;
+.add-block-checkbox-label input:disabled {
   cursor: not-allowed;
 }
 
+.add-block-option p {
+  margin: 7px 0 0 27px;
 
-/* ==========================================
+  color: #888;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TIME ROW
+========================================================= */
+
+.add-block-time-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 22px;
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.add-block-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding-top: 24px;
+
+  margin-top: 4px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.add-block-cancel-btn {
+  height: 44px;
+
+  padding: 0 20px;
+
+  border: 1px solid #d8d8d8;
+
+  border-radius: 7px;
+
+  background: #fff;
+
+  color: #444;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.add-block-cancel-btn:hover {
+  background: #f7f7f7;
+
+  border-color: #c8c8c8;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.add-block-save-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 44px;
+
+  padding: 0 20px;
+
+  border: 1px solid #111;
+
+  border-radius: 7px;
+
+  background: #111;
+
+  color: #fff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.add-block-save-btn:hover {
+  background: #222;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   DISABLED BUTTONS
+========================================================= */
+
+.add-block-save-btn:disabled,
+.add-block-cancel-btn:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
    RESPONSIVE
-========================================== */
+========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 
   .add-block-page {
-    padding: 10px 0 30px;
+    max-width: 100%;
+
+    padding: 35px 30px 55px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .add-block-page {
+    padding: 30px 20px 45px;
   }
 
   .add-block-card {
-    padding: 20px;
+    padding: 25px 22px;
   }
 
   .add-block-time-row {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .add-block-page {
+    padding: 25px 14px 40px;
+  }
+
+  .add-block-header-left {
+    gap: 10px;
+  }
+
+  .add-block-header h1 {
+    font-size: 27px;
+  }
+
+  .add-block-header p {
+    font-size: 13px;
+  }
+
+  .add-block-card {
+    padding: 20px 16px;
+
+    border-radius: 8px;
   }
 
   .add-block-actions {
     flex-direction: column-reverse;
+
+    align-items: stretch;
   }
 
   .add-block-cancel-btn,
   .add-block-save-btn {
     width: 100%;
   }
+
 }

@@ -6,6 +6,7 @@ from .views import (
     PublicProjectViewSet,
     ConsultationViewSet,
     BookingViewSet,
+    BlockedSlotViewSet,
 )
 
 
@@ -45,6 +46,12 @@ router.register(
     r"bookings",
     BookingViewSet,
     basename="booking"
+)
+
+router.register(
+    r"blocked-slots",
+    BlockedSlotViewSet,
+    basename="blocked-slot"
 )
 
 
