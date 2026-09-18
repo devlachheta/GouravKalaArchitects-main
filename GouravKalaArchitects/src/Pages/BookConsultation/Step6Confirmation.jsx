@@ -3,6 +3,7 @@ import {
     FiArrowRight,
     FiCheck,
 } from "react-icons/fi";
+import "../../styles/Step6Confirmation.css";
 
 function Step6Confirmation({
     renderProgressStep,

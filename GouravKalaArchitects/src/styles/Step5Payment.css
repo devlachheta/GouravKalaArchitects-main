@@ -1,0 +1,308 @@
+/* =========================================================
+   STEP 5
+   PAYMENT
+========================================================= */
+
+.bc-payment-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr) minmax(330px, 0.75fr);
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+.bc-payment-content {
+    min-width: 0;
+}
+
+.bc-payment-card {
+    background: #ffffff;
+    border: 1px solid #d8d4cd;
+
+    padding: 42px;
+}
+
+.bc-payment-card>.bc-eyebrow {
+    margin-bottom: 12px;
+}
+
+.bc-payment-card h3 {
+    margin: 0;
+
+    max-width: 620px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.bc-payment-description {
+    max-width: 650px;
+
+    margin: 17px 0 0;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #68635c;
+}
+
+
+/* Payment Method */
+
+.bc-payment-method {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 34px;
+    padding: 20px;
+
+    border: 1px solid #d9d5ce;
+    background: #faf9f6;
+}
+
+.bc-payment-method-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #171717;
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+}
+
+.bc-payment-method div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bc-payment-method strong {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.bc-payment-method span {
+    font-size: 10px;
+    color: #858079;
+}
+
+
+/* Security Features */
+
+.bc-security-info {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 28px;
+}
+
+.bc-security-item {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #dedad3;
+}
+
+.bc-security-item:first-child {
+    border-top: 1px solid #dedad3;
+}
+
+.bc-security-item svg {
+    width: 13px;
+    height: 13px;
+
+    flex-shrink: 0;
+}
+
+.bc-security-item span {
+    font-size: 10px;
+    line-height: 1.5;
+
+    color: #66615a;
+}
+
+
+/* Payment Gateway Note */
+
+.bc-payment-gateway-note {
+    margin-top: 28px;
+    padding: 20px;
+
+    background: #f5f3ef;
+}
+
+.bc-payment-gateway-note span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #77726b;
+}
+
+.bc-payment-gateway-note p {
+    margin: 0;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    color: #6c6760;
+}
+
+
+/* Payment Error */
+
+.bc-payment-error {
+    margin-top: 18px;
+    padding: 14px 16px;
+
+    border: 1px solid #d8c7c7;
+    background: #faf5f5;
+
+    color: #8a4a4a;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PAYMENT SUMMARY
+========================================================= */
+
+.bc-payment-summary {
+    position: sticky;
+    top: 30px;
+
+    padding: 34px;
+
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-payment-summary>h3 {
+    margin: 0 0 28px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.bc-payment-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #363636;
+}
+
+.bc-payment-summary-item span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #99958e;
+}
+
+.bc-payment-summary-item strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: 400;
+}
+
+.bc-payment-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 25px;
+}
+
+.bc-payment-total span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #aaa69f;
+}
+
+.bc-payment-total strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.bc-pay-button {
+    width: 100%;
+    min-height: 57px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    background: #ffffff;
+    color: #171717;
+
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.bc-pay-button:hover:not(:disabled) {
+    background: #e9e7e2;
+}
+
+.bc-pay-button:disabled {
+    background: #aaa69f;
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+.bc-pay-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.bc-secure-note {
+    margin: 17px 0 0;
+
+    text-align: center;
+
+    font-size: 9px;
+    line-height: 1.6;
+
+    color: #858079;
+}

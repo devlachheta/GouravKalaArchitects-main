@@ -136,6 +136,7 @@
   color: #66615a;
 }
 
+/* 
 .bc-step-two-heading-row .bc-section-heading h2 {
   margin: 0;
 
@@ -153,7 +154,7 @@
   letter-spacing: -0.035em;
 
   color: #171717;
-}
+} */
 
 .bc-step-two-heading-row .bc-section-heading p {
   margin: 14px 0 0;
@@ -744,7 +745,6 @@
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap: 8px;
 }
 
 
@@ -753,20 +753,25 @@
 ========================================================= */
 
 .bc-time-slot {
-  width: 100%;
 
+  width: 100%;
   min-height: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 8px;
 
   background: transparent;
 
   border: 1px solid transparent;
-
   border-radius: 3px;
 
   color: #ffffff;
 
   font-family: Arial, Helvetica, sans-serif;
-
   font-size: 13px;
 
   cursor: pointer;
@@ -777,7 +782,13 @@
     border-color 0.2s ease;
 }
 
-.bc-time-slot:hover {
+
+/* =========================================================
+   AVAILABLE SLOT - HOVER
+========================================================= */
+
+.bc-time-slot:hover:not(:disabled) {
+
   background: #ffffff;
 
   border-color: #ffffff;
@@ -785,7 +796,13 @@
   color: #171717;
 }
 
+
+/* =========================================================
+   SELECTED SLOT
+========================================================= */
+
 .bc-time-slot.selected {
+
   background: #ffffff;
 
   border-color: #ffffff;
@@ -795,14 +812,115 @@
   font-weight: 500;
 }
 
-.bc-time-slot:disabled,
+
+/* =========================================================
+   BOOKED SLOT
+========================================================= */
+
 .bc-time-slot.booked {
-  opacity: 0.65;
+
+  background: #2a1818;
+
+  border: 1px solid #7a3030;
+
+  color: #e35b5b;
+
+  opacity: 1;
+
   cursor: not-allowed;
-  background: transparent;
-  border-color: transparent;
+}
+
+
+/* Prevent hover effect on booked slot */
+
+.bc-time-slot.booked:hover {
+
+  background: #2a1818;
+
+  border-color: #7a3030;
+
+  color: #e35b5b;
+}
+
+
+/* =========================================================
+   UNAVAILABLE / BLOCKED SLOT
+========================================================= */
+
+.bc-time-slot.unavailable {
+
+  background: #252525;
+
+  border: 1px solid #3d3d3d;
+
+  color: #777777;
+
+  opacity: 1;
+
+  cursor: not-allowed;
+}
+
+
+/* Prevent hover effect on unavailable slot */
+
+.bc-time-slot.unavailable:hover {
+
+  background: #252525;
+
+  border-color: #3d3d3d;
+
   color: #777777;
 }
+
+
+/* =========================================================
+   SLOT STATUS
+========================================================= */
+
+.bc-slot-status {
+
+  display: block;
+
+  margin-top: 3px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+
+/* Booked text */
+
+.booked-status {
+
+  color: #e35b5b;
+}
+
+
+/* Unavailable text */
+
+.unavailable-status {
+
+  color: #777777;
+}
+
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.bc-time-slot:disabled {
+
+  opacity: 1;
+
+  cursor: not-allowed;
+}
+
+
 
 /* =========================================================
    EMPTY TIME SLOTS
