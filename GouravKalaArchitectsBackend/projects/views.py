@@ -383,19 +383,14 @@ class ConsultationViewSet(
 
                 slots.append(
                     {
-                        "start_time": (
-                            start_time.strftime(
-                                "%H:%M"
-                            )
-                        ),
-                        "end_time": (
-                            end_time.strftime(
-                                "%H:%M"
-                            )
-                        ),
+                        "start_time": start_time.strftime("%H:%M"),
+                        "end_time": end_time.strftime("%H:%M"),
+                        "is_booked": has_conflict,
                     }
                 )
 
+
+              
             current_datetime += slot_duration
 
         # -------------------------------------------------
