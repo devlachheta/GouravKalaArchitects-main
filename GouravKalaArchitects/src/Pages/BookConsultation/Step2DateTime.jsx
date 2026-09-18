@@ -391,6 +391,7 @@ function Step2DateTime({
 
                                     {availableSlots.map(
                                         (slot, index) => {
+                                            const isBooked = slot.is_booked;
 
                                             const slotValue =
                                                 slot.start_time;
