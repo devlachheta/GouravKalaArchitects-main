@@ -7,7 +7,7 @@ import {
 } from "react-icons/fi";
 
 import "../../styles/Step3Details.css";
-
+import "../../styles/BookConsultation.css";
 
 function Step3Details({
     customerDetails,

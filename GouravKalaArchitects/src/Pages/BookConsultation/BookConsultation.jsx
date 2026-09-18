@@ -5,7 +5,8 @@ import Header from "../../Component/Header";
 import api from "../../services/api";
 
 import Step1Consultation from "./Step1Consultation";
-import Step2DateTime from "./Step2DateTime";
+// import Step2DateTime from "./Step2DateTime";
+import Step2 from "../Step2DateTimeBetter";
 import Step3Details from "./Step3Details";
 import Step4Review from "./Step4Review";
 import Step5Payment from "./Step5Payment";
@@ -1183,104 +1184,40 @@ function BookConsultation() {
                 STEP 2
             ================================================= */}
 
+
             {step === 2 && (
+                <Step2
+                    selectedConsultation={selectedConsultation}
+                    formatPrice={formatPrice}
 
-                <Step2DateTime
+                    currentMonth={currentMonth}
+                    today={today}
 
-                    renderProgressStep={
-                        renderProgressStep
-                    }
+                    goToPreviousMonth={goToPreviousMonth}
+                    goToNextMonth={goToNextMonth}
 
-                    selectedConsultation={
-                        selectedConsultation
-                    }
+                    getDaysInMonth={getDaysInMonth}
+                    isPastDate={isPastDate}
+                    isSunday={isSunday}
+                    isSameDate={isSameDate}
 
-                    formatPrice={
-                        formatPrice
-                    }
+                    selectedDate={selectedDate}
+                    handleSelectDate={handleSelectDate}
 
-                    currentMonth={
-                        currentMonth
-                    }
+                    selectedTime={selectedTime}
+                    setSelectedTime={handleSelectTime}
 
-                    today={
-                        today
-                    }
+                    availableSlots={availableSlots}
+                    loadingSlots={loadingSlots}
+                    slotError={slotError}
 
-                    goToPreviousMonth={
-                        goToPreviousMonth
-                    }
+                    formatDisplayDate={formatDisplayDate}
+                    formatTime={formatTime}
 
-                    goToNextMonth={
-                        goToNextMonth
-                    }
-
-                    getDaysInMonth={
-                        getDaysInMonth
-                    }
-
-                    isPastDate={
-                        isPastDate
-                    }
-
-                    isSunday={
-                        isSunday
-                    }
-
-                    isSameDate={
-                        isSameDate
-                    }
-                    blockedDates={
-                        blockedDates
-                    }
-                    selectedDate={
-                        selectedDate
-                    }
-
-                    handleSelectDate={
-                        handleSelectDate
-                    }
-
-                    selectedTime={
-                        selectedTime
-                    }
-
-                    setSelectedTime={
-                        handleSelectTime
-                    }
-
-                    availableSlots={
-                        availableSlots
-                    }
-
-                    loadingSlots={
-                        loadingSlots
-                    }
-
-                    slotError={
-                        slotError
-                    }
-
-                    formatDisplayDate={
-                        formatDisplayDate
-                    }
-
-                    formatTime={
-                        formatTime
-                    }
-
-                    handleNextStep={
-                        handleStep2Next
-                    }
-
-                    handlePreviousStep={
-                        handleBackToStep1
-                    }
-
+                    handleNextStep={handleStep2Next}
+                    handlePreviousStep={handleBackToStep1}
                 />
-
             )}
-
 
             {/* =================================================
                 STEP 3

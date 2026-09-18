@@ -1,0 +1,1188 @@
+/* =========================================================
+   STEP 2 — DATE & TIME
+========================================================= */
+
+.bc-step-two {
+    width: min(1180px, calc(100% - 80px));
+    margin: 0 auto;
+
+    padding: 55px 0 60px;
+
+    box-sizing: border-box;
+
+    --sage-dark: #111111;
+    --sage: #111111;
+    --sage-light: #eeeeee;
+
+    --background: #f5f5f5;
+    --card: #ffffff;
+
+    --text: #111111;
+    --text-soft: #666666;
+
+    --border: #dddddd;
+    --border-dark: #bbbbbb;
+
+    --booked: #d96b62;
+    --booked-bg: #fff1ef;
+
+    --unavailable: #999999;
+    --unavailable-bg: #f2f2f2;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.bc-step-two .consultation-progress {
+    width: 100%;
+    max-width: 1050px;
+
+    margin: 15px auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+}
+
+.bc-step-two .progress-step {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+
+    opacity: 0.35;
+}
+
+.bc-step-two .progress-step.active,
+.bc-step-two .progress-step.completed {
+    opacity: 1;
+}
+
+.bc-step-two .progress-number {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #c9ceca;
+
+    border-radius: 50%;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    color: var(--text);
+}
+
+.bc-step-two .progress-step.active .progress-number {
+    background: var(--sage-dark);
+
+    border-color: var(--sage-dark);
+
+    color: #ffffff;
+}
+
+.bc-step-two .progress-step.completed .progress-number {
+    background: #e8f0ea;
+
+    border-color: #c9d8cd;
+
+    color: var(--sage-dark);
+}
+
+.bc-step-two .progress-label {
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.4px;
+
+    white-space: nowrap;
+
+    color: var(--text);
+}
+
+.bc-step-two .progress-line {
+    width: 60px;
+    height: 1px;
+
+    background: #d2d7d2;
+
+    flex-shrink: 1;
+}
+
+
+/* =========================================================
+   COMPACT BOOKING HEADER
+========================================================= */
+
+.bc-booking-header {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto 18px;
+
+    padding: 15px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* LEFT */
+
+.bc-booking-step {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.bc-booking-step span {
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
+    color: var(--text-soft);
+}
+
+.bc-booking-step strong {
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1.3px;
+
+    color: var(--sage-dark);
+}
+
+
+/* RIGHT */
+
+.bc-booking-summary {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 3px;
+}
+
+.bc-booking-summary-label {
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
+    color: var(--text-soft);
+}
+
+.bc-booking-summary-price {
+    font-size: 16px;
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+.bc-booking-summary-price span {
+    font-size: 11px;
+    font-weight: 400;
+
+    color: var(--text-soft);
+}
+
+
+/* =========================================================
+   TWO CARDS
+========================================================= */
+
+.bc-date-time-grid {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 18px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.bc-calendar-container,
+.bc-time-container {
+    width: 100%;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 28px rgba(29, 41, 34, 0.055);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.bc-panel-header {
+    min-height: 66px;
+
+    padding: 13px 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    box-sizing: border-box;
+}
+
+.bc-panel-title span {
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
+    color: var(--sage-dark);
+}
+
+.bc-panel-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d4ded6;
+
+    border-radius: 50%;
+
+    background: #f4f8f4;
+
+    color: var(--sage-dark);
+}
+
+.bc-panel-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.bc-calendar {
+    padding: 16px 19px 17px;
+
+    box-sizing: border-box;
+}
+
+
+/* MONTH HEADER */
+
+.bc-calendar-header {
+    display: grid;
+
+    grid-template-columns:
+        32px 1fr 32px;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 13px;
+}
+
+.bc-calendar-header strong {
+    text-align: center;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+.bc-calendar-header button {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.bc-calendar-header button:hover:not(:disabled) {
+    background: var(--sage-light);
+
+    border-color: var(--sage);
+
+    color: var(--sage-dark);
+}
+
+.bc-calendar-header button:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
+.bc-calendar-header button svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   WEEKDAYS
+========================================================= */
+
+.bc-calendar-weekdays {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 5px;
+
+    margin-bottom: 7px;
+}
+
+.bc-calendar-weekdays span {
+    text-align: center;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 0.7px;
+
+    color: var(--text-soft);
+}
+
+
+/* =========================================================
+   CALENDAR DAYS
+========================================================= */
+
+.bc-calendar-days {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 7px;
+}
+
+.bc-calendar-empty {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+
+/* =========================================================
+   DATE CIRCLE
+========================================================= */
+
+.bc-calendar-day {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 44px;
+
+    aspect-ratio: 1;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 1px solid #d4ddd6;
+
+    border-radius: 50%;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+.bc-calendar-day:hover:not(:disabled) {
+    background: var(--sage-light);
+
+    border-color: var(--sage);
+
+    color: var(--sage-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* AVAILABLE */
+
+.bc-calendar-day.available {
+    border-color: #cbd8cf;
+}
+
+
+/* DISABLED */
+
+.bc-calendar-day.disabled,
+.bc-calendar-day:disabled {
+    background: #f2f3f2;
+
+    border-color: #e1e5e1;
+
+    color: #a7aea9;
+
+    cursor: not-allowed;
+}
+
+
+/* SELECTED */
+
+.bc-calendar-day.selected {
+    background: var(--sage-dark);
+
+    border-color: var(--sage-dark);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 14px rgba(40, 84, 61, 0.22);
+}
+
+
+/* DATE NUMBER */
+
+.bc-date-number {
+    font-size: 11px;
+}
+
+
+/* SELECTED CHECK */
+
+.bc-date-check {
+    position: absolute;
+
+    bottom: 2px;
+
+    width: 10px;
+    height: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bc-date-check svg {
+    width: 8px;
+    height: 8px;
+}
+
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.bc-calendar-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-top: 15px;
+
+    padding-top: 11px;
+
+    border-top: 1px solid #edf0ed;
+}
+
+.bc-calendar-legend span {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    font-size: 8px;
+
+    color: var(--text-soft);
+}
+
+.bc-calendar-legend i {
+    width: 6px;
+    height: 6px;
+
+    display: block;
+
+    border-radius: 50%;
+}
+
+.available-dot {
+    background: var(--sage);
+}
+
+.unavailable-dot {
+    background: var(--unavailable);
+}
+
+.selected-dot {
+    background: var(--sage-dark);
+}
+
+
+/* =========================================================
+   SELECTED DATE
+========================================================= */
+
+.bc-selected-date {
+    padding: 12px 19px;
+
+    background: #f7f9f7;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.bc-selected-date-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 1.3px;
+
+    color: var(--text-soft);
+}
+
+.bc-selected-date strong {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   TIME SLOTS
+========================================================= */
+
+
+.bc-time-slots-content {
+    max-height: 285px;
+
+    padding: 12px 15px;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+
+.bc-time-slots-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.bc-time-slots-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bc-time-slots-content::-webkit-scrollbar-thumb {
+    background: #c5cec7;
+
+    border-radius: 10px;
+}
+
+
+/* SLOT GRID */
+
+.bc-time-slots {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 7px;
+}
+
+
+/* =========================================================
+   TIME SLOT
+========================================================= */
+
+.bc-time-slot {
+    width: 100%;
+
+    min-height: 45px;
+
+    padding: 7px 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    box-sizing: border-box;
+}
+
+.bc-time-slot:hover:not(:disabled):not(.selected) {
+    background: var(--sage-light);
+    border-color: var(--sage);
+}
+
+/* SLOT MAIN */
+
+.bc-slot-main {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    min-width: 0;
+}
+
+.bc-slot-time {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.bc-slot-status {
+    font-size: 7px;
+    font-weight: 600;
+
+    letter-spacing: 0.6px;
+
+    color: var(--sage);
+}
+
+
+/* INDICATOR */
+
+.bc-slot-indicator {
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid #c5d0c8;
+
+    border-radius: 50%;
+
+    color: var(--sage-dark);
+
+    font-size: 12px;
+}
+
+
+/* SELECTED */
+
+.bc-time-slot.selected {
+    background: var(--sage-dark);
+
+    border-color: var(--sage-dark);
+
+    color: #ffffff;
+
+    box-shadow: 0 8px 20px rgba(17, 17, 17, 0.18);
+}
+
+.bc-time-slot.selected .bc-slot-status {
+    color: #ffffff;
+}
+
+.bc-time-slot.selected .bc-slot-indicator {
+    border-color: #ffffff;
+
+    color: #ffffff;
+}
+
+.bc-time-slot.selected .bc-slot-check {
+    color: #ffffff;
+    border-color: #ffffff;
+    background: transparent;
+}
+
+
+/* BOOKED */
+
+.bc-time-slot.booked {
+    background: var(--booked-bg);
+
+    border-color: #f0c7c2;
+
+    color: var(--booked);
+
+    cursor: not-allowed;
+}
+
+.bc-time-slot.booked .bc-slot-status {
+    color: var(--booked);
+}
+
+.bc-time-slot.booked .bc-slot-indicator {
+    border-color: #e5aaa4;
+
+    color: var(--booked);
+}
+
+
+/* UNAVAILABLE */
+
+.bc-time-slot.unavailable {
+    background: var(--unavailable-bg);
+
+    border-color: #e0e4e0;
+
+    color: var(--unavailable);
+
+    cursor: not-allowed;
+}
+
+.bc-time-slot.unavailable .bc-slot-status {
+    color: var(--unavailable);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.bc-empty-slots {
+    min-height: 130px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 15px;
+
+    color: var(--text-soft);
+}
+
+.bc-empty-slots svg {
+    width: 22px;
+    height: 22px;
+
+    margin-bottom: 8px;
+
+    color: var(--sage-dark);
+}
+
+.bc-empty-slots strong {
+    font-size: 13px;
+
+    color: var(--text);
+}
+
+.bc-empty-slots p {
+    max-width: 240px;
+
+    margin: 5px 0 0;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    color: var(--text-soft);
+}
+
+
+/* LOADER */
+
+.bc-loader {
+    width: 20px;
+    height: 20px;
+
+    margin-bottom: 9px;
+
+    border: 2px solid #dce5de;
+
+    border-top-color: var(--sage-dark);
+
+    border-radius: 50%;
+
+    animation: bc-spin 0.8s linear infinite;
+}
+
+@keyframes bc-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   TIMEZONE
+========================================================= */
+
+.bc-timezone {
+    min-height: 39px;
+
+    margin: 0;
+
+    padding: 9px 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    border-top: 1px solid var(--border);
+
+    background: #fafbfa;
+
+    box-sizing: border-box;
+
+    font-size: 8px;
+
+    color: var(--text-soft);
+}
+
+.bc-timezone svg {
+    width: 12px;
+    height: 12px;
+
+    flex-shrink: 0;
+
+    color: var(--sage-dark);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.bc-step-two .slot-error {
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    color: #c85e55;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bc-step-two .bc-navigation {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding-top: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid #d8ddd8;
+}
+
+
+/* BUTTONS */
+
+.bc-step-two .bc-back-button,
+.bc-step-two .bc-next-button {
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1.3px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+/* BACK */
+
+.bc-step-two .bc-back-button {
+    background: transparent;
+
+    border: 1px solid var(--border-dark);
+
+    color: var(--text);
+}
+
+.bc-step-two .bc-back-button:hover {
+    background: #0000;
+}
+
+
+/* NEXT */
+
+.bc-step-two .bc-next-button {
+    min-width: 100px;
+
+    background: var(--sage-dark);
+
+    border: 1px solid var(--sage-dark);
+
+    color: #F2F3F2;
+}
+
+.bc-step-two .bc-next-button:hover:not(:disabled) {
+    background: #0000;
+    color: #111111;
+}
+
+.bc-step-two .bc-next-button:disabled {
+    background: #d8ddd9;
+
+    border-color: #d8ddd9;
+
+    color: #929a95;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .bc-step-two {
+        width: calc(100% - 48px);
+    }
+
+    .bc-booking-header,
+    .bc-date-time-grid {
+        max-width: 100%;
+    }
+
+    .bc-step-two .consultation-progress {
+        gap: 9px;
+    }
+
+    .bc-step-two .progress-line {
+        width: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .bc-step-two {
+        width: calc(100% - 32px);
+
+        padding: 40px 0 50px;
+    }
+
+    .bc-step-two .consultation-progress {
+        gap: 5px;
+
+        margin-bottom: 25px;
+    }
+
+    .bc-step-two .progress-step {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .bc-step-two .progress-number {
+        width: 29px;
+        height: 29px;
+
+        font-size: 9px;
+    }
+
+    .bc-step-two .progress-label {
+        font-size: 7px;
+
+        letter-spacing: 0.6px;
+    }
+
+    .bc-step-two .progress-line {
+        width: 15px;
+    }
+
+
+    .bc-booking-header {
+        padding: 13px 15px;
+    }
+
+    .bc-booking-step span,
+    .bc-booking-summary-label {
+        font-size: 8px;
+    }
+
+    .bc-booking-step strong {
+        font-size: 11px;
+    }
+
+    .bc-booking-summary-price {
+        font-size: 14px;
+    }
+
+    .bc-booking-summary-price span {
+        font-size: 9px;
+    }
+
+
+    .bc-date-time-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+
+    .bc-calendar {
+        padding: 15px;
+    }
+
+
+    .bc-calendar-day {
+        max-width: 42px;
+    }
+
+
+    .bc-time-slots-content {
+        max-height: 280px;
+    }
+
+
+    .bc-step-two .bc-navigation {
+        margin-top: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .bc-step-two {
+        width: calc(100% - 24px);
+    }
+
+    .bc-booking-header {
+        padding: 12px;
+    }
+
+    .bc-booking-summary-price {
+        font-size: 13px;
+    }
+
+    .bc-calendar-days {
+        gap: 5px;
+    }
+
+    .bc-calendar-day {
+        max-width: 38px;
+    }
+
+    .bc-time-slots {
+        gap: 6px;
+    }
+
+    .bc-time-slot {
+        min-height: 43px;
+
+        padding: 6px 7px;
+    }
+
+    .bc-slot-time {
+        font-size: 10px;
+    }
+
+    .bc-slot-status {
+        font-size: 6.5px;
+    }
+
+}

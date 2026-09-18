@@ -4,6 +4,7 @@ import {
     FiArrowRight,
     FiCheck,
 } from "react-icons/fi";
+import "../../styles/Step5Payment.css";
 
 function Step5Payment({
     renderProgressStep,

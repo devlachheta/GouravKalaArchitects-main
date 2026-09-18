@@ -1,0 +1,304 @@
+/* =========================================================
+   STEP 6
+   CONFIRMATION
+========================================================= */
+
+.bc-confirmation-section {
+    padding-bottom: 100px;
+}
+
+.bc-confirmation {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.bc-confirmation-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 24px;
+
+    border-radius: 50%;
+
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-confirmation-icon svg {
+    width: 29px;
+    height: 29px;
+
+    stroke-width: 1.5;
+}
+
+.bc-confirmation .bc-eyebrow {
+    margin-bottom: 15px;
+}
+
+.bc-confirmation h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.08;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+}
+
+.bc-confirmation-intro {
+    max-width: 590px;
+
+    margin: 18px auto 42px;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #66615a;
+}
+
+
+/* Confirmation Card */
+
+.bc-confirmation-card {
+    text-align: left;
+
+    background: #ffffff;
+    border: 1px solid #d8d4cd;
+}
+
+.bc-confirmation-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 28px;
+
+    border-bottom: 1px solid #e1ddd6;
+}
+
+.bc-confirmation-card-header .bc-eyebrow {
+    margin-bottom: 9px;
+}
+
+.bc-confirmation-card-header h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.bc-confirmation-status {
+    flex-shrink: 0;
+
+    padding: 7px 10px;
+
+    border: 1px solid #d0cdc6;
+
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: #55514b;
+}
+
+.bc-confirmation-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 1px;
+
+    background: #dedad3;
+}
+
+.bc-confirmation-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 22px;
+
+    background: #ffffff;
+}
+
+.bc-confirmation-detail span {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #88837c;
+}
+
+.bc-confirmation-detail strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 400;
+}
+
+
+/* Next Steps */
+
+.bc-confirmation-next {
+    margin-top: 40px;
+    padding: 28px;
+
+    border-top: 1px solid #d8d4cd;
+    border-bottom: 1px solid #d8d4cd;
+
+    text-align: left;
+}
+
+.bc-confirmation-next .bc-eyebrow {
+    margin-bottom: 10px;
+}
+
+.bc-confirmation-next p {
+    max-width: 680px;
+
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.7;
+
+    color: #6b665f;
+}
+
+
+/* Confirmation Actions */
+
+.bc-confirmation-actions {
+    display: flex;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.bc-confirmation-home,
+.bc-confirmation-contact {
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 24px;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.bc-confirmation-home {
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-confirmation-home:hover {
+    background: #303030;
+}
+
+.bc-confirmation-contact {
+    border: 1px solid #bdb9b2;
+    background: transparent;
+    color: #171717;
+}
+
+.bc-confirmation-contact:hover {
+    border-color: #171717;
+    background: #ffffff;
+}
+
+.bc-confirmation-contact svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bc-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 40px;
+    padding-top: 25px;
+
+    border-top: 1px solid #d8d4cd;
+}
+
+.bc-back-button,
+.bc-next-button {
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 23px;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.bc-back-button {
+    background: transparent;
+    border: 1px solid #bdb9b2;
+    color: #171717;
+}
+
+.bc-back-button:hover {
+    border-color: #171717;
+    background: #ffffff;
+}
+
+.bc-next-button {
+    background: #171717;
+    color: #ffffff;
+}
+
+.bc-next-button:hover:not(:disabled) {
+    background: #303030;
+}
+
+.bc-next-button:disabled {
+    background: #d8d5cf;
+    color: #99958e;
+    cursor: not-allowed;
+}
+
+.bc-back-button svg,
+.bc-next-button svg {
+    width: 15px;
+    height: 15px;
+}

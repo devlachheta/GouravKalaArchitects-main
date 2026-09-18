@@ -8,7 +8,6 @@ import {
     FiCalendar,
 } from "react-icons/fi";
 
-import "../../styles/Step2DateTime.css";
 
 
 function Step2DateTime({
@@ -409,86 +408,69 @@ function Step2DateTime({
 
                                 <div className="bc-time-slots">
 
-                                    {availableSlots.map(
-                                        (slot, index) => {
-                                            const isBooked = slot.is_booked;
+                                    {availableSlots.map((slot, index) => {
+                                        const slotValue = slot.start_time;
 
-                                            const slotValue =
-                                                slot.start_time;
+                                        const isSelected =
+                                            selectedTime === slotValue;
 
+                                        const isBooked =
+                                            slot.status === "booked";
 
-                                            const isSelected =
-                                                selectedTime ===
-                                                slotValue;
+                                        const isUnavailable =
+                                            slot.status === "blocked";
 
-
-                                            /*
-                                             * IMPORTANT:
-                                             * A slot is unavailable when
-                                             * its status is booked OR blocked.
-                                             */
-
-                                            const isUnavailable =
-                                                slot.status === "booked" ||
-                                                slot.status === "blocked";
-
-
-                                            return (
-                                                <button
-                                                    key={
-                                                        slot.id ||
-                                                        `${slotValue}-${index}`
-                                                    }
-                                                    type="button"
-
-                                                    disabled={
-                                                        isUnavailable
-                                                    }
-
-                                                    className={`bc-time-slot ${isSelected
-                                                        ? "selected"
+                                        return (
+                                            <button
+                                                key={
+                                                    slot.id ||
+                                                    `${slotValue}-${index}`
+                                                }
+                                                type="button"
+                                                disabled={
+                                                    isBooked || isUnavailable
+                                                }
+                                                className={`bc-time-slot ${isSelected
+                                                    ? "selected"
+                                                    : ""
+                                                    } ${isBooked
+                                                        ? "booked"
                                                         : ""
-                                                        } ${isUnavailable
-                                                            ? "booked"
-                                                            : ""
-                                                        }`}
-
-                                                    onClick={() => {
-
-                                                        if (
-                                                            !isUnavailable
-                                                        ) {
-                                                            setSelectedTime(
-                                                                slotValue
-                                                            );
-                                                        }
-
-                                                    }}
-                                                >
-
-                                                    <span>
-                                                        {formatTime(
-                                                            slot.start_time
-                                                        )}
-                                                    </span>
-
-
-                                                    {isUnavailable && (
-                                                        <span className="bc-booked-label">
-
-                                                            {slot.status ===
-                                                                "blocked"
-                                                                ? "Unavailable"
-                                                                : "Booked"}
-
-                                                        </span>
+                                                    } ${isUnavailable
+                                                        ? "unavailable"
+                                                        : ""
+                                                    }`}
+                                                onClick={() => {
+                                                    if (
+                                                        !isBooked &&
+                                                        !isUnavailable
+                                                    ) {
+                                                        setSelectedTime(
+                                                            slotValue
+                                                        );
+                                                    }
+                                                }}
+                                            >
+                                                <span className="bc-slot-time">
+                                                    {formatTime(
+                                                        slot.start_time
                                                     )}
+                                                </span>
 
-                                                </button>
-                                            );
-                                        }
-                                    )}
+                                                {isBooked && (
+                                                    <span className="bc-slot-status booked-status">
+                                                        Booked
+                                                    </span>
+                                                )}
 
+                                                {isUnavailable && (
+                                                    <span className="bc-slot-status unavailable-status">
+                                                        Unavailable
+                                                    </span>
+                                                )}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             )}
 
