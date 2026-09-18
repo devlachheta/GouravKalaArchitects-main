@@ -16,6 +16,7 @@ import {
     Info,
     Clapperboard,
     CalendarOff,
+    CalendarPlus,
     User,
     LogOut,
     Menu,
@@ -287,6 +288,21 @@ function AdminLayout() {
                                 Blocked Slots
                             </span>
                         </NavLink>
+                        <NavLink
+                            to="/book-consultation"
+                            className={({ isActive }) =>
+                                `sidebar-link ${isActive ? "active" : ""}`
+                            }
+                        >
+                            <CalendarPlus size={20} />
+
+                            <span>
+                                Book Consultation
+                            </span>
+                        </NavLink>
+
+
+
 
                     </div>
 

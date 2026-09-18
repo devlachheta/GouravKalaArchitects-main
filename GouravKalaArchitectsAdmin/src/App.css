@@ -4969,3 +4969,521 @@
   }
 
 }
+
+/* =========================================================
+   ADMIN BOOK CONSULTATION
+========================================================= */
+
+.admin-book-consultation {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0 40px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-book-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+
+.admin-book-header-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+.admin-book-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1d1d1d;
+}
+
+
+.admin-book-header p {
+  margin: 5px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+
+.admin-book-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #dedede;
+  background: #fff;
+  color: #222;
+  padding: 9px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+
+.admin-book-back:hover {
+  background: #f5f5f5;
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.admin-book-success {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 16px;
+  margin-bottom: 18px;
+  border: 1px solid #cfe8d4;
+  background: #f1faf3;
+  color: #28743a;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.admin-book-error {
+  padding: 13px 16px;
+  margin-bottom: 18px;
+  border: 1px solid #f0cccc;
+  background: #fff5f5;
+  color: #b42318;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.admin-book-card {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.admin-book-section {
+  padding: 28px 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+.admin-book-section-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 24px;
+  color: #1d1d1d;
+}
+
+
+.admin-book-section-title svg {
+  margin-top: 2px;
+}
+
+
+.admin-book-section-title h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+.admin-book-section-title p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #858585;
+}
+
+
+/* =========================================================
+   FORM FIELD
+========================================================= */
+
+.admin-book-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.admin-book-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+
+.admin-book-field input,
+.admin-book-field select {
+  width: 100%;
+  height: 44px;
+  padding: 0 13px;
+  border: 1px solid #dcdcdc;
+  border-radius: 7px;
+  background: #fff;
+  color: #222;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+
+.admin-book-field input:focus,
+.admin-book-field select:focus {
+  border-color: #1d1d1d;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+
+.admin-book-field input::placeholder {
+  color: #a0a0a0;
+}
+
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+.admin-book-input-icon {
+  position: relative;
+}
+
+
+.admin-book-input-icon svg {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+
+
+.admin-book-input-icon input {
+  padding-left: 40px;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.admin-book-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+
+/* =========================================================
+   CONSULTATION INFO
+========================================================= */
+
+.admin-book-consultation-info {
+  display: grid;
+  grid-template-columns:
+    2fr 1fr 1fr;
+  gap: 1px;
+  margin-top: 18px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+
+.admin-book-consultation-info>div {
+  background: #fafafa;
+  padding: 13px 15px;
+}
+
+
+.admin-book-consultation-info span {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+
+.admin-book-consultation-info strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+}
+
+
+/* =========================================================
+   TIME SLOTS
+========================================================= */
+
+.admin-book-time-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+
+.admin-book-time-button {
+  min-height: 52px;
+  border: 1px solid #dedede;
+  background: #fff;
+  color: #222;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+
+.admin-book-time-button:hover:not(:disabled) {
+  border-color: #1d1d1d;
+}
+
+
+.admin-book-time-button.selected {
+  background: #1d1d1d;
+  border-color: #1d1d1d;
+  color: #fff;
+}
+
+
+.admin-book-time-button.booked {
+  background: #f3f3f3;
+  color: #aaa;
+  border-color: #e5e5e5;
+  cursor: not-allowed;
+}
+
+
+.admin-book-time-button small {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+
+.admin-book-time-button.selected small {
+  color: #ddd;
+}
+
+
+.admin-book-disabled-message {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  border: 1px dashed #dcdcdc;
+  border-radius: 7px;
+  color: #888;
+  font-size: 13px;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.admin-book-summary {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 24px 30px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+
+.admin-book-summary>div {
+  background: #fafafa;
+  padding: 15px;
+}
+
+
+.admin-book-summary span {
+  display: block;
+  margin-bottom: 6px;
+  color: #888;
+  font-size: 11px;
+}
+
+
+.admin-book-summary strong {
+  display: block;
+  color: #222;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.admin-book-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 30px;
+  background: #fafafa;
+  border-top: 1px solid #eeeeee;
+}
+
+
+.admin-book-cancel,
+.admin-book-submit {
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+.admin-book-cancel {
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #333;
+}
+
+
+.admin-book-cancel:hover {
+  background: #f2f2f2;
+}
+
+
+.admin-book-submit {
+  border: 1px solid #1d1d1d;
+  background: #1d1d1d;
+  color: #fff;
+}
+
+
+.admin-book-submit:hover:not(:disabled) {
+  background: #000;
+}
+
+
+.admin-book-submit:disabled,
+.admin-book-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .admin-book-consultation {
+    padding: 10px 15px 30px;
+  }
+
+
+  .admin-book-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .admin-book-summary {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .admin-book-time-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .admin-book-header-left {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+
+  .admin-book-header h1 {
+    font-size: 23px;
+  }
+
+
+  .admin-book-section {
+    padding: 22px 18px;
+  }
+
+
+  .admin-book-consultation-info {
+    grid-template-columns: 1fr;
+  }
+
+
+  .admin-book-time-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .admin-book-summary {
+    grid-template-columns: 1fr;
+    margin: 20px 18px;
+  }
+
+
+  .admin-book-actions {
+    padding: 18px;
+    flex-direction: column-reverse;
+  }
+
+
+  .admin-book-cancel,
+  .admin-book-submit {
+    width: 100%;
+  }
+
+}

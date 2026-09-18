@@ -21,6 +21,7 @@ import ForgotPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
 import BlockedSlots from "./pages/BlockedSlots";
 import AddBlock from "./pages/AddBlock";
+import BookConsultation from "./pages/BookConsultation";
 
 function App() {
   return (
@@ -100,6 +101,11 @@ function App() {
             path="/blocked-slots/add"
             element={<AddBlock />}
           />
+          <Route
+            path="/book-consultation"
+            element={<BookConsultation />}
+          />
+
         </Route>
 
         <Route
