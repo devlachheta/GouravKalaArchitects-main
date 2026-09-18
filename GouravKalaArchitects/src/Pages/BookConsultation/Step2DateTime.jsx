@@ -399,6 +399,9 @@ function Step2DateTime({
                                                 selectedTime ===
                                                 slotValue;
 
+
+                                            const isBooked = slot.is_booked;
+
                                             return (
                                                 <button
                                                     key={
@@ -406,21 +409,28 @@ function Step2DateTime({
                                                         `${slotValue}-${index}`
                                                     }
                                                     type="button"
-                                                    className={`bc-time-slot ${isSelected
-                                                        ? "selected"
-                                                        : ""
+                                                    disabled={isBooked}
+                                                    className={`bc-time-slot ${isSelected ? "selected" : ""
+                                                        } ${isBooked ? "booked" : ""
                                                         }`}
-                                                    onClick={() =>
-                                                        setSelectedTime(
-                                                            slotValue
-                                                        )
-                                                    }
+                                                    onClick={() => {
+                                                        if (!isBooked) {
+                                                            setSelectedTime(slotValue);
+                                                        }
+                                                    }}
                                                 >
-                                                    {formatTime(
-                                                        slot.start_time
+                                                    <span>
+                                                        {formatTime(slot.start_time)}
+                                                    </span>
+
+                                                    {isBooked && (
+                                                        <span className="bc-booked-label">
+                                                            Booked
+                                                        </span>
                                                     )}
                                                 </button>
                                             );
+
                                         }
                                     )}
 

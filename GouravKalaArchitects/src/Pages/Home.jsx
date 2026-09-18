@@ -1,5 +1,3 @@
-
-
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
 import Banner from "../assets/gH.png";
@@ -99,7 +97,6 @@ function Home() {
     const fetchHomepageStats = async () => {
       try {
         const response = await api.get("homepage/");
-
         setHomepageStats({
           years: Number.parseInt(response.data.years, 10) || 0,
           projects: Number.parseInt(response.data.projects, 10) || 0,
