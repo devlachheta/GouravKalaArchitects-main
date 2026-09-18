@@ -831,6 +831,49 @@ class Booking(models.Model):
         return (
             f"{self.customer_name} - "
             f"{self.booking_date} "
-            f"{self.start_time}-"
-            f"{self.end_time}"
+            f"{self.start_time}-{self.end_time}"
         )
+        
+        
+class BlockedSlot(models.Model):
+
+    booking_date = models.DateField()
+
+    # Leave these empty when blocking the entire day
+    start_time = models.TimeField(
+        blank=True,
+        null=True,
+    )
+
+    end_time = models.TimeField(
+        blank=True,
+        null=True,
+    )
+
+    reason = models.CharField(
+        max_length=255,
+        blank=True,
+    )
+
+    is_active = models.BooleanField(
+        default=True,
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True,
+    )
+
+    def __str__(self):
+
+        if self.start_time and self.end_time:
+            return (
+                f"Blocked - "
+                f"{self.booking_date} "
+                f"{self.start_time}-{self.end_time}"
+            )
+
+        return f"Blocked - {self.booking_date} (Full Day)"        

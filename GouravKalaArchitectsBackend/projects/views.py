@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 
 from django.conf import settings
-from django.db import transaction
+from django.db import transaction, models
 from django.core.mail import send_mail, EmailMessage
 from io import BytesIO
 from reportlab.pdfgen import canvas
@@ -18,7 +18,7 @@ import razorpay
 
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.response import Response
 
 
@@ -28,12 +28,14 @@ from .models import (
     Consultation,
     WorkingHours,
     Booking,
+    BlockedSlot,
 )
 
 from .serializers import (
     ProjectSerializer,
     ProjectImageSerializer,
     PublicProjectSerializer,
+    BlockedSlotSerializer,
 )
 
 
@@ -360,7 +362,7 @@ class ConsultationViewSet(
             # -------------------------------------------------
             # Check booking conflicts
             # -------------------------------------------------
-
+   
             payment_hold_cutoff = timezone.now() - timedelta(minutes=10)
 
             has_conflict = Booking.objects.filter(
@@ -379,20 +381,40 @@ class ConsultationViewSet(
                 created_at__lte=payment_hold_cutoff,
             ).exists()
 
-            if not has_conflict:
 
-                slots.append(
-                    {
-                        "start_time": start_time.strftime("%H:%M"),
-                        "end_time": end_time.strftime("%H:%M"),
-                        "is_booked": has_conflict,
-                    }
+            has_block = BlockedSlot.objects.filter(
+                booking_date=booking_date,
+                is_active=True,
+            ).filter(
+                models.Q(
+                start_time__isnull=True,
+                end_time__isnull=True,
                 )
+    |
+                models.Q(
+                start_time__lt=end_time,
+                end_time__gt=start_time,
+                )
+            ).exists()
+            
+            slots.append(
+                {
+                "start_time": start_time.strftime("%H:%M"),
+                "end_time": end_time.strftime("%H:%M"),
+                "status": (
+                "blocked"
+                if has_block
+                else "booked"
+                if has_conflict
+                else "available"
+),
+                 }
+            )
 
 
               
             current_datetime += slot_duration
-
+           
         # -------------------------------------------------
         # Return available slots
         # -------------------------------------------------
@@ -1444,7 +1466,42 @@ class BookingViewSet(
                     },
                     status=status.HTTP_409_CONFLICT,
                 )
+    
+    
+             # -------------------------------------------------
+            # CHECK ADMIN BLOCKED SLOT
+            # -------------------------------------------------
 
+            has_block = BlockedSlot.objects.filter(
+                booking_date=booking_date,
+                is_active=True,
+            ).filter(
+                models.Q(
+                    start_time__isnull=True,
+                    end_time__isnull=True,
+                )
+                |
+                models.Q(
+                    start_time__lt=end_time,
+                    end_time__gt=start_time,
+                )
+            ).exists()
+
+            if has_block:
+                return Response(
+                    {
+                        "error": (
+                            "This time slot has been "
+                            "blocked by the administrator."
+                        )
+                    },
+                    status=status.HTTP_409_CONFLICT,
+                )
+    
+    
+    
+    
+    
             # -------------------------------------------------
             # CREATE BOOKING
             # -------------------------------------------------
@@ -1522,3 +1579,20 @@ class BookingViewSet(
                 },
                 status=status.HTTP_201_CREATED,
             )
+            
+            
+# =========================================================
+# BLOCKED SLOT API
+# =========================================================
+
+class BlockedSlotViewSet(viewsets.ModelViewSet):
+
+    queryset = BlockedSlot.objects.all().order_by(
+        "-booking_date",
+        "start_time",
+    )
+
+    serializer_class = BlockedSlotSerializer
+
+    # Only Django admin/staff users can manage blocked slots
+    permission_classes = [IsAdminUser]            

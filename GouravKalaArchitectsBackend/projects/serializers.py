@@ -6,6 +6,7 @@ from .models import (
     ProjectImage,
     Consultation,
     Booking,
+    BlockedSlot,
 )
 
 
@@ -221,3 +222,29 @@ class BookingSerializer(serializers.ModelSerializer):
             )
 
         return value
+    
+# =========================================================
+# BLOCKED SLOT SERIALIZER
+# =========================================================
+
+class BlockedSlotSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = BlockedSlot
+
+        fields = [
+            "id",
+            "booking_date",
+            "start_time",
+            "end_time",
+            "reason",
+            "is_active",
+            "created_at",
+            "updated_at",
+        ]
+
+        read_only_fields = [
+            "id",
+            "created_at",
+            "updated_at",
+        ]    

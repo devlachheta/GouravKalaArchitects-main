@@ -399,8 +399,9 @@ function Step2DateTime({
                                                 selectedTime ===
                                                 slotValue;
 
-
-                                            const isBooked = slot.is_booked;
+                                            const isUnavailable =
+                                                slot.status === "booked" ||
+                                                slot.status === "blocked";
 
                                             return (
                                                 <button
@@ -409,13 +410,19 @@ function Step2DateTime({
                                                         `${slotValue}-${index}`
                                                     }
                                                     type="button"
-                                                    disabled={isBooked}
-                                                    className={`bc-time-slot ${isSelected ? "selected" : ""
-                                                        } ${isBooked ? "booked" : ""
+                                                    className={`bc-time-slot ${isSelected
+                                                        ? "selected"
+                                                        : ""
+                                                        } ${isUnavailable
+                                                            ? "booked"
+                                                            : ""
                                                         }`}
+                                                    disabled={isUnavailable}
                                                     onClick={() => {
-                                                        if (!isBooked) {
-                                                            setSelectedTime(slotValue);
+                                                        if (!isUnavailable) {
+                                                            setSelectedTime(
+                                                                slotValue
+                                                            );
                                                         }
                                                     }}
                                                 >

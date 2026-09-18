@@ -213,7 +213,7 @@ function Header() {
                                     to="/book-consultation"
                                     className="consultation-nav-button"
                                 >
-                                    <span>BOOK A CONSULTATION</span>
+                                    <span>PLAN A CALL</span>
                                 </NavLink>
                             </li>
                         </ul>
