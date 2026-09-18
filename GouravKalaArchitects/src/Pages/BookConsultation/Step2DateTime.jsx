@@ -53,6 +53,7 @@ function Step2DateTime({
 
                 <div className="progress-step completed">
                     <span className="progress-number">01</span>
+
                     <span className="progress-label">
                         CONSULTATION
                     </span>
@@ -62,6 +63,7 @@ function Step2DateTime({
 
                 <div className="progress-step active">
                     <span className="progress-number">02</span>
+
                     <span className="progress-label">
                         DATE & TIME
                     </span>
@@ -71,6 +73,7 @@ function Step2DateTime({
 
                 <div className="progress-step">
                     <span className="progress-number">03</span>
+
                     <span className="progress-label">
                         YOUR DETAILS
                     </span>
@@ -80,6 +83,7 @@ function Step2DateTime({
 
                 <div className="progress-step">
                     <span className="progress-number">04</span>
+
                     <span className="progress-label">
                         PAYMENT
                     </span>
@@ -94,11 +98,9 @@ function Step2DateTime({
 
             <div className="bc-step-two-heading-row offset-1">
 
-                {/* LEFT - HEADING */}
+                {/* LEFT */}
 
                 <div className="bc-section-heading">
-
-
 
                     <h2>
                         Select Date &amp; Time
@@ -112,7 +114,7 @@ function Step2DateTime({
                 </div>
 
 
-                {/* RIGHT - SELECTED CONSULTATION */}
+                {/* RIGHT */}
 
                 <div className="bc-selected-consultation-box">
 
@@ -123,15 +125,23 @@ function Step2DateTime({
                     <div className="bc-selected-consultation-divider"></div>
 
                     <div className="bc-selected-consultation-text">
+
                         <span>
-                            {formatPrice(selectedConsultation?.price)}
+                            {formatPrice(
+                                selectedConsultation?.price
+                            )}
+
                             {" "}selected for a{" "}
+
                             {parseInt(
                                 selectedConsultation?.duration,
                                 10
-                            ) || selectedConsultation?.duration}
+                            ) ||
+                                selectedConsultation?.duration}
+
                             {" "}minutes call.
                         </span>
+
                     </div>
 
                 </div>
@@ -144,7 +154,6 @@ function Step2DateTime({
             ===================================================== */}
 
             <div className="bc-date-time-grid">
-
 
                 {/* =================================================
                     CALENDAR
@@ -239,6 +248,7 @@ function Step2DateTime({
                                         );
                                     }
 
+
                                     const disabled =
                                         isPastDate(date) ||
                                         isSunday(date);
@@ -248,6 +258,7 @@ function Step2DateTime({
                                             date,
                                             selectedDate
                                         );
+
 
                                     return (
                                         <button
@@ -323,46 +334,48 @@ function Step2DateTime({
 
                         {/* No date selected */}
 
-                        {!selectedDate && !loadingSlots && (
-                            <div className="bc-empty-slots">
+                        {!selectedDate &&
+                            !loadingSlots && (
+                                <div className="bc-empty-slots">
 
-                                <FiCalendar
-                                    size={22}
-                                    strokeWidth={1.5}
-                                />
+                                    <FiCalendar
+                                        size={22}
+                                        strokeWidth={1.5}
+                                    />
 
-                                <span>
-                                    Select a date
-                                </span>
+                                    <span>
+                                        Select a date
+                                    </span>
 
-                                <p>
-                                    Choose a date from the calendar
-                                    to view available time slots.
-                                </p>
+                                    <p>
+                                        Choose a date from the calendar
+                                        to view available time slots.
+                                    </p>
 
-                            </div>
-                        )}
+                                </div>
+                            )}
 
 
                         {/* Loading */}
 
-                        {selectedDate && loadingSlots && (
-                            <div className="bc-empty-slots">
+                        {selectedDate &&
+                            loadingSlots && (
+                                <div className="bc-empty-slots">
 
-                                <span>
-                                    Loading available times...
-                                </span>
+                                    <span>
+                                        Loading available times...
+                                    </span>
 
-                                <p>
-                                    Please wait while we check
-                                    availability.
-                                </p>
+                                    <p>
+                                        Please wait while we check
+                                        availability.
+                                    </p>
 
-                            </div>
-                        )}
+                                </div>
+                            )}
 
 
-                        {/* Error */}
+                        {/* Error / No availability */}
 
                         {selectedDate &&
                             !loadingSlots &&
@@ -387,6 +400,7 @@ function Step2DateTime({
                         {selectedDate &&
                             !loadingSlots &&
                             availableSlots?.length > 0 && (
+
                                 <div className="bc-time-slots">
 
                                     {availableSlots.map(
@@ -396,13 +410,22 @@ function Step2DateTime({
                                             const slotValue =
                                                 slot.start_time;
 
+
                                             const isSelected =
                                                 selectedTime ===
                                                 slotValue;
 
+
+                                            /*
+                                             * IMPORTANT:
+                                             * A slot is unavailable when
+                                             * its status is booked OR blocked.
+                                             */
+
                                             const isUnavailable =
                                                 slot.status === "booked" ||
                                                 slot.status === "blocked";
+
 
                                             return (
                                                 <button
@@ -411,6 +434,11 @@ function Step2DateTime({
                                                         `${slotValue}-${index}`
                                                     }
                                                     type="button"
+
+                                                    disabled={
+                                                        isUnavailable
+                                                    }
+
                                                     className={`bc-time-slot ${isSelected
                                                         ? "selected"
                                                         : ""
@@ -418,27 +446,40 @@ function Step2DateTime({
                                                             ? "booked"
                                                             : ""
                                                         }`}
-                                                    disabled={isUnavailable}
+
                                                     onClick={() => {
-                                                        if (!isUnavailable) {
+
+                                                        if (
+                                                            !isUnavailable
+                                                        ) {
                                                             setSelectedTime(
                                                                 slotValue
                                                             );
                                                         }
+
                                                     }}
                                                 >
+
                                                     <span>
-                                                        {formatTime(slot.start_time)}
+                                                        {formatTime(
+                                                            slot.start_time
+                                                        )}
                                                     </span>
 
-                                                    {isBooked && (
+
+                                                    {isUnavailable && (
                                                         <span className="bc-booked-label">
-                                                            Booked
+
+                                                            {slot.status ===
+                                                                "blocked"
+                                                                ? "Unavailable"
+                                                                : "Booked"}
+
                                                         </span>
                                                     )}
+
                                                 </button>
                                             );
-
                                         }
                                     )}
 
@@ -451,15 +492,19 @@ function Step2DateTime({
                     {/* Timezone */}
 
                     <p className="bc-timezone">
+
                         All times are in Indian Standard Time (IST)
+
                         {selectedDate && (
                             <>
                                 {" "}·{" "}
+
                                 {formatDisplayDate(
                                     selectedDate
                                 )}
                             </>
                         )}
+
                     </p>
 
                 </div>
@@ -493,11 +538,13 @@ function Step2DateTime({
                     className="bc-back-button"
                     onClick={handlePreviousStep}
                 >
+
                     <FiArrowLeft />
 
                     <span>
                         BACK
                     </span>
+
                 </button>
 
 
@@ -512,11 +559,13 @@ function Step2DateTime({
                     }
                     onClick={handleNextStep}
                 >
+
                     <span>
                         NEXT
                     </span>
 
                     <FiArrowRight />
+
                 </button>
 
             </div>
@@ -527,6 +576,3 @@ function Step2DateTime({
 
 
 export default Step2DateTime;
-
-
-
