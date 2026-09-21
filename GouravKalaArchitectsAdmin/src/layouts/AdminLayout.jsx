@@ -17,6 +17,7 @@ import {
     Clapperboard,
     CalendarOff,
     CalendarPlus,
+    CalendarDays,
     User,
     LogOut,
     Menu,
@@ -275,7 +276,18 @@ function AdminLayout() {
                         <div className="sidebar-section-title">
                             CONSULTATIONS
                         </div>
+                        <NavLink
+                            to="/bookings"
+                            className={({ isActive }) =>
+                                `sidebar-link ${isActive ? "active" : ""}`
+                            }
+                        >
+                            <CalendarDays size={20} />
 
+                            <span>
+                                Bookings
+                            </span>
+                        </NavLink>
                         <NavLink
                             to="/blocked-slots"
                             className={({ isActive }) =>
