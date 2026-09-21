@@ -36,6 +36,7 @@ from .serializers import (
     ProjectImageSerializer,
     PublicProjectSerializer,
     BlockedSlotSerializer,
+    BookingRescheduleSerializer,
 )
 
 
@@ -195,7 +196,9 @@ class ConsultationViewSet(
         from .serializers import ConsultationSerializer
 
         return ConsultationSerializer
-
+     
+     
+     
     # -----------------------------------------------------
     # AVAILABLE SLOTS
     # -----------------------------------------------------
@@ -1850,7 +1853,479 @@ class BookingViewSet(
             
             
             
-            
+    # =====================================================
+    # ADMIN BOOKING LIST
+    # =====================================================
+
+    @action(
+        detail=False,
+        methods=["get"],
+        url_path="admin-list",
+        permission_classes=[IsAdminUser],
+    )
+    def admin_booking_list(self, request):
+
+        month = request.query_params.get("month")
+
+        queryset = (
+            Booking.objects
+            .select_related("consultation")
+            .all()
+            .order_by(
+                "booking_date",
+                "start_time",
+            )
+        )
+
+        # -------------------------------------------------
+        # FILTER BY MONTH
+        # -------------------------------------------------
+
+        if month:
+
+            try:
+                year, month_number = map(
+                    int,
+                    month.split("-")
+                )
+
+                queryset = queryset.filter(
+                    booking_date__year=year,
+                    booking_date__month=month_number,
+                )
+
+            except (ValueError, TypeError):
+
+                return Response(
+                    {
+                        "error": (
+                            "Invalid month format. "
+                            "Use YYYY-MM."
+                        )
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        # -------------------------------------------------
+        # FILTER BY STATUS
+        # -------------------------------------------------
+
+        booking_status = request.query_params.get(
+            "status"
+        )
+
+        if booking_status:
+
+            allowed_statuses = [
+                "pending",
+                "confirmed",
+                "cancelled",
+                "completed",
+            ]
+
+            if booking_status not in allowed_statuses:
+
+                return Response(
+                    {
+                        "error": "Invalid booking status."
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            queryset = queryset.filter(
+                booking_status=booking_status
+            )
+
+        # -------------------------------------------------
+        # SERIALIZE
+        # -------------------------------------------------
+
+        serializer = self.get_serializer(
+            queryset,
+            many=True
+        )
+
+        return Response(
+            {
+                "month": month,
+                "count": queryset.count(),
+                "bookings": serializer.data,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+
+    # =====================================================
+    # ADMIN BOOKING DETAIL
+    # =====================================================
+
+    @action(
+        detail=True,
+        methods=["get"],
+        url_path="admin-detail",
+        permission_classes=[IsAdminUser],
+    )
+    def admin_booking_detail(
+        self,
+        request,
+        pk=None
+    ):
+
+        try:
+
+            booking = (
+                Booking.objects
+                .select_related("consultation")
+                .get(pk=pk)
+            )
+
+        except Booking.DoesNotExist:
+
+            return Response(
+                {
+                    "error": "Booking not found."
+                },
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        serializer = self.get_serializer(
+            booking
+        )
+
+        return Response(
+            {
+                "booking": serializer.data
+            },
+            status=status.HTTP_200_OK,
+        )
+
+
+    # =====================================================
+    # ADMIN RESCHEDULE BOOKING
+    # =====================================================
+
+    @action(
+        detail=True,
+        methods=["patch"],
+        url_path="reschedule",
+        permission_classes=[IsAdminUser],
+    )
+    def reschedule_booking(
+        self,
+        request,
+        pk=None
+    ):
+
+        try:
+
+            booking = (
+                Booking.objects
+                .select_related("consultation")
+                .get(pk=pk)
+            )
+
+        except Booking.DoesNotExist:
+
+            return Response(
+                {
+                    "error": "Booking not found."
+                },
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        # -------------------------------------------------
+        # CANCELLED BOOKING CHECK
+        # -------------------------------------------------
+
+        if booking.booking_status == "cancelled":
+
+            return Response(
+                {
+                    "error": (
+                        "Cancelled bookings cannot "
+                        "be rescheduled."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # VALIDATE REQUEST
+        # -------------------------------------------------
+
+        serializer = BookingRescheduleSerializer(
+            data=request.data
+        )
+
+        if not serializer.is_valid():
+
+            return Response(
+                serializer.errors,
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        booking_date = serializer.validated_data[
+            "booking_date"
+        ]
+
+        start_time = serializer.validated_data[
+            "start_time"
+        ]
+
+        consultation = booking.consultation
+
+        # -------------------------------------------------
+        # CHECK WORKING HOURS
+        # -------------------------------------------------
+
+        working_hours = (
+            WorkingHours.objects
+            .filter(
+                day_of_week=booking_date.weekday(),
+                is_active=True,
+            )
+            .first()
+        )
+
+        if not working_hours:
+
+            return Response(
+                {
+                    "error": (
+                        "No working hours configured "
+                        "for this day."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CALCULATE END TIME
+        # -------------------------------------------------
+
+        start_datetime = datetime.combine(
+            booking_date,
+            start_time,
+        )
+
+        end_datetime = (
+            start_datetime
+            + timedelta(
+                minutes=consultation.duration
+            )
+        )
+
+        end_time = end_datetime.time()
+
+        # -------------------------------------------------
+        # CHECK WORKING HOURS BOUNDARY
+        # -------------------------------------------------
+
+        working_start = datetime.combine(
+            booking_date,
+            working_hours.start_time,
+        )
+
+        working_end = datetime.combine(
+            booking_date,
+            working_hours.end_time,
+        )
+
+        if (
+            start_datetime < working_start
+            or end_datetime > working_end
+        ):
+
+            return Response(
+                {
+                    "error": (
+                        "Selected time is outside "
+                        "working hours."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CHECK SLOT ALIGNMENT
+        # -------------------------------------------------
+
+        minutes_from_start = (
+            start_datetime - working_start
+        ).total_seconds() / 60
+
+        if (
+            minutes_from_start
+            % consultation.duration
+            != 0
+        ):
+
+            return Response(
+                {
+                    "error": (
+                        "Invalid time slot for "
+                        "this consultation."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CHECK BOOKING CONFLICT
+        # -------------------------------------------------
+
+        with transaction.atomic():
+
+            conflicting_booking = (
+                Booking.objects
+                .select_for_update()
+                .filter(
+                    booking_date=booking_date,
+                    start_time__lt=end_time,
+                    end_time__gt=start_time,
+                )
+                .exclude(
+                    id=booking.id
+                )
+                .exclude(
+                    booking_status="cancelled"
+                )
+                .exclude(
+                    payment_status__in=[
+                        "failed",
+                        "refunded",
+                    ]
+                )
+                .first()
+            )
+
+            if conflicting_booking:
+
+                return Response(
+                    {
+                        "error": (
+                            "This time slot is "
+                            "already booked."
+                        )
+                    },
+                    status=status.HTTP_409_CONFLICT,
+                )
+
+            # -------------------------------------------------
+            # UPDATE BOOKING
+            # -------------------------------------------------
+
+            booking.booking_date = booking_date
+
+            booking.start_time = start_time
+
+            booking.end_time = end_time
+
+            booking.save(
+                update_fields=[
+                    "booking_date",
+                    "start_time",
+                    "end_time",
+                    "updated_at",
+                ]
+            )
+
+        # -------------------------------------------------
+        # RESPONSE
+        # -------------------------------------------------
+
+        response_serializer = self.get_serializer(
+            booking
+        )
+
+        return Response(
+            {
+                "message": (
+                    "Booking rescheduled successfully."
+                ),
+                "booking": response_serializer.data,
+            },
+            status=status.HTTP_200_OK,
+        )
+
+
+    # =====================================================
+    # ADMIN CANCEL BOOKING
+    # =====================================================
+
+    @action(
+        detail=True,
+        methods=["patch"],
+        url_path="cancel",
+        permission_classes=[IsAdminUser],
+    )
+    def cancel_booking(
+        self,
+        request,
+        pk=None
+    ):
+
+        try:
+
+            booking = Booking.objects.get(
+                pk=pk
+            )
+
+        except Booking.DoesNotExist:
+
+            return Response(
+                {
+                    "error": "Booking not found."
+                },
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        # -------------------------------------------------
+        # ALREADY CANCELLED
+        # -------------------------------------------------
+
+        if booking.booking_status == "cancelled":
+
+            return Response(
+                {
+                    "error": (
+                        "This booking is already "
+                        "cancelled."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # CANCEL
+        # -------------------------------------------------
+
+        booking.booking_status = "cancelled"
+
+        booking.save(
+            update_fields=[
+                "booking_status",
+                "updated_at",
+            ]
+        )
+
+        # -------------------------------------------------
+        # RESPONSE
+        # -------------------------------------------------
+
+        serializer = self.get_serializer(
+            booking
+        )
+
+        return Response(
+            {
+                "message": (
+                    "Booking cancelled successfully."
+                ),
+                "booking": serializer.data,
+            },
+            status=status.HTTP_200_OK,
+        )            
             
             
 # =========================================================

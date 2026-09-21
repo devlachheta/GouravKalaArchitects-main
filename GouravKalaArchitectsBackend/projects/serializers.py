@@ -223,6 +223,41 @@ class BookingSerializer(serializers.ModelSerializer):
 
         return value
     
+    
+    
+    
+    
+# =========================================================
+# BOOKING RESCHEDULE SERIALIZER
+# =========================================================
+
+class BookingRescheduleSerializer(serializers.Serializer):
+
+    booking_date = serializers.DateField()
+    start_time = serializers.TimeField()
+
+    def validate_booking_date(self, value):
+
+        today = timezone.localdate()
+
+        # Booking must be at least 2 days from today
+        minimum_date = today + timedelta(days=2)
+
+        if value < minimum_date:
+            raise serializers.ValidationError(
+                "Bookings can only be made at least 2 days in advance."
+            )
+
+        # Sunday = 6
+        if value.weekday() == 6:
+            raise serializers.ValidationError(
+                "Bookings are not available on Sundays."
+            )
+
+        return value    
+    
+    
+    
 # =========================================================
 # BLOCKED SLOT SERIALIZER
 # =========================================================
