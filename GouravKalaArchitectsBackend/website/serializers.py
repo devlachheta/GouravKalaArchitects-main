@@ -25,6 +25,10 @@ class HomepageSerializer(serializers.ModelSerializer):
 
 class AboutSerializer(serializers.ModelSerializer):
 
+    youtube_subscribers = serializers.IntegerField(
+        source="youtube_followers"
+    )
+
     class Meta:
         model = About
         fields = [
@@ -33,7 +37,6 @@ class AboutSerializer(serializers.ModelSerializer):
             "youtube_subscribers",
             "updated_at",
         ]
-
 
 # =========================================================
 # REEL SERIALIZER
