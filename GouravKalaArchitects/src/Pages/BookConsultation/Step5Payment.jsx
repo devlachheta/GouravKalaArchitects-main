@@ -54,35 +54,16 @@ function Step5Payment({
         <section className="bc-step-section">
 
             {/* PROGRESS */}
+            <div className="consultation-progress">
 
-            <div className="bc-progress">
-
-                {renderProgressStep(
-                    "01",
-                    "Consultation",
-                    1
-                )}
-
-                {renderProgressStep(
-                    "02",
-                    "Date & Time",
-                    2
-                )}
-
-                {renderProgressStep(
-                    "03",
-                    "Your Details",
-                    3
-                )}
-
-                {renderProgressStep(
-                    "04",
-                    "Review",
-                    4
-                )}
+                {renderProgressStep("01", "CONSULTATION", 1)}
+                {renderProgressStep("02", "DATE & TIME", 2)}
+                {renderProgressStep("03", "YOUR DETAILS", 3)}
+                {renderProgressStep("04", "REVIEW", 4)}
+                {renderProgressStep("05", "PAYMENT", 5)}
+                {renderProgressStep("06", "CONFIRMATION", 6)}
 
             </div>
-
 
             {/* HEADING */}
 
@@ -347,16 +328,19 @@ function Step5Payment({
 
             {/* NAVIGATION */}
 
-            <div className="bc-navigation">
+            <div className="consultation-step-footer single-button">
 
                 <button
                     type="button"
-                    className="bc-back-button"
+                    className="consultation-back-button"
                     onClick={handlePreviousStep}
                     disabled={processingPayment}
                 >
                     <FiArrowLeft />
-                    Back
+
+                    <span>
+                        BACK
+                    </span>
                 </button>
 
             </div>

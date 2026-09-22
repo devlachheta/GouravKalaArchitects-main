@@ -26,9 +26,9 @@
 .bc-step-four .consultation-progress {
   width: 100%;
 
-  max-width: 1050px;
+  max-width: 900px;
 
-  margin: 0 auto 55px;
+  margin: 15px auto 40px;
 
   display: flex;
 
@@ -36,7 +36,7 @@
 
   justify-content: center;
 
-  gap: 16px;
+  gap: 14px;
 }
 
 
@@ -49,11 +49,11 @@
 
   align-items: center;
 
-  gap: 10px;
+  gap: 9px;
 
   flex-shrink: 0;
 
-  opacity: 0.38;
+  opacity: 0.35;
 
   transition: opacity 0.2s ease;
 }
@@ -69,12 +69,12 @@
 ========================================================= */
 
 .bc-step-four .progress-number {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
 
   box-sizing: border-box;
 
-  border: 1px solid #aaa7a1;
+  border: 1px solid #c9ceca;
 
   border-radius: 50%;
 
@@ -85,7 +85,7 @@
 
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 11px;
+  font-size: 10px;
 
   font-weight: 500;
 
@@ -93,15 +93,25 @@
 }
 
 
-/* COMPLETED + ACTIVE */
+/* ACTIVE */
 
-.bc-step-four .progress-step.active .progress-number,
-.bc-step-four .progress-step.completed .progress-number {
+.bc-step-four .progress-step.active .progress-number {
   background: #171717;
 
   border-color: #171717;
 
   color: #ffffff;
+}
+
+
+/* COMPLETED */
+
+.bc-step-four .progress-step.completed .progress-number {
+  background: #e8f0ea;
+
+  border-color: #c9d8cd;
+
+  color: #171717;
 }
 
 
@@ -112,9 +122,9 @@
 .bc-step-four .progress-label {
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 11px;
+  font-size: 10px;
 
-  font-weight: 500;
+  font-weight: 600;
 
   letter-spacing: 1.4px;
 
@@ -129,11 +139,11 @@
 ========================================================= */
 
 .bc-step-four .progress-line {
-  width: 70px;
+  width: 60px;
 
   height: 1px;
 
-  background: #c9c5bf;
+  background: #d2d7d2;
 
   flex-shrink: 1;
 }
@@ -146,11 +156,11 @@
 .bc-step-four-heading {
   width: 100%;
 
-  max-width: 850px;
+  max-width: 1000px;
 
-  margin-left: 85px;
+  margin: 0 auto 40px;
 
-  margin-bottom: 42px;
+  text-align: center;
 }
 
 
@@ -189,13 +199,13 @@
     "Times New Roman",
     serif;
 
-  font-size: clamp(42px, 5vw, 64px);
+  font-size: clamp(40px, 4vw, 54px);
 
-  line-height: 1.04;
+  line-height: 1.08;
 
   font-weight: 400;
 
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 
   color: #171717;
 }
@@ -208,7 +218,7 @@
 .bc-step-four-heading p {
   max-width: 620px;
 
-  margin: 16px 0 0;
+  margin: 14px auto 0;
 
   font-family: Arial, Helvetica, sans-serif;
 
@@ -227,18 +237,18 @@
 .bc-step-four .bc-review-layout {
   width: 100%;
 
-  max-width: 1100px;
+  max-width: 1000px;
 
   margin: 0 auto;
 
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.35fr) minmax(320px, 0.8fr);
+    minmax(0, 1fr) 380px;
 
   gap: 18px;
 
-  align-items: start;
+  align-items: stretch;
 }
 
 
@@ -505,17 +515,19 @@
   word-break: break-word;
 }
 
-
 /* =========================================================
-   RIGHT SUMMARY
+   RIGHT BOOKING SUMMARY
+   STICKY LIKE STEP 5
 ========================================================= */
 
 .bc-step-four .bc-review-summary {
-  position: relative;
+  position: sticky;
+
+  top: 30px;
 
   width: 100%;
 
-  min-height: 440px;
+  min-width: 0;
 
   padding: 30px;
 
@@ -527,7 +539,30 @@
 
   border-radius: 5px;
 
-  overflow: hidden;
+  align-self: start;
+}
+
+
+/* =========================================================
+   SUMMARY SCROLLBAR
+========================================================= */
+
+.bc-step-four .bc-review-summary::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bc-step-four .bc-review-summary::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+.bc-step-four .bc-review-summary::-webkit-scrollbar-thumb {
+  background: #55514b;
+
+  border-radius: 10px;
+}
+
+.bc-step-four .bc-review-summary::-webkit-scrollbar-thumb:hover {
+  background: #77726b;
 }
 
 
@@ -818,13 +853,11 @@
     color 0.2s ease;
 }
 
-
 .bc-step-four .bc-payment-button:hover {
   background: #e9e7e2;
 
   border-color: #e9e7e2;
 }
-
 
 .bc-step-four .bc-payment-button svg {
   width: 15px;
@@ -836,116 +869,12 @@
 
 
 /* =========================================================
-   NAVIGATION
+   STEP 4 NAVIGATION
+   Controlled by BookConsultation.css
 ========================================================= */
 
-.bc-step-four .bc-navigation {
-  width: 100%;
-
-  max-width: 1100px;
-
-  margin: 25px auto 0;
-
-  padding-top: 18px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  border-top: 1px solid #d8d4cd;
-}
-
-
-/* =========================================================
-   BACK / NEXT
-========================================================= */
-
-.bc-step-four .bc-back-button,
-.bc-step-four .bc-next-button {
-  min-height: 44px;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 8px;
-
-  padding: 0 21px;
-
-  box-sizing: border-box;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 500;
-
-  letter-spacing: 0.12em;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
-}
-
-
-/* =========================================================
-   BACK BUTTON
-========================================================= */
-
-.bc-step-four .bc-back-button {
-  background: transparent;
-
-  border: 1px solid #bdb9b2;
-
-  color: #171717;
-}
-
-
-.bc-step-four .bc-back-button:hover {
-  background: #171717;
-
-  border-color: #171717;
-
-  color: #ffffff;
-}
-
-
-/* =========================================================
-   NEXT BUTTON
-========================================================= */
-
-.bc-step-four .bc-next-button {
-  min-width: 150px;
-
-  background: #171717;
-
-  border: 1px solid #171717;
-
-  color: #ffffff;
-
-  font-size: 11px;
-}
-
-
-.bc-step-four .bc-next-button:hover {
-  background: #303030;
-}
-
-
-.bc-step-four .bc-back-button svg,
-.bc-step-four .bc-next-button svg {
-  width: 14px;
-
-  height: 14px;
+.bc-step-four .consultation-step-footer {
+  max-width: 1000px;
 }
 
 
@@ -968,11 +897,9 @@
     gap: 11px;
   }
 
-
   .bc-step-four .progress-line {
     width: 45px;
   }
-
 
   .bc-step-four .progress-label {
     font-size: 9px;
@@ -983,6 +910,8 @@
 
   .bc-step-four-heading {
     margin-left: 0;
+
+    max-width: 900px;
   }
 
 
@@ -990,7 +919,7 @@
 
   .bc-step-four .bc-review-layout {
     grid-template-columns:
-      minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      minmax(0, 1fr) 340px;
   }
 
 
@@ -1000,7 +929,6 @@
   .bc-step-four .bc-review-summary {
     padding: 27px;
   }
-
 }
 
 
@@ -1016,13 +944,11 @@
     gap: 7px;
   }
 
-
   .bc-step-four .progress-step {
     flex-direction: column;
 
     gap: 6px;
   }
-
 
   .bc-step-four .progress-number {
     width: 32px;
@@ -1030,13 +956,11 @@
     height: 32px;
   }
 
-
   .bc-step-four .progress-label {
     font-size: 8px;
 
     letter-spacing: 0.8px;
   }
-
 
   .bc-step-four .progress-line {
     width: 28px;
@@ -1045,8 +969,16 @@
 
   /* Heading */
 
+  .bc-step-four-heading {
+    text-align: left;
+  }
+
   .bc-step-four-heading h2 {
-    font-size: 42px;
+    font-size: 40px;
+  }
+
+  .bc-step-four-heading p {
+    margin-left: 0;
   }
 
 
@@ -1056,17 +988,31 @@
     grid-template-columns: 1fr;
 
     gap: 18px;
+
+    align-items: stretch;
   }
 
 
   /* Summary */
 
   .bc-step-four .bc-review-summary {
+    height: auto;
+
     min-height: auto;
+
+    max-height: none;
+
+    overflow: visible;
 
     position: relative;
   }
 
+
+  /* Navigation */
+
+  .bc-step-four .consultation-step-footer {
+    max-width: 100%;
+  }
 }
 
 
@@ -1097,13 +1043,11 @@
     padding-bottom: 5px;
   }
 
-
   .bc-step-four .progress-step {
     flex: 1;
 
     min-width: 0;
   }
-
 
   .bc-step-four .progress-number {
     width: 29px;
@@ -1113,7 +1057,6 @@
     font-size: 9px;
   }
 
-
   .bc-step-four .progress-label {
     font-size: 6.5px;
 
@@ -1121,7 +1064,6 @@
 
     text-align: center;
   }
-
 
   .bc-step-four .progress-line {
     width: 15px;
@@ -1134,13 +1076,13 @@
 
   .bc-step-four-heading {
     margin-bottom: 30px;
-  }
 
+    text-align: left;
+  }
 
   .bc-step-four-heading h2 {
     font-size: 36px;
   }
-
 
   .bc-step-four-heading p {
     font-size: 13px;
@@ -1153,7 +1095,6 @@
     padding: 24px 20px;
   }
 
-
   .bc-step-four .bc-review-card-header {
     flex-direction: column;
 
@@ -1164,11 +1105,9 @@
     margin-bottom: 20px;
   }
 
-
   .bc-step-four .bc-review-card-header h3 {
     font-size: 23px;
   }
-
 
   .bc-step-four .bc-review-info-grid {
     grid-template-columns: 1fr;
@@ -1181,13 +1120,17 @@
 
   .bc-step-four .bc-review-summary {
     padding: 24px 20px;
-  }
 
+    height: auto;
+
+    max-height: none;
+
+    overflow: visible;
+  }
 
   .bc-step-four .bc-review-summary h3 {
     font-size: 23px;
   }
-
 
   .bc-step-four .bc-review-total strong {
     font-size: 24px;
@@ -1196,20 +1139,9 @@
 
   /* Navigation */
 
-  .bc-step-four .bc-navigation {
-    flex-direction: column-reverse;
-
-    align-items: stretch;
-
-    gap: 10px;
+  .bc-step-four .consultation-step-footer {
+    max-width: 100%;
   }
-
-
-  .bc-step-four .bc-back-button,
-  .bc-step-four .bc-next-button {
-    width: 100%;
-  }
-
 }
 
 
@@ -1234,13 +1166,11 @@
     min-width: 8px;
   }
 
-
   .bc-step-four .progress-number {
     width: 26px;
 
     height: 26px;
   }
-
 
   .bc-step-four .progress-label {
     font-size: 5.5px;
@@ -1260,19 +1190,15 @@
     padding: 20px 18px;
   }
 
-
   .bc-step-four .bc-review-summary {
     padding: 20px 18px;
   }
-
 
   .bc-step-four .bc-review-summary h3 {
     font-size: 22px;
   }
 
-
   .bc-step-four .bc-review-total strong {
     font-size: 23px;
   }
-
 }

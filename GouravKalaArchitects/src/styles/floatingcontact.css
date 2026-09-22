@@ -1,6 +1,10 @@
+/* =========================================
+   FLOATING CONTACT CONTAINER
+========================================= */
+
 .floatingContact {
     position: fixed;
-    left: 24px;
+    right: 24px;
     bottom: 24px;
 
     display: flex;
@@ -13,7 +17,7 @@
 
 /* =========================================
    COMMON BUTTON
-   ========================================= */
+========================================= */
 
 .floatingContact a {
     width: 56px;
@@ -24,82 +28,27 @@
     align-items: center;
 
     position: relative;
+
     border-radius: 50%;
 
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 24px;
 
-    box-shadow: 0 8px 20px rgba(32, 29, 25, 0.22);
+    box-shadow:
+        0 8px 20px rgba(32, 29, 25, 0.22);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 
-    /* Keeps ripple layers behind the button */
     isolation: isolate;
 }
 
 
 /* =========================================
-   CONTINUOUS RIPPLE
-   ========================================= */
-
-.floatingContact a::before,
-.floatingContact a::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    z-index: -1;
-
-    pointer-events: none;
-
-    animation: contactRipple 2.4s ease-out infinite;
-}
-
-
-/* Second ripple starts halfway through
-   the first ripple */
-.floatingContact a::after {
-    animation-delay: 1.2s;
-}
-
-
-/* =========================================
-   RIPPLE ANIMATION
-   ========================================= */
-
-@keyframes contactRipple {
-
-    0% {
-        transform: scale(1);
-        opacity: 0.55;
-    }
-
-    70% {
-        transform: scale(1.8);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1.8);
-        opacity: 0;
-    }
-}
-
-
-/* =========================================
    INSTAGRAM
-   ========================================= */
+========================================= */
 
 .instagramButton {
     background: linear-gradient(45deg,
@@ -107,56 +56,190 @@
             #e6683c,
             #dc2743,
             #cc2366,
-            #bc1888);
-}
+            #bc1888) !important;
 
-.instagramButton::before,
-.instagramButton::after {
-    border: 2px solid rgba(180, 25, 70, 0.45);
+    --contact-glow: #dc2743;
 }
 
 
 /* =========================================
    WHATSAPP
-   ========================================= */
+========================================= */
 
 .whatsappButton {
-    background: #25D366;
-}
+    background: #25D366 !important;
 
-.whatsappButton::before,
-.whatsappButton::after {
-    border: 2.5px solid rgba(20, 170, 80, 0.45);
+    --contact-glow: #25D366;
 }
 
 
 /* =========================================
    PHONE
-   ========================================= */
+========================================= */
 
 .callButton {
-    background: #3D3A36;
+    background: #3D3A36 !important;
+
+    --contact-glow: #3D3A36;
 }
 
-.callButton::before,
-.callButton::after {
-    border: 2px solid rgba(40, 38, 35, 0.45);
+
+/* =========================================
+   SEQUENTIAL ATTENTION EFFECT
+========================================= */
+
+/* Soft colored glow */
+
+.floatingContact a::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -8px;
+
+    border-radius: 50%;
+
+    background: var(--contact-glow);
+
+    opacity: 0;
+
+    filter: blur(8px);
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    animation:
+        contactGlow 7.2s ease-in-out infinite;
+}
+
+
+/* Expanding colored pulse */
+
+.floatingContact a::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--contact-glow);
+
+    opacity: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    animation:
+        contactPulse 7.2s ease-out infinite;
+}
+
+
+/* =========================================
+   SEQUENTIAL TIMING
+========================================= */
+
+/* Instagram */
+
+.floatingContact a:nth-child(1)::before,
+.floatingContact a:nth-child(1)::after {
+    animation-delay: 0s;
+}
+
+
+/* WhatsApp */
+
+.floatingContact a:nth-child(2)::before,
+.floatingContact a:nth-child(2)::after {
+    animation-delay: 2.4s;
+}
+
+
+/* Phone */
+
+.floatingContact a:nth-child(3)::before,
+.floatingContact a:nth-child(3)::after {
+    animation-delay: 4.8s;
+}
+
+
+/* =========================================
+   SOFT GLOW ANIMATION
+========================================= */
+
+@keyframes contactGlow {
+
+    0%,
+    33.33%,
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    8% {
+        transform: scale(1.12);
+        opacity: 0.55;
+    }
+
+    18% {
+        transform: scale(1.2);
+        opacity: 0.32;
+    }
+
+    28% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   EXPANDING PULSE ANIMATION
+========================================= */
+
+@keyframes contactPulse {
+
+    0%,
+    33.33%,
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    5% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    22% {
+        transform: scale(1.65);
+        opacity: 0;
+    }
+
+    28% {
+        transform: scale(1.65);
+        opacity: 0;
+    }
 }
 
 
 /* =========================================
    ICON
-   ========================================= */
+========================================= */
 
 .floatingContact a svg {
     position: relative;
+
     z-index: 2;
 }
 
 
 /* =========================================
    HOVER EFFECT
-   ========================================= */
+========================================= */
 
 .floatingContact a:hover {
     transform: translateY(-4px) scale(1.05);
@@ -168,13 +251,15 @@
 
 /* =========================================
    MOBILE
-   ========================================= */
+========================================= */
 
 @media (max-width: 768px) {
 
     .floatingContact {
-        left: 16px;
+        right: 16px;
         bottom: 16px;
+
+        gap: 12px;
     }
 
     .floatingContact a {

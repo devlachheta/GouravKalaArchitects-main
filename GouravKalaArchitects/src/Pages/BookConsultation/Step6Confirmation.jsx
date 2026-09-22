@@ -1,8 +1,10 @@
 import React from "react";
 import {
+    FiArrowLeft,
     FiArrowRight,
     FiCheck,
 } from "react-icons/fi";
+
 import "../../styles/Step6Confirmation.css";
 
 function Step6Confirmation({
@@ -14,43 +16,59 @@ function Step6Confirmation({
     formatPrice,
     formatDisplayDate,
     formatTime,
+    handlePreviousStep,
 }) {
     return (
-        <section className="bc-step-section bc-confirmation-section">
+        <section className="bc-step-section bc-confirmation-section bc-step-six">
 
-            {/* PROGRESS */}
+            {/* =================================================
+                PROGRESS
+            ================================================= */}
 
-            <div className="bc-progress">
+            <div className="consultation-progress">
 
                 {renderProgressStep(
                     "01",
-                    "Consultation",
+                    "CONSULTATION",
                     1
                 )}
 
-
                 {renderProgressStep(
                     "02",
-                    "Date & Time",
+                    "DATE & TIME",
                     2
                 )}
 
                 {renderProgressStep(
                     "03",
-                    "Your Details",
+                    "YOUR DETAILS",
                     3
                 )}
 
                 {renderProgressStep(
                     "04",
-                    "Review",
+                    "REVIEW",
                     4
+                )}
+
+                {renderProgressStep(
+                    "05",
+                    "PAYMENT",
+                    5
+                )}
+
+                {renderProgressStep(
+                    "06",
+                    "CONFIRMATION",
+                    6
                 )}
 
             </div>
 
 
-            {/* CONFIRMATION */}
+            {/* =================================================
+                CONFIRMATION
+            ================================================= */}
 
             <div className="bc-confirmation">
 
@@ -76,7 +94,9 @@ function Step6Confirmation({
                 </p>
 
 
-                {/* BOOKING DETAILS */}
+                {/* =================================================
+                    BOOKING DETAILS
+                ================================================= */}
 
                 <div className="bc-confirmation-card">
 
@@ -102,10 +122,12 @@ function Step6Confirmation({
 
                     </div>
 
+
                     <div className="bc-confirmation-details">
 
-                        <div className="bc-confirmation-detail">
+                        {/* BOOKING ID + DATE */}
 
+                        <div className="bc-confirmation-detail">
 
                             <span>
                                 BOOKING ID
@@ -129,6 +151,8 @@ function Step6Confirmation({
                         </div>
 
 
+                        {/* TIME */}
+
                         <div className="bc-confirmation-detail">
 
                             <span>
@@ -144,6 +168,8 @@ function Step6Confirmation({
                         </div>
 
 
+                        {/* DURATION */}
+
                         <div className="bc-confirmation-detail">
 
                             <span>
@@ -157,6 +183,8 @@ function Step6Confirmation({
 
                         </div>
 
+
+                        {/* AMOUNT PAID */}
 
                         <div className="bc-confirmation-detail">
 
@@ -177,13 +205,16 @@ function Step6Confirmation({
                 </div>
 
 
-                {/* NEXT STEPS */}
+                {/* =================================================
+                    NEXT STEPS
+                ================================================= */}
 
                 <div className="bc-confirmation-next">
 
                     <span className="bc-eyebrow">
                         WHAT HAPPENS NEXT
                     </span>
+
                     <p>
                         Your booking confirmation and invoice have been
                         sent to your email address. Please keep an eye
@@ -193,9 +224,13 @@ function Step6Confirmation({
                 </div>
 
 
-                {/* ACTIONS */}
+                {/* =================================================
+                    ACTIONS
+                ================================================= */}
 
                 <div className="bc-confirmation-actions">
+
+                    {/* BACK TO HOME */}
 
                     <button
                         type="button"
@@ -208,6 +243,8 @@ function Step6Confirmation({
                     </button>
 
 
+                    {/* CONTACT US */}
+
                     <button
                         type="button"
                         className="bc-confirmation-contact"
@@ -216,10 +253,34 @@ function Step6Confirmation({
                         }}
                     >
                         Contact Us
+
                         <FiArrowRight />
+
                     </button>
 
                 </div>
+
+            </div>
+
+
+            {/* =================================================
+                STEP NAVIGATION
+            ================================================= */}
+
+            <div className="consultation-step-footer single-button">
+
+                <button
+                    type="button"
+                    className="consultation-back-button"
+                    onClick={handlePreviousStep}
+                >
+                    <FiArrowLeft />
+
+                    <span>
+                        BACK
+                    </span>
+
+                </button>
 
             </div>
 

@@ -5,13 +5,11 @@ import Header from "../../Component/Header";
 import api from "../../services/api";
 
 import Step1Consultation from "./Step1Consultation";
-// import Step2DateTime from "./Step2DateTime";
 import Step2 from "../Step2DateTimeBetter";
 import Step3Details from "./Step3Details";
 import Step4Review from "./Step4Review";
 import Step5Payment from "./Step5Payment";
 import Step6Confirmation from "./Step6Confirmation";
-
 import "../../styles/BookConsultation.css";
 
 
@@ -1084,42 +1082,28 @@ function BookConsultation() {
         label,
         stepNumber
     ) => {
-
         return (
-
             <React.Fragment key={stepNumber}>
-
                 <div
-                    className={`bc-progress-step ${step === stepNumber
-                        ? "active"
-                        : ""
-                        } ${step > stepNumber
-                            ? "completed"
-                            : ""
+                    className={`progress-step ${step === stepNumber ? "active" : ""
+                        } ${step > stepNumber ? "completed" : ""
                         }`}
                 >
-
-                    <span className="bc-progress-number">
+                    <span className="progress-number">
                         {number}
                     </span>
 
-                    <span className="bc-progress-label">
+                    <span className="progress-label">
                         {label}
                     </span>
-
                 </div>
 
-
                 {stepNumber < 6 && (
-                    <div className="bc-progress-line" />
+                    <div className="progress-line" />
                 )}
-
             </React.Fragment>
-
         );
-
     };
-
 
     /* =========================================================
        RENDER
@@ -1187,6 +1171,7 @@ function BookConsultation() {
 
             {step === 2 && (
                 <Step2
+                    renderProgressStep={renderProgressStep}
                     selectedConsultation={selectedConsultation}
                     formatPrice={formatPrice}
 

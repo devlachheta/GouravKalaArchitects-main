@@ -12,6 +12,7 @@ import {
 
 import "../styles/Step2DateTimeBetter.css";
 function Step2({
+    renderProgressStep,
     selectedConsultation,
     formatPrice,
     currentMonth,
@@ -40,50 +41,14 @@ function Step2({
             {/* =====================================================
                 PROGRESS
             ===================================================== */}
-
             <div className="consultation-progress">
-
-                <div className="progress-step completed">
-                    <span className="progress-number">01</span>
-
-                    <span className="progress-label">
-                        CONSULTATION
-                    </span>
-                </div>
-
-                <div className="progress-line" />
-
-                <div className="progress-step active">
-                    <span className="progress-number">02</span>
-
-                    <span className="progress-label">
-                        DATE &amp; TIME
-                    </span>
-                </div>
-
-                <div className="progress-line" />
-
-                <div className="progress-step">
-                    <span className="progress-number">03</span>
-
-                    <span className="progress-label">
-                        YOUR DETAILS
-                    </span>
-                </div>
-
-                <div className="progress-line" />
-
-                <div className="progress-step">
-                    <span className="progress-number">04</span>
-
-                    <span className="progress-label">
-                        PAYMENT
-                    </span>
-                </div>
-
+                {renderProgressStep("01", "CONSULTATION", 1)}
+                {renderProgressStep("02", "DATE & TIME", 2)}
+                {renderProgressStep("03", "YOUR DETAILS", 3)}
+                {renderProgressStep("04", "REVIEW", 4)}
+                {renderProgressStep("05", "PAYMENT", 5)}
+                {renderProgressStep("06", "CONFIRMATION", 6)}
             </div>
-
-
             {/* =====================================================
                 COMPACT BOOKING HEADER
             ===================================================== */}
@@ -94,7 +59,7 @@ function Step2({
                 <div className="bc-booking-step">
 
                     <span>
-                        STEP 2 OF 4
+                        STEP 2 OF 6
                     </span>
 
                     <strong>
@@ -625,12 +590,11 @@ function Step2({
             {/* =====================================================
                 NAVIGATION
             ===================================================== */}
-
-            <div className="bc-navigation">
+            <div className="consultation-step-footer">
 
                 <button
                     type="button"
-                    className="bc-back-button"
+                    className="consultation-back-button"
                     onClick={handlePreviousStep}
                 >
                     <FiArrowLeft />
@@ -638,28 +602,20 @@ function Step2({
                     <span>
                         BACK
                     </span>
-
                 </button>
 
 
                 <button
                     type="button"
-                    className="bc-next-button"
-
-                    disabled={
-                        !selectedDate ||
-                        !selectedTime
-                    }
-
+                    className="consultation-next-button"
+                    disabled={!selectedDate || !selectedTime}
                     onClick={handleNextStep}
                 >
-
                     <span>
                         NEXT
                     </span>
 
                     <FiArrowRight />
-
                 </button>
 
             </div>

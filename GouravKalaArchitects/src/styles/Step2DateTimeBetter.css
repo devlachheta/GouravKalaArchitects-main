@@ -32,94 +32,6 @@
 
 
 /* =========================================================
-   PROGRESS
-========================================================= */
-
-.bc-step-two .consultation-progress {
-    width: 100%;
-    max-width: 1050px;
-
-    margin: 15px auto 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 14px;
-}
-
-.bc-step-two .progress-step {
-    display: flex;
-    align-items: center;
-
-    gap: 9px;
-
-    flex-shrink: 0;
-
-    opacity: 0.35;
-}
-
-.bc-step-two .progress-step.active,
-.bc-step-two .progress-step.completed {
-    opacity: 1;
-}
-
-.bc-step-two .progress-number {
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #c9ceca;
-
-    border-radius: 50%;
-
-    font-size: 10px;
-    font-weight: 500;
-
-    color: var(--text);
-}
-
-.bc-step-two .progress-step.active .progress-number {
-    background: var(--sage-dark);
-
-    border-color: var(--sage-dark);
-
-    color: #ffffff;
-}
-
-.bc-step-two .progress-step.completed .progress-number {
-    background: #e8f0ea;
-
-    border-color: #c9d8cd;
-
-    color: var(--sage-dark);
-}
-
-.bc-step-two .progress-label {
-    font-size: 10px;
-    font-weight: 600;
-
-    letter-spacing: 1.4px;
-
-    white-space: nowrap;
-
-    color: var(--text);
-}
-
-.bc-step-two .progress-line {
-    width: 60px;
-    height: 1px;
-
-    background: #d2d7d2;
-
-    flex-shrink: 1;
-}
-
-
-/* =========================================================
    COMPACT BOOKING HEADER
 ========================================================= */
 
@@ -932,95 +844,13 @@
     color: #c85e55;
 }
 
-
 /* =========================================================
-   NAVIGATION
+   STEP 2 NAVIGATION WIDTH
 ========================================================= */
 
-.bc-step-two .bc-navigation {
-    width: 100%;
-
-    margin-top: 22px;
-
-    padding-top: 16px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    border-top: 1px solid #d8ddd8;
+.bc-step-two .consultation-step-footer {
+    max-width: 1100px;
 }
-
-
-/* BUTTONS */
-
-.bc-step-two .bc-back-button,
-.bc-step-two .bc-next-button {
-    min-height: 42px;
-
-    padding: 0 18px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    border-radius: 6px;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    letter-spacing: 1.3px;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-
-/* BACK */
-
-.bc-step-two .bc-back-button {
-    background: transparent;
-
-    border: 1px solid var(--border-dark);
-
-    color: var(--text);
-}
-
-.bc-step-two .bc-back-button:hover {
-    background: #0000;
-}
-
-
-/* NEXT */
-
-.bc-step-two .bc-next-button {
-    min-width: 100px;
-
-    background: var(--sage-dark);
-
-    border: 1px solid var(--sage-dark);
-
-    color: #F2F3F2;
-}
-
-.bc-step-two .bc-next-button:hover:not(:disabled) {
-    background: #0000;
-    color: #111111;
-}
-
-.bc-step-two .bc-next-button:disabled {
-    background: #d8ddd9;
-
-    border-color: #d8ddd9;
-
-    color: #929a95;
-
-    cursor: not-allowed;
-}
-
 
 /* =========================================================
    TABLET

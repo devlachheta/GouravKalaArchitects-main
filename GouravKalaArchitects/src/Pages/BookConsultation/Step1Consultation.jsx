@@ -1,5 +1,5 @@
 import { FiCheck, FiArrowRight } from "react-icons/fi";
-
+import "../../styles/BookConsultation.css";
 
 function Step1Consultation({
     consultations,
@@ -7,6 +7,7 @@ function Step1Consultation({
     setSelectedConsultation,
     loadingConsultations,
     consultationError,
+    renderProgressStep,
     handleNextStep,
 }) {
 
@@ -62,61 +63,13 @@ function Step1Consultation({
             ========================================= */}
 
             <div className="consultation-progress">
-
-                <div className="progress-step active">
-                    <span className="progress-number">
-                        01
-                    </span>
-
-                    <span className="progress-label">
-                        CONSULTATION
-                    </span>
-                </div>
-
-
-                <div className="progress-line"></div>
-
-
-                <div className="progress-step">
-                    <span className="progress-number">
-                        02
-                    </span>
-
-                    <span className="progress-label">
-                        DETAILS
-                    </span>
-                </div>
-
-
-                <div className="progress-line"></div>
-
-
-                <div className="progress-step">
-                    <span className="progress-number">
-                        03
-                    </span>
-
-                    <span className="progress-label">
-                        DATE & TIME
-                    </span>
-                </div>
-
-
-                <div className="progress-line"></div>
-
-
-                <div className="progress-step">
-                    <span className="progress-number">
-                        04
-                    </span>
-
-                    <span className="progress-label">
-                        CONFIRMATION
-                    </span>
-                </div>
-
+                {renderProgressStep("01", "CONSULTATION", 1)}
+                {renderProgressStep("02", "DATE & TIME", 2)}
+                {renderProgressStep("03", "YOUR DETAILS", 3)}
+                {renderProgressStep("04", "REVIEW", 4)}
+                {renderProgressStep("05", "PAYMENT", 5)}
+                {renderProgressStep("06", "CONFIRMATION", 6)}
             </div>
-
 
             {/* =========================================
                 INTRODUCTION
@@ -389,7 +342,7 @@ function Step1Consultation({
                 NEXT BUTTON
             ========================================= */}
 
-            <div className="consultation-step-footer">
+            <div className="consultation-step-footer single-button">
 
                 <button
                     type="button"

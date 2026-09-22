@@ -37,9 +37,7 @@
 
 .footerBrand>p {
   margin: 18px 0 0;
-
   color: #bcb5ad;
-
   font-family: "Playfair Display", Georgia, serif;
   font-size: 21px;
   line-height: 1.25;
@@ -198,6 +196,7 @@
     margin-top: 15px;
     font-size: 18px;
     line-height: 1.4;
+    padding: 0px;
   }
 
   .footerColumn {
@@ -321,15 +320,18 @@
   }
 
   .footerLogo {
-    display: block;
+    display: flex;
     font-size: 22px;
     line-height: 1.3;
+    margin-left: 16px;
   }
 
   .footerBrand p {
     margin-top: 12px;
     font-size: 23px;
     line-height: 1.5;
+    text-align: left;
+    margin-left: 18px;
   }
 
 
@@ -386,13 +388,15 @@
 
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 
     gap: 10px;
 
     text-align: center;
 
     font-size: 13px;
+
+    margin-left: 16px;
   }
 
 }
@@ -420,7 +424,6 @@
     font-size: 22px;
     line-height: 1.5;
     max-width: 260px;
-    padding-left: 8px;
   }
 
   .footerLabel {
