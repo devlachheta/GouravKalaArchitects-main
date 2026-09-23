@@ -15,7 +15,7 @@ function Login() {
     // Form State
     // -----------------------------------------
 
-    const [email, setEmail] = useState("");
+    const [usernameOrEmail, setUsernameOrEmail] = useState("");
 
     const [password, setPassword] = useState("");
 
@@ -47,7 +47,7 @@ function Login() {
             const response = await api.post(
                 "auth/login/",
                 {
-                    email,
+                    username_or_email: usernameOrEmail,
                     password,
                 }
             );
@@ -155,19 +155,16 @@ function Login() {
                     <div className="form-group">
 
                         <label>
-                            Email Address
+                            Username or Email
                         </label>
 
-
                         <input
-                            type="email"
-                            value={email}
+                            type="text"
+                            value={usernameOrEmail}
                             onChange={(e) =>
-                                setEmail(
-                                    e.target.value
-                                )
+                                setUsernameOrEmail(e.target.value)
                             }
-                            placeholder="Enter your email address"
+                            placeholder="Enter username or email"
                             required
                         />
 

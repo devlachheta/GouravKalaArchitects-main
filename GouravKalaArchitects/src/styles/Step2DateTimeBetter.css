@@ -401,6 +401,113 @@
 }
 
 
+/* =========================================================
+   BLOCKED DATE TOOLTIP
+========================================================= */
+
+.bc-calendar-day-wrapper {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.bc-calendar-day.blocked {
+    cursor: not-allowed;
+}
+
+
+/* Tooltip */
+
+.bc-date-tooltip {
+    position: absolute;
+
+    bottom: calc(100% + 10px);
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 170px;
+
+    padding: 12px 14px;
+
+    background: #111111;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Tooltip arrow */
+
+.bc-date-tooltip::after {
+    content: "";
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #111111;
+}
+
+
+/* Tooltip title */
+
+.bc-date-tooltip strong {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Reason */
+
+.bc-date-tooltip span {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+
+/* Full day / time */
+
+.bc-date-tooltip small {
+    font-size: 10px;
+    opacity: 0.65;
+}
+
+
+/* Show tooltip on hover */
+
+.bc-calendar-day-wrapper.is-blocked:hover .bc-date-tooltip {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateX(-50%) translateY(-3px);
+}
+
+
 /* SELECTED */
 
 .bc-calendar-day.selected {

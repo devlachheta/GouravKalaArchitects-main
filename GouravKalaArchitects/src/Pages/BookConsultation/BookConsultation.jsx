@@ -152,6 +152,8 @@ function BookConsultation() {
                     "consultations/blocked-dates/"
                 );
 
+                console.log("BLOCKED DATES:", response.data);
+
                 setBlockedDates(
                     response.data?.blocked_dates || []
                 );
@@ -1185,6 +1187,7 @@ function BookConsultation() {
                     isPastDate={isPastDate}
                     isSunday={isSunday}
                     isSameDate={isSameDate}
+                    blockedDates={blockedDates}
 
                     selectedDate={selectedDate}
                     handleSelectDate={handleSelectDate}

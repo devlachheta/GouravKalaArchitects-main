@@ -666,11 +666,8 @@
    STEP 5 NAVIGATION
    CONTROLLED BY BOOKCONSULTATION.CSS
 ========================================================= */
-.bc-step-five .consultation-step-footer.single-button {
-    width: 1000px;
+.consultation-step-footer.single-button {
     max-width: 1000px;
-    margin: 22px auto 0;
-    box-sizing: border-box;
 }
 
 /* =========================================================

@@ -5,6 +5,45 @@ import { useEffect, useState } from "react";
 import ProjectGallery from "../Component/Gallery/ProjectGallery";
 
 
+
+
+const getYoutubeEmbedUrl = (url) => {
+  if (!url) return "";
+
+  try {
+    const parsedUrl = new URL(url);
+
+    // Already an embed URL
+    if (parsedUrl.pathname.startsWith("/embed/")) {
+      return url;
+    }
+
+    // youtube.com/watch?v=VIDEO_ID
+    if (parsedUrl.hostname.includes("youtube.com")) {
+      const videoId = parsedUrl.searchParams.get("v");
+
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+    }
+
+    // youtu.be/VIDEO_ID
+    if (parsedUrl.hostname === "youtu.be") {
+      const videoId = parsedUrl.pathname.slice(1);
+
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+    }
+
+    return "";
+  } catch (error) {
+    console.error("Invalid YouTube URL:", url);
+    return "";
+  }
+};
+
+
 function ProjectDetails() {
 
   const fadeUp = {
@@ -73,7 +112,7 @@ function ProjectDetails() {
           (item) => item.slug === slug
         );
 
-        
+
         setProject(foundProject);
 
         if (foundProject) {
@@ -316,18 +355,12 @@ function ProjectDetails() {
 
               >
 
-
                 <iframe
                   loading="lazy"
-
-                  src={project.youtubeUrl}
-
+                  src={getYoutubeEmbedUrl(project.youtubeUrl)}
                   title={`${project.title} Project Film`}
-
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-
                   allowFullScreen
-
                 ></iframe>
 
 

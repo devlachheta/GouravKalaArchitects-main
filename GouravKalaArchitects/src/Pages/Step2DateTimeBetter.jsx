@@ -23,6 +23,7 @@ function Step2({
     isPastDate,
     isSunday,
     isSameDate,
+    blockedDates,
     selectedDate,
     handleSelectDate,
     selectedTime,
@@ -214,10 +215,19 @@ function Step2({
                                     }
 
 
+                                    const dateString =
+                                        `${date.getFullYear()}-${String(
+                                            date.getMonth() + 1
+                                        ).padStart(2, "0")}-${String(
+                                            date.getDate()
+                                        ).padStart(2, "0")}`;
+
+                                    const isBlocked = blockedDates?.includes(dateString);
+
                                     const disabled =
                                         isPastDate(date) ||
-                                        isSunday(date);
-
+                                        isSunday(date) ||
+                                        isBlocked;
 
                                     const selected =
                                         isSameDate(
@@ -227,41 +237,51 @@ function Step2({
 
 
                                     return (
-                                        <button
+                                        <div
                                             key={date.toISOString()}
-                                            type="button"
-
-                                            disabled={disabled}
-
-                                            className={`
-                                                bc-calendar-day
-                                                ${selected
-                                                    ? "selected"
-                                                    : ""
-                                                }
-                                                ${disabled
-                                                    ? "disabled"
-                                                    : "available"
-                                                }
-                                            `}
-
-                                            onClick={() =>
-                                                handleSelectDate(date)
-                                            }
+                                            className={`bc-calendar-day-wrapper ${isBlocked ? "is-blocked" : ""
+                                                }`}
                                         >
-
-                                            <span className="bc-date-number">
-                                                {date.getDate()}
-                                            </span>
-
-
-                                            {selected && (
-                                                <span className="bc-date-check">
-                                                    <FiCheck />
+                                            <button
+                                                type="button"
+                                                disabled={disabled}
+                                                className={`
+                                                        bc-calendar-day
+                                                        ${selected ? "selected" : ""}
+                                                        ${isBlocked ? "blocked" : ""}
+                                                        ${disabled ? "disabled" : "available"}
+                                                    `}
+                                                onClick={() => {
+                                                    if (!disabled) {
+                                                        handleSelectDate(date);
+                                                    }
+                                                }}
+                                            >
+                                                <span className="bc-date-number">
+                                                    {date.getDate()}
                                                 </span>
-                                            )}
 
-                                        </button>
+                                                {selected && (
+                                                    <span className="bc-date-check">
+                                                        <FiCheck />
+                                                    </span>
+                                                )}
+                                            </button>
+
+                                            {isBlocked && (
+                                                <div className="bc-date-tooltip">
+                                                    <strong>Unavailable</strong>
+
+                                                    <span>
+                                                        This date is unavailable
+                                                    </span>
+
+                                                    <small>
+                                                        Full day
+                                                    </small>
+                                                </div>
+                                            )}
+                                        </div>
                                     );
 
                                 }

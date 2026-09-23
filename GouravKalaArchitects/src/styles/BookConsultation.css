@@ -764,6 +764,9 @@
     transform: none;
 }
 
+.bc-step-five .consultation-step-footer {
+    max-width: 1000px;
+}
 
 /* =========================================================
    LARGE DESKTOP
