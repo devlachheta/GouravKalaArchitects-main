@@ -26,6 +26,10 @@ function AddBlock() {
   const [saving, setSaving] = useState(false);
 
   const [error, setError] = useState("");
+  const [bookedSlots, setBookedSlots] = useState([]);
+
+  const [loadingBookedSlots, setLoadingBookedSlots] =
+    useState(false);
 
   // ==========================================
   // FORMAT TIME
@@ -88,6 +92,7 @@ function AddBlock() {
   // ==========================================
 
   const handleChange = (event) => {
+
     const {
       name,
       value,
@@ -105,8 +110,72 @@ function AddBlock() {
     }));
 
     setError("");
+
+    // ------------------------------------------
+    // DATE CHANGED
+    // ------------------------------------------
+
+    if (name === "booking_date") {
+
+      fetchBookedSlots(value);
+
+    }
   };
 
+  // ==========================================
+  // LOAD EXISTING BOOKINGS FOR SELECTED DATE
+  // ==========================================
+
+  const fetchBookedSlots = async (date) => {
+
+    if (!date) {
+      setBookedSlots([]);
+      return;
+    }
+
+    try {
+
+      setLoadingBookedSlots(true);
+
+      const month = date.substring(0, 7);
+
+      const response = await api.get(
+        "bookings/admin-list/",
+        {
+          params: {
+            month,
+          },
+        }
+      );
+
+      const bookings =
+        response.data?.bookings || [];
+
+      const activeBookings = bookings.filter(
+        (booking) =>
+          booking.booking_date === date &&
+          booking.booking_status !== "cancelled" &&
+          booking.payment_status !== "failed" &&
+          booking.payment_status !== "refunded"
+      );
+
+      setBookedSlots(activeBookings);
+
+    } catch (err) {
+
+      console.error(
+        "Failed to load booked slots:",
+        err
+      );
+
+      setBookedSlots([]);
+
+    } finally {
+
+      setLoadingBookedSlots(false);
+
+    }
+  };
   // ==========================================
   // SAVE BLOCK
   // ==========================================
@@ -316,7 +385,100 @@ function AddBlock() {
           {error}
         </div>
       )}
+      {/* =====================================
+    EXISTING BOOKINGS
+====================================== */}
 
+      {formData.booking_date && (
+        <div className="add-block-bookings">
+
+          <div className="add-block-bookings-header">
+
+            <div>
+              <h3>
+                Existing Bookings
+              </h3>
+
+              <p>
+                Booked consultation times for this date.
+              </p>
+            </div>
+
+          </div>
+
+
+          {loadingBookedSlots ? (
+
+            <div className="add-block-bookings-loading">
+              Loading booked slots...
+            </div>
+
+          ) : bookedSlots.length === 0 ? (
+
+            <div className="add-block-no-bookings">
+              No existing client bookings for this date.
+            </div>
+
+          ) : (
+
+            <div className="add-block-bookings-list">
+
+              {bookedSlots.map((booking) => (
+
+                <div
+                  key={booking.id}
+                  className="add-block-booking-item"
+                >
+
+                  <div className="add-block-booking-time">
+
+                    <span>
+                      {formatTime(
+                        booking.start_time
+                      )}
+                    </span>
+
+                    <span className="add-block-booking-dash">
+                      -
+                    </span>
+
+                    <span>
+                      {formatTime(
+                        booking.end_time
+                      )}
+                    </span>
+
+                  </div>
+
+
+                  <div className="add-block-booking-info">
+
+                    <strong>
+                      {booking.customer_name ||
+                        "Client"}
+                    </strong>
+
+                    <span>
+                      {booking.customer_email || ""}
+                    </span>
+
+                  </div>
+
+
+                  <span className="add-block-booking-status">
+                    Booked
+                  </span>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          )}
+
+        </div>
+      )}
 
       {/* =====================================
           FORM CARD

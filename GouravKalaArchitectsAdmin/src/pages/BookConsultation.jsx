@@ -944,8 +944,13 @@ function BookConsultation() {
                        */
 
                       const isBooked =
-                        slot.status ===
-                        "booked";
+                        slot.status === "booked";
+
+                      const isBlocked =
+                        slot.status === "blocked";
+
+                      const isDisabled =
+                        isBooked || isBlocked;
 
 
                       const isSelected =
@@ -961,7 +966,7 @@ function BookConsultation() {
                             `${slot.start_time}-${index}`
                           }
                           disabled={
-                            isBooked
+                            isDisabled
                           }
                           className={`
                                                         admin-book-time-button
@@ -969,10 +974,8 @@ function BookConsultation() {
                               ? "selected"
                               : ""
                             }
-                                                        ${isBooked
-                              ? "booked"
-                              : ""
-                            }
+                                                       ${isBooked ? "booked" : ""}
+                                                      ${isBlocked ? "blocked" : ""}
                                                     `}
                           onClick={() => {
 

@@ -18,7 +18,7 @@ function Bookings() {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const [success, setSuccess] = useState("");
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [loadingDetails, setLoadingDetails] = useState(false);
 
@@ -26,6 +26,8 @@ function Bookings() {
   const [rescheduleDate, setRescheduleDate] = useState("");
   const [rescheduleTime, setRescheduleTime] = useState("");
   const [rescheduleLoading, setRescheduleLoading] = useState(false);
+  const [rescheduleSlots, setRescheduleSlots] = useState([]);
+  const [rescheduleSlotsLoading, setRescheduleSlotsLoading] = useState(false);
 
   // =====================================================
   // CURRENT MONTH
@@ -151,7 +153,28 @@ function Bookings() {
 
     return `${hours}:${minutes} ${period}`;
   };
+  // =====================================================
+  // RESCHEDULE TIME LIMIT
+  // =====================================================
 
+  const getRescheduleMaxTime = () => {
+    const duration = Number(
+      selectedBooking?.consultation_duration || 0
+    );
+
+    if (!duration) {
+      return "18:00";
+    }
+
+    const totalMinutes = 18 * 60 - duration;
+
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+
+    return `${String(hours).padStart(2, "0")}:${String(
+      minutes
+    ).padStart(2, "0")}`;
+  };
   // =====================================================
   // VIEW BOOKING
   // =====================================================
@@ -209,7 +232,48 @@ function Bookings() {
 
     setShowReschedule(true);
   };
+  useEffect(() => {
+    const fetchRescheduleSlots = async () => {
+      if (!rescheduleDate || !selectedBooking?.consultation) {
+        setRescheduleSlots([]);
+        return;
+      }
 
+      try {
+        setRescheduleSlotsLoading(true);
+
+        const response = await api.get(
+          "consultations/slots/",
+          {
+            params: {
+              date: rescheduleDate,
+              consultation_id:
+                selectedBooking.consultation,
+            },
+          }
+        );
+
+        setRescheduleSlots(
+          response.data?.slots || []
+        );
+
+      } catch (err) {
+        console.error(
+          "Failed to load reschedule slots:",
+          err
+        );
+
+        setRescheduleSlots([]);
+      } finally {
+        setRescheduleSlotsLoading(false);
+      }
+    };
+
+    fetchRescheduleSlots();
+  }, [
+    rescheduleDate,
+    selectedBooking,
+  ]);
   const handleReschedule = async () => {
     if (!selectedBooking) return;
 
@@ -221,7 +285,11 @@ function Bookings() {
     try {
       setRescheduleLoading(true);
       setError("");
-
+      console.log("RESCHEDULE DATA:", {
+        bookingId: selectedBooking.id,
+        bookingDate: rescheduleDate,
+        startTime: rescheduleTime,
+      });
       const response = await api.patch(
         `bookings/${selectedBooking.id}/reschedule/`,
         {
@@ -245,6 +313,8 @@ function Bookings() {
             : booking
         )
       );
+
+      setSuccess("Appointment rescheduled successfully.");
 
       setShowReschedule(false);
 
@@ -354,6 +424,11 @@ function Bookings() {
       {error && (
         <div className="bookings-error">
           {error}
+        </div>
+      )}
+      {success && (
+        <div className="bookings-success">
+          {success}
         </div>
       )}
 
@@ -936,19 +1011,71 @@ function Bookings() {
                 </div>
 
                 <div className="booking-reschedule-field">
-                  <label htmlFor="reschedule-time">
+                  <label>
                     Select Time
                   </label>
 
-                  <input
-                    id="reschedule-time"
-                    type="time"
-                    value={rescheduleTime}
-                    onChange={(event) =>
-                      setRescheduleTime(event.target.value)
-                    }
-                    disabled={rescheduleLoading}
-                  />
+                  {rescheduleSlotsLoading ? (
+                    <div className="booking-reschedule-slots-message">
+                      Loading available times...
+                    </div>
+                  ) : rescheduleSlots.length === 0 ? (
+                    <div className="booking-reschedule-slots-message">
+                      No time slots available for this date.
+                    </div>
+                  ) : (
+                    <div className="booking-reschedule-slots">
+                      {rescheduleSlots.map((slot, index) => {
+                        const isBooked =
+                          slot.status === "booked";
+
+                        const isBlocked =
+                          slot.status === "blocked";
+
+                        const isDisabled =
+                          isBooked || isBlocked;
+
+                        const isSelected =
+                          rescheduleTime === slot.start_time;
+
+                        return (
+                          <button
+                            type="button"
+                            key={`${slot.start_time}-${index}`}
+                            disabled={
+                              isDisabled || rescheduleLoading
+                            }
+                            className={`
+              booking-reschedule-slot
+              ${isSelected ? "selected" : ""}
+              ${isBooked ? "booked" : ""}
+              ${isBlocked ? "blocked" : ""}
+            `}
+                            onClick={() => {
+                              if (!isDisabled) {
+                                setRescheduleTime(
+                                  slot.start_time
+                                );
+                                setError("");
+                              }
+                            }}
+                          >
+                            <span>
+                              {formatTime(slot.start_time)}
+                            </span>
+
+                            {isBooked && (
+                              <small>Booked</small>
+                            )}
+
+                            {isBlocked && (
+                              <small>Blocked</small>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
 
               </div>
