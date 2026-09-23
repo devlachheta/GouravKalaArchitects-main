@@ -382,7 +382,7 @@ function Reels() {
                     muted={isMuted}
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     onClick={handleVideoClick}
                     onPlay={() => {
                       setPlayingVideos(

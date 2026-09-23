@@ -1,6 +1,6 @@
 
 import CTASection from "../CTASection";
-import FounderImage from "../assets/founder-image.PNG"
+// import FounderImage from "../assets/founder-image.PNG"
 import "../styles/About.css";
 import Hero from "../Component/Hero";
 import Header from "../Component/Header";
@@ -9,10 +9,12 @@ import {
   FaFacebookF,
   FaYoutube,
 } from "react-icons/fa";
-import Banner from "../assets/gH.png";
-
+// import Banner from "../assets/gH.png";
+import { CLOUDINARY_IMAGES } from "../config/cloudinaryAssets";
 import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
+
+
 
 function CountUp({ end, duration = 1800, suffix = "" }) {
   const [count, setCount] = useState(0);
@@ -119,7 +121,7 @@ function About() {
           title="Designing Beyond"
           secondTitle="Expectations."
           description="We create architecture and interiors that balance aesthetics, functionality, and the way you live—turning ideas into spaces that stand the test of time."
-          image={Banner}
+          image={CLOUDINARY_IMAGES.aboutBanner}
         />
         <section className="about-story">
           <div className="container">
@@ -132,9 +134,11 @@ function About() {
               <div className="col-xl-6">
                 <div className="founder-image-wrapper">
                   <img
-                    src={FounderImage}
+                    src={CLOUDINARY_IMAGES.founder}
                     alt="Founders"
                     className="founder-image"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -146,7 +150,6 @@ function About() {
                   <p className="about-eyebrow">
                     Our story
                   </p>
-
                   <p>
                     At Gourav Kala Architects, we believe great design is about more than creating beautiful spaces—it’s about improving the way people live. Every project begins by understanding our clients, their lifestyle, and their aspirations, allowing us to create homes that are thoughtful, functional, and timeless.
                   </p>

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
-import Banner from "../assets/gH.png";
+// import Banner from "../assets/gH.png";
 import { motion } from "framer-motion";
+import { CLOUDINARY_IMAGES } from "../config/cloudinaryAssets";
 import HomeProjectCard from "../Component/HomeProjectCard";
 import "../styles/home.css";
-import Residential from "../assets/residential1.jpg";
+// import Residential from "../assets/residential1.jpg";
 import Interior from "../assets/interior.png";
 import Header from "../Component/Header";
 import CTASection from "../CTASection";
@@ -248,7 +249,13 @@ function Home() {
             ease: "easeOut",
           }}
         >
-          <img src={Banner} alt="Hero" />
+          <img
+            src={CLOUDINARY_IMAGES.aboutBanner}
+            alt="Gourav Kala Architects"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
         </motion.div>
 
 
@@ -481,13 +488,13 @@ function Home() {
 
         <div className="home-project-grid">
           <HomeProjectCard
-            image={Residential}
+            image={CLOUDINARY_IMAGES.residential}
             title="Architecture"
             link="/projects"
           />
 
           <HomeProjectCard
-            image={Interior}
+            image={CLOUDINARY_IMAGES.interior}
             title="Interior"
             link="/projects"
           />
@@ -550,7 +557,14 @@ function Home() {
 
 
             <div className="principle-image">
-              <img src={Banner} alt="Gourav Kala Architects service" />
+              <div className="principle-image">
+                <img
+                  src={CLOUDINARY_IMAGES.aboutBanner}
+                  alt="Gourav Kala Architects service"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
 
 
             </div>

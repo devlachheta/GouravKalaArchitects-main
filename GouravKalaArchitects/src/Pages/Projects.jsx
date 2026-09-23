@@ -4,20 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
 import Carousel from "bootstrap/js/dist/carousel";
-import ProjectCover1 from "../assets/projectcover1.png";
-import ProjectCover2 from "../assets/projectcover2.webp";
-import ProjectCover3 from "../assets/projectcover3.webp";
-import ProjectCover4 from "../assets/projectcover4.webp";
-import ProjectCover5 from "../assets/projectcover5.webp";
-import ProjectCover6 from "../assets/projectcover6.webp";
+// import ProjectCover1 from "../assets/projectcover1.png";
+// import ProjectCover2 from "../assets/projectcover2.webp";
+// import ProjectCover3 from "../assets/projectcover3.webp";
+// import ProjectCover4 from "../assets/projectcover4.webp";
+// import ProjectCover5 from "../assets/projectcover5.webp";
+// import ProjectCover6 from "../assets/projectcover6.webp";
 import CTASection from "../CTASection";
 import { useEffect, useState } from "react";
 import {
   getArchitectureProjects,
   getInteriorProjects,
 } from "../utils/projectUtils";
-
 import Header from "../Component/Header";
+import { CLOUDINARY_IMAGES } from "../config/cloudinaryAssets";
 
 
 function Projects() {
@@ -145,7 +145,7 @@ function Projects() {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
-                src={ProjectCover1}
+                src={CLOUDINARY_IMAGES.projectsBanner1}
                 className="d-block w-100"
                 alt="Project 1"
               />
@@ -153,7 +153,7 @@ function Projects() {
 
             <div className="carousel-item">
               <img
-                src={ProjectCover2}
+                src={CLOUDINARY_IMAGES.projectsBanner2}
                 className="d-block w-100"
                 alt="Project 2"
               />
@@ -161,7 +161,7 @@ function Projects() {
 
             <div className="carousel-item">
               <img
-                src={ProjectCover3}
+                src={CLOUDINARY_IMAGES.projectsBanner3}
                 className="project-cover3 d-block w-100"
                 alt="Project 3"
                 style={{
@@ -173,7 +173,7 @@ function Projects() {
 
             <div className="carousel-item">
               <img
-                src={ProjectCover4}
+                src={CLOUDINARY_IMAGES.projectsBanner4}
                 className="d-block w-100"
                 alt="Project 4"
               />
@@ -181,7 +181,7 @@ function Projects() {
 
             <div className="carousel-item">
               <img
-                src={ProjectCover5}
+                src={CLOUDINARY_IMAGES.projectsBanner5}
                 className="d-block w-100"
                 alt="Project 5"
               />
@@ -189,7 +189,7 @@ function Projects() {
 
             <div className="carousel-item">
               <img
-                src={ProjectCover6}
+                src={CLOUDINARY_IMAGES.projectsBanner6}
                 className="d-block w-100"
                 alt="Project 6"
               />

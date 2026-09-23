@@ -5,14 +5,15 @@ import CTASection from "../CTASection";
 import Hero from "../Component/Hero";
 import "../styles/Services.css";
 import { motion } from "framer-motion";
-import Banner from "../assets/gH.png";
-import architectureImg from "../assets/Services-architects-image1.webp";
-import interiorImg from "../assets/Services-interior.png";
-import landscapImg from "../assets/Services-landscap.png";
-import constructionImg from "../assets/Services-Construction.png";
-import planingImg from "../assets/Services-planing.png";
-import renovationImg from "../assets/Services-renovation.png";
+// import Banner from "../assets/gH.png";
+// import architectureImg from "../assets/Services-architects-image1.webp";
+// import interiorImg from "../assets/Services-interior.png";
+// import landscapImg from "../assets/Services-landscap.png";
+// import constructionImg from "../assets/Services-Construction.png";
+// import planingImg from "../assets/Services-planing.png";
+// import renovationImg from "../assets/Services-renovation.png";
 import Header from "../Component/Header";
+import { CLOUDINARY_IMAGES } from "../config/cloudinaryAssets";
 
 const services = [
   {
@@ -20,42 +21,42 @@ const services = [
     title: "Architecture",
     description:
       "Custom residential architecture, planning, elevations, and construction drawings.",
-    image: architectureImg,
+    image: CLOUDINARY_IMAGES.servicesImage1,
   },
   {
     icon: "🛋️",
     title: "Interior Design",
     description:
       "Thoughtful interiors with space planning, furniture design, lighting, and material selection.",
-    image: interiorImg,
+    image: CLOUDINARY_IMAGES.servicesImage2,
   },
   {
     icon: "📐",
     title: "Landscape Design",
     description:
       "Functional outdoor spaces, gardens, courtyards, terraces, and site planning.",
-    image: landscapImg,
+    image: CLOUDINARY_IMAGES.servicesImage3,
   },
   {
     icon: "🔨",
     title: "Construction",
     description:
       "End-to-end execution, site supervision, project coordination, and turnkey solutions.",
-    image: constructionImg,
+    image: CLOUDINARY_IMAGES.servicesImage4,
   },
   {
     icon: "📐",
     title: "Space Planning",
     description:
       "Optimized layouts that enhance functionality, comfort, and everyday living.",
-    image: planingImg,
+    image: CLOUDINARY_IMAGES.servicesImage5,
   },
   {
     icon: "🏗️",
     title: "Renovation & Remodeling",
     description:
       "Transforming existing homes with thoughtful redesigns and modern upgrades.",
-    image: renovationImg,
+    image: CLOUDINARY_IMAGES.servicesImage6,
   },
 ];
 
@@ -68,7 +69,7 @@ function Services() {
         title="Designing Every Detail."
         secondTitle="Building Every Experience."
         description="Whether you're planning a new home or transforming an existing one, we provide complete architecture and interior design solutions—from concept to execution."
-        image={Banner}
+        image={CLOUDINARY_IMAGES.aboutBanner}
         italicSecondTitle={true}
       />
       <section className="services-section">

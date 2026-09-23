@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import "./CTASection.css";
-import CtaBg from "./assets/CTA-background.PNG";
+import { CLOUDINARY_IMAGES } from "./config/cloudinaryAssets";
+// import CtaBg from "./assets/CTA-background.PNG";
 
 function CTASection() {
   return (
     <section className="cta-section">
 
       <img
-        src={CtaBg}
+        src={CLOUDINARY_IMAGES.ctaBackground}
         alt="CTA Background"
         className="cta-bg"
       />
