@@ -323,7 +323,27 @@ class ConsultationViewSet(
                     "slots": [],
                 }
             )
+# -------------------------------------------------
+# Check FULL DAY blocked date
+# -------------------------------------------------
 
+        full_day_block = BlockedSlot.objects.filter(
+            booking_date=booking_date,
+            is_active=True,
+            start_time__isnull=True,
+            end_time__isnull=True,
+        ).exists()
+
+        if full_day_block:
+            return Response(
+                {
+                    "date": date_string,
+                    "consultation_id": consultation.id,
+                    "duration": consultation.duration,
+                    "price": consultation.price,
+                    "slots": [],
+                }
+    )
         # -------------------------------------------------
         # Generate slots
         # -------------------------------------------------
@@ -1813,11 +1833,36 @@ class BookingViewSet(
                     },
                     status=status.HTTP_409_CONFLICT,
                 )
+            # -------------------------------------------------
+            # CHECK ADMIN BLOCKED SLOT
+            # -------------------------------------------------
 
-            # IMPORTANT:
-            # Do NOT check BlockedSlot here.
-            # Admin is allowed to book blocked dates/times.
+            has_block = BlockedSlot.objects.filter(
+                booking_date=booking_date,
+                is_active=True,
+            ).filter(
+                
+                models.Q(
+                    start_time__isnull=True,
+                    end_time__isnull=True,
+                )
+                |
+                models.Q(
+                    start_time__lt=end_time,
+                    end_time__gt=start_time,
+                )
+            ).exists()
 
+            if has_block:
+                return Response(
+                    {
+                        "error": (
+                            "This time slot has been "
+                            "blocked by the administrator."
+                        )   
+                    },
+                    status=status.HTTP_409_CONFLICT,
+                )
             booking = Booking.objects.create(
                 consultation=consultation,
                 customer_name=customer_name,
@@ -2074,6 +2119,14 @@ class BookingViewSet(
 
         consultation = booking.consultation
 
+    # -------------------------------------------------
+    # SAVE OLD SCHEDULE
+    # -------------------------------------------------
+
+        old_booking_date = booking.booking_date
+        old_start_time = booking.start_time
+        old_end_time = booking.end_time
+
         # -------------------------------------------------
         # CHECK WORKING HOURS
         # -------------------------------------------------
@@ -2135,7 +2188,9 @@ class BookingViewSet(
             start_datetime < working_start
             or end_datetime > working_end
         ):
-
+        
+        
+        
             return Response(
                 {
                     "error": (
@@ -2146,6 +2201,34 @@ class BookingViewSet(
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        
+         # -------------------------------------------------
+        # RESCHEDULE WINDOW: 10 AM - 6 PM
+        # -------------------------------------------------
+
+        reschedule_start = datetime.combine(
+            booking_date,
+            datetime.strptime("10:00", "%H:%M").time(),
+        )
+
+        reschedule_end = datetime.combine(
+            booking_date,
+            datetime.strptime("18:00", "%H:%M").time(),
+        )
+
+        if (
+            start_datetime < reschedule_start
+            or end_datetime > reschedule_end
+        ):
+            return Response(
+                {
+                    "error": (
+                        "Reschedule time must be between "
+                        "10:00 AM and 6:00 PM."
+                    )
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         # -------------------------------------------------
         # CHECK SLOT ALIGNMENT
         # -------------------------------------------------
@@ -2171,8 +2254,39 @@ class BookingViewSet(
             )
 
         # -------------------------------------------------
-        # CHECK BOOKING CONFLICT
+        # CHECK BLOCKED SLOT
         # -------------------------------------------------
+
+        has_block = BlockedSlot.objects.filter(
+            booking_date=booking_date,
+            is_active=True,
+        ).filter(
+            models.Q(
+                start_time__isnull=True,
+                end_time__isnull=True,
+            )
+            |
+            models.Q(
+                start_time__lt=end_time,
+                end_time__gt=start_time,
+            )
+        ).exists()
+
+        if has_block:
+            return Response(
+                {
+                    "error": (
+                        "This date/time has been "
+                        "blocked by the administrator."
+                    )
+                },
+                status=status.HTTP_409_CONFLICT,
+            )
+
+ 
+# -------------------------------------------------
+# CHECK BOOKING CONFLICT
+# -------------------------------------------------
 
         with transaction.atomic():
 
@@ -2229,7 +2343,82 @@ class BookingViewSet(
                     "updated_at",
                 ]
             )
+                    # -------------------------------------------------
+        # SEND RESCHEDULE EMAIL TO CLIENT
+        # -------------------------------------------------
 
+        consultation_name = (
+            booking.consultation.title
+            or f"{booking.consultation.duration}-Minute Consultation"
+        )
+
+        old_formatted_date = old_booking_date.strftime(
+            "%A, %d %B %Y"
+        )
+
+        old_formatted_start_time = old_start_time.strftime(
+            "%I:%M %p"
+        )
+
+        old_formatted_end_time = old_end_time.strftime(
+            "%I:%M %p"
+        )
+
+        new_formatted_date = booking.booking_date.strftime(
+            "%A, %d %B %Y"
+        )
+
+        new_formatted_start_time = booking.start_time.strftime(
+            "%I:%M %p"
+        )
+
+        new_formatted_end_time = booking.end_time.strftime(
+            "%I:%M %p"
+        )
+
+        customer_subject = (
+            "Consultation Appointment Rescheduled - "
+            "Gourav Kala Architects"
+        )
+
+        customer_message = f"""
+Hello {booking.customer_name},
+
+Your consultation appointment with Gourav Kala Architects
+has been successfully rescheduled.
+
+CONSULTATION
+{consultation_name}
+
+PREVIOUS APPOINTMENT
+Date: {old_formatted_date}
+Time: {old_formatted_start_time} - {old_formatted_end_time}
+
+NEW APPOINTMENT
+Date: {new_formatted_date}
+Time: {new_formatted_start_time} - {new_formatted_end_time}
+
+Please make a note of your new appointment date and time.
+
+We look forward to speaking with you.
+
+Regards,
+Gourav Kala Architects
+"""
+
+        try:
+            email = EmailMessage(
+                subject=customer_subject,
+                body=customer_message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[booking.customer_email],
+            )
+
+            email.send(fail_silently=False)
+
+        except Exception:
+            # Email failure should not undo the reschedule
+            pass
         # -------------------------------------------------
         # RESPONSE
         # -------------------------------------------------
@@ -2247,6 +2436,12 @@ class BookingViewSet(
             },
             status=status.HTTP_200_OK,
         )
+
+
+
+
+
+
 
 
     # =====================================================
@@ -2342,4 +2537,115 @@ class BlockedSlotViewSet(viewsets.ModelViewSet):
     serializer_class = BlockedSlotSerializer
 
     # Only Django admin/staff users can manage blocked slots
-    permission_classes = [IsAdminUser]            
+    permission_classes = [IsAdminUser]   
+    
+    def create(self, request, *args, **kwargs):
+
+        booking_date = request.data.get("booking_date")
+        start_time = request.data.get("start_time")
+        end_time = request.data.get("end_time")
+        is_active = request.data.get("is_active", True)
+
+        # -------------------------------------------------
+        # BASIC VALIDATION
+        # -------------------------------------------------
+
+        if not booking_date:
+            return Response(
+                {
+                    "error": "Booking date is required."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # -------------------------------------------------
+        # ONLY CHECK ACTIVE BLOCKS
+        # -------------------------------------------------
+
+        if not is_active:
+            return super().create(
+                request,
+                *args,
+                **kwargs,
+            )
+
+        # -------------------------------------------------
+        # CHECK EXISTING CLIENT BOOKINGS
+        # -------------------------------------------------
+
+        booking_queryset = Booking.objects.filter(
+            booking_date=booking_date,
+        ).exclude(
+            booking_status="cancelled"
+        ).exclude(
+            payment_status__in=[
+                "failed",
+                "refunded",
+            ]
+        )
+
+        # =================================================
+        # FULL DAY BLOCK
+        # =================================================
+
+        if not start_time and not end_time:
+
+            if booking_queryset.exists():
+
+                return Response(
+                    {
+                        "error": (
+                            "This date has an existing client "
+                            "booking. Please reschedule the "
+                            "booking before blocking the full day."
+                        )
+                    },
+                    status=status.HTTP_409_CONFLICT,
+                )
+
+        # =================================================
+        # PARTIAL TIME BLOCK
+        # =================================================
+
+        else:
+
+            if not start_time or not end_time:
+
+                return Response(
+                    {
+                        "error": (
+                            "Both start time and end time "
+                            "are required."
+                        )
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            conflicting_booking = booking_queryset.filter(
+                start_time__lt=end_time,
+                end_time__gt=start_time,
+            ).exists()
+
+            if conflicting_booking:
+
+                return Response(
+                    {
+                        "error": (
+                            "This time range contains an "
+                            "existing client booking. Please "
+                            "reschedule the booking before "
+                            "blocking this time."
+                        )
+                    },
+                    status=status.HTTP_409_CONFLICT,
+                )
+
+        # -------------------------------------------------
+        # CREATE BLOCK
+        # -------------------------------------------------
+
+        return super().create(
+            request,
+            *args,
+            **kwargs,
+        )         
