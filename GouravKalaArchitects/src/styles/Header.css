@@ -115,7 +115,59 @@
   font-weight: 600;
 }
 
+
 .header .navbar-toggler {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid #dedbd5;
+  border-radius: 50%;
+  background: #ffffff;
+
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.header .navbar-toggler:hover {
+  border-color: #aaa39b;
+}
+
+.header .navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.header .navbar-toggler span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: #292723;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Hamburger → X */
+.header .navbar-toggler.menu-open span:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.header .navbar-toggler.menu-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.header .navbar-toggler.menu-open span:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* .header .navbar-toggler {
   width: 42px;
   height: 42px;
   padding: 0;
@@ -137,7 +189,7 @@
 .header .navbar-toggler-icon {
   width: 19px;
   height: 19px;
-}
+} */
 
 .header .dropdown-menu {
   position: absolute;
@@ -262,6 +314,11 @@
 }
 
 @media (max-width: 991px) {
+
+  .header .navbar-toggler {
+    display: flex;
+  }
+
   .header .container-fluid {
     padding-left: 20px;
     padding-right: 20px;
@@ -277,16 +334,42 @@
     box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
   }
 
+  /* 
   .header .navbar-collapse.show {
     margin-top: 0;
     background: #fff;
     border-radius: 0 0 12px 12px;
     border-top: 1px solid #ebe7e1;
     box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+  } */
+
+  .header .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    display: none;
+
+    margin-top: 0;
+
+    padding: 26px 20px 30px;
+
+    background: #fff;
+
+    border-radius: 0 0 12px 12px;
+
+    border-top: 1px solid #e4e0d9;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
   }
 
+  .header .navbar-collapse.show {
+    display: block;
+  }
 
-
+  /* 
   .header .navbar-collapse {
     position: absolute;
     top: 100%;
@@ -304,7 +387,7 @@
     border-top: 1px solid #e4e0d9;
 
     box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
-  }
+  } */
 
   .header .navbar-nav {
     align-items: flex-start !important;
@@ -349,7 +432,7 @@
   }
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .header .container-fluid {
     padding-left: 16px;
     padding-right: 16px;
@@ -376,8 +459,36 @@
   .header .navbar-nav {
     gap: 6px;
   }
-}
+} */
 
+@media (max-width: 576px) {
+  .header .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .header .navbar {
+    padding: 12px 0;
+  }
+
+  .header .navbar-brand {
+    font-size: 13px;
+  }
+
+  .header .navbar-toggler {
+    width: 39px;
+    height: 39px;
+  }
+
+  .header .navbar-collapse {
+    margin-top: 0;
+    padding: 18px;
+  }
+
+  .header .navbar-nav {
+    gap: 6px;
+  }
+}
 
 /* =========================================
    BOOK A CONSULTATION BUTTON
@@ -447,15 +558,32 @@
 
 @media (max-width: 991px) {
 
-  .consultation-nav-item {
-    margin-left: 0;
-    margin-top: 12px;
+  .header .consultation-nav-item {
+    width: 100%;
+    margin: 5px 0 0 0 !important;
+    padding: 0 !important;
   }
 
-  .consultation-nav-button {
-    width: fit-content;
-    height: 45px;
+  .header .consultation-nav-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
 
-    padding: 0 18px 0 20px;
+    width: auto !important;
+    height: 42px;
+
+    margin: 0 !important;
+    padding: 0 18px !important;
+
+    border-radius: 50px !important;
+
+    font-size: 10px !important;
+    line-height: 1;
+
+    transform: none;
+  }
+
+  .header .consultation-nav-button:hover {
+    transform: none;
   }
 }

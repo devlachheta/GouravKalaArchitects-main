@@ -5,21 +5,18 @@ import "../styles/Header.css";
 function Header() {
     const [scrolled, setScrolled] = useState("top");
     const [socialOpen, setSocialOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const navRef = useRef(null);
-    const togglerRef = useRef(null);
-
     useEffect(() => {
         const handleClickOutside = (e) => {
-            const menu = document.getElementById("mainNavbar");
-
             if (
-                menu &&
-                menu.classList.contains("show") &&
+                menuOpen &&
                 navRef.current &&
                 !navRef.current.contains(e.target)
             ) {
-                togglerRef.current.click();
+                setMenuOpen(false);
+                setSocialOpen(false);
             }
         };
 
@@ -28,7 +25,7 @@ function Header() {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, []);
+    }, [menuOpen]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -65,23 +62,24 @@ function Header() {
                     <Link className="navbar-brand" to="/">
                         GOURAV KALA ARCHITECTS
                     </Link>
-
                     <button
-                        ref={togglerRef}
-                        className="navbar-toggler"
-
+                        className={`navbar-toggler ${menuOpen ? "menu-open" : ""}`}
                         type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mainNavbar"
+                        onClick={() => {
+                            setMenuOpen((prev) => !prev);
+                            setSocialOpen(false);
+                        }}
                         aria-controls="mainNavbar"
-                        aria-expanded="false"
+                        aria-expanded={menuOpen}
                         aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </button>
 
                     <div
-                        className="collapse navbar-collapse"
+                        className={`navbar-collapse ${menuOpen ? "show" : ""}`}
                         id="mainNavbar"
                     >
                         <ul className="navbar-nav ms-auto align-items-lg-center">
@@ -90,6 +88,10 @@ function Header() {
                                 <NavLink
                                     end
                                     to="/"
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        setSocialOpen(false);
+                                    }}
                                     className={({ isActive }) =>
                                         `nav-link ${isActive ? "active" : ""}`
                                     }
@@ -100,7 +102,12 @@ function Header() {
 
                             <li className="nav-item">
                                 <NavLink
+                                    end
                                     to="/about"
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        setSocialOpen(false);
+                                    }}
                                     className={({ isActive }) =>
                                         `nav-link ${isActive ? "active" : ""}`
                                     }
@@ -111,7 +118,12 @@ function Header() {
 
                             <li className="nav-item">
                                 <NavLink
+                                    end
                                     to="/projects"
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        setSocialOpen(false);
+                                    }}
                                     className={({ isActive }) =>
                                         `nav-link ${isActive ? "active" : ""}`
                                     }
@@ -122,7 +134,12 @@ function Header() {
 
                             <li className="nav-item">
                                 <NavLink
+                                    end
                                     to="/services"
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        setSocialOpen(false);
+                                    }}
                                     className={({ isActive }) =>
                                         `nav-link ${isActive ? "active" : ""}`
                                     }
@@ -133,7 +150,12 @@ function Header() {
 
                             <li className="nav-item">
                                 <NavLink
+                                    end
                                     to="/contact"
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        setSocialOpen(false);
+                                    }}
                                     className={({ isActive }) =>
                                         `nav-link ${isActive ? "active" : ""}`
                                     }
@@ -149,12 +171,13 @@ function Header() {
                             >
                                 <a
                                     href="#"
-                                    className="nav-link socials-toggle"
+                                    className={`nav-link socials-toggle ${socialOpen ? "socials-open" : ""
+                                        }`}
                                     onClick={(e) => {
                                         e.preventDefault();
 
                                         if (window.innerWidth <= 991) {
-                                            setSocialOpen(!socialOpen);
+                                            setSocialOpen((prev) => !prev);
                                         }
                                     }}
                                 >
@@ -168,6 +191,10 @@ function Header() {
                                             href="https://www.instagram.com/gourav_kala_architects?igsh=MWdicHBxNm1hZ251eA=="
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={() => {
+                                                setSocialOpen(false);
+                                                setMenuOpen(false);
+                                            }}
                                         >
                                             Instagram
                                         </a>
@@ -179,6 +206,10 @@ function Header() {
                                             href="https://www.facebook.com/profile.php?id=100064194397652"
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={() => {
+                                                setSocialOpen(false);
+                                                setMenuOpen(false);
+                                            }}
                                         >
                                             Facebook
                                         </a>
@@ -190,6 +221,10 @@ function Header() {
                                             href="https://www.youtube.com/@gouravkalaarchitects"
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={() => {
+                                                setSocialOpen(false);
+                                                setMenuOpen(false);
+                                            }}
                                         >
                                             YouTube
                                         </a>
@@ -201,6 +236,10 @@ function Header() {
                                             href="https://in.pinterest.com/gourav_kala_architects/"
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={() => {
+                                                setSocialOpen(false);
+                                                setMenuOpen(false);
+                                            }}
                                         >
                                             Pinterest
                                         </a>
@@ -211,6 +250,10 @@ function Header() {
                             <li className="nav-item consultation-nav-item">
                                 <NavLink
                                     to="/book-consultation"
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        setSocialOpen(false);
+                                    }}
                                     className="consultation-nav-button"
                                 >
                                     <span>PLAN A CALL</span>
