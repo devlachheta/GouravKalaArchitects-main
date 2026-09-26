@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import {
     Plus,
@@ -39,6 +39,8 @@ function SortableProjectRow({
     } = useSortable({
         id: project.id,
     });
+
+    const navigate = useNavigate();
 
     const style = {
         transform: CSS.Transform.toString(transform),
