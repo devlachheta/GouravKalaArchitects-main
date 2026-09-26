@@ -30,6 +30,8 @@ function SortableProjectRow({
     project,
     handleDelete,
 }) {
+
+    const navigate = useNavigate();
     const {
         attributes,
         listeners,
@@ -39,8 +41,6 @@ function SortableProjectRow({
     } = useSortable({
         id: project.id,
     });
-
-    const navigate = useNavigate();
 
     const style = {
         transform: CSS.Transform.toString(transform),
@@ -149,8 +149,7 @@ function SortableProjectRow({
                 <button
                     title="View project"
                     onClick={() => {
-                        window.location.href =
-                            `/projects/${project.id}`;
+                        navigate(`/projects/${project.id}`);
                     }}
                 >
                     <Eye size={17} />
@@ -161,8 +160,7 @@ function SortableProjectRow({
                 <button
                     title="Edit project"
                     onClick={() => {
-                        window.location.href =
-                            `/projects/edit/${project.id}`;
+                        navigate(`/projects/edit/${project.id}`);
                     }}
                 >
                     <Pencil size={17} />
@@ -509,7 +507,7 @@ function Projects() {
                 <button
                     className="add-project-button"
                     onClick={() => {
-                        window.location.href = "/projects/add";
+                        navigate("/projects/add");
                     }}
                 >
 

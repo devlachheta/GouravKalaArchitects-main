@@ -14,6 +14,7 @@ import Reels from "../Component/Reels";
 import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
 import { FiCheck, FiArrowDownRight } from "react-icons/fi";
+import Hero from "../Component/Hero";
 
 function CountUp({ end, duration = 1800, suffix = "", pad = 0 }) {
   const [count, setCount] = useState(0);
@@ -229,94 +230,22 @@ function Home() {
   return (
     <>
       <Header />
-      <section className="hero">
-
-
+      <Hero
+        title={heroTitle}
+        secondTitle={heroTitle2}
+        description="Creating timeless homes through thoughtful architecture, refined interiors, and meticulous attention to detail."
+        image={CLOUDINARY_IMAGES.aboutBanner}
+      >
         <motion.div
-          className="hero-right"
-          initial={{
-            opacity: 0,
-            x: 120,
-            scale: 1.08,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.3,
-            ease: "easeOut",
-          }}
+          variants={itemVariants}
+          whileHover={{ x: 6 }}
         >
-          <img
-            src={CLOUDINARY_IMAGES.aboutBanner}
-            alt="Gourav Kala Architects"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <Link to="/projects" className="explore-btn">
+            Explore Our Work
+            <span>↗</span>
+          </Link>
         </motion.div>
-
-
-        <div className="hero-left">
-          <div className="hero-content">
-
-            <motion.h1
-              variants={heroContainer}
-              initial="hidden"
-              animate="visible"
-            >
-              {heroTitle.split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  variants={heroLetter}
-                  style={{
-                    display: "inline-block",
-                    whiteSpace: char === " " ? "pre" : "normal",
-                  }}
-                >
-                  {char}
-                </motion.span>
-              ))}
-
-              <br />
-
-              <span className="hero-second-line">
-                {heroTitle2.split("").map((char, index) => (
-                  <motion.span
-                    key={index}
-                    variants={heroLetter}
-                    style={{
-                      display: "inline-block",
-                      whiteSpace: char === " " ? "pre" : "normal",
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
-            </motion.h1>
-
-            <motion.p variants={itemVariants}>
-              Creating timeless homes through thoughtful architecture,
-              refined interiors, and meticulous attention to detail.
-            </motion.p>
-
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ x: 6 }}
-            >
-              <Link to="/projects" className="explore-btn">
-                Explore Our Work
-                <span>↗</span>
-              </Link>
-            </motion.div>
-
-          </div>
-        </div>
-
-      </section>
+      </Hero>
       <section className="home-about-us">
         <motion.div
           className="heading-wrapper"

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import {
     FolderKanban,
     Building2,
@@ -16,7 +16,7 @@ import api from "../services/api";
 
 
 function Dashboard() {
-
+const navigate = useNavigate();
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -345,7 +345,7 @@ function Dashboard() {
                         <button
                             className="view-all-button"
                             onClick={() => {
-                                window.location.href = "/projects";
+                                navigate("/projects");
                             }}
                         >
 
@@ -459,8 +459,7 @@ function Dashboard() {
                                         <button
                                             title="View project"
                                             onClick={() => {
-                                                window.location.href =
-                                                    `/projects/${project.id}`;
+                                                navigate(`/projects/${project.id}`);
                                             }}
                                         >
 
@@ -472,8 +471,7 @@ function Dashboard() {
                                         <button
                                             title="Edit project"
                                             onClick={() => {
-                                                window.location.href =
-                                                    `/projects/edit/${project.id}`;
+                                                navigate(`/projects/edit/${project.id}`);
                                             }}
                                         >
 
@@ -604,7 +602,7 @@ function Dashboard() {
                         <button
                             className="quick-action"
                             onClick={() => {
-                                window.location.href = "/projects/add";
+                                navigate("/projects/add");
                             }}
                         >
 
@@ -636,7 +634,7 @@ function Dashboard() {
                         <button
                             className="quick-action"
                             onClick={() => {
-                                window.location.href = "/projects";
+                                navigate("/projects");
                             }}
                         >
 
@@ -668,7 +666,7 @@ function Dashboard() {
                         <button
                             className="quick-action"
                             onClick={() => {
-                                window.location.href = "/projects";
+                                 navigate("/projects");
                             }}
                         >
 

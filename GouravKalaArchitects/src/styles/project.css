@@ -58,7 +58,7 @@
 }
 
 .portfolio-section {
-    padding: 100px 0 70px;
+    padding: 80px 0 70px;
     background-color: #fbfafb;
     overflow-x: clip;
 }
@@ -381,7 +381,7 @@
     }
 
     .portfolio-section {
-        padding: 70px 0 50px;
+        padding: 60px 0 50px;
     }
 
     .portfolio-filter {
@@ -484,7 +484,7 @@
     }
 
     .portfolio-section {
-        padding: 60px 0 40px;
+        padding: 50px 0 40px;
     }
 
     .portfolio-filter {

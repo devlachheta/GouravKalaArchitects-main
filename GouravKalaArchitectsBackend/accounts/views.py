@@ -32,6 +32,7 @@ token_generator = PasswordResetTokenGenerator()
 
 class EmailLoginView(APIView):
 
+    authentication_classes = []
     permission_classes = [AllowAny]
 
     def post(self, request):
@@ -47,7 +48,6 @@ class EmailLoginView(APIView):
         return Response(
             serializer.validated_data
         )
-
 
 # =========================================================
 # LOGOUT

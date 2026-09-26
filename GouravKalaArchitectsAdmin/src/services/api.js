@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://127.0.0.1:8000/api/",
+    baseURL: "https://gouravkalaarchitects.com/api/",
 });
 
 
@@ -73,7 +73,7 @@ api.interceptors.response.use(
 
                 // Request a new access token
                 const response = await axios.post(
-                    "http://127.0.0.1:8000/api/auth/refresh/",
+                    "https://gouravkalaarchitects.com/api/auth/refresh/",
                     {
                         refresh: refreshToken,
                     }
