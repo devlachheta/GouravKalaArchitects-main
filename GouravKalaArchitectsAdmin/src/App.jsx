@@ -26,7 +26,7 @@ import Bookings from "./pages/Bookings";
 
 function App() {
   return (
-    <BrowserRouter>
+   <BrowserRouter basename="/cms">
       <Routes>
 
         <Route

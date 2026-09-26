@@ -44,8 +44,13 @@ SECRET_KEY = os.getenv(
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "gouravkalaarchitects.com",
+    "www.gouravkalaarchitects.com",
+    "13.235.118.69",
+    "localhost",
+    "127.0.0.1",
+]
 
 # =========================================================
 # APPLICATIONS
@@ -213,7 +218,7 @@ USE_TZ = True
 # =========================================================
 
 STATIC_URL = "static/"
-
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # =========================================================
 # MEDIA FILES

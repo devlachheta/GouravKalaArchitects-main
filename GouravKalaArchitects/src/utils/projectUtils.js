@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/api/public/projects/";
+const API_URL = "/api/public/projects/";
 
 const getAllProjects = async () => {
     const response = await fetch(API_URL);
