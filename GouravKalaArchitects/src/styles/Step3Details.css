@@ -233,6 +233,55 @@
 }
 
 
+/* =====================================================
+   OPTIONAL DISCUSSION FIELD
+===================================================== */
+
+.bc-discussion-group {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.bc-discussion-group label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.bc-discussion-group label span {
+  font-weight: 400;
+  opacity: 0.6;
+  letter-spacing: normal;
+}
+
+.bc-discussion-group textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px 16px;
+
+  border: 1px solid #d8d4cc;
+  border-radius: 2px;
+
+  background: #fff;
+  color: #111;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+
+  resize: vertical;
+
+  box-sizing: border-box;
+}
+
+.bc-discussion-group textarea::placeholder {
+  color: #999;
+}
+
+.bc-discussion-group textarea:focus {
+  outline: none;
+  border-color: #111;
+}
+
 /* =========================================================
    SUMMARY CARD
 ========================================================= */

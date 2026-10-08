@@ -74,6 +74,7 @@ function BookConsultation() {
         customer_name: "",
         customer_email: "",
         customer_phone: "",
+        discussion: "",
     });
 
     const [formError, setFormError] = useState("");

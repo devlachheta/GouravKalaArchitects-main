@@ -485,7 +485,7 @@ class ConsultationViewSet(
 class BookingViewSet(
     viewsets.ModelViewSet
 ):
-
+    authentication_classes = []
     permission_classes = [AllowAny]
 
     queryset = Booking.objects.all().order_by(
@@ -1890,12 +1890,6 @@ class BookingViewSet(
             },
             status=status.HTTP_201_CREATED,
         )    
-            
-            
-            
-            
-            
-            
             
             
     # =====================================================
