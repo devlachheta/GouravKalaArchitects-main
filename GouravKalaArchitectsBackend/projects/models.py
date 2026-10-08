@@ -28,12 +28,13 @@ from PIL import Image, ImageOps
 #
 # ============================================================
 
-original_storage = FileSystemStorage(
-    location=os.path.join(
-        settings.MEDIA_ROOT,
-        "project-originals"
+def original_storage():
+    return FileSystemStorage(
+        location=os.path.join(
+            settings.MEDIA_ROOT,
+            "project-originals"
+        )
     )
-)
 
 
 # ============================================================
