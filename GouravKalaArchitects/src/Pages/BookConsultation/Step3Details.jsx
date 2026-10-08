@@ -153,11 +153,31 @@ function Step3Details({
                             id="customer_phone"
                             name="customer_phone"
                             type="tel"
-                            placeholder="+91 98765 43210"
+                            placeholder="phone no."
                             value={
                                 customerDetails?.customer_phone || ""
                             }
                             onChange={handleCustomerChange}
+                        />
+
+                    </div>
+
+                    {/* =================================================
+                        DISCUSSION TOPIC - OPTIONAL
+                    ================================================= */}
+                    <div className="bc-form-group bc-discussion-group">
+
+                        <label htmlFor="discussion">
+                            WHAT WOULD YOU LIKE TO DISCUSS? <span>(OPTIONAL)</span>
+                        </label>
+
+                        <textarea
+                            id="discussion"
+                            name="discussion"
+                            placeholder="Tell us briefly what you'd like to discuss..."
+                            value={customerDetails?.discussion || ""}
+                            onChange={handleCustomerChange}
+                            rows={4}
                         />
 
                     </div>
