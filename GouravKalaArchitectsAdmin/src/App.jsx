@@ -15,6 +15,7 @@ import Reels from "./pages/Reels";
 import AddReel from "./pages/AddReel";
 import EditReel from "./pages/EditReel";
 import AdminLayout from "./layouts/AdminLayout";
+import AuthGuard from "./components/AuthGuard";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ForgotPassword from "./pages/ForgetPassword";
@@ -44,7 +45,8 @@ function App() {
           element={<ResetPassword />}
         />
 
-        <Route element={<AdminLayout />}>
+        <Route element={<AuthGuard />}>
+          <Route element={<AdminLayout />}>
 
           <Route
             path="/home"
@@ -111,6 +113,7 @@ function App() {
             element={<Bookings />}
           />
 
+          </Route>
         </Route>
 
         <Route

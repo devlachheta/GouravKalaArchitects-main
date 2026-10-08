@@ -1,21 +1,34 @@
+# pyrefly: ignore [missing-import]
 from django.contrib.auth import get_user_model
+# pyrefly: ignore [missing-import]
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+# pyrefly: ignore [missing-import]
+from django.core.mail import send_mail
+# pyrefly: ignore [missing-import]
+from django.conf import settings
 
+# pyrefly: ignore [missing-import]
 from django.utils.encoding import (
     force_bytes,
     force_str,
 )
 
+# pyrefly: ignore [missing-import]
 from django.utils.http import (
     urlsafe_base64_decode,
     urlsafe_base64_encode,
 )
 
+# pyrefly: ignore [missing-import]
 from rest_framework.permissions import AllowAny
+# pyrefly: ignore [missing-import]
 from rest_framework.response import Response
+# pyrefly: ignore [missing-import]
 from rest_framework.views import APIView
 
+# pyrefly: ignore [missing-import]
 from rest_framework_simplejwt.tokens import RefreshToken
+# pyrefly: ignore [missing-import]
 from rest_framework_simplejwt.exceptions import TokenError
 
 from .serializers import EmailTokenObtainPairSerializer
@@ -144,12 +157,12 @@ class ForgotPasswordView(APIView):
 
         if not user:
 
+            # Return success even if email doesn't exist to prevent email enumeration attacks
             return Response(
                 {
                     "detail":
-                        "Email address is not registered."
-                },
-                status=400,
+                        "If an account exists, a password reset link has been sent."
+                }
             )
 
         # -----------------------------------------
@@ -168,16 +181,35 @@ class ForgotPasswordView(APIView):
             user
         )
 
+        # -----------------------------------------
+        # Send Email
+        # -----------------------------------------
+
+        # Dynamically use FRONTEND_URL from settings/env so it works in production
+        frontend_url = getattr(settings, 'FRONTEND_URL', 'http://localhost:5173').rstrip('/')
+        reset_url = f"{frontend_url}/cms/reset-password/{uid}/{token}"
+
+        try:
+            send_mail(
+                subject="Password Reset Request",
+                message=f"You requested a password reset. Click the link below to reset your password:\n\n{reset_url}\n\nIf you did not request this, please ignore this email.",
+                from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@yourdomain.com'),
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
+        except Exception as e:
+            print("Failed to send email:", e)
+            return Response(
+                {
+                    "detail": "Failed to send reset email. Please contact support."
+                },
+                status=500
+            )
+
         return Response(
             {
                 "detail":
-                    "Email verified.",
-
-                "uid":
-                    uid,
-
-                "token":
-                    token,
+                    "If an account exists, a password reset link has been sent."
             }
         )
 

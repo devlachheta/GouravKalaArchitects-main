@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import {
   Link,
-  useNavigate,
 } from "react-router-dom";
 
 import api from "../services/api";
@@ -12,14 +11,13 @@ import "../../src/App.css";
 
 function ForgotPassword() {
 
-  const navigate = useNavigate();
-
-
   const [email, setEmail] = useState("");
 
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
 
   // -----------------------------------------
@@ -37,7 +35,7 @@ function ForgotPassword() {
 
     try {
 
-      const response = await api.post(
+      await api.post(
         "auth/forgot-password/",
         {
           email,
@@ -45,19 +43,11 @@ function ForgotPassword() {
       );
 
 
-      const {
-        uid,
-        token
-      } = response.data;
-
-
       // ---------------------------------
-      // Go directly to reset password
+      // Show success message
       // ---------------------------------
 
-      navigate(
-        `/reset-password/${uid}/${token}`
-      );
+      setIsSubmitted(true);
 
 
     } catch (error) {
@@ -117,11 +107,21 @@ function ForgotPassword() {
         </div>
 
 
-        {/* Form */}
+        {/* Form or Success Message */}
 
-        <form
-          onSubmit={handleSubmit}
-        >
+        {isSubmitted ? (
+          <div style={{ textAlign: "center", margin: "20px 0", color: "#333" }}>
+            <p style={{ marginBottom: "20px", fontSize: "16px", lineHeight: "1.5" }}>
+              If an account exists for <strong>{email}</strong>, a password reset link has been sent to it.
+            </p>
+            <Link to="/login" style={{ color: "#555", textDecoration: "none", fontWeight: "bold" }}>
+              ← Back to Login
+            </Link>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+          >
 
 
           <div className="form-group">
@@ -188,7 +188,8 @@ function ForgotPassword() {
           </div>
 
 
-        </form>
+          </form>
+        )}
 
 
       </div>
